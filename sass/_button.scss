@@ -1,17 +1,25 @@
+.btn {
+  margin: 0px;
+  border-radius: 4px;
+  border-collapse: separate !important;
+}
+
 .btn td {
   border-radius: 4px;
   padding: 8px 16px;
   border-width: 1px;
   border-style: solid;
+  border-collapse: separate !important;
+  text-align: center;
 }
 
 .btn td a {
-  text-align: center;
   font-size: 16px;
   line-height: 20px;
   font-weight: normal;
   white-space: nowrap;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn-primary td {

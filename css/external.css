@@ -30,6 +30,11 @@ body{
   -ms-text-size-adjust:100%;
 }
 
+table, tr, td {
+  padding: 0;
+  vertical-align: top;
+  text-align: left;
+}
 
 
 
