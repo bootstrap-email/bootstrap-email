@@ -25,6 +25,7 @@
 .btn-primary td {
   background: #3A71B8;
   border-color: #0275d8;
+  color: #fff; // specify color twice because of Outlook.com
 }
 .btn-primary td a {
   color: #fff;
@@ -33,6 +34,7 @@
 .btn-secondary td {
   background-color: #fff;
   border-color: #ccc;
+  color: #292b2c;
 }
 .btn-secondary td a {
   color: #292b2c;
@@ -41,6 +43,7 @@
 .btn-info td {
   background-color: #5bc0de;
   border-color: #5bc0de;
+  color: #fff;
 }
 .btn-info td a {
   color: #fff;
@@ -49,6 +52,7 @@
 .btn-success td {
   background-color: #5cb85c;
   border-color: #5cb85c;
+  color: #fff;
 }
 .btn-success td a {
   color: #fff;
@@ -57,6 +61,7 @@
 .btn-warning td {
   background-color: #f0ad4e;
   border-color: #f0ad4e;
+  color: #fff;
 }
 .btn-warning td a {
   color: #fff;
@@ -65,6 +70,7 @@
 .btn-danger td {
   background-color: #d9534f;
   border-color: #d9534f;
+  color: #fff;
 }
 .btn-danger td a {
   color: #fff;
