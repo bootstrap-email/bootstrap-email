@@ -16,7 +16,7 @@ gulp.task('sass:build', function () {
   gulp.run('sass');
 });
 
-gulp.task('examples:button', function() {
+gulp.task('examples', function() {
   return gulp.src('./examples/preinlined/*.html')
     .pipe(inlineCss({
       applyStyleTags: false,

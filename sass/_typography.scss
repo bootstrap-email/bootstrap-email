@@ -1,6 +1,6 @@
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: $base-font-size / 2;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -8,27 +8,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 2.25*$base-font-size;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 2*$base-font-size;
 }
 
 h3 {
-  font-size: 28px;
+  font-size: 1.75*$base-font-size;
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 1.5*$base-font-size;
 }
 
 h5 {
-  font-size: 20px;
+  font-size: 1.25*$base-font-size;
 }
 
 h6 {
-  font-size: 16px;
+  font-size: $base-font-size;
 }
 
 .text-left {
@@ -44,29 +44,29 @@ h6 {
 }
 
 .text-white {
-  color: #fff !important;
+  color: #fff;
 }
 
 .text-muted {
-  color: #636c72 !important;
+  color: #636c72;
 }
 
 .text-primary {
-  color: #0275d8 !important;
-}
-
-.text-success {
-  color: #5cb85c !important;
+  color: #0275d8;
 }
 
 .text-info {
-  color: #5bc0de !important;
+  color: #5bc0de;
+}
+
+.text-success {
+  color: #5cb85c;
 }
 
 .text-warning {
-  color: #f0ad4e !important;
+  color: #f0ad4e;
 }
 
 .text-danger {
-  color: #d9534f !important;
+  color: #d9534f;
 }
