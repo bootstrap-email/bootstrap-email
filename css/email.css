@@ -56,7 +56,7 @@ table, td {
   cursor: pointer; }
 
 .btn-primary td {
-  background: #3A71B8;
+  background-color: #3A71B8;
   border-color: #0275d8;
   color: #fff; }
 
@@ -395,6 +395,27 @@ h6 {
 
 .text-center {
   text-align: center; }
+
+.bg-faded {
+  background-color: #f7f7f7; }
+
+.bg-primary {
+  background-color: #0275d8; }
+
+.bg-success {
+  background-color: #5cb85c; }
+
+.bg-info {
+  background-color: #5bc0de; }
+
+.bg-warning {
+  background-color: #f0ad4e; }
+
+.bg-danger {
+  background-color: #d9534f; }
+
+.bg-inverse {
+  background-color: #292b2c; }
 
 .text-white {
   color: #fff; }

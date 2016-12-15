@@ -1,5 +1,12 @@
 $base-font-size: 16px;
 
+$color-primary:   #3A71B8;
+$color-secondary: #fff;
+$color-info:      #5bc0de;
+$color-success:   #5cb85c;
+$color-warning:   #f0ad4e;
+$color-danger:    #d9534f;
+
 @import 'normalize_email';
 @import 'button';
 @import 'grid';
@@ -8,4 +15,5 @@ $base-font-size: 16px;
 @import 'alert';
 // @import 'layout';
 @import 'typography';
+@import 'color';
 @import 'positioning';
