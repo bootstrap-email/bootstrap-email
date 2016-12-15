@@ -122,13 +122,13 @@ h6 {
   font-size: 16px; }
 
 .text-left {
-  text-align: left !important; }
+  text-align: left; }
 
 .text-right {
-  text-align: right !important; }
+  text-align: right; }
 
 .text-center {
-  text-align: center !important; }
+  text-align: center; }
 
 .text-white {
   color: #fff; }
