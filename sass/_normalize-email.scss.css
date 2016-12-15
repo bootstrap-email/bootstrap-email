@@ -1,0 +1,59 @@
+/* Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp */
+body
+.body{
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+img{
+  border: 0 none;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
+
+a img{
+  border: 0 none;
+}
+
+.imageFix{
+  display: block;
+}
+
+table{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+table, td{
+  border-spacing: 0;
+  border-collapse: collapse !important;
+}
+
+table, tr, td {
+  padding: 0;
+  vertical-align: top;
+  text-align: left;
+}
+
+/* based on https://github.com/mailchimp/email-blueprints/blob/master/responsive-templates/base_boxed_basic_query.html#L11 */
+
+body, table, td, p, a, li, blockquote{
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+}
+
+table, td{
+  mso-table-lspace:0pt;
+  mso-table-rspace:0pt;
+}
+
+img{
+  -ms-interpolation-mode:bicubic;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "email-css",
+  "version": "0.0.1",
+  "description": "Bootstrap 4 inspired email css framework.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "css",
+    "bootstrap",
+    "html"
+  ],
+  "author": "Stuart Yamartino <stuartyamartino@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inline-css": "^3.1.0",
+    "gulp-sass": "^3.0.0"
+  }
+}

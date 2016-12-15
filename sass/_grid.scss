@@ -1,0 +1,70 @@
+table.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  table-layout: fixed;
+}
+
+table.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutters > td.col,
+.no-gutters > td[class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+td.col-1, td.col-2, td.col-3, td.col-4, td.col-5, td.col-6, td.col-7, td.col-8, td.col-9, td.col-10, td.col-11, td.col-12{
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+td.col-1 {
+  width: 8.333333%;
+}
+
+td.col-2 {
+  width: 16.666667%;
+}
+
+td.col-3 {
+  width: 25%;
+}
+
+td.col-4 {
+  width: 33.333333%;
+}
+
+td.col-5 {
+  width: 41.666667%;
+}
+
+td.col-6 {
+  width: 50%;
+}
+
+td.col-7 {
+  width: 58.333333%;
+}
+
+td.col-8 {
+  width: 66.666667%;
+}
+
+td.col-9 {
+  width: 75%;
+}
+
+td.col-10 {
+  width: 83.333333%;
+}
+
+td.col-11 {
+  width: 91.666667%;
+}
+
+td.col-12 {
+  width: 100%;
+}
