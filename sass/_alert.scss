@@ -1,12 +1,12 @@
 .alert {
   border-collapse: separate !important;
   border: 0;
-  margin-bottom: $base-font-size;
+  margin-bottom: $font-size-base;
   width: 100%;
   td {
-    padding: 0.75*$base-font-size 1.25*$base-font-size;
+    padding: 0.75*$font-size-base 1.25*$font-size-base;
     border: 1px solid transparent;
-    border-radius: 0.25*$base-font-size;
+    border-radius: 0.25*$font-size-base;
   }
 }
 

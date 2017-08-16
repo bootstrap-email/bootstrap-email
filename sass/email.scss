@@ -1,11 +1,13 @@
-$base-font-size: 16px;
+@import 'functions';
+@import 'variables';
 
-$color-primary:   #3A71B8;
-$color-secondary: #fff;
-$color-info:      #5bc0de;
-$color-success:   #5cb85c;
-$color-warning:   #f0ad4e;
-$color-danger:    #d9534f;
+
+// $color-primary:   #3A71B8;
+// $color-secondary: #fff;
+// $color-info:      #5bc0de;
+// $color-success:   #5cb85c;
+// $color-warning:   #f0ad4e;
+// $color-danger:    #d9534f;
 
 @import 'normalize_email';
 @import 'button';

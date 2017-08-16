@@ -22,7 +22,8 @@ gulp.task('examples', function() {
       applyStyleTags: false,
       applyLinkTags: true,
       removeStyleTags: false,
-      removeLinkTags: true
+      removeLinkTags: true,
+      applyTableAttributes: true
     }))
     .pipe(gulp.dest('./examples/inlined/'));
 });

@@ -1,6 +1,6 @@
 .badge {
   display: inline;
-  padding: 0.25*$base-font-size 0.4*$base-font-size;
+  padding: 0.25*$font-size-base 0.4*$font-size-base;
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
@@ -8,13 +8,13 @@
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  border-radius: 0.25*$base-font-size;
+  border-radius: 0.25*$font-size-base;
 }
 
 .badge-pill {
-  padding-right: 0.6*$base-font-size;
-  padding-left: 0.6*$base-font-size;
-  border-radius: 10*$base-font-size;
+  padding-right: 0.6*$font-size-base;
+  padding-left: 0.6*$font-size-base;
+  border-radius: 10*$font-size-base;
 }
 
 .badge-default {

@@ -35,73 +35,170 @@ table, td {
 .btn {
   margin: 0px;
   border-radius: 4px;
-  border: 0;
   border-collapse: separate !important; }
 
 .btn td {
-  border-radius: 4px;
-  padding: 8px 16px;
-  border-width: 1px;
-  border-style: solid;
-  border-collapse: separate !important;
-  text-align: center;
-  vertical-align: middle; }
+  border-radius: 4px; }
 
 .btn td a {
   font-size: 16px;
-  line-height: 20px;
-  font-weight: normal;
-  white-space: nowrap;
+  font-family: Helvetica, Arial, sans-serif;
   text-decoration: none;
-  cursor: pointer; }
+  border-radius: 4px;
+  padding: 8px 12px;
+  line-height: 1.25;
+  border: 1px solid #e9703e;
+  display: inline-block;
+  font-weight: normal;
+  white-space: nowrap; }
 
 .btn-primary td {
-  background-color: #3A71B8;
-  border-color: #0275d8;
-  color: #fff; }
+  background-color: #007bff; }
 
 .btn-primary td a {
-  color: #fff; }
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff; }
 
 .btn-secondary td {
-  background-color: #fff;
-  border-color: #ccc;
-  color: #292b2c; }
+  background-color: #868e96; }
 
 .btn-secondary td a {
-  color: #292b2c; }
-
-.btn-info td {
-  background-color: #5bc0de;
-  border-color: #5bc0de;
-  color: #fff; }
-
-.btn-info td a {
-  color: #fff; }
+  background-color: #868e96;
+  color: #fff;
+  border-color: #868e96; }
 
 .btn-success td {
-  background-color: #5cb85c;
-  border-color: #5cb85c;
-  color: #fff; }
+  background-color: #28a745; }
 
 .btn-success td a {
-  color: #fff; }
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745; }
+
+.btn-info td {
+  background-color: #17a2b8; }
+
+.btn-info td a {
+  background-color: #17a2b8;
+  color: #fff;
+  border-color: #17a2b8; }
 
 .btn-warning td {
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
-  color: #fff; }
+  background-color: #ffc107; }
 
 .btn-warning td a {
-  color: #fff; }
+  background-color: #ffc107;
+  color: #111;
+  border-color: #ffc107; }
 
 .btn-danger td {
-  background-color: #d9534f;
-  border-color: #d9534f;
-  color: #fff; }
+  background-color: #dc3545; }
 
 .btn-danger td a {
-  color: #fff; }
+  background-color: #dc3545;
+  color: #fff;
+  border-color: #dc3545; }
+
+.btn-light td {
+  background-color: #f8f9fa; }
+
+.btn-light td a {
+  background-color: #f8f9fa;
+  color: #111;
+  border-color: #f8f9fa; }
+
+.btn-dark td {
+  background-color: #343a40; }
+
+.btn-dark td a {
+  background-color: #343a40;
+  color: #fff;
+  border-color: #343a40; }
+
+.btn-outline-primary td {
+  background-color: transparent;
+  border-color: #007bff; }
+
+.btn-outline-primary td a {
+  background-color: transparent;
+  border-color: #007bff;
+  color: #007bff; }
+
+.btn-outline-secondary td {
+  background-color: transparent;
+  border-color: #868e96; }
+
+.btn-outline-secondary td a {
+  background-color: transparent;
+  border-color: #868e96;
+  color: #868e96; }
+
+.btn-outline-success td {
+  background-color: transparent;
+  border-color: #28a745; }
+
+.btn-outline-success td a {
+  background-color: transparent;
+  border-color: #28a745;
+  color: #28a745; }
+
+.btn-outline-info td {
+  background-color: transparent;
+  border-color: #17a2b8; }
+
+.btn-outline-info td a {
+  background-color: transparent;
+  border-color: #17a2b8;
+  color: #17a2b8; }
+
+.btn-outline-warning td {
+  background-color: transparent;
+  border-color: #ffc107; }
+
+.btn-outline-warning td a {
+  background-color: transparent;
+  border-color: #ffc107;
+  color: #ffc107; }
+
+.btn-outline-danger td {
+  background-color: transparent;
+  border-color: #dc3545; }
+
+.btn-outline-danger td a {
+  background-color: transparent;
+  border-color: #dc3545;
+  color: #dc3545; }
+
+.btn-outline-light td {
+  background-color: transparent;
+  border-color: #f8f9fa; }
+
+.btn-outline-light td a {
+  background-color: transparent;
+  border-color: #f8f9fa;
+  color: #f8f9fa; }
+
+.btn-outline-dark td {
+  background-color: transparent;
+  border-color: #343a40; }
+
+.btn-outline-dark td a {
+  background-color: transparent;
+  border-color: #343a40;
+  color: #343a40; }
+
+.btn-sm td a {
+  font-size: 14px;
+  padding: 8px 16px;
+  line-height: 1.5;
+  border-radius: 3.2px; }
+
+.btn-lg td a {
+  font-size: 20px;
+  padding: 4px 8px;
+  line-height: 1.5;
+  border-radius: 4.8px; }
 
 table.row {
   margin-right: -15px;
@@ -362,14 +459,13 @@ td.col-12 {
   color: #843534; }
 
 .hr {
-  border: 0;
   width: 100%;
-  margin-top: 16px;
-  margin-bottom: 16px; }
+  margin: 16px 0px;
+  border: 0; }
   .hr > tr > td {
-    width: 100%;
+    border-top: solid 1px #ddd;
     height: 1px;
-    background: #ddd; }
+    width: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;

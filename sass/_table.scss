@@ -2,12 +2,12 @@
   border-collapse: collapse !important;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 1*$base-font-size;
+  margin-bottom: 1*$font-size-base;
 }
 .table td,
 .table th {
   background-color: #fff;
-  padding: 0.75*$base-font-size;
+  padding: 0.75*$font-size-base;
   vertical-align: top;
   border-top: 1px solid #eceeef;
 }
