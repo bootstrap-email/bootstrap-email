@@ -341,8 +341,11 @@ th.col-lg-12 {
   border-radius: 4px;
   border: 1px solid #dee2e6;
   border-collapse: separate !important; }
-  .card > tr > td {
-    padding: 20px; }
+  .card .card-body {
+    width: 100%; }
+    .card .card-body > tr > td {
+      padding: 20px;
+      width: 100%; }
 
 .container {
   width: 100%; }

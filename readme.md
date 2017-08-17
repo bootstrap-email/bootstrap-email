@@ -4,3 +4,4 @@
 - The only way to add spacing is padding inside of a table cell.
 - Font family is reset at the top of every new table.
 - Responsive media query for stacking table cells with display block only works on Android in table header (<th>) cells and not table cells (<td>).
+- To make a table width 100% BOTH the table and the td tags must be set to 100%
