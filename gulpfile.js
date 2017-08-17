@@ -50,6 +50,12 @@ gulp.task('cheerio', function() {
       $('.container').each(function(){
         $(this).replaceWith($('<table class="container"><tr><td><!--[if (gte mso 9)|(IE)]><table align="center"><tr><td width="600"><![endif]--><table align="center"><tr><td>'+$(this).html()+'</td></tr></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></table>'));
       });
+      $('.row').each(function(){
+        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr>'+$(this).html()+'</tr></table>'));
+      });
+      $('*[class^=col]').each(function(){
+        $(this).replaceWith($('<th class="'+$(this).attr('class')+'" align="left">'+$(this).html()+'</th>'));
+      });
     }))
     .pipe(inlineCss({
       applyStyleTags: true,

@@ -5,21 +5,34 @@ table.row {
   width: 100%;
 }
 
-td.col-1,
-td.col-2,
-td.col-3,
-td.col-4,
-td.col-5,
-td.col-6,
-td.col-7,
-td.col-8,
-td.col-9,
-td.col-10,
-td.col-11,
-td.col-12{
+th.col-1,
+th.col-lg-1,
+th.col-2,
+th.col-lg-2,
+th.col-3,
+th.col-lg-3,
+th.col-4,
+th.col-lg-4,
+th.col-5,
+th.col-lg-5,
+th.col-6,
+th.col-lg-6,
+th.col-7,
+th.col-lg-7,
+th.col-8,
+th.col-lg-8,
+th.col-9,
+th.col-lg-9,
+th.col-10,
+th.col-lg-10,
+th.col-11,
+th.col-lg-11,
+th.col-12,
+th.col-lg-12{
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  font-weight: normal;
 }
 
 table.no-gutters {
@@ -27,66 +40,92 @@ table.no-gutters {
   margin-left: 0;
 }
 
-.no-gutters > tr > td.col-1,
-.no-gutters > tr > td.col-2,
-.no-gutters > tr > td.col-3,
-.no-gutters > tr > td.col-4,
-.no-gutters > tr > td.col-5,
-.no-gutters > tr > td.col-6,
-.no-gutters > tr > td.col-7,
-.no-gutters > tr > td.col-8,
-.no-gutters > tr > td.col-9,
-.no-gutters > tr > td.col-10,
-.no-gutters > tr > td.col-11,
-.no-gutters > tr > td.col-12 {
-  padding-right: 0;
-  padding-left: 0;
+.no-gutters > tr {
+  & > th.col-1,
+  & > th.col-lg-1,
+  & > th.col-2,
+  & > th.col-lg-2,
+  & > th.col-3,
+  & > th.col-lg-3,
+  & > th.col-4,
+  & > th.col-lg-4,
+  & > th.col-5,
+  & > th.col-lg-5,
+  & > th.col-6,
+  & > th.col-lg-6,
+  & > th.col-7,
+  & > th.col-lg-7,
+  & > th.col-8,
+  & > th.col-lg-8,
+  & > th.col-9,
+  & > th.col-lg-9,
+  & > th.col-10,
+  & > th.col-lg-10,
+  & > th.col-11,
+  & > th.col-lg-11,
+  & > th.col-12,
+  & > th.col-lg-12{
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
-td.col-1 {
+th.col-1,
+th.col-lg-1 {
   width: 8.333333%;
 }
 
-td.col-2 {
+th.col-2,
+th.col-lg-2 {
   width: 16.666667%;
 }
 
-td.col-3 {
+th.col-3,
+th.col-lg-3 {
   width: 25%;
 }
 
-td.col-4 {
+th.col-4,
+th.col-lg-4 {
   width: 33.333333%;
 }
 
-td.col-5 {
+th.col-5,
+th.col-lg-5 {
   width: 41.666667%;
 }
 
-td.col-6 {
+th.col-6,
+th.col-lg-6 {
   width: 50%;
 }
 
-td.col-7 {
+th.col-7,
+th.col-lg-7 {
   width: 58.333333%;
 }
 
-td.col-8 {
+th.col-8,
+th.col-lg-8 {
   width: 66.666667%;
 }
 
-td.col-9 {
+th.col-9,
+th.col-lg-9 {
   width: 75%;
 }
 
-td.col-10 {
+th.col-10,
+th.col-lg-10 {
   width: 83.333333%;
 }
 
-td.col-11 {
+th.col-11,
+th.col-lg-11 {
   width: 91.666667%;
 }
 
-td.col-12 {
+th.col-12,
+th.col-lg-12 {
   width: 100%;
 }
