@@ -47,6 +47,9 @@ gulp.task('cheerio', function() {
       $('hr').each(function(){
         $(this).replaceWith($('<table class="hr"><tr><td><table><tr><td></td></tr></table></td></tr></table>'));
       });
+      $('p').each(function(){
+        $(this).replaceWith($('<table class="p"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+      });
       $('.container').each(function(){
         $(this).replaceWith($('<table class="container"><tr><td><!--[if (gte mso 9)|(IE)]><table align="center"><tr><td width="600"><![endif]--><table align="center"><tr><td>'+$(this).html()+'</td></tr></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></table>'));
       });

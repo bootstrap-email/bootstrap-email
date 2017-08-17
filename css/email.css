@@ -6,7 +6,7 @@ body
   width: 100% !important;
   height: 100% !important;
   font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 24px;
   font-weight: normal;
   font-size: 16px; }
 
@@ -32,6 +32,11 @@ table, td {
   border-spacing: 0px;
   border-collapse: collapse !important; }
 
+td,
+p {
+  line-height: 24px;
+  font-size: 16px; }
+
 .btn {
   margin: 0px;
   border-radius: 4px;
@@ -46,7 +51,7 @@ table, td {
   text-decoration: none;
   border-radius: 4px;
   padding: 8px 12px;
-  line-height: 1.25;
+  line-height: 20px;
   border: 1px solid #e9703e;
   display: inline-block;
   font-weight: normal;
@@ -191,13 +196,13 @@ table, td {
 .btn-sm td a {
   font-size: 14px;
   padding: 8px 16px;
-  line-height: 1.5;
+  line-height: 24px;
   border-radius: 3.2px; }
 
 .btn-lg td a {
   font-size: 20px;
   padding: 4px 8px;
-  line-height: 1.5;
+  line-height: 24px;
   border-radius: 4.8px; }
 
 .hide-lg {
@@ -582,13 +587,12 @@ h6 {
 .text-center {
   text-align: center; }
 
-p {
+.p > tr > td {
   margin: 0;
   padding: 0 0 20px 0; }
-
-td,
-p {
-  line-height: 1.5; }
+  .p > tr > td > p {
+    margin: 0;
+    padding: 0; }
 
 .bg-primary {
   background-color: #007bff; }

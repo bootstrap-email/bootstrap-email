@@ -6,9 +6,9 @@ body
   width: 100% !important;
   height: 100% !important;
   font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.5 * $font-size-base;
   font-weight: normal;
-  font-size: 16px;
+  font-size: $font-size-base;
 }
 
 img{
@@ -29,11 +29,17 @@ a img{
 
 table{
   font-family: Helvetica, Arial, sans-serif;
-  mso-table-lspace:0pt;
-  mso-table-rspace:0pt;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
 }
 
 table, td{
   border-spacing: 0px;
   border-collapse: collapse !important;
+}
+
+td,
+p {
+  line-height: $line-height-base * $font-size-base;
+  font-size: $font-size-base;
 }

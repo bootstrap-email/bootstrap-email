@@ -43,12 +43,11 @@ h6 {
   text-align: center;
 }
 
-p {
+.p > tr > td {
   margin: 0;
-  padding: 0 0 $font-size-base*1.25 0;
-}
-
-td,
-p{
-  line-height: $line-height-base;
+  padding: 0 0 $font-size-base * 1.25 0;
+  & > p {
+    margin: 0;
+    padding: 0;
+  }
 }

@@ -1,14 +1,6 @@
 @import 'functions';
 @import 'variables';
 
-
-// $color-primary:   #3A71B8;
-// $color-secondary: #fff;
-// $color-info:      #5bc0de;
-// $color-success:   #5cb85c;
-// $color-warning:   #f0ad4e;
-// $color-danger:    #d9534f;
-
 @import 'normalize_email';
 @import 'button';
 @import 'display';
@@ -19,7 +11,7 @@
 @import 'table';
 @import 'alert';
 @import 'hr';
-// @import 'layout';
+@import 'navbar';
 @import 'typography';
 @import 'color';
 @import 'positioning';

@@ -14,7 +14,7 @@
   text-decoration: none;
   border-radius: 4px;
   padding: 8px 12px;
-  line-height: 1.25;
+  line-height: 1.25 * $font-size-base;
   border: 1px solid #e9703e;
   display: inline-block;
   font-weight: normal;
@@ -47,13 +47,13 @@
 .btn-sm td a {
   font-size: $font-size-base * .875;
   padding: 8px 16px;
-  line-height: 1.5;
+  line-height: 1.5 * $font-size-base;
   border-radius: $font-size-base * .2;
 }
 
 .btn-lg td a {
   font-size: $font-size-base * 1.25;
   padding: 4px 8px;
-  line-height: 1.5;
+  line-height: 1.5 * $font-size-base;
   border-radius: $font-size-base * .3;
 }
