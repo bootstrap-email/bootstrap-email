@@ -41,6 +41,9 @@ gulp.task('cheerio', function() {
       $('.float-right').each(function(){
         $(this).replaceWith($('<table align="right"><tr><td>'+$.html($(this))+'</td></tr></table>'));
       });
+      $('.card').each(function(){
+        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
+      });
       $('hr').each(function(){
         $(this).replaceWith($('<table class="hr"><tr><td><table><tr><td></td></tr></table></td></tr></table>'));
       });

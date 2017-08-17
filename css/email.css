@@ -57,7 +57,7 @@ table, td {
 
 .btn-primary td a {
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
   border-color: #007bff; }
 
 .btn-secondary td {
@@ -65,7 +65,7 @@ table, td {
 
 .btn-secondary td a {
   background-color: #868e96;
-  color: #fff;
+  color: #ffffff;
   border-color: #868e96; }
 
 .btn-success td {
@@ -73,7 +73,7 @@ table, td {
 
 .btn-success td a {
   background-color: #28a745;
-  color: #fff;
+  color: #ffffff;
   border-color: #28a745; }
 
 .btn-info td {
@@ -81,7 +81,7 @@ table, td {
 
 .btn-info td a {
   background-color: #17a2b8;
-  color: #fff;
+  color: #ffffff;
   border-color: #17a2b8; }
 
 .btn-warning td {
@@ -89,7 +89,7 @@ table, td {
 
 .btn-warning td a {
   background-color: #ffc107;
-  color: #111;
+  color: #111111;
   border-color: #ffc107; }
 
 .btn-danger td {
@@ -97,7 +97,7 @@ table, td {
 
 .btn-danger td a {
   background-color: #dc3545;
-  color: #fff;
+  color: #ffffff;
   border-color: #dc3545; }
 
 .btn-light td {
@@ -105,7 +105,7 @@ table, td {
 
 .btn-light td a {
   background-color: #f8f9fa;
-  color: #111;
+  color: #111111;
   border-color: #f8f9fa; }
 
 .btn-dark td {
@@ -113,7 +113,7 @@ table, td {
 
 .btn-dark td a {
   background-color: #343a40;
-  color: #fff;
+  color: #ffffff;
   border-color: #343a40; }
 
 .btn-outline-primary td {
@@ -293,6 +293,14 @@ td.col-11 {
 td.col-12 {
   width: 100%; }
 
+.card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  border-collapse: separate !important; }
+  .card > tr > td {
+    padding: 20px; }
+
 .badge {
   display: inline;
   padding: 4px 6.4px;
@@ -336,7 +344,7 @@ td.col-12 {
 
 .table td,
 .table th {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 12px;
   vertical-align: top;
   border-top: 1px solid #eceeef; }
@@ -349,7 +357,7 @@ td.col-12 {
   border-top: 2px solid #eceeef; }
 
 .table .table {
-  background-color: #fff; }
+  background-color: #ffffff; }
 
 .table-bordered th,
 .table-bordered td {
@@ -395,7 +403,7 @@ td.col-12 {
   background-color: #f2dede; }
 
 .thead-inverse th {
-  color: #fff;
+  color: #ffffff;
   background-color: #292b2c; }
 
 .thead-default th {
@@ -403,13 +411,13 @@ td.col-12 {
   background-color: #eceeef; }
 
 .table-inverse {
-  color: #fff;
+  color: #ffffff;
   background-color: #292b2c; }
 
 .table-inverse th,
 .table-inverse td,
 .table-inverse thead th {
-  border-color: #fff; }
+  border-color: #ffffff; }
 
 .table-inverse.table-bordered {
   border: 0; }
@@ -578,7 +586,7 @@ h6 {
   color: #343a40; }
 
 .text-white {
-  color: #fff; }
+  color: #ffffff; }
 
 .text-muted {
   color: #636c72; }

@@ -1,0 +1,9 @@
+.card{
+  background-color: #ffffff;
+  border-radius: $font-size-base * .25;
+  border: 1px solid $gray-300;
+  border-collapse: separate !important;
+  & > tr > td {
+    padding: $font-size-base * 1.25;
+  }
+}
