@@ -3,10 +3,10 @@
   border: 0;
   margin-bottom: $font-size-base;
   width: 100%;
-  td {
-    padding: 0.75*$font-size-base 1.25*$font-size-base;
+  & > tr > td {
+    padding: 0.75 * $font-size-base 1.25 * $font-size-base;
     border: 1px solid transparent;
-    border-radius: 0.25*$font-size-base;
+    border-radius: 0.25 * $font-size-base;
   }
 }
 
@@ -15,8 +15,8 @@
     background-color: lighten($value, 40%);
     border-color: lighten($value, 35%);
     color: darken($value, 30%);
-    & > .hr > tr > td > table > tr > td {
-      border-top-color: lighten($value, 35%);
+    .hr > tr > td > table > tr > td {
+      border-top: 1px solid lighten($value, 35%);
     }
   }
 }
