@@ -537,6 +537,10 @@ h6 {
 .text-center {
   text-align: center; }
 
+p {
+  margin: 0;
+  padding: 0 0 20px 0; }
+
 .bg-primary {
   background-color: #007bff; }
 
