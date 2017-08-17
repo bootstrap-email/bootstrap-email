@@ -2,33 +2,38 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: $font-size-base / 2;
   font-weight: 500;
-  line-height: 1.1;
   color: inherit;
   text-align: left;
 }
 
 h1 {
-  font-size: 2.25*$font-size-base;
+  font-size: 2.25 * $font-size-base;
+  line-height: 1.1 * 2.25 * $font-size-base;
 }
 
 h2 {
-  font-size: 2*$font-size-base;
+  font-size: 2 * $font-size-base;
+  line-height: 1.1 * 2 * $font-size-base;
 }
 
 h3 {
-  font-size: 1.75*$font-size-base;
+  font-size: 1.75 * $font-size-base;
+  line-height: 1.1 * 1.75 * $font-size-base;
 }
 
 h4 {
-  font-size: 1.5*$font-size-base;
+  font-size: 1.5 * $font-size-base;
+  line-height: 1.1 * 1.5 * $font-size-base;
 }
 
 h5 {
-  font-size: 1.25*$font-size-base;
+  font-size: 1.25 * $font-size-base;
+  line-height: 1.1 * 1.25 * $font-size-base;
 }
 
 h6 {
   font-size: $font-size-base;
+  line-height: 1.1 * $font-size-base;
 }
 
 .text-left {

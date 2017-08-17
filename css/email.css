@@ -556,27 +556,32 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 8px;
   font-weight: 500;
-  line-height: 1.1;
   color: inherit;
   text-align: left; }
 
 h1 {
-  font-size: 36px; }
+  font-size: 36px;
+  line-height: 39.6px; }
 
 h2 {
-  font-size: 32px; }
+  font-size: 32px;
+  line-height: 35.2px; }
 
 h3 {
-  font-size: 28px; }
+  font-size: 28px;
+  line-height: 30.8px; }
 
 h4 {
-  font-size: 24px; }
+  font-size: 24px;
+  line-height: 26.4px; }
 
 h5 {
-  font-size: 20px; }
+  font-size: 20px;
+  line-height: 22px; }
 
 h6 {
-  font-size: 16px; }
+  font-size: 16px;
+  line-height: 17.6px; }
 
 .text-left {
   text-align: left; }
