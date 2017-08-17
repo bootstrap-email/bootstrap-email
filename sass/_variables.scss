@@ -76,3 +76,19 @@ $spacers: (
   4: ($spacer * 1.5),
   5: ($spacer * 3)
 ) !default;
+
+$font-family-sans-serif:
+  // Safari for OS X and iOS (San Francisco)
+  // -apple-system,
+  // Chrome >= 56 for OS X (San Francisco), Windows, Linux and Android
+  // system-ui,
+  // Chrome < 56 for OS X (San Francisco)
+  // BlinkMacSystemFont,
+  // Windows
+  // "Segoe UI",
+  // Android
+  // "Roboto",
+  // Basic web fallback
+  // "Helvetica Neue",
+  // Basic email fallback
+  Helvetica, Arial, sans-serif !default;

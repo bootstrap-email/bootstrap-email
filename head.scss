@@ -1,0 +1,43 @@
+.ExternalClass {
+  width: 100%;
+}
+/* Forces Outlook.com to display emails at full width */
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+/* Forces Outlook.com to display normal line spacing, here is more on that: http://www.emailonacid.com/forum/viewthread/43/ */
+
+.imageFix{
+  display: block;
+}
+
+a{
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+
+  // grid
+  table[class="row"] th.col-lg-1,
+  table[class="row"] th.col-lg-2,
+  table[class="row"] th.col-lg-3,
+  table[class="row"] th.col-lg-4,
+  table[class="row"] th.col-lg-5,
+  table[class="row"] th.col-lg-6,
+  table[class="row"] th.col-lg-7,
+  table[class="row"] th.col-lg-8,
+  table[class="row"] th.col-lg-9,
+  table[class="row"] th.col-lg-10,
+  table[class="row"] th.col-lg-11,
+  table[class="row"] th.col-lg-12{
+    display: block;
+    width: 100% !important;
+  }
+
+  // display
+  *[class=d-mobile]{
+    display: block !important;
+  }
+  *[class=d-desktop]{
+    display: none !important;
+  }
+
+}

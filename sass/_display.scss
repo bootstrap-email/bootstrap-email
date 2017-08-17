@@ -1,25 +1,17 @@
-.hide-lg{
+.d-mobile{
   display: none;
 }
 
-.show-xs{
+.d-desktop{
   display: block;
 }
 
 @media screen and (max-width: 630px) {
-  *[class=hide-lg]{
+  *[class=d-mobile]{
     display: block !important;
   }
 
-  *[class=show-lg]{
+  *[class=d-desktop]{
     display: none !important;
-  }
-
-  *[class=hide-xs]{
-    display: none !important;
-  }
-
-  *[class=show-xs]{
-    display: block !important;
   }
 }

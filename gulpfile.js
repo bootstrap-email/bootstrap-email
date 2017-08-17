@@ -72,7 +72,7 @@ gulp.task('cheerio', function() {
     .pipe(inlineCss({
       applyStyleTags: true,
       applyLinkTags: true,
-      removeStyleTags: true,
+      removeStyleTags: false,
       removeLinkTags: true,
       applyTableAttributes: true,
       preserveMediaQueries: true
