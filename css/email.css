@@ -301,6 +301,14 @@ td.col-12 {
   .card > tr > td {
     padding: 20px; }
 
+.container {
+  width: 100%; }
+  .container > tr > td {
+    padding: 0px 16px 0 16px; }
+    .container > tr > td > table {
+      width: 100%;
+      max-width: 600px; }
+
 .badge {
   display: inline;
   padding: 4px 6.4px;
@@ -540,6 +548,10 @@ h6 {
 p {
   margin: 0;
   padding: 0 0 20px 0; }
+
+td,
+p {
+  line-height: 1.5; }
 
 .bg-primary {
   background-color: #007bff; }

@@ -47,3 +47,8 @@ p {
   margin: 0;
   padding: 0 0 $font-size-base*1.25 0;
 }
+
+td,
+p{
+  line-height: $line-height-base;
+}
