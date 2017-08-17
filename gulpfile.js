@@ -29,6 +29,9 @@ gulp.task('examples', function() {
 gulp.task('cheerio', function() {
   return gulp.src('./examples/preinlined/*.html')
     .pipe(cheerio(function ($, file) {
+      $('*[class^=p-],*[class^=pt-],*[class^=pr-],*[class^=pb-],*[class^=pl-],*[class^=px-],*[class^=py-]').each(function(){
+        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+      });
       $('.btn').each(function(){
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'" align="left"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
       });
