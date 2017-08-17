@@ -3,6 +3,10 @@
   border-radius: $font-size-base * .25;
   border: 1px solid $gray-300;
   border-collapse: separate !important;
+  width: 100%;
+  & > tr > td {
+    width: 100%;
+  }
   .card-body {
     width: 100%;
     & > tr > td {
