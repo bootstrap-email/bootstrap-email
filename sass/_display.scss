@@ -1,0 +1,25 @@
+.hide-lg{
+  display: none;
+}
+
+.show-xs{
+  display: block;
+}
+
+@media screen and (max-width: 630px) {
+  *[class=hide-lg]{
+    display: block !important;
+  }
+
+  *[class=show-lg]{
+    display: none !important;
+  }
+
+  *[class=hide-xs]{
+    display: none !important;
+  }
+
+  *[class=show-xs]{
+    display: block !important;
+  }
+}

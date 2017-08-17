@@ -200,6 +200,22 @@ table, td {
   line-height: 1.5;
   border-radius: 4.8px; }
 
+.hide-lg {
+  display: none; }
+
+.show-xs {
+  display: block; }
+
+@media screen and (max-width: 630px) {
+  *[class=hide-lg] {
+    display: block !important; }
+  *[class=show-lg] {
+    display: none !important; }
+  *[class=hide-xs] {
+    display: none !important; }
+  *[class=show-xs] {
+    display: block !important; } }
+
 table.row {
   margin-right: -15px;
   margin-left: -15px;

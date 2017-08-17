@@ -16,11 +16,12 @@ gulp.task('sass:watch', function () {
 gulp.task('examples', function() {
   return gulp.src('./examples/preinlined/*.html')
     .pipe(inlineCss({
-      applyStyleTags: false,
+      applyStyleTags: true,
       applyLinkTags: true,
       removeStyleTags: false,
       removeLinkTags: true,
-      applyTableAttributes: true
+      applyTableAttributes: true,
+      preserveMediaQueries: true
     }))
     .pipe(gulp.dest('./examples/inlined/'));
 });
@@ -34,16 +35,23 @@ gulp.task('cheerio', function() {
       $('.alert').each(function(){
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
       });
+      $('.float-left').each(function(){
+        $(this).replaceWith($('<table align="left"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+      });
+      $('.float-right').each(function(){
+        $(this).replaceWith($('<table align="right"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+      });
       $('hr').each(function(){
         $(this).replaceWith($('<table class="hr"><tr><td><table><tr><td></td></tr></table></td></tr></table>'));
       });
     }))
     .pipe(inlineCss({
-      applyStyleTags: false,
+      applyStyleTags: true,
       applyLinkTags: true,
-      removeStyleTags: false,
+      removeStyleTags: true,
       removeLinkTags: true,
-      applyTableAttributes: true
+      applyTableAttributes: true,
+      preserveMediaQueries: true
     }))
     .pipe(gulp.dest('./examples/inlined/'));
 });
