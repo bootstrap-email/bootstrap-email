@@ -35,10 +35,13 @@ gulp.task('cheerio', function() {
       $('.alert').each(function(){
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
       });
-      $('.float-left').each(function(){
+      $('.align-left').each(function(){
         $(this).replaceWith($('<table align="left"><tr><td>'+$.html($(this))+'</td></tr></table>'));
       });
-      $('.float-right').each(function(){
+      $('.align-center').each(function(){
+        $(this).replaceWith($('<table align="center"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+      });
+      $('.align-right').each(function(){
         $(this).replaceWith($('<table align="right"><tr><td>'+$.html($(this))+'</td></tr></table>'));
       });
       $('.card').each(function(){
@@ -54,7 +57,7 @@ gulp.task('cheerio', function() {
         $(this).replaceWith($('<table class="p"><tr><td>'+$.html($(this))+'</td></tr></table>'));
       });
       $('.container').each(function(){
-        $(this).replaceWith($('<table class="container"><tr><td><!--[if (gte mso 9)|(IE)]><table align="center"><tr><td width="600"><![endif]--><table align="center"><tr><td>'+$(this).html()+'</td></tr></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></table>'));
+        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td><!--[if (gte mso 9)|(IE)]><table align="center"><tr><td width="600"><![endif]--><table align="center"><tr><td>'+$(this).html()+'</td></tr></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></table>'));
       });
       $('.row').each(function(){
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr>'+$(this).html()+'</tr></table>'));
