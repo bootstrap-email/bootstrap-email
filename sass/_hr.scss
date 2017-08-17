@@ -1,10 +1,17 @@
 .hr {
   width: 100%;
-  margin:16px 0px;
   border: 0;
   & > tr > td{
-    border-top: solid 1px #ddd;
-    height:1px;
     width:100%;
+    padding: 16px 0px;
+      & > table {
+        width:100%;
+        & > tr > td {
+          width:100%;
+          border-top: 1px solid #dddddd;
+          height: 1px;
+          width: 100%;
+      }
+    }
   }
 }

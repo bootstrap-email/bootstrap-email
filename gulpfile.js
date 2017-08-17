@@ -18,6 +18,9 @@ gulp.task('sass:build', function () {
 
 gulp.task('examples', function() {
   return gulp.src('./examples/preinlined/*.html')
+    .pipe(function(text){
+      console.log(text)
+    })
     .pipe(inlineCss({
       applyStyleTags: false,
       applyLinkTags: true,
