@@ -57,7 +57,7 @@ gulp.task('cheerio', function() {
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr>'+$(this).html()+'</tr></table>'));
       });
       $('*[class^=col]').each(function(){
-        $(this).replaceWith($('<th class="'+$(this).attr('class')+'" align="left">'+$(this).html()+'</th>'));
+        $(this).replaceWith($('<th class="'+$(this).attr('class')+'" align="left" valign="top">'+$(this).html()+'</th>'));
       });
     }))
     .pipe(inlineCss({
