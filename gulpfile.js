@@ -2,9 +2,17 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var inlineCss = require('gulp-inline-css');
 var cheerio = require('gulp-cheerio');
+var wrap = require('gulp-wrap');
+var styleInject = require("gulp-style-inject");
 
 gulp.task('sass', function () {
   return gulp.src('./sass/email.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./css'));
+});
+
+gulp.task('sass:head', function () {
+  return gulp.src('./sass/head.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./css'));
 });
@@ -28,6 +36,8 @@ gulp.task('examples', function() {
 
 gulp.task('cheerio', function() {
   return gulp.src('./examples/preinlined/*.html')
+    .pipe(wrap({ src: 'template.html'}))
+    .pipe(styleInject())
     .pipe(cheerio(function ($, file) {
       $('*[class^=p-],*[class^=pt-],*[class^=pr-],*[class^=pb-],*[class^=pl-],*[class^=px-],*[class^=py-]').each(function(){
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this))+'</td></tr></table>'));
@@ -75,9 +85,10 @@ gulp.task('cheerio', function() {
       removeStyleTags: false,
       removeLinkTags: true,
       applyTableAttributes: true,
-      preserveMediaQueries: true
+      preserveMediaQueries: true,
+      extraCss: './css/head.css'
     }))
     .pipe(gulp.dest('./examples/inlined/'));
 });
 
-gulp.task('build', ['sass', 'cheerio']);
+gulp.task('build', ['sass', 'sass:head', 'cheerio']);

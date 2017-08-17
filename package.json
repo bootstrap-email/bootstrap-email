@@ -18,6 +18,8 @@
     "gulp": "^3.9.1",
     "gulp-cheerio": "^0.6.2",
     "gulp-inline-css": "^3.1.0",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "gulp-style-inject": "^0.1.0",
+    "gulp-wrap": "^0.13.0"
   }
 }
