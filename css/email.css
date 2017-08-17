@@ -556,6 +556,10 @@ th.col-lg-12 {
   .alert-dark td .hr > tr > td > table > tr > td {
     border-top: 1px solid #88939e; }
 
+.img-fluid {
+  width: 100% !important;
+  height: auto !important; }
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 8px;
