@@ -213,12 +213,6 @@ p {
 .d-desktop {
   display: block; }
 
-@media screen and (max-width: 630px) {
-  *[class=d-mobile] {
-    display: block !important; }
-  *[class=d-desktop] {
-    display: none !important; } }
-
 table.row {
   margin-right: -15px;
   margin-left: -15px;
@@ -355,40 +349,71 @@ th.col-lg-12 {
       width: 100%;
       max-width: 600px; }
 
-.badge {
-  display: inline;
+.badge > tr > td {
+  display: inline-block;
   padding: 4px 6.4px;
   font-size: 75%;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 1;
-  color: #fff;
   text-align: center;
   white-space: nowrap;
-  vertical-align: middle;
+  vertical-align: baseline;
   border-radius: 4px; }
 
-.badge-pill {
+.badge-pill > tr > td {
   padding-right: 9.6px;
   padding-left: 9.6px;
   border-radius: 160px; }
 
-.badge-default {
-  background-color: #636c72; }
+.badge-primary > tr > td {
+  color: #ffffff;
+  background-color: #007bff; }
 
-.badge-primary {
-  background-color: #0275d8; }
+.badge-secondary > tr > td {
+  color: #ffffff;
+  background-color: #868e96; }
 
-.badge-info {
-  background-color: #5bc0de; }
+.badge-success > tr > td {
+  color: #ffffff;
+  background-color: #28a745; }
 
-.badge-success {
-  background-color: #5cb85c; }
+.badge-info > tr > td {
+  color: #ffffff;
+  background-color: #17a2b8; }
 
-.badge-warning {
-  background-color: #f0ad4e; }
+.badge-warning > tr > td {
+  color: #111111;
+  background-color: #ffc107; }
 
-.badge-danger {
-  background-color: #d9534f; }
+.badge-danger > tr > td {
+  color: #ffffff;
+  background-color: #dc3545; }
+
+.badge-light > tr > td {
+  color: #111111;
+  background-color: #f8f9fa; }
+
+.badge-dark > tr > td {
+  color: #ffffff;
+  background-color: #343a40; }
+
+h1 .badge > tr > td {
+  font-size: 27px; }
+
+h2 .badge > tr > td {
+  font-size: 24px; }
+
+h3 .badge > tr > td {
+  font-size: 21px; }
+
+h4 .badge > tr > td {
+  font-size: 18px; }
+
+h5 .badge > tr > td {
+  font-size: 15px; }
+
+h6 .badge > tr > td {
+  font-size: 12px; }
 
 .table {
   border-collapse: collapse !important;
@@ -565,7 +590,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 8px;
   font-weight: 500;
   color: inherit;
-  text-align: left; }
+  text-align: left;
+  vertical-align: baseline; }
 
 h1 {
   font-size: 36px;

@@ -14,30 +14,42 @@ a{
 }
 
 @media screen and (max-width: 600px) {
-
   // grid
-  table[class="row"] th.col-lg-1,
-  table[class="row"] th.col-lg-2,
-  table[class="row"] th.col-lg-3,
-  table[class="row"] th.col-lg-4,
-  table[class="row"] th.col-lg-5,
-  table[class="row"] th.col-lg-6,
-  table[class="row"] th.col-lg-7,
-  table[class="row"] th.col-lg-8,
-  table[class="row"] th.col-lg-9,
-  table[class="row"] th.col-lg-10,
-  table[class="row"] th.col-lg-11,
-  table[class="row"] th.col-lg-12{
-    display: block;
-    width: 100% !important;
+  table.row {
+    th.col-lg-1,
+    th.col-lg-2,
+    th.col-lg-3,
+    th.col-lg-4,
+    th.col-lg-5,
+    th.col-lg-6,
+    th.col-lg-7,
+    th.col-lg-8,
+    th.col-lg-9,
+    th.col-lg-10,
+    th.col-lg-11,
+    th.col-lg-12{
+      display: block;
+      width: 100% !important;
+    }
   }
 
   // display
-  *[class=d-mobile]{
+  .d-mobile{
     display: block !important;
   }
-  *[class=d-desktop]{
+  .d-desktop{
     display: none !important;
   }
-
 }
+
+// yahoo specific media query to revert above
+@media yahoo {
+  // display
+  .d-mobile {
+    display: none !important;
+  }
+  .d-desktop {
+    display: block !important;
+  }
+}
+

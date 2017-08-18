@@ -5,13 +5,3 @@
 .d-desktop{
   display: block;
 }
-
-@media screen and (max-width: 630px) {
-  *[class=d-mobile]{
-    display: block !important;
-  }
-
-  *[class=d-desktop]{
-    display: none !important;
-  }
-}

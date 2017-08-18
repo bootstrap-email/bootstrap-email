@@ -45,6 +45,9 @@ gulp.task('cheerio', function() {
       $('.btn').each(function(){
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'" align="left"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
       });
+      $('.badge').each(function(){
+        $(this).html($('<table class="'+$(this).attr('class')+'"><tr><td>'+$(this).html()+'</td></tr></table>'));
+      });
       $('.alert').each(function(){
         $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
       });

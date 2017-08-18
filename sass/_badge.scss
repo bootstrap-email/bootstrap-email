@@ -1,42 +1,57 @@
-.badge {
-  display: inline;
-  padding: 0.25*$font-size-base 0.4*$font-size-base;
+.badge > tr > td{
+  display: inline-block;
+  padding: .25 * $font-size-base .4 * $font-size-base;
   font-size: 75%;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 1;
-  color: #fff;
   text-align: center;
   white-space: nowrap;
-  vertical-align: middle;
-  border-radius: 0.25*$font-size-base;
+  vertical-align: baseline;
+  border-radius: 4px;
 }
 
-.badge-pill {
-  padding-right: 0.6*$font-size-base;
-  padding-left: 0.6*$font-size-base;
-  border-radius: 10*$font-size-base;
+// Pill badges
+.badge-pill > tr > td{
+  padding-right: .6 * $font-size-base;
+  padding-left: .6 * $font-size-base;
+  border-radius: 10 * $font-size-base;
 }
 
-.badge-default {
-  background-color: #636c72;
+// Colors
+@each $color, $value in $theme-colors {
+  .badge-#{$color} > tr > td{
+    @include color-yiq($value);
+    background-color: $value;
+  }
 }
 
-.badge-primary {
-  background-color: #0275d8;
+h1{
+  .badge > tr > td{
+    font-size: .75 * 2.25 * $font-size-base;
+  }
 }
-
-.badge-info {
-  background-color: #5bc0de;
+h2{
+  .badge > tr > td{
+    font-size: .75 * 2 * $font-size-base;
+  }
 }
-
-.badge-success {
-  background-color: #5cb85c;
+h3{
+  .badge > tr > td{
+    font-size: .75 * 1.75 * $font-size-base;
+  }
 }
-
-.badge-warning {
-  background-color: #f0ad4e;
+h4{
+  .badge > tr > td{
+    font-size: .75 * 1.5 * $font-size-base;
+  }
 }
-
-.badge-danger {
-  background-color: #d9534f;
+h5{
+  .badge > tr > td{
+    font-size: .75 * 1.25 * $font-size-base;
+  }
+}
+h6{
+  .badge > tr > td{
+    font-size: .75 * $font-size-base;
+  }
 }
