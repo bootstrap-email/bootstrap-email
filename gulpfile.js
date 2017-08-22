@@ -3,7 +3,10 @@ var sass = require('gulp-sass');
 var inlineCss = require('gulp-inline-css');
 var cheerio = require('gulp-cheerio');
 var wrap = require('gulp-wrap');
-var styleInject = require("gulp-style-inject");
+var styleInject = require('gulp-style-inject');
+var prettify = require('gulp-jsbeautifier');
+var fs = require('fs');
+var _ = require('lodash');
 
 gulp.task('sass', function () {
   return gulp.src('./sass/email.scss')
@@ -39,47 +42,48 @@ gulp.task('cheerio', function() {
     .pipe(wrap({ src: 'template.html'}))
     .pipe(styleInject())
     .pipe(cheerio(function ($, file) {
-      $('*[class^=p-],*[class^=pt-],*[class^=pr-],*[class^=pb-],*[class^=pl-],*[class^=px-],*[class^=py-]').each(function(){
-        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this))+'</td></tr></table>'));
-      });
       $('.btn').each(function(){
-        $(this).replaceWith($('<table class="'+$(this).attr('class')+'" align="left"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'basic-table-left', {classes: $(this).attr('class'), contents: $.html($(this).removeClass('btn'))});
       });
       $('.badge').each(function(){
-        $(this).html($('<table class="'+$(this).attr('class')+'"><tr><td>'+$(this).html()+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'basic-table-left', {classes: $(this).attr('class'), contents: $.html($(this).removeClass('badge'))});
       });
       $('.alert').each(function(){
-        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeClass('alert'))});
       });
       $('.align-left').each(function(){
-        $(this).replaceWith($('<table align="left"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'align-left', {contents: $.html($(this))});
       });
       $('.align-center').each(function(){
-        $(this).replaceWith($('<table align="center"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'align-center', {contents: $.html($(this))});
       });
       $('.align-right').each(function(){
-        $(this).replaceWith($('<table align="right"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'align-right', {contents: $.html($(this))});
       });
       $('.card').each(function(){
-        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeClass('card'))});
       });
       $('.card-body').each(function(){
-        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td>'+$.html($(this).removeAttr('class'))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeClass('card-body'))});
       });
       $('hr').each(function(){
-        $(this).replaceWith($('<table class="hr"><tr><td><table><tr><td></td></tr></table></td></tr></table>'));
+        buildFromTemplate.call(this, $, 'hr', {});
       });
       $('p').each(function(){
-        $(this).replaceWith($('<table class="p"><tr><td>'+$.html($(this))+'</td></tr></table>'));
+        buildFromTemplate.call(this, $, 'basic-table', {classes: 'p', contents: $.html($(this))});
       });
       $('.container').each(function(){
-        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr><td><!--[if (gte mso 9)|(IE)]><table align="center"><tr><td width="600"><![endif]--><table align="center"><tr><td>'+$(this).html()+'</td></tr></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></table>'));
+        buildFromTemplate.call(this, $, 'container', {classes: $(this).attr('class'), contents: $(this).html()});
       });
       $('.row').each(function(){
-        $(this).replaceWith($('<table class="'+$(this).attr('class')+'"><tr>'+$(this).html()+'</tr></table>'));
+        buildFromTemplate.call(this, $, 'row', {classes: $(this).attr('class'), contents: $(this).html()});
       });
       $('*[class^=col]').each(function(){
-        $(this).replaceWith($('<th class="'+$(this).attr('class')+'" align="left" valign="top">'+$(this).html()+'</th>'));
+        buildFromTemplate.call(this, $, 'col', {classes: $(this).attr('class'), contents: $(this).html()});
+      });
+      $('*[class^=m-],*[class^=mt-],*[class^=mr-],*[class^=mb-],*[class^=ml-],*[class^=mx-],*[class^=my-]').each(function(){
+        // make margins into a new empty table and make it a padding class
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class').replace(/m([trblxy]?-\d)/g, 'p$1').match(/p[trblxy]?-\d/g), contents: $.html($(this))});
       });
     }))
     .pipe(inlineCss({
@@ -91,7 +95,14 @@ gulp.task('cheerio', function() {
       preserveMediaQueries: true,
       extraCss: './css/head.css'
     }))
+    .pipe(prettify({indent_size: 2}))
     .pipe(gulp.dest('./examples/inlined/'));
 });
 
 gulp.task('build', ['sass', 'sass:head', 'cheerio']);
+
+function buildFromTemplate($, template, obj){
+  var temp = _.template(fs.readFileSync('./templates/'+template+'.html', 'utf8'));
+  var res = temp(obj);
+  $(this).replaceWith(res);
+}

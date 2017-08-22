@@ -15,11 +15,14 @@
   "author": "Stuart Yamartino <stuartyamartino@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-cheerio": "^0.6.2",
     "gulp-inline-css": "^3.1.0",
+    "gulp-jsbeautifier": "^2.1.1",
     "gulp-sass": "^3.1.0",
     "gulp-style-inject": "^0.1.0",
-    "gulp-wrap": "^0.13.0"
+    "gulp-wrap": "^0.13.0",
+    "lodash": "^4.17.4"
   }
 }
