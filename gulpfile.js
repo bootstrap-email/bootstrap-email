@@ -83,7 +83,7 @@ gulp.task('cheerio', function() {
       });
     }))
     .pipe(inlineCss({
-      applyStyleTags: true,
+      applyStyleTags: false,
       applyLinkTags: true,
       removeStyleTags: false,
       removeLinkTags: true,
