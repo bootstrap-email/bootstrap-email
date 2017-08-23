@@ -1,99 +1,135 @@
+//
+// Basic Bootstrap table
+//
+
 .table {
-  border-collapse: collapse !important;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 1*$font-size-base;
-}
-.table td,
-.table th {
-  background-color: #ffffff;
-  padding: 0.75*$font-size-base;
-  vertical-align: top;
-  border-top: 1px solid #eceeef;
-}
-.table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #eceeef;
-}
-.table tbody + tbody {
-  border-top: 2px solid #eceeef;
+  margin-bottom: $spacer;
+  background-color: $white; // Reset for nesting within parents with `background-color`.
+
+  th{
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 0.75 * $font-size-base;
+    vertical-align: top;
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  .table {
+    background-color: $white;
+  }
 }
 
-.table .table {
-  background-color: #ffffff;
+
+//
+// Condensed table w/ half padding
+//
+
+.table-sm {
+  th,
+  td {
+    padding: 0.3 * $font-size-base;;
+  }
 }
 
-.table-bordered th,
-.table-bordered td {
-  border: 1px solid #ddd;
-}
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
 .table-bordered {
-  border: 1px solid #eceeef;
-}
-.table-bordered th,
-.table-bordered td {
-  border: 1px solid #eceeef;
-}
-.table-bordered thead th,
-.table-bordered thead td {
-  border-bottom-width: 2px;
+  border: $table-border-width solid $table-border-color;
+
+  th,
+  td {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: (2 * $table-border-width);
+    }
+  }
 }
 
-.table-striped tbody tr:nth-of-type(odd) td {
-  background-color: #f6f7f8;
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+  }
 }
 
-.table-active,
-.table-active > th,
-.table-active > td {
-  background-color: #f3f5f6;
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+@each $color, $value in $theme-colors {
+  .table-#{$color} {
+    &,
+    > th,
+    > td {
+      background-color: lighten($value, 40%);
+    }
+  }
 }
 
-.table-success,
-.table-success > th,
-.table-success > td {
-  background-color: #dff0d8;
+
+
+// Inverse styles
+//
+// Same table markup, but inverted color scheme: dark background and light text.
+
+.thead-inverse {
+  th {
+    color: $white;
+    background-color: $gray-900;
+  }
 }
 
-.table-info,
-.table-info > th,
-.table-info > td {
-  background-color: #d9edf7;
-}
-
-.table-warning,
-.table-warning > th,
-.table-warning > td {
-  background-color: #fcf8e3;
-}
-
-.table-danger,
-.table-danger > th,
-.table-danger > td {
-  background-color: #f2dede;
-}
-
-.thead-inverse th {
-  color: #ffffff;
-  background-color: #292b2c;
-}
-
-.thead-default th {
-  color: #464a4c;
-  background-color: #eceeef;
+.thead-default {
+  th {
+    color: $gray-700;
+    background-color: $gray-200;
+  }
 }
 
 .table-inverse {
-  color: #ffffff;
-  background-color: #292b2c;
-}
+  color: $white;
+  background-color: $gray-900;
 
-.table-inverse th,
-.table-inverse td,
-.table-inverse thead th {
-  border-color: #ffffff;
-}
+  th,
+  td,
+  thead th {
+    border-color: #32383e;
+  }
 
-.table-inverse.table-bordered {
-  border: 0;
+  &.table-bordered {
+    border: 0;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: #2c3034;
+    }
+  }
 }
