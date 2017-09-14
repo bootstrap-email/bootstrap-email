@@ -9,6 +9,6 @@
   @if ($yiq >= 150) {
     color: #111111;
   } @else {
-    color: #ffffff;
+    color: $white;
   }
 }
