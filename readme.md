@@ -15,7 +15,7 @@ This project is still under development and looking for contributors willing to 
 - [Containers](https://getbootstrap.com/docs/4.0/layout/overview/#containers): `.container`, `.container-fluid`
 - [Grid](https://getbootstrap.com/docs/4.0/layout/grid/): `.row`, `.col-{1-12}`, `.col-lg-{1-12}`
 - Hrs: `<hr>`
-- [Spacing](https://getbootstrap.com/docs/4.0/utilities/spacing/): `.m{tlbr}-{0-5}`, `.p{tlbr}-{0-5}`,
+- [Spacing](https://getbootstrap.com/docs/4.0/utilities/spacing/): `.m{tlbrxy}-{0-5}`, `.p{tlbrxy}-{0-5}`,
 - [Tables](https://getbootstrap.com/docs/4.0/content/tables/): `.table`, `.table-striped`,`.table-bordered`, `.thead-default`, `.thead-inverse`, `.table-{color}`, `.table-inverse`
 - [Typography](https://getbootstrap.com/docs/4.0/content/typography/): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
 
