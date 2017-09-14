@@ -14,14 +14,14 @@ This project is still under development and looking for contributors willing to 
 - [Color](https://getbootstrap.com/docs/4.0/utilities/colors/): `.text-(color)`, `.bg-(color)`
 - [Containers](https://getbootstrap.com/docs/4.0/layout/overview/#containers): `.container`, `.container-fluid`
 - [Grid](https://getbootstrap.com/docs/4.0/layout/grid/): `.row`, `.col-(1-12)`, `.col-lg-(1-12)`
-- Hrs: `hr`
+- Hrs: `<hr>`
 - [Spacing](https://getbootstrap.com/docs/4.0/utilities/spacing/): `.m(tlbr)-(0-5)`, `.p(tlbr)-(0-5)`,
 - [Tables](https://getbootstrap.com/docs/4.0/content/tables/): `.table`, `.table-striped`, `.thead-light`, `.thead-dark`, `.table-(color)`
-- [Typography](https://getbootstrap.com/docs/4.0/content/typography/): `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `strong`, `u`, `em`, `s`, `.text-left`, `.text-center`, `.text-right`
+- [Typography](https://getbootstrap.com/docs/4.0/content/typography/): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
 
 ## Additional Classes
 - Alignment: `.align-left`, `.align-center`, `.align-right`
-- Display: `d-desktop`, `d-mobile`
+- Display: `.d-desktop`, `.d-mobile`
 
 ## Email Quirks (internal notes)
 - Line height should always be in px never a number or percentage. https://www.marketingcloud.com/blog/design-tip-of-the-week-css-line-height-property-does-it-work-in-email/
