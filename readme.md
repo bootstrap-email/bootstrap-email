@@ -1,7 +1,7 @@
 # Bootstrap Email
-### Bootstrap 4 compiler and style sheets for responsive emails
+### Bootstrap 4 compiler and CSS for responsive emails
 
-The goal of this project is to build a library that matches the Bootstrap 4 API. It has two parts, a compiler that takes regular HTML with bootstrap classes and compiles it into tables and layout the works in email, and style sheets that work with those layouts and inlined to give consistent performance and appearance across email clients.
+The goal of this project is to build a library that matches the Bootstrap 4 API. It has two parts, a compiler that takes regular HTML with bootstrap classes and compiles it into tables and layout the works in email, and CSS that work with those layouts and inlined to give consistent performance and appearance across email clients.
 
 This project is still under development and looking for contributors willing to help however they can. I'm excited about this <3
 
