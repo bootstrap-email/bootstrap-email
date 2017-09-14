@@ -355,6 +355,12 @@ th.col-lg-12 {
       width: 100%;
       max-width: 600px; }
 
+.container-fluid {
+  width: 100%; }
+  .container-fluid > tr > td {
+    padding: 0px 16px 0 16px;
+    width: 100%; }
+
 .badge > tr > td {
   display: inline-block;
   padding: 4px 6.4px;

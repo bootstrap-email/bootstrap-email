@@ -75,6 +75,9 @@ gulp.task('cheerio', function() {
       $('.container').each(function(){
         buildFromTemplate.call(this, $, 'container', {classes: $(this).attr('class'), contents: $(this).html()});
       });
+      $('.container-fluid').each(function(){
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $(this).html()});
+      });
       $('.row').each(function(){
         buildFromTemplate.call(this, $, 'row', {classes: $(this).attr('class'), contents: $(this).html()});
       });
