@@ -30,3 +30,4 @@ This project is still under development and looking for contributors willing to 
 - Responsive media query for stacking table cells with display block only works on Android in table header `<th>` cells and not table cells `<td>`.
 - To make a table width 100% BOTH the table and the td tags must be set to 100%
 - To center align something you must add align on the table and the td for it to work in Yahoo!
+- Many Outlook versions ignore css that has `important!`.

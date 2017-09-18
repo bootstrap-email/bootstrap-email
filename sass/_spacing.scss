@@ -42,23 +42,23 @@
   @each $size, $length in $spacers {
 
     .#{$abbrev}-#{$size} > tr > td  {
-      #{$prop}: $length !important;
+      #{$prop}: $length;
     }
     .#{$abbrev}t-#{$size} > tr > td,
     .#{$abbrev}y-#{$size} > tr > td {
-      #{$prop}-top: $length !important;
+      #{$prop}-top: $length;
     }
     .#{$abbrev}r-#{$size} > tr > td,
     .#{$abbrev}x-#{$size} > tr > td {
-      #{$prop}-right: $length !important;
+      #{$prop}-right: $length;
     }
     .#{$abbrev}b-#{$size} > tr > td,
     .#{$abbrev}y-#{$size} > tr > td {
-      #{$prop}-bottom: $length !important;
+      #{$prop}-bottom: $length;
     }
     .#{$abbrev}l-#{$size} > tr > td,
     .#{$abbrev}x-#{$size} > tr > td {
-      #{$prop}-left: $length !important;
+      #{$prop}-left: $length;
     }
   }
 

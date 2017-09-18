@@ -740,115 +740,115 @@ h6 {
   max-height: 100%; }
 
 .p-0 > tr > td {
-  padding: 0 !important; }
+  padding: 0; }
 
 .pt-0 > tr > td,
 .py-0 > tr > td {
-  padding-top: 0 !important; }
+  padding-top: 0; }
 
 .pr-0 > tr > td,
 .px-0 > tr > td {
-  padding-right: 0 !important; }
+  padding-right: 0; }
 
 .pb-0 > tr > td,
 .py-0 > tr > td {
-  padding-bottom: 0 !important; }
+  padding-bottom: 0; }
 
 .pl-0 > tr > td,
 .px-0 > tr > td {
-  padding-left: 0 !important; }
+  padding-left: 0; }
 
 .p-1 > tr > td {
-  padding: 4px !important; }
+  padding: 4px; }
 
 .pt-1 > tr > td,
 .py-1 > tr > td {
-  padding-top: 4px !important; }
+  padding-top: 4px; }
 
 .pr-1 > tr > td,
 .px-1 > tr > td {
-  padding-right: 4px !important; }
+  padding-right: 4px; }
 
 .pb-1 > tr > td,
 .py-1 > tr > td {
-  padding-bottom: 4px !important; }
+  padding-bottom: 4px; }
 
 .pl-1 > tr > td,
 .px-1 > tr > td {
-  padding-left: 4px !important; }
+  padding-left: 4px; }
 
 .p-2 > tr > td {
-  padding: 8px !important; }
+  padding: 8px; }
 
 .pt-2 > tr > td,
 .py-2 > tr > td {
-  padding-top: 8px !important; }
+  padding-top: 8px; }
 
 .pr-2 > tr > td,
 .px-2 > tr > td {
-  padding-right: 8px !important; }
+  padding-right: 8px; }
 
 .pb-2 > tr > td,
 .py-2 > tr > td {
-  padding-bottom: 8px !important; }
+  padding-bottom: 8px; }
 
 .pl-2 > tr > td,
 .px-2 > tr > td {
-  padding-left: 8px !important; }
+  padding-left: 8px; }
 
 .p-3 > tr > td {
-  padding: 16px !important; }
+  padding: 16px; }
 
 .pt-3 > tr > td,
 .py-3 > tr > td {
-  padding-top: 16px !important; }
+  padding-top: 16px; }
 
 .pr-3 > tr > td,
 .px-3 > tr > td {
-  padding-right: 16px !important; }
+  padding-right: 16px; }
 
 .pb-3 > tr > td,
 .py-3 > tr > td {
-  padding-bottom: 16px !important; }
+  padding-bottom: 16px; }
 
 .pl-3 > tr > td,
 .px-3 > tr > td {
-  padding-left: 16px !important; }
+  padding-left: 16px; }
 
 .p-4 > tr > td {
-  padding: 24px !important; }
+  padding: 24px; }
 
 .pt-4 > tr > td,
 .py-4 > tr > td {
-  padding-top: 24px !important; }
+  padding-top: 24px; }
 
 .pr-4 > tr > td,
 .px-4 > tr > td {
-  padding-right: 24px !important; }
+  padding-right: 24px; }
 
 .pb-4 > tr > td,
 .py-4 > tr > td {
-  padding-bottom: 24px !important; }
+  padding-bottom: 24px; }
 
 .pl-4 > tr > td,
 .px-4 > tr > td {
-  padding-left: 24px !important; }
+  padding-left: 24px; }
 
 .p-5 > tr > td {
-  padding: 48px !important; }
+  padding: 48px; }
 
 .pt-5 > tr > td,
 .py-5 > tr > td {
-  padding-top: 48px !important; }
+  padding-top: 48px; }
 
 .pr-5 > tr > td,
 .px-5 > tr > td {
-  padding-right: 48px !important; }
+  padding-right: 48px; }
 
 .pb-5 > tr > td,
 .py-5 > tr > td {
-  padding-bottom: 48px !important; }
+  padding-bottom: 48px; }
 
 .pl-5 > tr > td,
 .px-5 > tr > td {
-  padding-left: 48px !important; }
+  padding-left: 48px; }
