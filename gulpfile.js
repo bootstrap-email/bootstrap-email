@@ -46,10 +46,10 @@ gulp.task('cheerio', function() {
         buildFromTemplate.call(this, $, 'basic-table-left', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('class'))});
       });
       $('.badge').each(function(){ // move all classes up and remove all classes from element
-        buildFromTemplate.call(this, $, 'basic-table-left', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('badge'))});
+        buildFromTemplate.call(this, $, 'basic-table-left', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('class'))});
       });
       $('.alert').each(function(){ // move all classes up and remove all classes from element
-        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('alert'))});
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('class'))});
       });
       $('.align-left').each(function(){ // align table and move contents
         buildFromTemplate.call(this, $, 'align-left', {contents: $.html($(this))});
@@ -61,10 +61,10 @@ gulp.task('cheerio', function() {
         buildFromTemplate.call(this, $, 'align-right', {contents: $.html($(this))});
       });
       $('.card').each(function(){ // move all classes up and remove all classes from element
-        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('card'))});
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('class'))});
       });
       $('.card-body').each(function(){ // move all classes up and remove all classes from element
-        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('card-body'))});
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this).removeAttr('class'))});
       });
       $('hr').each(function(){ // drop hr in place of current
         buildFromTemplate.call(this, $, 'hr', {});
