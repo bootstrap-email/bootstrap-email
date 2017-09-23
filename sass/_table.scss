@@ -23,13 +23,13 @@
     vertical-align: bottom;
     border-bottom: (2 * $table-border-width) solid $table-border-color;
   }
+}
 
-  tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
-  }
-
-  .table {
-    background-color: $white;
+.table-unstyled{
+  background-color: transparent;
+  td, th{
+    border-top: 0;
+    border-bottom: 0;
   }
 }
 

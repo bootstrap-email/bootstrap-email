@@ -442,10 +442,12 @@ h6 .badge > tr > td {
   .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #e9ecef; }
-  .table tbody + tbody {
-    border-top: 2px solid #e9ecef; }
-  .table .table {
-    background-color: #ffffff; }
+
+.table-unstyled {
+  background-color: transparent; }
+  .table-unstyled td, .table-unstyled th {
+    border-top: 0;
+    border-bottom: 0; }
 
 .table-sm th,
 .table-sm td {
