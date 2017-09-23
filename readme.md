@@ -23,6 +23,10 @@ This project is still under development and looking for contributors willing to 
 - Alignment: `.align-left`, `.align-center`, `.align-right`
 - Display: `.d-desktop`, `.d-mobile`
 
+## Email Quirk (for users)
+- width and height of images must be set to ensure proper rendering in outlook.
+- an anchor tag must have a link in the href (not just a #) for it to properly render a .btn.
+
 ## Email Quirks (internal notes)
 - Line height should always be in px never a number or percentage. https://www.marketingcloud.com/blog/design-tip-of-the-week-css-line-height-property-does-it-work-in-email/
 - The only way to add spacing is padding inside of a table cell.
