@@ -84,9 +84,14 @@ gulp.task('cheerio', function() {
       $('*[class^=col]').each(function(){
         buildFromTemplate.call(this, $, 'col', {classes: $(this).attr('class'), contents: $(this).html()});
       });
+      $('*[class^=p-]').each(function(){
+        if($(this).tagName != 'table'){
+          buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class'), contents: $.html($(this))});
+        }
+      })
       $('.m-1,.m-2,.m-3,.m-4,.m-5,.mt-1,.mt-2,.mt-3,.mt-4,.mt-5,.mr-1,.mr-2,.mr-3,.mr-4,.mr-5,.mb-1,.mb-2,.mb-3,.mb-4,.mb-5,.ml-1,.ml-2,.ml-3,.ml-4,.ml-5,.mx-1,.mx-2,.mx-3,.mx-4,.mx-5,.my-1,.my-2,.my-3,.my-4,.my-5').each(function(){
         // make margins into a new empty table and make it a padding class
-        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class').replace(/m([trblxy]?-\d)/g, "p$1").match(/p[trblxy]?-\d/g), contents: $.html($(this))});
+        buildFromTemplate.call(this, $, 'basic-table', {classes: $(this).attr('class').replace(/m([trblxy]?-\d)/g, "p$1").match(/p[trblxy]?-\d/g).join(' '), contents: $.html($(this))});
       });
 
     }))
