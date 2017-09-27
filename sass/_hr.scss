@@ -1,12 +1,12 @@
 .hr {
   width: 100%;
   border: 0;
-  & > tr > td{
+  & > tbody > tr > td{
     width: 100%;
     padding: $font-size-base 0px;
       & > table {
         width:100%;
-        & > tr > td {
+        & > tbody > tr > td {
           width:100%;
           border-top: 1px solid #dddddd;
           height: 1px;

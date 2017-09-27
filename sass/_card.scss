@@ -4,6 +4,7 @@
   border: 1px solid $gray-300;
   border-collapse: separate !important;
   width: 100%;
+  overflow: hidden;
   & > tbody > tr > td {
     width: 100%;
   }

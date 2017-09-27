@@ -66,12 +66,12 @@ p {
   white-space: nowrap; }
 
 .btn-primary td {
-  background-color: #007bff; }
+  background-color: #ff00bf; }
 
 .btn-primary td a {
-  background-color: #007bff;
+  background-color: #ff00bf;
   color: #ffffff;
-  border-color: #007bff; }
+  border-color: #ff00bf; }
 
 .btn-secondary td {
   background-color: #868e96; }
@@ -131,12 +131,12 @@ p {
 
 .btn-outline-primary td {
   background-color: transparent;
-  border-color: #007bff; }
+  border-color: #ff00bf; }
 
 .btn-outline-primary td a {
   background-color: transparent;
-  border-color: #007bff;
-  color: #007bff; }
+  border-color: #ff00bf;
+  color: #ff00bf; }
 
 .btn-outline-secondary td {
   background-color: transparent;
@@ -338,7 +338,8 @@ th.col-lg-12 {
   border-radius: 4px;
   border: 1px solid #dee2e6;
   border-collapse: separate !important;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
   .card > tbody > tr > td {
     width: 100%; }
   .card .card-body {
@@ -349,19 +350,19 @@ th.col-lg-12 {
 
 .container {
   width: 100%; }
-  .container > tr > td {
+  .container > tbody > tr > td {
     padding: 0px 16px 0 16px; }
-    .container > tr > td > table {
+    .container > tbody > tr > td > table {
       width: 100%;
       max-width: 600px; }
 
 .container-fluid {
   width: 100%; }
-  .container-fluid > tr > td {
+  .container-fluid > tbody > tr > td {
     padding: 0px 16px 0 16px;
     width: 100%; }
 
-.badge > tr > td {
+.badge > tbody > tr > td {
   display: inline-block;
   padding: 4px 6.4px;
   font-size: 75%;
@@ -372,59 +373,59 @@ th.col-lg-12 {
   vertical-align: baseline;
   border-radius: 4px; }
 
-.badge-pill > tr > td {
+.badge-pill > tbody > tr > td {
   padding-right: 9.6px;
   padding-left: 9.6px;
   border-radius: 160px; }
 
-.badge-primary > tr > td {
+.badge-primary > tbody > tr > td {
   color: #ffffff;
-  background-color: #007bff; }
+  background-color: #ff00bf; }
 
-.badge-secondary > tr > td {
+.badge-secondary > tbody > tr > td {
   color: #ffffff;
   background-color: #868e96; }
 
-.badge-success > tr > td {
+.badge-success > tbody > tr > td {
   color: #ffffff;
   background-color: #28a745; }
 
-.badge-info > tr > td {
+.badge-info > tbody > tr > td {
   color: #ffffff;
   background-color: #17a2b8; }
 
-.badge-warning > tr > td {
+.badge-warning > tbody > tr > td {
   color: #111111;
   background-color: #ffc107; }
 
-.badge-danger > tr > td {
+.badge-danger > tbody > tr > td {
   color: #ffffff;
   background-color: #dc3545; }
 
-.badge-light > tr > td {
+.badge-light > tbody > tr > td {
   color: #111111;
   background-color: #f8f9fa; }
 
-.badge-dark > tr > td {
+.badge-dark > tbody > tr > td {
   color: #ffffff;
   background-color: #343a40; }
 
-h1 .badge > tr > td {
+h1 .badge > tbody > tr > td {
   font-size: 27px; }
 
-h2 .badge > tr > td {
+h2 .badge > tbody > tr > td {
   font-size: 24px; }
 
-h3 .badge > tr > td {
+h3 .badge > tbody > tr > td {
   font-size: 21px; }
 
-h4 .badge > tr > td {
+h4 .badge > tbody > tr > td {
   font-size: 18px; }
 
-h5 .badge > tr > td {
+h5 .badge > tbody > tr > td {
   font-size: 15px; }
 
-h6 .badge > tr > td {
+h6 .badge > tbody > tr > td {
   font-size: 12px; }
 
 .table {
@@ -471,7 +472,7 @@ h6 .badge > tr > td {
 .table-primary,
 .table-primary > th,
 .table-primary > td {
-  background-color: #cce5ff; }
+  background-color: #ffccf2; }
 
 .table-secondary,
 .table-secondary > th,
@@ -530,12 +531,12 @@ h6 .badge > tr > td {
 .hr {
   width: 100%;
   border: 0; }
-  .hr > tr > td {
+  .hr > tbody > tr > td {
     width: 100%;
     padding: 16px 0px; }
-    .hr > tr > td > table {
+    .hr > tbody > tr > td > table {
       width: 100%; }
-      .hr > tr > td > table > tr > td {
+      .hr > tbody > tr > td > table > tbody > tr > td {
         width: 100%;
         border-top: 1px solid #dddddd;
         height: 1px;
@@ -546,65 +547,65 @@ h6 .badge > tr > td {
   border: 0;
   margin-bottom: 16px;
   width: 100%; }
-  .alert > tr > td {
+  .alert > tbody > tr > td {
     padding: 12px 20px;
     border: 1px solid transparent;
     border-radius: 4px; }
 
 .alert-primary td {
-  background-color: #cce5ff;
-  border-color: #b3d7ff;
-  color: #003166; }
-  .alert-primary td .hr > tr > td > table > tr > td {
-    border-top: 1px solid #b3d7ff; }
+  background-color: #ffccf2;
+  border-color: #ffb3ec;
+  color: #66004c; }
+  .alert-primary td .hr > tbody > tr > td > table > tbody > tr > td {
+    border-top: 1px solid #ffb3ec; }
 
 .alert-secondary td {
   background-color: #f3f4f5;
   border-color: #e6e7e9;
   color: #3d4246; }
-  .alert-secondary td .hr > tr > td > table > tr > td {
+  .alert-secondary td .hr > tbody > tr > td > table > tbody > tr > td {
     border-top: 1px solid #e6e7e9; }
 
 .alert-success td {
   background-color: #afecbd;
   border-color: #9be7ac;
   color: #0a2c12; }
-  .alert-success td .hr > tr > td > table > tr > td {
+  .alert-success td .hr > tbody > tr > td > table > tbody > tr > td {
     border-top: 1px solid #9be7ac; }
 
 .alert-info td {
   background-color: #a7e9f4;
   border-color: #90e4f1;
   color: #062a30; }
-  .alert-info td .hr > tr > td > table > tr > td {
+  .alert-info td .hr > tbody > tr > td > table > tbody > tr > td {
     border-top: 1px solid #90e4f1; }
 
 .alert-warning td {
   background-color: #fff4d3;
   border-color: #ffeeba;
   color: #6d5200; }
-  .alert-warning td .hr > tr > td > table > tr > td {
+  .alert-warning td .hr > tbody > tr > td > table > tbody > tr > td {
     border-top: 1px solid #ffeeba; }
 
 .alert-danger td {
   background-color: #fae3e5;
   border-color: #f6cdd1;
   color: #66121a; }
-  .alert-danger td .hr > tr > td > table > tr > td {
+  .alert-danger td .hr > tbody > tr > td > table > tbody > tr > td {
     border-top: 1px solid #f6cdd1; }
 
 .alert-light td {
   background-color: white;
   border-color: white;
   color: #9fadba; }
-  .alert-light td .hr > tr > td > table > tr > td {
+  .alert-light td .hr > tbody > tr > td > table > tbody > tr > td {
     border-top: 1px solid white; }
 
 .alert-dark td {
   background-color: #96a0aa;
   border-color: #88939e;
   color: black; }
-  .alert-dark td .hr > tr > td > table > tr > td {
+  .alert-dark td .hr > tbody > tr > td > table > tbody > tr > td {
     border-top: 1px solid #88939e; }
 
 .img-fluid {
@@ -652,15 +653,15 @@ h6 {
 .text-center {
   text-align: center; }
 
-.p > tr > td {
+.p > tbody > tr > td {
   margin: 0;
   padding: 0 0 20px 0; }
-  .p > tr > td > p {
+  .p > tbody > tr > td > p {
     margin: 0;
     padding: 0; }
 
 .bg-primary {
-  background-color: #007bff; }
+  background-color: #ff00bf; }
 
 .bg-secondary {
   background-color: #868e96; }
@@ -684,7 +685,7 @@ h6 {
   background-color: #343a40; }
 
 .text-primary {
-  color: #007bff; }
+  color: #ff00bf; }
 
 .text-secondary {
   color: #868e96; }
