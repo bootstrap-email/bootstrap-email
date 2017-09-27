@@ -41,23 +41,49 @@
 @each $prop, $abbrev in (padding: p) {
   @each $size, $length in $spacers {
 
-    .#{$abbrev}-#{$size} > tr > td  {
+    .#{$abbrev}-#{$size} > tbody > tr > td  {
       #{$prop}: $length;
     }
-    .#{$abbrev}t-#{$size} > tr > td,
-    .#{$abbrev}y-#{$size} > tr > td {
+    .#{$abbrev}t-#{$size} > tbody > tr > td,
+    .#{$abbrev}y-#{$size} > tbody > tr > td {
       #{$prop}-top: $length;
     }
-    .#{$abbrev}r-#{$size} > tr > td,
-    .#{$abbrev}x-#{$size} > tr > td {
+    .#{$abbrev}r-#{$size} > tbody > tr > td,
+    .#{$abbrev}x-#{$size} > tbody > tr > td {
       #{$prop}-right: $length;
     }
-    .#{$abbrev}b-#{$size} > tr > td,
-    .#{$abbrev}y-#{$size} > tr > td {
+    .#{$abbrev}b-#{$size} > tbody > tr > td,
+    .#{$abbrev}y-#{$size} > tbody > tr > td {
       #{$prop}-bottom: $length;
     }
-    .#{$abbrev}l-#{$size} > tr > td,
-    .#{$abbrev}x-#{$size} > tr > td {
+    .#{$abbrev}l-#{$size} > tbody > tr > td,
+    .#{$abbrev}x-#{$size} > tbody > tr > td {
+      #{$prop}-left: $length;
+    }
+  }
+
+}
+
+@each $prop, $abbrev in (margin: m) {
+  @each $size, $length in $spacers {
+
+    div.#{$abbrev}-#{$size} {
+      #{$prop}: $length;
+    }
+    div.#{$abbrev}t-#{$size},
+    div.#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length;
+    }
+    div.#{$abbrev}r-#{$size},
+    div.#{$abbrev}x-#{$size} {
+      #{$prop}-right: $length;
+    }
+    div.#{$abbrev}b-#{$size},
+    div.#{$abbrev}y-#{$size} {
+      #{$prop}-bottom: $length;
+    }
+    div.#{$abbrev}l-#{$size},
+    div.#{$abbrev}x-#{$size} {
       #{$prop}-left: $length;
     }
   }

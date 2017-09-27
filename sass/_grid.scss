@@ -40,7 +40,7 @@ table.no-gutters {
   margin-left: 0;
 }
 
-.no-gutters > tr {
+.no-gutters > thead > tr {
   & > th.col-1,
   & > th.col-lg-1,
   & > th.col-2,

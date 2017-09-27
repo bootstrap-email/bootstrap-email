@@ -1,23 +1,29 @@
 <table class="<%= classes %>">
-  <tr>
-    <td align="center">
-      <!--[if (gte mso 9)|(IE)]>
+  <tbody>
+    <tr>
+      <td align="center">
+        <!--[if (gte mso 9)|(IE)]>
+          <table align="center">
+            <tbody>
+              <tr>
+                <td width="600">
+        <![endif]-->
         <table align="center">
-          <tr>
-            <td width="600">
-      <![endif]-->
-      <table align="center">
-        <tr>
-          <td>
-            <%= contents %>
-          </td>
-        </tr>
-      </table>
-      <!--[if (gte mso 9)|(IE)]>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>
+                <%= contents %>
+              </td>
+            </tr>
+          </tbody>
         </table>
-      <![endif]-->
-    </td>
-  </tr>
+        <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        <![endif]-->
+      </td>
+    </tr>
+  </tbody>
 </table>

@@ -8,28 +8,31 @@
   margin-bottom: $spacer;
   background-color: $white; // Reset for nesting within parents with `background-color`.
 
-  th{
+  & > thead > tr > th{
     text-align: left;
   }
 
-  th,
-  td {
+  & > thead > tr > th,
+  & > tbody > tr > td {
     padding: 0.75 * $font-size-base;
     vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
   }
 
-  thead th {
+  & > thead > th {
     vertical-align: bottom;
     border-bottom: (2 * $table-border-width) solid $table-border-color;
   }
 }
 
 .table-unstyled{
+  width: 100%;
+  max-width: 100%;
   background-color: transparent;
   td, th{
     border-top: 0;
     border-bottom: 0;
+    text-align: left;
   }
 }
 
@@ -39,8 +42,8 @@
 //
 
 .table-sm {
-  th,
-  td {
+  & > thead > tr > th,
+  & > tbody > tr > td {
     padding: 0.3 * $font-size-base;;
   }
 }
@@ -53,14 +56,14 @@
 .table-bordered {
   border: $table-border-width solid $table-border-color;
 
-  th,
-  td {
+  & > thead > tr > th,
+  & > tbody > tr > td {
     border: $table-border-width solid $table-border-color;
   }
 
-  thead {
-    th,
-    td {
+  & > thead {
+    & > tr > th,
+    & > tr > td {
       border-bottom-width: (2 * $table-border-width);
     }
   }
@@ -72,7 +75,7 @@
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
 .table-striped {
-  tbody tr:nth-of-type(odd) {
+  & > tbody > tr:nth-of-type(odd) {
     background-color: #f2f2f2;
   }
 }
@@ -100,14 +103,14 @@
 // Same table markup, but inverted color scheme: dark background and light text.
 
 .thead-inverse {
-  th {
+  & > thead > tr > th {
     color: $white;
     background-color: $gray-900;
   }
 }
 
 .thead-default {
-  th {
+  & > thead > tr > th {
     color: $gray-700;
     background-color: $gray-200;
   }
@@ -117,9 +120,8 @@
   color: $white;
   background-color: $gray-900;
 
-  th,
-  td,
-  thead th {
+  & > thead > tr > th,
+  & > tbody > tr > td {
     border-color: #32383e;
   }
 
@@ -128,7 +130,7 @@
   }
 
   &.table-striped {
-    tbody tr:nth-of-type(odd) {
+    & > tbody > tr:nth-of-type(odd) {
       background-color: #2c3034;
     }
   }

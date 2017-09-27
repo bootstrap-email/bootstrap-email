@@ -4,12 +4,12 @@
   border: 1px solid $gray-300;
   border-collapse: separate !important;
   width: 100%;
-  & > tr > td {
+  & > tbody > tr > td {
     width: 100%;
   }
   .card-body {
     width: 100%;
-    & > tr > td {
+    & > tbody > tr > td {
       padding: $font-size-base * 1.25;
       width: 100%;
     }
