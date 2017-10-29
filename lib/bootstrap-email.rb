@@ -73,7 +73,7 @@ module BootstrapEmail
 
     def build_from_template template, locals_hash = {}
       namespace = OpenStruct.new(locals_hash)
-      template = File.open(File.expand_path("../../core/templates/#{template}.html.erb", __dir__)).read
+      template = File.open(File.expand_path("../core/templates/#{template}.html.erb", __dir__)).read
       Nokogiri::HTML::DocumentFragment.parse(ERB.new(template).result(namespace.instance_eval { binding }))
     end
   end
