@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Bootstrap 4 style sheet and compiler for responsive and consistent emails."
   s.authors     = ['Stuart Yamartino']
   s.email       = 'stuartyamartino@gmail.com'
-  s.files       = ['lib/bootstrap-email.rb']
+  s.files       = ['lib/bootstrap-email.rb', 'lib/bootstrap-email/engine.rb', 'lib/bootstrap-email/version.rb']
   s.homepage    = 'http://rubygems.org/gems/something'
   s.license     = 'MIT'
 
