@@ -1,8 +1,17 @@
+/* this file will be placed in the head of the document and will not be inlined */
+
 .ExternalClass {
   width: 100%;
 }
 /* Forces Outlook.com to display emails at full width */
-.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+  line-height: 100%;
+}
 /* Forces Outlook.com to display normal line spacing, here is more on that: http://www.emailonacid.com/forum/viewthread/43/ */
 
 .imageFix{
@@ -14,7 +23,7 @@ a{
 }
 
 @media screen and (max-width: 600px) {
-  // grid
+  /*  grid */
   table.row {
     th.col-lg-1,
     th.col-lg-2,
@@ -33,7 +42,7 @@ a{
     }
   }
 
-  // display
+  /* display */
   .d-mobile{
     display: block !important;
   }
@@ -42,9 +51,9 @@ a{
   }
 }
 
-// yahoo specific media query to revert above
+/* yahoo specific media query to revert above */
 @media yahoo {
-  // display
+  /* display */
   .d-mobile {
     display: none !important;
   }
