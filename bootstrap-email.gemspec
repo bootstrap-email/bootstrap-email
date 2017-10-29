@@ -1,3 +1,5 @@
+require 'bootstrap_email/rails/version'
+
 Gem::Specification.new do |s|
   s.name        = 'bootstrap-email'
   s.version     = BootstrapEmail::Rails::VERSION
