@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.email       = 'stuartyamartino@gmail.com'
   s.files       = [
     'lib/bootstrap-email.rb',
-    'lib/bootstrap-email/bootstrap_email.rb',
     'lib/bootstrap-email/action_mailer.rb',
     'lib/bootstrap-email/engine.rb',
     'lib/bootstrap-email/version.rb',
