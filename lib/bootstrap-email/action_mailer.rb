@@ -1,20 +1,20 @@
+module BootstrapEmailHelper
+
+  def bootstrap_email_head
+    html_string = <<-HEREDOC
+      <style type="text/css" data-premailer="ignore">
+        #{File.open(File.expand_path('../../core/sass/head.scss', __dir__)).read}
+      </style>
+    HEREDOC
+    html_string.html_safe
+  end
+end
+
 class ActionMailer::Base
   helper BootstrapEmailHelper
 
   def bootstrap_mail *args
     mail = mail(*args)
-    bootstrap = BootstrapEmail.new(mail)
-    bootstrap.compiled_html!
-  end
-end
-
-module BootstrapEmailHelper
-
-  def bootstrap_email_head
-    <<-HEREDOC
-      <style>
-        #{File.open('../../core/sass/head.scss').read}
-      </style>
-    HEREDOC
+    BootstrapEmail.compile_html!(mail)
   end
 end
