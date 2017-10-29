@@ -49,14 +49,12 @@ module BootstrapEmail
       doc.css('*[class^=col]').each do |node|
         node.replace(build_from_template('col', {classes: node['class'], contents: node.inner_html}))
       end
-      padding = %w( p- pt- pr- pb- pl- px- py- ).map{ |padding| "contains(@class, '#{padding}')" }.join(' or ')
-      doc.xpath("//*[#{padding}]").each do |node|
+      doc.css('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]').each do |node|
         if node.name != 'table' # if it is already on a table, set the padding on the table, else wrap the content in a table
           node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
         end
       end
-      margin = %w( m- mt- mr- mb- ml- mx- my- ).map{ |margin| "contains(@class, '#{margin}')" }.join(' or ')
-      doc.xpath("//*[#{margin}]").each do |node|
+      doc.css('*[class*=m-], *[class*=mt-], *[class*=mr-], *[class*=mb-], *[class*=ml-], *[class*=mx-], *[class*=my-]').each do |node|
         if node.name != 'div' # if it is already on a div, set the margin on the div, else wrap the content in a div
           node.replace(build_from_template('div', {classes: node['class'].scan(/(m[trblxy]?-\d)/).join(' '), contents: node.delete('class') && node.to_html}))
         end
