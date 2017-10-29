@@ -10,8 +10,14 @@ Gem::Specification.new do |s|
   s.description = "Bootstrap 4 style sheet and compiler for responsive and consistent emails."
   s.authors     = ['Stuart Yamartino']
   s.email       = 'stuartyamartino@gmail.com'
-  s.files       = ['lib/bootstrap-email.rb', 'lib/bootstrap-email/engine.rb', 'lib/bootstrap-email/version.rb']
-  s.homepage    = 'http://rubygems.org/gems/something'
+  s.files       = [
+    'lib/bootstrap-email.rb',
+    'lib/bootstrap-email/bootstrap_email.rb',
+    'lib/bootstrap-email/action_mailer.rb',
+    'lib/bootstrap-email/engine.rb',
+    'lib/bootstrap-email/version.rb',
+  ]
+  s.homepage    = 'http://rubygems.org/gems/bootstrap-email'
   s.license     = 'MIT'
 
   s.add_runtime_dependency 'premailer-rails', '~> 1.9'
