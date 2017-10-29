@@ -1,4 +1,4 @@
-module BoostrapEmail
+module BootstrapEmail
   module Rails
     VERSION = "0.0.0"
   end

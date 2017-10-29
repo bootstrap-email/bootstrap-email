@@ -90,10 +90,5 @@ class ActionMailer::Base
   end
 end
 
-class Engine < ::Rails::Engine
-  initializer 'bootstrap.assets' do |app|
-    %w(stylesheets javascripts).each do |sub|
-      app.config.assets.paths << root.join('assets', sub).to_s
-    end
-  end
-end
+require 'bootstrap-email/engine'
+require 'bootstrap-email/version'
