@@ -89,3 +89,11 @@ class ActionMailer::Base
     bootstrap.compiled_html!
   end
 end
+
+class Engine < ::Rails::Engine
+  initializer 'bootstrap.assets' do |app|
+    %w(stylesheets javascripts).each do |sub|
+      app.config.assets.paths << root.join('assets', sub).to_s
+    end
+  end
+end

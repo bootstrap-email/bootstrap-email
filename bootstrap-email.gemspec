@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'bootstrap-email'
-  s.version     = '0.0.0'
+  s.version     = BootstrapEmail::Rails::VERSION
   s.date        = '2017-10-28'
   s.summary     = "Bootstrap 4 style sheet and compiler for responsive and consistent emails."
   s.description = "Bootstrap 4 style sheet and compiler for responsive and consistent emails."
