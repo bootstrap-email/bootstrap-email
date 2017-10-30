@@ -3,6 +3,7 @@ require 'erb'
 require 'ostruct'
 require 'action_mailer'
 require 'premailer'
+require 'rails'
 
 module BootstrapEmail
 
@@ -110,7 +111,9 @@ module BootstrapEmail
     end
 
     def margin
-      @doc.css('*[class*=m-], *[class*="mt-"], *[class*=mr-], *[class*=mb-], *[class*=ml-], *[class*=mx-], *[class*=my-]').each do |node|
+      margins = %w( m mt mr mb ml mx my ).map{|m| (1..5).map{|i| ".#{m}-#{i}" }.join(',')}.join(',')
+      puts "*************: #{margins}"
+      @doc.css(margins).each do |node|
         if node.name != 'div' # if it is already on a div, set the margin on the div, else wrap the content in a div
           margin_regex = /(m[trblxy]?-\d)/
           classes = node['class'].scan(margin_regex).join(' ')
@@ -129,6 +132,12 @@ module BootstrapEmail
       end
     end
 
+  end
+end
+
+class MyRailtie < Rails::Railtie
+  initializer 'my_railtie.configure_rails_initialization' do
+    Premailer::Rails.config.merge!(adapter: :nokogiri, preserve_reset: false)
   end
 end
 
