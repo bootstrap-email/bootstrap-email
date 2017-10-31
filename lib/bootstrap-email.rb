@@ -3,14 +3,18 @@ require 'erb'
 require 'ostruct'
 require 'action_mailer'
 require 'premailer'
+require 'premailer/rails'
 require 'rails'
 
 module BootstrapEmail
+  class Compiler
 
-  class << self
-    def compile_html! mail
-      @doc = Nokogiri::HTML(mail.body.raw_source)
+    def initialize mail
+      @mail = mail
+      @doc = Nokogiri::HTML(@mail.body.raw_source)
+    end
 
+    def compile_html!
       button
       badge
       alert
@@ -22,10 +26,14 @@ module BootstrapEmail
       padding
       margin
       table
-
-      mail.body = @doc.to_html
-      mail
     end
+
+    def update_mailer!
+      @mail.body = @doc.to_html
+      @mail
+    end
+
+    private
 
     def build_from_template template, locals_hash = {}
       namespace = OpenStruct.new(locals_hash)
@@ -33,74 +41,79 @@ module BootstrapEmail
       Nokogiri::HTML::DocumentFragment.parse(ERB.new(template).result(namespace.instance_eval { binding }))
     end
 
+    def each_node css_lookup, &blk
+      # sort by youngest child and traverse backwards up the tree
+      @doc.css(css_lookup).sort_by{ |n| n.ancestors.size }.reverse!.each(&blk)
+    end
+
     def button
-      @doc.css('.btn').each do |node| # move all classes up and remove all classes from the element
+      each_node('.btn') do |node| # move all classes up and remove all classes from the element
         node.replace(build_from_template('table-left', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def badge
-      @doc.css('.badge').each do |node| # move all classes up and remove all classes from the element
+      each_node('.badge') do |node| # move all classes up and remove all classes from the element
         node.replace(build_from_template('table-left', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def alert
-      @doc.css('.alert').each do |node| # move all classes up and remove all classes from the element
+      each_node('.alert') do |node| # move all classes up and remove all classes from the element
         node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def align
-      @doc.css('.align-left').each do |node| # align table and move contents
+      each_node('.align-left') do |node| # align table and move contents
         node['class'] = node['class'].sub(/align-left/, '')
         node.replace(build_from_template('align-left', {contents: node.to_html}))
       end
-      @doc.css('.align-center').each do |node| # align table and move contents
+      each_node('.align-center') do |node| # align table and move contents
         node['class'] = node['class'].sub(/align-center/, '')
         node.replace(build_from_template('align-center', {contents: node.to_html}))
       end
-      @doc.css('.align-right').each do |node| # align table and move contents
+      each_node('.align-right') do |node| # align table and move contents
         node['class'] = node['class'].sub(/align-right/, '')
         node.replace(build_from_template('align-right', {contents: node.to_html}))
       end
     end
 
     def card
-      @doc.css('.card').each do |node| # move all classes up and remove all classes from element
+      each_node('.card') do |node| # move all classes up and remove all classes from element
         node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
-      @doc.css('.card-body').each do |node| # move all classes up and remove all classes from element
+      each_node('.card-body') do |node| # move all classes up and remove all classes from element
         node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def hr
-      @doc.css('hr').each do |node| # drop hr in place of current
+      each_node('hr') do |node| # drop hr in place of current
         node.replace(build_from_template('hr', {classes: "hr #{node['class']}"}))
       end
     end
 
     def container
-      @doc.css('.container').each do |node|
+      each_node('.container') do |node|
         node.replace(build_from_template('container', {classes: node['class'], contents: node.inner_html}))
       end
-      @doc.css('.container-fluid').each do |node|
+      each_node('.container-fluid') do |node|
         node.replace(build_from_template('table', {classes: node['class'], contents: node.inner_html}))
       end
     end
 
     def grid
-      @doc.css('.row').each do |node|
+      each_node('.row') do |node|
         node.replace(build_from_template('row', {classes: node['class'], contents: node.inner_html}))
       end
-      @doc.css('*[class*=col]').each do |node|
+      each_node('*[class*=col]') do |node|
         node.replace(build_from_template('col', {classes: node['class'], contents: node.inner_html}))
       end
     end
 
     def padding
-      @doc.css('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]').each do |node|
+      each_node('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]') do |node|
         if node.name != 'table' # if it is already on a table, set the padding on the table, else wrap the content in a table
           padding_regex = /(p[trblxy]?-\d)/
           classes = node['class'].scan(padding_regex).join(' ')
@@ -111,9 +124,7 @@ module BootstrapEmail
     end
 
     def margin
-      margins = %w( m mt mr mb ml mx my ).map{|m| (1..5).map{|i| ".#{m}-#{i}" }.join(',')}.join(',')
-      puts "*************: #{margins}"
-      @doc.css(margins).each do |node|
+      each_node('*[class*=m-], *[class*=mt-], *[class*=mr-], *[class*=mb-], *[class*=ml-], *[class*=mx-], *[class*=my-]') do |node|
         if node.name != 'div' # if it is already on a div, set the margin on the div, else wrap the content in a div
           margin_regex = /(m[trblxy]?-\d)/
           classes = node['class'].scan(margin_regex).join(' ')
@@ -135,12 +146,7 @@ module BootstrapEmail
   end
 end
 
-class MyRailtie < Rails::Railtie
-  initializer 'my_railtie.configure_rails_initialization' do
-    Premailer::Rails.config.merge!(adapter: :nokogiri, preserve_reset: false)
-  end
-end
-
+require 'bootstrap-email/premailer_railtie'
 require 'bootstrap-email/action_mailer'
 require 'bootstrap-email/engine'
 require 'bootstrap-email/version'
