@@ -25,6 +25,7 @@ module BootstrapEmail
       grid
       padding
       margin
+      spacer
       table
     end
 
@@ -38,7 +39,7 @@ module BootstrapEmail
     def build_from_template template, locals_hash = {}
       namespace = OpenStruct.new(locals_hash)
       template = File.open(File.expand_path("../core/templates/#{template}.html.erb", __dir__)).read
-      Nokogiri::HTML::DocumentFragment.parse(ERB.new(template).result(namespace.instance_eval { binding }))
+      ERB.new(template).result(namespace.instance_eval { binding })
     end
 
     def each_node css_lookup, &blk
@@ -48,7 +49,7 @@ module BootstrapEmail
 
     def button
       each_node('.btn') do |node| # move all classes up and remove all classes from the element
-        node.replace(build_from_template('table-left', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
@@ -117,20 +118,32 @@ module BootstrapEmail
         if node.name != 'table' # if it is already on a table, set the padding on the table, else wrap the content in a table
           padding_regex = /(p[trblxy]?-\d)/
           classes = node['class'].scan(padding_regex).join(' ')
-          node['class'] = node['class'].sub(padding_regex, '')
+          node['class'] = node['class'].gsub(padding_regex, '')
           node.replace(build_from_template('table', {classes: classes, contents: node.to_html}))
         end
       end
     end
 
     def margin
-      each_node('*[class*=m-], *[class*=mt-], *[class*=mr-], *[class*=mb-], *[class*=ml-], *[class*=mx-], *[class*=my-]') do |node|
-        if node.name != 'div' # if it is already on a div, set the margin on the div, else wrap the content in a div
-          margin_regex = /(m[trblxy]?-\d)/
-          classes = node['class'].scan(margin_regex).join(' ')
-          node['class'] = node['class'].sub(margin_regex, '')
-          node.replace(build_from_template('div', {classes: classes, contents: node.to_html}))
+      each_node('*[class*=m-], *[class*=mt-], *[class*=mb-]') do |node|
+        top_class = node['class'][/m[t]?-(\d)/]
+        bottom_class = node['class'][/m[b]?-(\d)/]
+        node['class'] = node['class'].gsub(/(m[trblxy]?-\d)/, '')
+        html = ''
+        if top_class
+          html += build_from_template('div', {classes: "s-#{top_class.gsub(/m[t]?-/, '')}", contents: nil})
         end
+        html += node.to_html
+        if bottom_class
+          html += build_from_template('div', {classes: "s-#{bottom_class.gsub(/m[b]?-/, '')}", contents: nil})
+        end
+        node.replace(html)
+      end
+    end
+
+    def spacer
+      each_node('*[class*=s-]') do |node|
+        node.replace(build_from_template('table', {classes: node['class'] + ' w-100', contents: "&#xA0;"}))
       end
     end
 

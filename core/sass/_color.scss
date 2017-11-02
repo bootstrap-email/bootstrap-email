@@ -1,19 +1,23 @@
 @each $color, $value in $theme-colors {
-  .bg-#{$color} {
+  .bg-#{$color},
+  .bg-#{$color} > tbody > tr > td{
     background-color: $value;
   }
 }
 
 @each $color, $value in $theme-colors {
-  .text-#{$color} {
+  .text-#{$color},
+  .text-#{$color} > tbody > tr > td{
     color: $value;
   }
 }
 
-.text-white {
+.text-white,
+.text-white > tbody > tr > td {
   color: $white;
 }
 
-.text-muted {
+.text-muted,
+.text-mute > tbody > tr > td {
   color: #636c72;
 }
