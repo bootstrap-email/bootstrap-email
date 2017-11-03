@@ -1,5 +1,6 @@
 # Bootstrap Email
 ### Bootstrap 4 compiler and CSS for responsive emails
+### If you know Bootstrap, you know Bootstrap Email
 
 The goal of this project is to build a library that matches the Bootstrap 4 API. It has two parts, a compiler that takes regular HTML with bootstrap classes and compiles it into tables and layout the works in email, and CSS that work with those layouts and inlined to give consistent performance and appearance across email clients.
 
@@ -20,7 +21,7 @@ This project is still under development and looking for contributors willing to 
 - [Typography](https://getbootstrap.com/docs/4.0/content/typography/): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
 
 ## Additional Classes
-- Alignment: `.align-left`, `.align-center`, `.align-right`
+- Alignment: `.align-left` (or `.float-left`), `.align-center`(or `.mx-auto`), `.align-right`(or `.float-right`)
 - Display: `.d-desktop`, `.d-mobile`
 
 ## Email Quirk (for users)

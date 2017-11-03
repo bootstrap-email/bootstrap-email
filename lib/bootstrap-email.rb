@@ -27,6 +27,7 @@ module BootstrapEmail
       margin
       spacer
       table
+      body
     end
 
     def update_mailer!
@@ -66,16 +67,16 @@ module BootstrapEmail
     end
 
     def align
-      each_node('.align-left') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/align-left/, '')
+      each_node('.align-left, .float-left') do |node| # align table and move contents
+        node['class'] = node['class'].sub(/(align-left)|(float-left)/, '')
         node.replace(build_from_template('align-left', {contents: node.to_html}))
       end
       each_node('.align-center') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/align-center/, '')
+        node['class'] = node['class'].sub(/(align-center)|(mx-auto)/, '')
         node.replace(build_from_template('align-center', {contents: node.to_html}))
       end
       each_node('.align-right') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/align-right/, '')
+        node['class'] = node['class'].sub(/(align-right)|(float-right)/, '')
         node.replace(build_from_template('align-right', {contents: node.to_html}))
       end
     end
@@ -153,6 +154,12 @@ module BootstrapEmail
         node['border'] = 0
         node['cellpadding'] = 0
         node['cellspacing'] = 0
+      end
+    end
+
+    def body
+      @doc.css('body').each do |node|
+        node.replace( '<body>' + build_from_template('table', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
       end
     end
 
