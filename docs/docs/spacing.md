@@ -10,7 +10,7 @@ There is two types of spacing Bootstrap Email supports. Padding (applied to the 
 Just like Bootstrap there are the `.p{side}-{size}`and similarly for margin helpers.
 
 List of supported classes:
-{% highlight css %}
+```css
 .p-{0-5}  /* padding on all sides */
 .pt-{0-5} /* padding top */
 .pr-{0-5} /* padding right */
@@ -24,32 +24,32 @@ List of supported classes:
 .my-{0-5} /* margin top and bottom */
 
 .s-{0-5} /* spacer with size */
-{% endhighlight %}
+```
 
 Note: Margin is only supported on the top and bottom.
 
 ### Padding
-{% highlight html %}
+```html
 <a class="btn btn-primary p-3" href="http://bootstrapemail.com">A Button with lots of padding</a>
-{% endhighlight %}
+```
 
 <a class="btn btn-primary p-3" href="http://bootstrapemail.com">A Button with lots of padding</a>
 
 ### Margin
 The margin classes just create spacers above and/or below and element for simpler syntax like Bootstrap.
-{% highlight html %}
+```html
 <div class="card card-body">Top Card</div>
 <div class="card card-body my-3">Middle Card (with margin above and below)</div>
 <div class="card card-body">Bottom Card</div>
-{% endhighlight %}
+```
 
 <div class="card card-body">Top Card</div>
 <div class="card card-body my-3">Middle Card (with margin about and below)</div>
 <div class="card card-body">Bottom Card</div>
 
 ### Spacer
-{% highlight html %}
+```html
 <div class="s-3"></div>
-{% endhighlight %}
+```
 
 Spacers hold not content, they are just put into the document to sit between elements in a vertical flow.

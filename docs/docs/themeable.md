@@ -14,7 +14,7 @@ When you see the
   </a>
 </span> badge it means the component has the following classes that you can use color the component. Just like Bootstrap, the convention is `{component}-{theme-color}`.
 
-{% highlight html %}
+```html
 {component}-primary
 {component}-secondary
 {component}-success
@@ -23,7 +23,7 @@ When you see the
 {component}-info
 {component}-light
 {component}-dark
-{% endhighlight %}
+```
 
 Bootstrap Email uses the same default color scheme that Bootstrap 4 does.
 <div class="themable-example text-white bg-primary">primary</div>

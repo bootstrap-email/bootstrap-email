@@ -12,7 +12,7 @@ Use a button on an anchor tag to link out of an email.
   <strong>Note:</strong> Only to be used with anchor `&lt;a&gt;` tag.
 </div>
 
-{% highlight html %}
+```html
 <a class="btn btn-primary" href="https://bootstrapemail.com">Primary</a>
 <a class="btn btn-secondary" href="https://bootstrapemail.com">Secondary</a>
 <a class="btn btn-success" href="https://bootstrapemail.com">Success</a>
@@ -21,7 +21,7 @@ Use a button on an anchor tag to link out of an email.
 <a class="btn btn-info" href="https://bootstrapemail.com">Info</a>
 <a class="btn btn-light" href="https://bootstrapemail.com">Light</a>
 <a class="btn btn-dark" href="https://bootstrapemail.com">Dark</a>
-{% endhighlight %}
+```
 
 <a href="#" class="btn btn-primary">Primary</a>
 <a href="#" class="btn btn-secondary">Secondary</a>
@@ -37,10 +37,10 @@ Use a button on an anchor tag to link out of an email.
 </div>
 
 ## Sizes
-{% highlight html %}
+```html
 <a class="btn btn-primary btn-lg" href="https://bootstrapemail.com">Large button</a>
 <a class="btn btn-secondary btn-lg" href="https://bootstrapemail.com">Large button</a>
-{% endhighlight %}
+```
 
 <a href="#" class="btn btn-primary btn-lg">Large button</a>
 <a href="#" class="btn btn-secondary btn-lg">Large button</a>

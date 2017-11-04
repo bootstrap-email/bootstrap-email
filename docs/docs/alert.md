@@ -8,7 +8,7 @@ responsive: false
 
 Alerts are good for bringing attention to something like an notice or some sort of warning.
 
-{% highlight html %}
+```html
 <div class="alert alert-primary">
   This is a primary alert—check it out!
 </div>
@@ -33,7 +33,7 @@ Alerts are good for bringing attention to something like an notice or some sort 
 <div class="alert alert-dark">
   This is a dark alert—check it out!
 </div>
-{% endhighlight %}
+```
 
 <div class="alert alert-primary">
   This is a primary alert—check it out!

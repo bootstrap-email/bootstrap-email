@@ -10,7 +10,7 @@ The table component has all the following classes. Even `.table-striped`!
 
  `.table`, `.table-striped`,`.table-bordered`, `.thead-light`, `.thead-dark`, `.table-{theme-color}`, `.table-dark`
 
-{% highlight html %}
+```html
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -35,7 +35,8 @@ The table component has all the following classes. Even `.table-striped`!
     </tr>
   </tbody>
 </table>
-{% endhighlight %}
+```
+
 <table class="table">
   <thead class="thead-light">
     <tr>

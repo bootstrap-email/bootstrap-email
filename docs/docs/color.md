@@ -9,7 +9,7 @@ responsive: false
 Since emails render mostly consistently with tables, many of the components are built into tables. These color classes apply to the current element as well as the child `&lg;td&gt;` so you can use it on a component it will still work if the component is compiled into a table.
 
 ## Text Color
-{% highlight html %}
+```html
 <p class="text-primary">.text-primary</p>
 <p class="text-secondary">.text-secondary</p>
 <p class="text-success">.text-success</p>
@@ -20,7 +20,7 @@ Since emails render mostly consistently with tables, many of the components are 
 <p class="text-dark">.text-dark</p>
 <p class="text-muted">.text-muted</p>
 <p class="text-white bg-dark">.text-white</p>
-{% endhighlight %}
+```
 
 <p class="text-primary">.text-primary</p>
 <p class="text-secondary">.text-secondary</p>
@@ -34,7 +34,7 @@ Since emails render mostly consistently with tables, many of the components are 
 <p class="text-white bg-dark">.text-white</p>
 
 ## Background Color
-{% highlight html %}
+```html
 <div class="bg-primary text-white">.bg-primary</div>
 <div class="bg-secondary text-white">.bg-secondary</div>
 <div class="bg-success text-white">.bg-success</div>
@@ -44,7 +44,7 @@ Since emails render mostly consistently with tables, many of the components are 
 <div class="bg-light text-dark">.bg-light</div>
 <div class="bg-dark text-white">.bg-dark</div>
 <div class="bg-white text-dark">.bg-white</div>
-{% endhighlight %}
+```
 
 <div class="bg-primary text-white">.bg-primary</div>
 <div class="bg-secondary text-white">.bg-secondary</div>

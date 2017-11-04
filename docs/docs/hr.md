@@ -8,7 +8,7 @@ responsive: false
 
 Add a horizontal rule to separate content. A consistent one that works and looks good in all email clients.
 
-{% highlight html %}
+```html
 <hr>
-{% endhighlight %}
+```
 <hr>
