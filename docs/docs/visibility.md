@@ -6,14 +6,8 @@ responsive: true
 ---
 {% include doc-header.html %}
 
-Floating left or right wraps the content in a table that left or right aligns it.
+There are two visibility classes you can apply to elements to show or hide it on a mobile vs desktop device. These are different than how this works in Bootstrap.
 
-{% highlight html %}
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-{% endhighlight %}
+`.d-desktop` will show an element on desktop and hide it on mobile.
 
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
+`.d-mobile` will show an element on mobile and hide it on desktop.

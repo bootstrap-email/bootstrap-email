@@ -6,13 +6,13 @@
       <aside>
         <small>Getting Started</small>
         <ul>
-          <li><a href="#">Introduction</a></li>
-          <li><a href="#">Setup</a></li>
-          <li><a href="#">Rails</a></li>
-          <li><a href="#">Laravel</a></li>
-          <li><a href="#">Node</a></li>
-          <li><a href="/docs/themeable">Themeable</a></li>
-          <li><a href="/docs/responsive">Responsive</a></li>
+          <li><a class="{% if page.title == "Introduction" %}active{% endif %}" href="/docs/introduction">Introduction</a></li>
+          <li><a class="{% if page.title == "Setup" %}active{% endif %}" href="#">Setup</a></li>
+          <!-- <li><a class="{% if page.title == "Alert" %}active{% endif %}" href="#">Rails</a></li> -->
+          <!-- <li><a class="{% if page.title == "Alert" %}active{% endif %}" href="#">Laravel</a></li> -->
+          <!-- <li><a class="{% if page.title == "Alert" %}active{% endif %}" href="#">Node</a></li> -->
+          <li><a class="{% if page.title == "Alert" %}active{% endif %}" href="/docs/themeable">Themeable</a></li>
+          <li><a class="{% if page.title == "Alert" %}active{% endif %}" href="/docs/responsive">Responsive</a></li>
         </ul>
         <small>Components</small>
         <ul>
