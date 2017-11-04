@@ -2,7 +2,7 @@ class ActionMailer::Base
 
   # sit in the middle and compile the html
   def bootstrap_mail *args
-    bootstrap = BootstrapEmail::Compiler.new(mail(*args))
+    bootstrap = BootstrapEmail::Compiler.new(mail(*args) { |format| format.html { render layout: 'layouts/bootstrap-mailer.html.erb' } } )
     bootstrap.compile_html!
     bootstrap.update_mailer!
   end
