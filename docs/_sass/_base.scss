@@ -1,0 +1,146 @@
+html, body{
+  font-family: 'Open Sans', sans-serif;
+  font-family: aktiv-grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+  font-size: 16px;
+}
+
+header{
+  color: white;
+  padding: 20px;
+}
+
+.bg-primary-docs{
+  background-color: #6f42c1 !important;
+}
+
+aside{
+  small{
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #b5b9bd;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  ul{
+    padding-left: 0;
+    li{
+      list-style: none;
+      font-size: 1rem;
+      margin: 0.25rem 0;
+      &:hover,
+      &.active{
+        background-color: white;
+        border-radius: 4px;
+        a{
+          color: black;
+          text-decoration: none;
+        }
+      }
+
+      a{
+        color: #868e96;
+        padding: 0.25rem 0.5rem;
+        display: block;
+      }
+    }
+  }
+
+}
+
+.card-docs{
+  box-shadow: 2px 3px 0px #f1f1f1;
+  border-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.device-container{
+  background: white;
+}
+
+.why-pressure-item{
+  width: 100%;
+  border: 1px solid #eee;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.why-pressure-item img{
+  max-width: 100px;
+  padding-bottom: 1rem;
+}
+
+.doc-section{
+  border: 5px solid #f7f7f9;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+.twitter-share-button{
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.doc-top{
+  padding: 10px;
+}
+
+.doc-title{
+  font-weight: 600 !important;
+  margin-bottom: 0.6rem;
+}
+
+small{
+  font-size: 0.75rem;
+}
+
+pre{
+  padding: 1rem;
+}
+
+.social-buttons{
+  display: table;
+  margin: 10px auto 20px auto;
+  position: relative;
+}
+
+footer{
+  padding: 20px 0;
+  border-top: 1px solid #f7f7f9;
+}
+
+.compatability-badge{
+  color: #333333;
+  border: 1px solid #dae4e9;
+  background-color: #fafcfc;
+  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  margin: 1rem 0 0 1rem;
+  display: block;
+  .badge-check{
+    background-color: #51d88a;
+    border-radius: 9999px;
+    margin-right: 0.25rem;
+    width: 16px;
+    height: 16px;
+    img{
+      color: white;
+    }
+  }
+  &.disabled{
+    opacity: .5;
+    .badge-check{
+      background-color: #9babb4;
+    }
+  }
+}
+
+.highlight{
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}

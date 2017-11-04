@@ -1,0 +1,45 @@
+{% include open-html.html body_class='bg-light'%}
+{% include navbar.html active='documentation' %}
+<div class="container pt-2">
+  <div class="row">
+    <div class="col-sm-2 p-4">
+      <aside>
+        <small>Getting Started</small>
+        <ul>
+          <li><a href="#">Introduction</a></li>
+          <li><a href="#">Setup</a></li>
+          <li><a href="#">Rails</a></li>
+          <li><a href="#">Laravel</a></li>
+          <li><a href="#">Node</a></li>
+          <li><a href="/docs/themeable">Themeable</a></li>
+          <li><a href="/docs/responsive">Responsive</a></li>
+        </ul>
+        <small>Components</small>
+        <ul>
+          <li class="{% if page.title == "Alert" %}active{% endif %}"><a href="/docs/alert">Alert</a></li>
+          <li class="{% if page.title == "Badge" %}active{% endif %}"><a href="/docs/badge">Badge</a></li>
+          <li class="{% if page.title == "Button" %}active{% endif %}"><a href="/docs/button">Button</a></li>
+          <li class="{% if page.title == "Card" %}active{% endif %}"><a href="/docs/card">Card</a></li>
+          <li class="{% if page.title == "Color" %}active{% endif %}"><a href="/docs/color">Color</a></li>
+          <li class="{% if page.title == "Container" %}active{% endif %}"><a href="/docs/container">Container</a></li>
+          <li class="{% if page.title == "Float" %}active{% endif %}"><a href="/docs/float">Float</a></li>
+          <li class="{% if page.title == "Grid" %}active{% endif %}"><a href="/docs/grid">Grid</a></li>
+          <li class="{% if page.title == "Hr" %}active{% endif %}"><a href="/docs/hr">Hr</a></li>
+          <li class="{% if page.title == "Spacing" %}active{% endif %}"><a href="/docs/spacing">Spacing</a></li>
+          <li class="{% if page.title == "Table" %}active{% endif %}"><a href="/docs/table">Table</a></li>
+          <li class="{% if page.title == "Typography" %}active{% endif %}"><a href="/docs/typography">Typography</a></li>
+          <li class="{% if page.title == "Visibility" %}active{% endif %}"><a href="/docs/visibility">Visibility</a></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-10 p-4">
+      <div class="card card-docs">
+        <div class="card-body">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include footer.html %}
+{% include close-html.html %}
