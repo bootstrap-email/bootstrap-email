@@ -6,7 +6,7 @@ responsive: false
 ---
 {% include doc-header.html %}
 
-Since emails render mostly consistently with tables, many of the components are built into tables. These color classes apply to the current element as well as the child <code>&lg;td&gt;</code> so you can use it on a component it will still work if the component is compiled into a table.
+Since emails render mostly consistently with tables, many of the components are built into tables. These color classes apply to the current element as well as the child `&lg;td&gt;` so you can use it on a component it will still work if the component is compiled into a table.
 
 ## Text Color
 {% highlight html %}

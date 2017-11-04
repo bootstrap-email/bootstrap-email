@@ -6,14 +6,57 @@ responsive: false
 ---
 {% include doc-header.html %}
 
-Floating left or right wraps the content in a table that left or right aligns it.
+The table component has all the following classes. Even `.table-striped`!
+
+ `.table`, `.table-striped`,`.table-bordered`, `.thead-light`, `.thead-dark`, `.table-{theme-color}`, `.table-dark`
 
 {% highlight html %}
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Stuart</td>
+      <td>Yam</td>
+      <td>@StuYam</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Who</td>
+      <td>You</td>
+      <td>@?!</td>
+    </tr>
+  </tbody>
+</table>
 {% endhighlight %}
-
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Stuart</td>
+      <td>Yam</td>
+      <td>@StuYam</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Who</td>
+      <td>You</td>
+      <td>@?!</td>
+    </tr>
+  </tbody>
+</table>

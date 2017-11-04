@@ -7,7 +7,7 @@ responsive: false
 {% include doc-header.html %}
 
 There is two types of spacing Bootstrap Email supports. Padding (applied to the inside of table cells) and Margin (in the form of vertical spacers).
-Just like Bootstrap there are the <code>.p{side}-{size}</code> and similarly for margin helpers.
+Just like Bootstrap there are the `.p{side}-{size}`and similarly for margin helpers.
 
 List of supported classes:
 {% highlight css %}

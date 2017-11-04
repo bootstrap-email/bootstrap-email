@@ -12,7 +12,7 @@ When you see the
     </span>
     <span>Themeable</span>
   </a>
-</span> badge it means the component has the following classes that you can use color the component. Just like Bootstrap, the convention is <code>{component}-{theme-color}<code>.
+</span> badge it means the component has the following classes that you can use color the component. Just like Bootstrap, the convention is `{component}-{theme-color}`.
 
 {% highlight html %}
 {component}-primary

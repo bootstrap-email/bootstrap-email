@@ -9,18 +9,18 @@ responsive: false
 Use a button on an anchor tag to link out of an email.
 
 <div class="alert alert-info">
-  <strong>Note:</strong> Only to be used with anchor <code>&lt;a&gt;</code> tag.
+  <strong>Note:</strong> Only to be used with anchor `&lt;a&gt;` tag.
 </div>
 
 {% highlight html %}
-<a href="https://bootstrapemail.com" class="btn btn-primary">Primary</a>
-<a href="https://bootstrapemail.com" class="btn btn-secondary">Secondary</a>
-<a href="https://bootstrapemail.com" class="btn btn-success">Success</a>
-<a href="https://bootstrapemail.com" class="btn btn-danger">Danger</a>
-<a href="https://bootstrapemail.com" class="btn btn-warning">Warning</a>
-<a href="https://bootstrapemail.com" class="btn btn-info">Info</a>
-<a href="https://bootstrapemail.com" class="btn btn-light">Light</a>
-<a href="https://bootstrapemail.com" class="btn btn-dark">Dark</a>
+<a class="btn btn-primary" href="https://bootstrapemail.com">Primary</a>
+<a class="btn btn-secondary" href="https://bootstrapemail.com">Secondary</a>
+<a class="btn btn-success" href="https://bootstrapemail.com">Success</a>
+<a class="btn btn-danger" href="https://bootstrapemail.com">Danger</a>
+<a class="btn btn-warning" href="https://bootstrapemail.com">Warning</a>
+<a class="btn btn-info" href="https://bootstrapemail.com">Info</a>
+<a class="btn btn-light" href="https://bootstrapemail.com">Light</a>
+<a class="btn btn-dark" href="https://bootstrapemail.com">Dark</a>
 {% endhighlight %}
 
 <a href="#" class="btn btn-primary">Primary</a>
@@ -38,8 +38,8 @@ Use a button on an anchor tag to link out of an email.
 
 ## Sizes
 {% highlight html %}
-<a href="https://bootstrapemail.com" class="btn btn-primary btn-lg">Large button</a>
-<a href="https://bootstrapemail.com" class="btn btn-secondary btn-lg">Large button</a>
+<a class="btn btn-primary btn-lg" href="https://bootstrapemail.com">Large button</a>
+<a class="btn btn-secondary btn-lg" href="https://bootstrapemail.com">Large button</a>
 {% endhighlight %}
 
 <a href="#" class="btn btn-primary btn-lg">Large button</a>
