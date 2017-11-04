@@ -2,8 +2,9 @@
 {% include navbar.html active='documentation' %}
 <div class="container pt-2">
   <div class="row">
-    <div class="col-sm-2 p-4">
-      <aside>
+    <div class="col-md-2 pt-3 px-4 p-md-4">
+      <a aria-controls="collapseDocsNav" aria-expanded="false" class="btn btn-secondary w-100 d-md-none collapsed" data-toggle="collapse" href="#collapseDocsNav">Menu</a>
+      <aside class="d-md-block collapse pt-3 pt-md-0" id="collapseDocsNav">
         <small>Getting Started</small>
         <ul>
           <li><a class="{% if page.title == "Introduction" %}active{% endif %}" href="/docs/introduction">Introduction</a></li>
@@ -32,7 +33,7 @@
         </ul>
       </aside>
     </div>
-    <div class="col-sm-10 p-4">
+    <div class="col-md-10 p-4">
       <div class="card card-docs">
         <div class="card-body">
           {{ content }}
