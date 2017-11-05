@@ -54,8 +54,8 @@ gem 'bootstrap-email'
 Rails.application.config.assets.precompile += %w( application-mailer.scss )
 ```
 
+#### Usage
 Thats it! Now all you need to do to use it instead of using the `mail()` method, you use the `bootstrap_mail()` method to kick off Bootstrap Email compilation!
-##### Example
 
 ```ruby
 class ExampleMailer < ApplicationMailer

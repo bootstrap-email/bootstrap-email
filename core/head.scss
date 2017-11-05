@@ -1,0 +1,209 @@
+// This file will be placed in the head of the document and will not be inlined
+$spacer: 16px;
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3)
+) !default;
+
+// Forces Outlook.com to display emails at full width
+.ExternalClass {
+  width: 100%;
+}
+
+// Forces Outlook.com to display normal line spacing, here is more on that: http://www.emailonacid.com/forum/viewthread/43/
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+  line-height: 150%;
+}
+
+.imageFix {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  //  Grid
+  table.row {
+    th.col-lg-1,
+    th.col-lg-2,
+    th.col-lg-3,
+    th.col-lg-4,
+    th.col-lg-5,
+    th.col-lg-6,
+    th.col-lg-7,
+    th.col-lg-8,
+    th.col-lg-9,
+    th.col-lg-10,
+    th.col-lg-11,
+    th.col-lg-12{
+      display: block;
+      width: 100% !important;
+    }
+  }
+
+  // Display
+  .d-mobile {
+    display: block !important;
+  }
+  .d-desktop {
+    display: none !important;
+  }
+
+  // Spacing
+  // Reset large padding to 0 on small device
+  @each $size, $length in $spacers {
+    .p-lg-#{$size} {
+      & > tbody > tr > td {
+        padding: 0 !important;
+      }
+    }
+    .pt-lg-#{$size},
+    .py-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-top: 0 !important;
+      }
+    }
+    .pr-lg-#{$size},
+    .px-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-right: 0 !important;
+      }
+    }
+    .pb-lg-#{$size},
+    .py-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-right: 0 !important;
+      }
+    }
+    .pl-lg-#{$size},
+    .px-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-right: 0 !important;
+      }
+    }
+  }
+
+  // set proper padding on small devices
+  @each $size, $length in $spacers {
+    .p-#{$size} {
+      & > tbody > tr > td {
+        padding: $length !important;
+      }
+    }
+    .pt-#{$size},
+    .py-#{$size} {
+      & > tbody > tr > td {
+        padding-top: $length !important;
+      }
+    }
+    .pr-#{$size},
+    .px-#{$size} {
+      & > tbody > tr > td {
+        padding-right: $length !important;
+      }
+    }
+    .pb-#{$size},
+    .py-#{$size} {
+      & > tbody > tr > td {
+        padding-right: $length !important;
+      }
+    }
+    .pl-#{$size},
+    .px-#{$size} {
+      & > tbody > tr > td {
+        padding-right: $length !important;
+      }
+    }
+  }
+
+  .s-lg-1,
+  .s-lg-2,
+  .s-lg-3,
+  .s-lg-4,
+  .s-lg-5,
+  .s-lg-1 > tbody > tr > td,
+  .s-lg-2 > tbody > tr > td,
+  .s-lg-3 > tbody > tr > td,
+  .s-lg-4 > tbody > tr > td,
+  .s-lg-5 > tbody > tr > td {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    height: 0 !important;
+  }
+
+  @each $size, $length in $spacers {
+    .s-#{$size},
+    .s-#{$size} > tbody > tr > td {
+      font-size: $length !important;
+      line-height: $length !important;
+      height: $length !important;
+    }
+  }
+
+}
+
+// Yahoo specific media query to revert above
+@media yahoo {
+  // Display
+  .d-mobile {
+    display: none !important;
+  }
+  .d-desktop {
+    display: block !important;
+  }
+
+  // Spacing
+  // Set proper spacing again on Yahoo
+  @each $size, $length in $spacers {
+    .p-lg-#{$size} {
+      & > tbody > tr > td {
+        padding: $length !important;
+      }
+    }
+    .pt-lg-#{$size},
+    .py-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-top: $length !important;
+      }
+    }
+    .pr-lg-#{$size},
+    .px-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-right: $length !important;
+      }
+    }
+    .pb-lg-#{$size},
+    .py-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-right: $length !important;
+      }
+    }
+    .pl-lg-#{$size},
+    .px-lg-#{$size} {
+      & > tbody > tr > td {
+        padding-right: $length !important;
+      }
+    }
+  }
+
+  @each $size, $length in $spacers {
+    .s-lg-#{$size},
+    .s-lg-#{$size} > tbody > tr > td {
+      font-size: $length !important;
+      line-height: $length !important;
+      height: $length !important;
+    }
+  }
+
+}

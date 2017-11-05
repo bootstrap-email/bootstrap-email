@@ -15,7 +15,7 @@ $gray-600: #868e96 !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:  #000 !default;
+$black:  #000000 !default;
 
 $grays: (
   100: $gray-100,
@@ -57,12 +57,12 @@ $colors: (
 ) !default;
 
 $theme-colors: (
-  primary: #ff00bf, //$blue,
+  primary: $blue,
   secondary: $gray-600,
   success: $green,
-  info: $cyan,
-  warning: $yellow,
   danger: $red,
+  warning: $yellow,
+  info: $cyan,
   light: $gray-100,
   dark: $gray-800
 ) !default;

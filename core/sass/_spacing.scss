@@ -33,39 +33,52 @@
   height: 100%;
 }
 
-.mw-100 {
-  max-width: 100%;
-}
-
-.mh-100 {
-  max-height: 100%;
+@each $size, $length in $spacers {
+  .p-#{$size},
+  .p-lg-#{$size} {
+    & > tbody > tr > td {
+      padding: $length;
+    }
+  }
+  .pt-#{$size},
+  .py-#{$size},
+  .pt-lg-#{$size},
+  .py-lg-#{$size} {
+    & > tbody > tr > td {
+      padding-top: $length;
+    }
+  }
+  .pr-#{$size},
+  .px-#{$size},
+  .pr-lg-#{$size},
+  .px-lg-#{$size} {
+    & > tbody > tr > td {
+      padding-right: $length;
+    }
+  }
+  .pb-#{$size},
+  .py-#{$size},
+  .pb-lg-#{$size},
+  .py-lg-#{$size} {
+    & > tbody > tr > td {
+      padding-right: $length;
+    }
+  }
+  .pl-#{$size},
+  .px-#{$size},
+  .pl-lg-#{$size},
+  .px-lg-#{$size} {
+    & > tbody > tr > td {
+      padding-right: $length;
+    }
+  }
 }
 
 @each $size, $length in $spacers {
-  .p-#{$size} > tbody > tr > td  {
-    padding: $length;
-  }
-  .pt-#{$size} > tbody > tr > td,
-  .py-#{$size} > tbody > tr > td {
-    padding-top: $length;
-  }
-  .pr-#{$size} > tbody > tr > td,
-  .px-#{$size} > tbody > tr > td {
-    padding-right: $length;
-  }
-  .pb-#{$size} > tbody > tr > td,
-  .py-#{$size} > tbody > tr > td {
-    padding-bottom: $length;
-  }
-  .pl-#{$size} > tbody > tr > td,
-  .px-#{$size} > tbody > tr > td {
-    padding-left: $length;
-  }
-}
-
- @each $size, $length in $spacers {
   .s-#{$size},
-  .s-#{$size} > tbody > tr > td {
+  .s-lg-#{$size},
+  .s-#{$size} > tbody > tr > td,
+  .s-lg-#{$size} > tbody > tr > td {
     font-size: $length;
     line-height: $length;
     height: $length;

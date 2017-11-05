@@ -127,16 +127,16 @@ module BootstrapEmail
 
     def margin
       each_node('*[class*=m-], *[class*=mt-], *[class*=mb-]') do |node|
-        top_class = node['class'][/m[t]?-(\d)/]
-        bottom_class = node['class'][/m[b]?-(\d)/]
-        node['class'] = node['class'].gsub(/(m[trblxy]?-\d)/, '')
+        top_class = node['class'][/m[t]?-(lg-)?(\d)/]
+        bottom_class = node['class'][/m[b]?-(lg-)?(\d)/]
+        node['class'] = node['class'].gsub(/(m[tby]?-(lg-)?\d)/, '')
         html = ''
         if top_class
-          html += build_from_template('div', {classes: "s-#{top_class.gsub(/m[t]?-/, '')}", contents: nil})
+          html += build_from_template('div', {classes: "s-#{top_class.gsub(/m[ty]?-/, '')}", contents: nil})
         end
         html += node.to_html
         if bottom_class
-          html += build_from_template('div', {classes: "s-#{bottom_class.gsub(/m[b]?-/, '')}", contents: nil})
+          html += build_from_template('div', {classes: "s-#{bottom_class.gsub(/m[by]?-/, '')}", contents: nil})
         end
         node.replace(html)
       end

@@ -12,7 +12,7 @@ class ActionMailer::Base
     def bootstrap_email_head
       html_string = <<-HEREDOC
         <style type="text/css" data-premailer="ignore">
-          #{File.open(File.expand_path('../../core/head.css', __dir__)).read}
+          #{Sass::Engine.new(File.open(File.expand_path('../../core/head.scss', __dir__)).read, {syntax: :scss, cache: false, read_cache: false}).render}
         </style>
       HEREDOC
       html_string.html_safe

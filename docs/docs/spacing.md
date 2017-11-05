@@ -2,7 +2,7 @@
 layout: docs
 title:  "Spacing"
 themeable: false
-responsive: false
+responsive: true
 ---
 {% include doc-header.html %}
 
@@ -27,6 +27,10 @@ List of supported classes:
 ```
 
 Note: Margin is only supported on the top and bottom.
+
+<div class="alert alert-info">
+  <strong>Neato!</strong> All of the above classes are responsive so putting `mt-1 mt-lg-3` on a element with have a spacing of 1 on mobile and a spacing of 3 on desktop.
+</div>
 
 ### Padding
 ```html
