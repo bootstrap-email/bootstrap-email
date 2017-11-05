@@ -28,11 +28,13 @@ aside{
     li{
       list-style: none;
       font-size: 1rem;
-      margin: 0.25rem 0;
+      margin: 0.1rem 0;
       &:hover,
       &.active{
         background-color: white;
         border-radius: 4px;
+        box-shadow: 2px 3px 0px #f1f1f1;
+        border-color: #f1f1f1;
         a{
           color: black;
           text-decoration: none;
