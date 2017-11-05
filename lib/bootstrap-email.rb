@@ -127,9 +127,9 @@ module BootstrapEmail
 
     def margin
       each_node('*[class*=m-], *[class*=mt-], *[class*=mb-]') do |node|
-        top_class = node['class'][/m[t]?-(lg-)?(\d)/]
-        bottom_class = node['class'][/m[b]?-(lg-)?(\d)/]
-        node['class'] = node['class'].gsub(/(m[tby]?-(lg-)?\d)/, '')
+        top_class = node['class'][/m[ty]{1}-(lg-)?(\d)/]
+        bottom_class = node['class'][/m[by]{1}-(lg-)?(\d)/]
+        node['class'] = node['class'].gsub(/(m[tby]{1}-(lg-)?\d)/, '')
         html = ''
         if top_class
           html += build_from_template('div', {classes: "s-#{top_class.gsub(/m[ty]?-/, '')}", contents: nil})
