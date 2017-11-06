@@ -56,15 +56,24 @@ $colors: (
   gray-dark: $gray-800
 ) !default;
 
+$theme-primary: $blue !default;
+$theme-secondary: $gray-600 !default;
+$theme-success: $green !default;
+$theme-danger: $red !default;
+$theme-warning: $yellow !default;
+$theme-info: $cyan !default;
+$theme-light: $gray-100 !default;
+$theme-dark: $gray-800 !default;
+
 $theme-colors: (
-  primary: $blue,
-  secondary: $gray-600,
-  success: $green,
-  danger: $red,
-  warning: $yellow,
-  info: $cyan,
-  light: $gray-100,
-  dark: $gray-800
+  primary: $theme-primary,
+  secondary: $theme-secondary,
+  success: $theme-success,
+  danger: $theme-danger,
+  warning: $theme-warning,
+  info: $theme-info,
+  light: $theme-light,
+  dark: $theme-dark
 ) !default;
 
 $spacer: $font-size-base;
