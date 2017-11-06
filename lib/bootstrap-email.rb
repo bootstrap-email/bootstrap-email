@@ -37,10 +37,10 @@ module BootstrapEmail
 
     private
 
-    def build_from_template template, locals_hash = {}
+    def template file, locals_hash = {}
       namespace = OpenStruct.new(locals_hash)
-      template = File.open(File.expand_path("../core/templates/#{template}.html.erb", __dir__)).read
-      ERB.new(template).result(namespace.instance_eval { binding })
+      template_html = File.open(File.expand_path("../core/templates/#{file}.html.erb", __dir__)).read
+      ERB.new(template_html).result(namespace.instance_eval { binding })
     end
 
     def each_node css_lookup, &blk
@@ -50,67 +50,67 @@ module BootstrapEmail
 
     def button
       each_node('.btn') do |node| # move all classes up and remove all classes from the element
-        node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def badge
       each_node('.badge') do |node| # move all classes up and remove all classes from the element
-        node.replace(build_from_template('table-left', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table-left', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def alert
       each_node('.alert') do |node| # move all classes up and remove all classes from the element
-        node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def align
       each_node('.align-left, .float-left') do |node| # align table and move contents
         node['class'] = node['class'].sub(/(align-left)|(float-left)/, '')
-        node.replace(build_from_template('align-left', {contents: node.to_html}))
+        node.replace(template('align-left', {contents: node.to_html}))
       end
       each_node('.align-center') do |node| # align table and move contents
         node['class'] = node['class'].sub(/(align-center)|(mx-auto)/, '')
-        node.replace(build_from_template('align-center', {contents: node.to_html}))
+        node.replace(template('align-center', {contents: node.to_html}))
       end
       each_node('.align-right') do |node| # align table and move contents
         node['class'] = node['class'].sub(/(align-right)|(float-right)/, '')
-        node.replace(build_from_template('align-right', {contents: node.to_html}))
+        node.replace(template('align-right', {contents: node.to_html}))
       end
     end
 
     def card
       each_node('.card') do |node| # move all classes up and remove all classes from element
-        node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
       each_node('.card-body') do |node| # move all classes up and remove all classes from element
-        node.replace(build_from_template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
       end
     end
 
     def hr
       each_node('hr') do |node| # drop hr in place of current
-        node.replace(build_from_template('hr', {classes: "hr #{node['class']}"}))
+        node.replace(template('hr', {classes: "hr #{node['class']}"}))
       end
     end
 
     def container
       each_node('.container') do |node|
-        node.replace(build_from_template('container', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('container', {classes: node['class'], contents: node.inner_html}))
       end
       each_node('.container-fluid') do |node|
-        node.replace(build_from_template('table', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('table', {classes: node['class'], contents: node.inner_html}))
       end
     end
 
     def grid
       each_node('.row') do |node|
-        node.replace(build_from_template('row', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('row', {classes: node['class'], contents: node.inner_html}))
       end
       each_node('*[class*=col]') do |node|
-        node.replace(build_from_template('col', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('col', {classes: node['class'], contents: node.inner_html}))
       end
     end
 
@@ -120,7 +120,7 @@ module BootstrapEmail
           padding_regex = /(p[trblxy]?-\d)/
           classes = node['class'].scan(padding_regex).join(' ')
           node['class'] = node['class'].gsub(padding_regex, '')
-          node.replace(build_from_template('table', {classes: classes, contents: node.to_html}))
+          node.replace(template('table', {classes: classes, contents: node.to_html}))
         end
       end
     end
@@ -132,11 +132,11 @@ module BootstrapEmail
         node['class'] = node['class'].gsub(/(m[tby]{1}-(lg-)?\d)/, '')
         html = ''
         if top_class
-          html += build_from_template('div', {classes: "s-#{top_class.gsub(/m[ty]?-/, '')}", contents: nil})
+          html += template('div', {classes: "s-#{top_class.gsub(/m[ty]?-/, '')}", contents: nil})
         end
         html += node.to_html
         if bottom_class
-          html += build_from_template('div', {classes: "s-#{bottom_class.gsub(/m[by]?-/, '')}", contents: nil})
+          html += template('div', {classes: "s-#{bottom_class.gsub(/m[by]?-/, '')}", contents: nil})
         end
         node.replace(html)
       end
@@ -144,7 +144,7 @@ module BootstrapEmail
 
     def spacer
       each_node('*[class*=s-]') do |node|
-        node.replace(build_from_template('table', {classes: node['class'] + ' w-100', contents: "&#xA0;"}))
+        node.replace(template('table', {classes: node['class'] + ' w-100', contents: "&#xA0;"}))
       end
     end
 
@@ -159,7 +159,7 @@ module BootstrapEmail
 
     def body
       @doc.css('body').each do |node|
-        node.replace( '<body>' + preview_text + build_from_template('table', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
+        node.replace( '<body>' + preview_text + template('table', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
       end
     end
 
@@ -168,7 +168,7 @@ module BootstrapEmail
       if preview_node
         # apply spacing after the text max of 100 characters so it doesn't show body text
         # preview_node.content += (100 - preview_node.content.length.to_i) * "&nbsp;"
-        node = build_from_template('div', {classes: 'preview', contents: preview_node.content})
+        node = template('div', {classes: 'preview', contents: preview_node.content})
         preview_node.remove
         return node
       end
