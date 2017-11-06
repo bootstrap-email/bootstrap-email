@@ -34,7 +34,6 @@ Bootstrap Email uses the same default color scheme that Bootstrap 4 does.
 <div class="themable-example text-white bg-info">info</div>
 <div class="themable-example bg-light">light</div>
 <div class="themable-example text-white bg-dark">dark</div>
-<div class="themable-example bg-white">white</div>
 
 <style>
   .themable-example{
@@ -47,3 +46,21 @@ Bootstrap Email uses the same default color scheme that Bootstrap 4 does.
     text-align: center;
   }
 </style>
+
+### Customize Theme
+
+Bootstrap Email makes is really easy to customize the theme colors. You can override each color in your sass file before the `bootstrap-email` import:
+```scss
+$theme-primary: #007bff;
+$theme-secondary: #868e96;
+$theme-success: #28a745;
+$theme-danger: #dc3545;
+$theme-warning: #ffc107;
+$theme-info: #17a2b8;
+$theme-light: #f8f9fa;
+$theme-dark: #343a40;
+
+@import 'bootstrap-email';
+```
+
+Note: These are the current defaults for the theme colors.

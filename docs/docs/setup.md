@@ -45,7 +45,7 @@ gem 'bootstrap-email'
 3: Create a new stylesheet `/app/assets/stylesheets/application-mailer.scss` and import `bootstrap-email`. This is where your custom styles and overrides that you want to be inlined should live.
 
 ```sass
-@import 'bootstrap-email'
+@import 'bootstrap-email';
 ```
 
 4: Add this line in `/config/initializers/asset.rb` to compile your new SASS file.
@@ -54,7 +54,7 @@ gem 'bootstrap-email'
 Rails.application.config.assets.precompile += %w( application-mailer.scss )
 ```
 
-#### Usage
+### Usage
 Thats it! Now all you need to do to use it instead of using the `mail()` method, you use the `bootstrap_mail()` method to kick off Bootstrap Email compilation!
 
 ```ruby

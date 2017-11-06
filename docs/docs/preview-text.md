@@ -12,3 +12,7 @@ Bootstrap Email has a custom `<preview>` tag you can use to define preview text 
 ```html
 <preview>This text will show up as a preview but not in the email!</preview>
 ```
+
+The message will also be padded with `&nbsp;` at the end of the message so that if you have a short preview text the contents of the email will not flow into the inbox preview.
+
+Note: This element will be moved to just under the `<body>` tag when compiled. I would suggest keeping it in the top of your document for your sake but it can really be anywhere.
