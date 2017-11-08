@@ -1,14 +1,6 @@
 // Width Helper
-@each $size, $percentage in $width {
-  .w-#{$size} {
-    width: $percentage;
-    & > tbody > tr > td {
-      width: $percentage;
-    }
-  }
-}
-
-@each $size, $percentage in $width {
+@each $size, $percentage in $widths {
+  .w-#{$size},
   .w-lg-#{$size} {
     width: $percentage;
     & > tbody > tr > td {

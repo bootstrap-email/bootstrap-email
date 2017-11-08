@@ -68,7 +68,7 @@ a {
   }
 
   // Width
-  @each $size, $percentage in $width {
+  @each $size, $percentage in $widths {
     .w-lg-#{$size} {
       width: auto !important;
       & > tbody > tr > td {
@@ -76,7 +76,7 @@ a {
       }
     }
   }
-  @each $size, $percentage in $width {
+  @each $size, $percentage in $widths {
     .w-#{$size} {
       width: $percentage !important;
       & > tbody > tr > td {
@@ -190,7 +190,7 @@ a {
   }
 
   // Width
-  @each $size, $percentage in $width {
+  @each $size, $percentage in $widths {
     .w-lg-#{$size} {
       width: $percentage !important;
       & > tbody > tr > td {

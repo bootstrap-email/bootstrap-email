@@ -6,6 +6,7 @@
 
 .btn td {
   border-radius: 4px;
+  text-align: center;
 }
 
 .btn td a {
@@ -14,7 +15,6 @@
   text-decoration: none;
   border-radius: 4px;
   padding: 8px 12px;
-  text-align: center;
   line-height: 1.25 * $font-size-base;
   border: 1px solid #e9703e;
   display: inline-block;
