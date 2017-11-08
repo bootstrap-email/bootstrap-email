@@ -8,21 +8,21 @@ This project is still under development and looking for contributors willing to 
 
 ## Supported Bootstrap Classes
 <small>(color) in these examples is `primary`, `secondary`, `success`, `warning`, `danger`, `light`, and `dark`</small>
-- [Alerts](https://getbootstrap.com/docs/4.0/components/alerts/): `.alert`, `.alert-{color}`
-- [Badges](https://getbootstrap.com/docs/4.0/components/badge/): `.badge`, `.badge-{color}`, `.badge-pill`
-- [Buttons](https://getbootstrap.com/docs/4.0/components/buttons/): `.btn`, `.btn-{color}`, `.btn-outline-{color}`
-- [Cards](https://getbootstrap.com/docs/4.0/components/card/): `.card`, `.card-body`
-- [Color](https://getbootstrap.com/docs/4.0/utilities/colors/): `.text-{color}`, `.bg-{color}`
-- [Containers](https://getbootstrap.com/docs/4.0/layout/overview/#containers): `.container`, `.container-fluid`
-- [Grid](https://getbootstrap.com/docs/4.0/layout/grid/): `.row`, `.col-{1-12}`, `.col-lg-{1-12}`
-- Hrs: `<hr>`
-- [Spacing](https://getbootstrap.com/docs/4.0/utilities/spacing/): `.p{tlbrxy}-{0-5}`, `.m{tby}-{0-5}`, `.s-{0-5}`
-- [Tables](https://getbootstrap.com/docs/4.0/content/tables/): `.table`, `.table-striped`,`.table-bordered`, `.thead-light`, `.thead-dark`, `.table-{color}`, `.table-dark`
-- [Typography](https://getbootstrap.com/docs/4.0/content/typography/): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
+- [Alerts](https://bootstrapemail.com/docs/alert): `.alert`, `.alert-{color}`
+- [Badges](https://bootstrapemail.com/docs/badge): `.badge`, `.badge-{color}`, `.badge-pill`
+- [Buttons](https://bootstrapemail.com/docs/button): `.btn`, `.btn-{color}`, `.btn-outline-{color}`
+- [Cards](https://bootstrapemail.com/docs/card): `.card`, `.card-body`
+- [Color](https://bootstrapemail.com/docs/color): `.text-{color}`, `.bg-{color}`
+- [Containers](https://bootstrapemail.com/docs/container): `.container`, `.container-fluid`
+- [Floats](https://bootstrapemail.com/docs/float): `.float-left`, `.float-right`
+- [Grid](https://bootstrapemail.com/docs/grid): `.row`, `.col-{1-12}`, `.col-lg-{1-12}`
+- [Hrs](https://bootstrapemail.com/docs/hr): `<hr>`
+- [Spacing](https://bootstrapemail.com/docs/spacing): `.p{tlbrxy}-{lg-}{0-5}`, `.m{tby}-{lg-}{0-5}`, `.s-{lg-}{0-5}`, `w-{lg-}{25,50,75,100}`, `mx-auto`
+- [Tables](https://bootstrapemail.com/docs/table): `.table`, `.table-striped`,`.table-bordered`, `.thead-light`, `.thead-dark`, `.table-{color}`, `.table-dark`
+- [Typography](https://bootstrapemail.com/docs/typography): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
 
 ## Additional Classes
-- Alignment: `.align-left` (or `.float-left`), `.align-center`(or `.mx-auto`), `.align-right`(or `.float-right`)
-- Display: `.d-desktop`, `.d-mobile`
+- [Visibility](https://bootstrapemail.com/docs/visibility): `.d-desktop`, `.d-mobile`
 
 ## Email Quirk (for users)
 - width and height of images must be set to ensure proper rendering in outlook.

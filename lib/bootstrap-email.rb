@@ -67,16 +67,16 @@ module BootstrapEmail
     end
 
     def align
-      each_node('.align-left, .float-left') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/(align-left)|(float-left)/, '')
+      each_node('.float-left') do |node| # align table and move contents
+        node['class'] = node['class'].sub(/float-left/, '')
         node.replace(template('align-left', {contents: node.to_html}))
       end
-      each_node('.align-center') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/(align-center)|(mx-auto)/, '')
+      each_node('.mx-auto') do |node| # align table and move contents
+        node['class'] = node['class'].sub(/mx-auto/, '')
         node.replace(template('align-center', {contents: node.to_html}))
       end
-      each_node('.align-right') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/(align-right)|(float-right)/, '')
+      each_node('.float-right') do |node| # align table and move contents
+        node['class'] = node['class'].sub(/float-right/, '')
         node.replace(template('align-right', {contents: node.to_html}))
       end
     end
