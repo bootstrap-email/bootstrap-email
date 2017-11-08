@@ -1,5 +1,5 @@
 /* Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp */
-body, .body{
+body, .body {
   margin: 0;
   Margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@ body, .body{
   box-sizing: border-box;
 }
 
-img{
+img {
   border: 0 none;
   height: auto;
   line-height: 100%;
@@ -27,17 +27,17 @@ img{
   text-decoration: none;
 }
 
-a img{
+a img {
   border: 0 none;
 }
 
-table{
+table {
   font-family: $font-family-sans-serif;
   mso-table-lspace: 0pt;
   mso-table-rspace: 0pt;
 }
 
-table, td{
+table, td {
   border-spacing: 0px;
   border-collapse: collapse;
 }

@@ -9,6 +9,13 @@ $spacers: (
   5: ($spacer * 3)
 ) !default;
 
+$widths: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+) !default;
+
 // Forces Outlook.com to display emails at full width
 .ExternalClass {
   width: 100%;
@@ -60,6 +67,24 @@ a {
     display: none !important;
   }
 
+  // Width
+  @each $size, $percentage in $width {
+    .w-lg-#{$size} {
+      width: auto !important;
+      & > tbody > tr > td {
+        width: auto !important;
+      }
+    }
+  }
+  @each $size, $percentage in $width {
+    .w-#{$size} {
+      width: $percentage !important;
+      & > tbody > tr > td {
+        width: $percentage !important;
+      }
+    }
+  }
+
   // Spacing
   // Reset large padding to 0 on small device
   @each $size, $length in $spacers {
@@ -94,7 +119,7 @@ a {
     }
   }
 
-  // set proper padding on small devices
+  // Set proper padding on small devices
   @each $size, $length in $spacers {
     .p-#{$size} {
       & > tbody > tr > td {
@@ -127,6 +152,7 @@ a {
     }
   }
 
+  // Spacers
   .s-lg-1,
   .s-lg-2,
   .s-lg-3,
@@ -163,6 +189,16 @@ a {
     display: block !important;
   }
 
+  // Width
+  @each $size, $percentage in $width {
+    .w-lg-#{$size} {
+      width: $percentage !important;
+      & > tbody > tr > td {
+        width: $percentage !important;
+      }
+    }
+  }
+
   // Spacing
   // Set proper spacing again on Yahoo
   @each $size, $length in $spacers {
@@ -197,6 +233,7 @@ a {
     }
   }
 
+  // Spacing
   @each $size, $length in $spacers {
     .s-lg-#{$size},
     .s-lg-#{$size} > tbody > tr > td {

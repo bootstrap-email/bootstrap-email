@@ -23,10 +23,10 @@
 }
 
 @each $color, $value in $theme-colors {
-  .btn-#{$color} td{
+  .btn-#{$color} td {
     background-color: $value;
   }
-  .btn-#{$color} td a{
+  .btn-#{$color} td a {
     background-color: $value;
     @include color-yiq($value);
     border-color: $value;

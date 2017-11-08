@@ -1,4 +1,4 @@
-.badge > tbody > tr > td{
+.badge > tbody > tr > td {
   display: inline-block;
   padding: .25 * $font-size-base .4 * $font-size-base;
   font-size: 75%;
@@ -11,7 +11,7 @@
 }
 
 // Pill badges
-.badge-pill > tbody > tr > td{
+.badge-pill > tbody > tr > td {
   padding-right: .6 * $font-size-base;
   padding-left: .6 * $font-size-base;
   border-radius: 10 * $font-size-base;
@@ -26,32 +26,32 @@
 }
 
 h1{
-  .badge > tbody > tr > td{
+  .badge > tbody > tr > td {
     font-size: .75 * 2.25 * $font-size-base;
   }
 }
 h2{
-  .badge > tbody > tr > td{
+  .badge > tbody > tr > td {
     font-size: .75 * 2 * $font-size-base;
   }
 }
 h3{
-  .badge > tbody > tr > td{
+  .badge > tbody > tr > td {
     font-size: .75 * 1.75 * $font-size-base;
   }
 }
 h4{
-  .badge > tbody > tr > td{
+  .badge > tbody > tr > td {
     font-size: .75 * 1.5 * $font-size-base;
   }
 }
 h5{
-  .badge > tbody > tr > td{
+  .badge > tbody > tr > td {
     font-size: .75 * 1.25 * $font-size-base;
   }
 }
 h6{
-  .badge > tbody > tr > td{
+  .badge > tbody > tr > td {
     font-size: .75 * $font-size-base;
   }
 }

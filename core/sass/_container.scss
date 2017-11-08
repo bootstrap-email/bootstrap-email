@@ -1,4 +1,4 @@
-.container{
+.container {
   width: 100%;
   & > tbody > tr > td {
     padding: 0 $font-size-base;
@@ -9,7 +9,7 @@
   }
 }
 
-.container-fluid{
+.container-fluid {
   width: 100%;
   & > tbody > tr > td {
     padding: 0 $font-size-base;

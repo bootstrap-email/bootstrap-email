@@ -1,13 +1,13 @@
 @each $color, $value in $theme-colors {
   .bg-#{$color},
-  .bg-#{$color} > tbody > tr > td{
+  .bg-#{$color} > tbody > tr > td {
     background-color: $value;
   }
 }
 
 @each $color, $value in $theme-colors {
   .text-#{$color},
-  .text-#{$color} > tbody > tr > td{
+  .text-#{$color} > tbody > tr > td {
     color: $value;
   }
 }

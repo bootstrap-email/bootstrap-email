@@ -102,6 +102,12 @@ $font-family-sans-serif:
   // Basic email fallback
   Helvetica, Arial, sans-serif !default;
 
+$widths: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+) !default;
 
 $table-border-color: $gray-200;
 $table-border-width: 1px;
