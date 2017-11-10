@@ -159,15 +159,16 @@ module BootstrapEmail
 
     def body
       @doc.css('body').each do |node|
-        node.replace( '<body>' + preview_text + template('table', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
+        node.replace( '<body>' + preview_text.to_s + template('table', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
       end
     end
 
     def preview_text
-      preview_node = @doc.css('preview').first
-      if preview_node
+      preview_node = @doc.css('preview')
+      if preview_node.any?
+        preview_node = preview_node[0]
         # apply spacing after the text max of 100 characters so it doesn't show body text
-        # preview_node.content += (100 - preview_node.content.length.to_i) * "&nbsp;"
+        preview_node.content += "&nbsp;" * (100 - preview_node.content.length.to_i)
         node = template('div', {classes: 'preview', contents: preview_node.content})
         preview_node.remove
         return node
