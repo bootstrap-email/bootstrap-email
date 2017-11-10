@@ -11,7 +11,18 @@ module BootstrapEmail
 
     def initialize mail
       @mail = mail
-      @doc = Nokogiri::HTML(@mail.body.raw_source)
+      self.update_doc(@mail.body.raw_source)
+    end
+
+    def update_doc source
+      @doc = Nokogiri::HTML(source)
+    end
+
+    def perform_full_compile
+      compile_html!
+      inline_css!
+      inject_head!
+      update_mailer!
     end
 
     def compile_html!
@@ -30,12 +41,32 @@ module BootstrapEmail
       body
     end
 
-    def update_mailer!
+    def inline_css!
       @mail.body = @doc.to_html
+      @mail = Premailer::Rails::Hook.perform(@mail)
+      @mail.header[:skip_premailer] = true
+      self.update_doc(@mail.html_part.body.raw_source)
+    end
+
+    def inject_head!
+      @doc.at_css('head').add_child(bootstrap_email_head)
+    end
+
+    def update_mailer!
+      @mail.html_part.body = @doc.to_html
       @mail
     end
 
     private
+
+    def bootstrap_email_head
+      html_string = <<-HEREDOC
+        <style type="text/css">
+          #{Sass::Engine.new(File.open(File.expand_path('../core/head.scss', __dir__)).read, {syntax: :scss, style: :compressed, cache: false, read_cache: false}).render}
+        </style>
+      HEREDOC
+      html_string
+    end
 
     def template file, locals_hash = {}
       namespace = OpenStruct.new(locals_hash)
@@ -164,9 +195,8 @@ module BootstrapEmail
     end
 
     def preview_text
-      preview_node = @doc.css('preview')
-      if preview_node.any?
-        preview_node = preview_node[0]
+      preview_node = @doc.at_css('preview')
+      if preview_node.present?
         # apply spacing after the text max of 100 characters so it doesn't show body text
         preview_node.content += "&nbsp;" * (100 - preview_node.content.length.to_i)
         node = template('div', {classes: 'preview', contents: preview_node.content})

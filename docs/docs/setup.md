@@ -33,7 +33,6 @@ gem 'bootstrap-email'
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <%= bootstrap_email_head %>
     <%= stylesheet_link_tag "application-mailer", media: "all" %>
   </head>
   <body class="bg-light">
