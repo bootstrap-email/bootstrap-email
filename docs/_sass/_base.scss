@@ -145,6 +145,12 @@ footer{
   }
 }
 
+@media (max-width: 768px) {
+  .compatability-badge {
+    margin: -0.25rem 0.25rem 0.75rem 0;
+  }
+}
+
 .highlight{
   background-color: #f8f9fa;
   border-radius: 10px;
