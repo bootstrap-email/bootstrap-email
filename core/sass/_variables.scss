@@ -86,27 +86,14 @@ $spacers: (
   5: ($spacer * 3)
 ) !default;
 
-$font-family-sans-serif:
-  // Safari for OS X and iOS (San Francisco)
-  // -apple-system,
-  // Chrome >= 56 for OS X (San Francisco), Windows, Linux and Android
-  // system-ui,
-  // Chrome < 56 for OS X (San Francisco)
-  // BlinkMacSystemFont,
-  // Windows
-  // "Segoe UI",
-  // Android
-  // "Roboto",
-  // Basic web fallback
-  // "Helvetica Neue",
-  // Basic email fallback
-  Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif: Helvetica, Arial, sans-serif !default;
 
 $widths: (
   25: 25%,
   50: 50%,
   75: 75%,
-  100: 100%
+  100: 100%,
+  auto: auto
 ) !default;
 
 $table-border-color: $gray-200;

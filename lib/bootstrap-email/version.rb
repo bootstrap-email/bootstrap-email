@@ -1,5 +1,7 @@
 module BootstrapEmail
   module Rails
-    VERSION = '0.0.0.alpha.3'
+    VERSION = File.read(
+      File.expand_path('../../../../VERSION', __FILE__)
+    ).strip
   end
 end
