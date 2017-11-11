@@ -15,6 +15,7 @@ List of supported classes:
 .w-50     /* width  50% */
 .w-75     /* width  75% */
 .w-100    /* width  100% */
+.w-auto   /* width  auto % */
 
 .p-{0-5}  /* padding on all sides */
 .pt-{0-5} /* padding top */
@@ -36,7 +37,7 @@ Note: Margin is only supported on the top and bottom.
 ### Responsive
 By default these classes target all devices. However you you just wanted to target desktop you could do `.w-lg-25`. For all of these classes you can apply a `lg-` to the middle to make it just apply to desktop devices. Or say you want a 100% button on mobile and a 50% width centered button on desktop. That would look like this:
 ```html
-<a class="w-100 w-lg-50 mx-auto btn btn-primary" href="https://bootstrapemail.com">Tada</a>
+<a class="w-100 w-lg-25 mx-auto btn btn-primary btn-lg" href="https://bootstrapemail.com">Tada</a>
 ```
 
 That is the power of Bootstrap email right there!

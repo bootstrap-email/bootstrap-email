@@ -98,17 +98,23 @@ module BootstrapEmail
     end
 
     def align
-      each_node('.float-left') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/float-left/, '')
-        node.replace(template('align-left', {contents: node.to_html}))
+      each_node('.float-left') do |node|
+        align_helper(node, /float-left/, 'left')
       end
-      each_node('.mx-auto') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/mx-auto/, '')
-        node.replace(template('align-center', {contents: node.to_html}))
+      each_node('.mx-auto') do |node|
+        align_helper(node, /mx-auto/, 'center')
       end
-      each_node('.float-right') do |node| # align table and move contents
-        node['class'] = node['class'].sub(/float-right/, '')
-        node.replace(template('align-right', {contents: node.to_html}))
+      each_node('.float-right') do |node|
+        align_helper(node, /float-right/, 'right')
+      end
+    end
+
+    def align_helper node, klass, template
+      if node.name != 'table' # if it is already on a table, set the proprieties on the current table
+        node['class'] = node['class'].sub(klass, '')
+        node.replace(template("align-#{template}", {contents: node.to_html}))
+      else
+        node['align'] = template
       end
     end
 
