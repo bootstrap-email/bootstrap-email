@@ -31,20 +31,25 @@ a img {
   border: 0 none;
 }
 
-table {
+// don't apply to spacers
+table:not([class^=s-]) {
   font-family: $font-family-sans-serif;
   mso-table-lspace: 0pt;
   mso-table-rspace: 0pt;
 }
 
+table:not([class^=s-]) {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  td {
+    border-spacing: 0px;
+    border-collapse: collapse;
+  }
+}
+
 // to fix centering in yahoo
 table[align=center] {
   margin: 0 auto;
-}
-
-table, td {
-  border-spacing: 0px;
-  border-collapse: collapse;
 }
 
 th,

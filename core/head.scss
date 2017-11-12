@@ -32,10 +32,6 @@ $widths: (
   line-height: 150%;
 }
 
-.imageFix {
-  display: block;
-}
-
 a {
   text-decoration: none;
 }
@@ -154,11 +150,6 @@ a {
   }
 
   // Spacers
-  .s-lg-1,
-  .s-lg-2,
-  .s-lg-3,
-  .s-lg-4,
-  .s-lg-5,
   .s-lg-1 > tbody > tr > td,
   .s-lg-2 > tbody > tr > td,
   .s-lg-3 > tbody > tr > td,
@@ -170,7 +161,6 @@ a {
   }
 
   @each $size, $length in $spacers {
-    .s-#{$size},
     .s-#{$size} > tbody > tr > td {
       font-size: $length !important;
       line-height: $length !important;
@@ -236,7 +226,6 @@ a {
 
   // Spacing
   @each $size, $length in $spacers {
-    .s-lg-#{$size},
     .s-lg-#{$size} > tbody > tr > td {
       font-size: $length !important;
       line-height: $length !important;

@@ -84,7 +84,6 @@
 
 // Spacing Helper
 @each $size, $length in $spacers {
-  .s-#{$size},
   .s-#{$size} > tbody > tr > td {
     font-size: $length;
     line-height: $length;
@@ -93,7 +92,6 @@
 }
 
 @each $size, $length in $spacers {
-  .s-lg-#{$size},
   .s-lg-#{$size} > tbody > tr > td {
     font-size: $length;
     line-height: $length;
