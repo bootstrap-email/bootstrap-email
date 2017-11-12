@@ -37,6 +37,11 @@ table {
   mso-table-rspace: 0pt;
 }
 
+// to fix centering in yahoo
+table[align=center] {
+  margin: 0 auto;
+}
+
 table, td {
   border-spacing: 0px;
   border-collapse: collapse;
@@ -45,7 +50,9 @@ table, td {
 th,
 td,
 p {
+  text-align: left;
   line-height: $line-height-base * $font-size-base;
   font-size: $font-size-base;
   margin: 0;
 }
+
