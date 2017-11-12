@@ -14,6 +14,7 @@ title:  "Email Clients"
   <li><img src="/img/icons/check-green.svg" />Windows 10 Mail</li>
   <li><img src="/img/icons/check-green.svg" />Yahoo!</li>
   <li><img src="/img/icons/check-green.svg" />AOL Mail</li>
+  <li><img src="/img/icons/check-green.svg" />Android Mail</li>
   <li><img src="/img/icons/check-green.svg" />Gmail</li>
   <li><img src="/img/icons/check-green.svg" />Gmail App</li>
   <li><img src="/img/icons/check-green.svg" />Inbox by Gmail</li>

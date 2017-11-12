@@ -2,6 +2,24 @@
 layout: main
 ---
 
+<script type="text/javascript">
+  $(function(){
+    $('.email-click-preview span[data-show]').click(function(){
+      $('.email-click-preview span[data-show]').removeClass('active');
+      $(this).addClass('active');
+      $('#desktop-email-img').attr('src', 'img/emails/product-hunt/' + $(this).data('show') + '.png');
+    });
+
+    $('.mobile-email-click-preview span[data-show]').click(function(){
+      $('.mobile-email-click-preview span[data-show]').removeClass('active');
+      $(this).addClass('active');
+      $('#mobile-email-img').attr('src', 'img/emails/product-hunt/' + $(this).data('show') + '.png');
+    });
+
+  });
+</script>
+
+
 <header class="bg-primary-docs">
   <div class="container">
     <h1 class="mighty-4 text-center-block">Bootstrap Email</h1>
@@ -13,7 +31,7 @@ layout: main
     </div>
 
     <div class="row" style="font-size: 14px;">
-      <div class="col-sm-3 mb-1">
+      <div class="col-sm-3 mb-1 px-4">
         <!-- http://cssdevices.io -->
         <div class="cd-iphone-6 cd-fill-parent">
           <div class="cd-body">
@@ -23,10 +41,12 @@ layout: main
             <div class="cd-ear"></div>
             <div class="cd-home"></div>
             <div class="cd-screen cd-screen-scrolling">
-              <img src="img/mobile.png">
+              <img id="mobile-email-img" src="img/emails/product-hunt/ios.png">
             </div>
           </div>
         </div>
+        <div class="mobile-email-click-preview text-center mt-2 mb-3 mb-md-0"><span>Click to show on:</span> <span class="active" data-show="ios">iOS Mail</span><span> - </span><span data-show="android">Android Mail</span><span> - </span><span data-show="gmail-android">Gmail Android</span></div>
+
       </div>
 
       <div class="col-sm-9">
@@ -36,11 +56,12 @@ layout: main
           <div class="cd-bottom"></div>
           <div class="cd-camera"></div>
           <div class="cd-notch"></div>
-          <div class="cd-screen cd-screen-scrolling">
-            <img src="img/desktop.png">
+          <div class="cd-screen cd-screen-scrolling cd-no-slideshow">
+            <img id="desktop-email-img" src="img/emails/product-hunt/apple-mail.png">
           </div>
         </div>
-        <div class="text-center text-white mt-3" style="opacity: 0.5;">Actual renderings of Bootstrap Email in email clients. Scrollable content.</div>
+        <div class="email-click-preview text-center mt-2"><span>Click to show in:</span> <span class="active" data-show="apple-mail">Apple Mail</span><span> - </span><span data-show="outlook-2000">Outlook 2000</span><span> - </span><span data-show="outlook-2007">Outlook 2007</span><span> - </span><span data-show="yahoo">Yahoo!</span><span> - </span><span data-show="gmail">Gmail</span><span> - </span><span data-show="aol">AOL</span> </div>
+        <div class="text-center text-white mt-1" style="opacity: 0.5;">Actual renderings of Bootstrap Email in email clients. Scrollable content.</div>
       </div>
     </div>
 
@@ -68,6 +89,7 @@ layout: main
           <li><img src="/img/icons/check-green.svg" />Windows 10 Mail</li>
           <li><img src="/img/icons/check-green.svg" />Yahoo!</li>
           <li><img src="/img/icons/check-green.svg" />AOL Mail</li>
+          <li><img src="/img/icons/check-green.svg" />Android Mail</li>
           <li><img src="/img/icons/check-green.svg" />Gmail</li>
           <li><img src="/img/icons/check-green.svg" />Gmail App</li>
           <li><img src="/img/icons/check-green.svg" />Inbox by Gmail</li>

@@ -168,3 +168,15 @@ footer{
     }
   }
 }
+
+.email-click-preview,
+.mobile-email-click-preview{
+  span {
+    opacity: .5;
+    &[data-show]:hover,
+    &.active{
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}
