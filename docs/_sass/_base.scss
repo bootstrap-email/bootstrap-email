@@ -155,3 +155,16 @@ footer{
   background-color: #f8f9fa;
   border-radius: 10px;
 }
+
+.supported-client-list {
+  padding-left: 0.5rem;
+  li {
+    list-style: none;
+    font-size: 18px;
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 0.5rem;
+    }
+  }
+}
