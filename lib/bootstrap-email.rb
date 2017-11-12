@@ -115,6 +115,9 @@ module BootstrapEmail
         node.replace(template("align-#{template}", {contents: node.to_html}))
       else
         node['align'] = template
+        if template == 'center'
+          node.at_css('td')['align'] = template
+        end
       end
     end
 
