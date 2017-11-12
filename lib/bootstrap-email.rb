@@ -29,11 +29,11 @@ module BootstrapEmail
       button
       badge
       alert
-      align
       card
       hr
       container
       grid
+      align
       padding
       margin
       spacer

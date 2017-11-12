@@ -105,13 +105,13 @@ a {
     .pb-lg-#{$size},
     .py-lg-#{$size} {
       & > tbody > tr > td {
-        padding-right: 0 !important;
+        padding-bottom: 0 !important;
       }
     }
     .pl-lg-#{$size},
     .px-lg-#{$size} {
       & > tbody > tr > td {
-        padding-right: 0 !important;
+        padding-left: 0 !important;
       }
     }
   }
@@ -138,13 +138,13 @@ a {
     .pb-#{$size},
     .py-#{$size} {
       & > tbody > tr > td {
-        padding-right: $length !important;
+        padding-bottom: $length !important;
       }
     }
     .pl-#{$size},
     .px-#{$size} {
       & > tbody > tr > td {
-        padding-right: $length !important;
+        padding-left: $length !important;
       }
     }
   }
@@ -213,13 +213,13 @@ a {
     .pb-lg-#{$size},
     .py-lg-#{$size} {
       & > tbody > tr > td {
-        padding-right: $length !important;
+        padding-bottom: $length !important;
       }
     }
     .pl-lg-#{$size},
     .px-lg-#{$size} {
       & > tbody > tr > td {
-        padding-right: $length !important;
+        padding-left: $length !important;
       }
     }
   }

@@ -38,22 +38,25 @@ h6 {
 }
 
 .text-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
-.p > tbody > tr > td {
-  margin: 0;
-  padding: 0 0 $font-size-base * 1.25 0;
-  & > p {
+.p {
+  width: 100%;
+  & > tbody > tr > td {
     margin: 0;
-    padding: 0;
+    padding: 0 0 $font-size-base * 1.25 0;
+    & > p {
+      margin: 0;
+      padding: 0;
+    }
   }
 }

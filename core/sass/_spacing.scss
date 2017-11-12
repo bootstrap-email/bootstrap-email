@@ -39,13 +39,13 @@
   .pb-#{$size},
   .py-#{$size} {
     & > tbody > tr > td {
-      padding-right: $length;
+      padding-bottom: $length;
     }
   }
   .pl-#{$size},
   .px-#{$size} {
     & > tbody > tr > td {
-      padding-right: $length;
+      padding-left: $length;
     }
   }
 }
@@ -71,13 +71,13 @@
   .pb-lg-#{$size},
   .py-lg-#{$size} {
     & > tbody > tr > td {
-      padding-right: $length;
+      padding-bottom: $length;
     }
   }
   .pl-lg-#{$size},
   .px-lg-#{$size} {
     & > tbody > tr > td {
-      padding-right: $length;
+      padding-left: $length;
     }
   }
 }
