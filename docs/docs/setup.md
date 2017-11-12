@@ -2,8 +2,7 @@
 layout: docs
 title:  "Setup"
 ---
-
-# Setup
+<h1 class="mt-0">{{ page.title }}</h1>
 
 ### Current Environment Support
 - Ruby on Rails

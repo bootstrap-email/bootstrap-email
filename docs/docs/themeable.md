@@ -2,7 +2,7 @@
 layout: docs
 title:  "Themeable"
 ---
-# {{ page.title }}
+<h1 class="mt-0">{{ page.title }}</h1>
 
 When you see the
 <span class="d-inline-block">

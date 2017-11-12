@@ -9,12 +9,12 @@ responsive: false
 `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
 
 ```html
-# h1
-## h2
-### h3
-#### h4
-##### h5
-###### h6
+<h1>h1</h1>
+<h2>h2</h2>
+<h3>h3</h3>
+<h4>h4</h4>
+<h5>h5</h5>
+<h6>h6</h6>
 <strong>bold text</strong>
 <u>underlined text</u>
 <em>italicized text</em>

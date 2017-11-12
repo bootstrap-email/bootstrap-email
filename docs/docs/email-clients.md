@@ -2,8 +2,7 @@
 layout: docs
 title:  "Email Clients"
 ---
-
-# Supported Email Clients
+<h1 class="mt-0">Supported Email Clients</h1>
 
 <ul class="supported-client-list">
   <li><img src="/img/icons/check-green.svg" />Apple Mail macOS</li>

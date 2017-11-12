@@ -2,7 +2,7 @@
 layout: docs
 title:  "Reboot Email"
 ---
-# Reboot Email
+<h1 class="mt-0">{{ page.title }}</h1>
 
 Similar to Bootstraps Reboot, Reboot Email set styles to try and normalize the differences between email clients so the base email is as consistent as possible. Here is the Reboot Email file which is influenced greatly by the [Mailchimp email reset](https://templates.mailchimp.com/development/css/reset-styles/).
 
