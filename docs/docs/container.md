@@ -21,7 +21,7 @@ Wrap you page content in a container to bring the content in tighter and center 
 
 ### Container fluid
 
-A fluid container is unlike a container in that it doesn't have it's max-width set. It does however still have padding on the edges to make the content bad better space towards the edge of the email.
+A fluid container is unlike a container in that it doesn't have it's max-width set. It does however still have padding on the edges to give the content better spacing towards the edge of the email.
 
 ```html
 <div class="container-fluid">
