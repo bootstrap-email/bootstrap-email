@@ -1,5 +1,19 @@
-<img src="/docs/imgs/icons/logo/png" width="100px" />
-# Bootstrap Email
+<p align="center">
+  <a href="https://bootstapemail.com">
+    <img src="https://bootstrapemail.com/img/icons/logo.png" alt="" width=72 height=72>
+  </a>
+
+  <h3 align="center">Bootstrap Email</h3>
+
+  <p align="center">
+    If you know Bootstrap, you know Bootstrap Email.
+    <br>
+    <a href="https://bootstrapemail.com/docs/introduction"><strong>Explore Bootstrap Email docs »</strong></a>
+  </p>
+</p>
+
+<br>
+
 ### Bootstrap 4 compiler and CSS for responsive emails
 ### If you know Bootstrap, you know Bootstrap Email
 
