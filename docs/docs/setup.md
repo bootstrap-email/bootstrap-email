@@ -8,10 +8,12 @@ title:  "Setup"
 - Ruby on Rails
 
 ### Future Support (Help Wanted <3)
+- Node/JS Support
 - General Ruby Support
 - General PHP Support
 - Laravel Support
-- Node/JS Support
+
+I am thinking of building the render in Node and then running in a ruby / php runtime to compile. Looking for feedback here, let me know.
 
 ___
 
