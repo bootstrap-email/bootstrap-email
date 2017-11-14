@@ -6,6 +6,7 @@ title:  "Setup"
 
 ### Current Environment Support
 - Ruby on Rails
+- [Online editor](https://bootstrapemail.com/editor)
 
 ### Future Support (Help Wanted <3)
 - Node/JS Support
