@@ -1,3 +1,4 @@
+<img src="/docs/imgs/icons/logo/png" width="100px" />
 # Bootstrap Email
 ### Bootstrap 4 compiler and CSS for responsive emails
 ### If you know Bootstrap, you know Bootstrap Email
