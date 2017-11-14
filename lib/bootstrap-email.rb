@@ -206,7 +206,7 @@ module BootstrapEmail
 
     def body
       @doc.css('body').each do |node|
-        node.replace( '<body>' + preview_text.to_s + template('table', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
+        node.replace( '<body>' + preview_text.to_s + template('body', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
       end
     end
 
