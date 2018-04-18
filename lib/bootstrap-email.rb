@@ -11,7 +11,8 @@ module BootstrapEmail
 
     def initialize mail
       @mail = mail
-      self.update_doc(@mail.body.raw_source)
+      @source = mail.html_part || mail
+      self.update_doc(@source.body.raw_source)
     end
 
     def update_doc source
@@ -42,7 +43,7 @@ module BootstrapEmail
     end
 
     def inline_css!
-      @mail.body = @doc.to_html
+      @source.body = @doc.to_html
       @mail = Premailer::Rails::Hook.perform(@mail)
       @mail.header[:skip_premailer] = true
       self.update_doc(@mail.html_part.body.raw_source)

@@ -28,7 +28,9 @@ Setup with Rails could not be easier.
 gem 'bootstrap-email'
 ```
 
-2: Create a new file `/app/views/layouts/bootstrap-mailer.html.erb` and paste this HTML into it. (It is very similar to the default one.)
+2: Create a new file `/app/views/layouts/example_mailer.html.erb` and paste this HTML into it. (It is very similar to the default one).
+
+The name of this file follows the rules of ActionMailer, that loads a layout deriving the name from the mailer class name.
 
 ```erb
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -55,14 +57,20 @@ gem 'bootstrap-email'
 Rails.application.config.assets.precompile += %w( application-mailer.scss )
 ```
 
+5: Create the view file `/app/views/example_mailer/greet.html.erb`.
+
+You can also create the view `/app/views/example_mailer/greet.text.erb`. In this case don't forget to create also the textual layout `/app/views/layouts/example_mailer.text.erb`.
+
+If you do  not create a textual view file, a text part is automatically added by the `premailer-rails` gem.
+
 ### Usage
-Thats it! Now all you need to do to use it instead of using the `mail()` method, you use the `bootstrap_mail()` method to kick off Bootstrap Email compilation!
+Thats it! Now all you need to do to use it instead of using the `mail()` method, you use the `make_bootstrap_mail()` method to kick off Bootstrap Email compilation!
 
 ```ruby
 class ExampleMailer < ApplicationMailer
 
-  def show
-    bootstrap_mail(
+  def greet
+    make_bootstrap_mail(
       to: 'to@example.com',
       from: 'from@example.com',
       subject: 'Hi From Bootstrap Email',
@@ -70,3 +78,23 @@ class ExampleMailer < ApplicationMailer
   end
 end
 ```
+
+You can also use the `format` in the usual way.
+```ruby
+class ExampleMailer < ApplicationMailer
+
+  def greet
+    make_bootstrap_mail(
+      to: 'to@example.com',
+      from: 'from@example.com',
+      subject: 'Hi From Bootstrap Email',
+      ) do |format|
+        format.html { layout 'custom_bootstrap_layout' }
+        format.text # here example_mailer.text.erb is used
+      end
+  end
+end
+```
+
+### Compatibility note
+The old method `bootstrap_mail` is still available for compatibility.
