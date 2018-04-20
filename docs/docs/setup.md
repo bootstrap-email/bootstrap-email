@@ -31,6 +31,7 @@ gem 'bootstrap-email'
 2: Create a new file `/app/views/layouts/example_mailer.html.erb` and paste this HTML into it. (It is very similar to the default one).
 
 The name of this file follows the rules of ActionMailer, that loads a layout deriving the name from the mailer class name.
+If you want a different behaviour, such as using the same template for all the mailers, or specifying a template for a single method, refer to the [official ActionMailer documentation](http://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-layouts).
 
 ```erb
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
