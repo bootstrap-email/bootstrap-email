@@ -9,6 +9,7 @@
     If you know Bootstrap, you know Bootstrap Email.
     <br>
     <a href="https://bootstrapemail.com/docs/introduction"><strong>Explore Bootstrap Email docs »</strong></a>
+    ![Gem](https://img.shields.io/gem/v/bootstrap-email.svg)
   </p>
 </p>
 
