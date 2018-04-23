@@ -12,9 +12,16 @@
   }
 }
 
-.text-white,
-.text-white > tbody > tr > td {
-  color: $white;
+@each $color, $value in $colors {
+  .bg-#{$color},
+  .bg-#{$color} > tbody > tr > td {
+    background-color: $value;
+  }
+
+  .text-#{$color},
+  .text-#{$color} > tbody > tr > td {
+    color: $value;
+  }
 }
 
 .text-muted,
