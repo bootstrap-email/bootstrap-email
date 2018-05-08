@@ -8,11 +8,10 @@ require 'rails'
 
 module BootstrapEmail
   class Compiler
-
     def initialize mail
       @mail = mail
       @source = mail.html_part || mail
-      self.update_doc(@source.body.raw_source)
+      update_doc(@source.body.raw_source)
     end
 
     def update_doc source
@@ -46,7 +45,7 @@ module BootstrapEmail
       @source.body = @doc.to_html
       @mail = Premailer::Rails::Hook.perform(@mail)
       @mail.header[:skip_premailer] = true
-      self.update_doc(@mail.html_part.body.raw_source)
+      update_doc(@mail.html_part.body.raw_source)
     end
 
     def inject_head!
@@ -82,19 +81,19 @@ module BootstrapEmail
 
     def button
       each_node('.btn') do |node| # move all classes up and remove all classes from the element
-        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.to_html))
       end
     end
 
     def badge
       each_node('.badge') do |node| # move all classes up and remove all classes from the element
-        node.replace(template('table-left', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table-left', classes: node['class'], contents: node.delete('class') && node.to_html))
       end
     end
 
     def alert
       each_node('.alert') do |node| # move all classes up and remove all classes from the element
-        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.to_html))
       end
     end
 
@@ -113,7 +112,7 @@ module BootstrapEmail
     def align_helper node, klass, template
       if node.name != 'table' # if it is already on a table, set the proprieties on the current table
         node['class'] = node['class'].sub(klass, '')
-        node.replace(template("align-#{template}", {contents: node.to_html}))
+        node.replace(template("align-#{template}", contents: node.to_html))
       else
         node['align'] = template
       end
@@ -121,34 +120,34 @@ module BootstrapEmail
 
     def card
       each_node('.card') do |node| # move all classes up and remove all classes from element
-        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.to_html))
       end
       each_node('.card-body') do |node| # move all classes up and remove all classes from element
-        node.replace(template('table', {classes: node['class'], contents: node.delete('class') && node.to_html}))
+        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.to_html))
       end
     end
 
     def hr
       each_node('hr') do |node| # drop hr in place of current
-        node.replace(template('hr', {classes: "hr #{node['class']}"}))
+        node.replace(template('hr', classes: "hr #{node['class']}"))
       end
     end
 
     def container
       each_node('.container') do |node|
-        node.replace(template('container', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('container', classes: node['class'], contents: node.inner_html))
       end
       each_node('.container-fluid') do |node|
-        node.replace(template('table', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('table', classes: node['class'], contents: node.inner_html))
       end
     end
 
     def grid
       each_node('.row') do |node|
-        node.replace(template('row', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('row', classes: node['class'], contents: node.inner_html))
       end
       each_node('*[class*=col]') do |node|
-        node.replace(template('col', {classes: node['class'], contents: node.inner_html}))
+        node.replace(template('col', classes: node['class'], contents: node.inner_html))
       end
     end
 
@@ -158,7 +157,7 @@ module BootstrapEmail
           padding_regex = /(p[trblxy]?-\d)/
           classes = node['class'].scan(padding_regex).join(' ')
           node['class'] = node['class'].gsub(padding_regex, '')
-          node.replace(template('table', {classes: classes, contents: node.to_html}))
+          node.replace(template('table', classes: classes, contents: node.to_html))
         end
       end
     end
@@ -170,11 +169,11 @@ module BootstrapEmail
         node['class'] = node['class'].gsub(/(m[tby]{1}-(lg-)?\d)/, '')
         html = ''
         if top_class
-          html += template('div', {classes: "s-#{top_class.gsub(/m[ty]{1}-/, '')}", contents: nil})
+          html += template('div', classes: "s-#{top_class.gsub(/m[ty]{1}-/, '')}", contents: nil)
         end
         html += node.to_html
         if bottom_class
-          html += template('div', {classes: "s-#{bottom_class.gsub(/m[by]{1}-/, '')}", contents: nil})
+          html += template('div', classes: "s-#{bottom_class.gsub(/m[by]{1}-/, '')}", contents: nil)
         end
         node.replace(html)
       end
@@ -190,7 +189,7 @@ module BootstrapEmail
         '5' => (16 * 3)
       }
       each_node('*[class*=s-]') do |node|
-        temp = Nokogiri::HTML::DocumentFragment.parse(template('table', {classes: node['class'] + ' w-100', contents: "&nbsp;"}))
+        temp = Nokogiri::HTML::DocumentFragment.parse(template('table', classes: node['class'] + ' w-100', contents: '&nbsp;'))
         temp.at_css('td')['height'] = spacers[node['class'].gsub(/s-/, '')].to_i
         node.replace(temp)
       end
@@ -198,7 +197,7 @@ module BootstrapEmail
 
     def table
       @doc.css('table').each do |node|
-        #border="0" cellpadding="0" cellspacing="0"
+        # border="0" cellpadding="0" cellspacing="0"
         node['border'] = 0
         node['cellpadding'] = 0
         node['cellspacing'] = 0
@@ -207,7 +206,7 @@ module BootstrapEmail
 
     def body
       @doc.css('body').each do |node|
-        node.replace( '<body>' + preview_text.to_s + template('body', {classes: "#{node['class']} body", contents: "#{node.inner_html}"}) + '</body>' )
+        node.replace( '<body>' + preview_text.to_s + template('body', classes: "#{node['class']} body", contents: node.inner_html.to_s) + '</body>')
       end
     end
 
@@ -215,13 +214,12 @@ module BootstrapEmail
       preview_node = @doc.at_css('preview')
       if preview_node.present?
         # apply spacing after the text max of 100 characters so it doesn't show body text
-        preview_node.content += "&nbsp;" * (100 - preview_node.content.length.to_i)
-        node = template('div', {classes: 'preview', contents: preview_node.content})
+        preview_node.content += '&nbsp;' * (100 - preview_node.content.length.to_i)
+        node = template('div', classes: 'preview', contents: preview_node.content)
         preview_node.remove
         return node
       end
     end
-
   end
 end
 
