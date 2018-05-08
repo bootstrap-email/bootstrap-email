@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
     'lib/bootstrap-email/engine.rb',
     'lib/bootstrap-email/version.rb',
   ]
-  s.homepage    = 'https://github.com/stuyam/bootstrap-email'
+  s.homepage    = 'https://bootstrapemail.com'
   s.license     = 'MIT'
 
   s.add_runtime_dependency 'premailer-rails', '~> 1.9'
