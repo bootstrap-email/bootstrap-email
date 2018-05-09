@@ -22,7 +22,7 @@ The goal of this project is to build a library that matches the Bootstrap 4 API.
 This project is still under development and looking for contributors willing to help however they can. I'm excited about this <3
 
 ## Supported Bootstrap Classes
-<small>(color) in these examples is `primary`, `secondary`, `success`, `warning`, `danger`, `light`, and `dark`</small>
+<small>{color} in these examples is `primary`, `secondary`, `success`, `warning`, `danger`, `light`, and `dark`</small>
 - [Alerts](https://bootstrapemail.com/docs/alert): `.alert`, `.alert-{color}`
 - [Badges](https://bootstrapemail.com/docs/badge): `.badge`, `.badge-{color}`, `.badge-pill`
 - [Buttons](https://bootstrapemail.com/docs/button): `.btn`, `.btn-{color}`, `.btn-outline-{color}`
