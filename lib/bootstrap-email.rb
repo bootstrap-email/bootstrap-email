@@ -223,7 +223,7 @@ module BootstrapEmail
   end
 end
 
-require 'bootstrap-email/premailer_railtie'
-require 'bootstrap-email/action_mailer'
-require 'bootstrap-email/engine'
-require 'bootstrap-email/version'
+require_relative 'bootstrap-email/premailer_railtie'
+require_relative 'bootstrap-email/action_mailer'
+require_relative 'bootstrap-email/engine'
+require_relative 'bootstrap-email/version'
