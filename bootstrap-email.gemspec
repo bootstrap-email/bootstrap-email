@@ -12,8 +12,9 @@ Gem::Specification.new do |s|
     'lib/bootstrap-email.rb',
     'lib/bootstrap-email/action_mailer.rb',
     'lib/bootstrap-email/engine.rb',
-    'lib/bootstrap-email/premailer-rails.rb',
+    'lib/bootstrap-email/premailer_railtie.rb',
     'lib/bootstrap-email/version.rb',
+    'VERSION'
   ]
   s.homepage    = 'https://bootstrapemail.com'
   s.license     = 'MIT'
