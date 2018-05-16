@@ -1,8 +1,13 @@
 ## Build Process
 
+1. `gem build bootstrap-email.gemspec` to build the gem locally.
+2. `gem install bootstrap-email-x.x.x.gem`
+3. `irb`
+4. `require 'bootstrap-email'`
+
+
+## Release Process
+
 1. Bump the version number in the `VERSION` file.
-2. `gem build bootstrap-email.gemspec` to build them gem locally.
-3. `gem push bootstrap-email-0.2.1.gem` to push the build to rubygems.org.
-4. `gem install ./bootstrap-email-0.2.1.gem`
-5. `irb`
-6. `require 'bootstrap-email'`
+2. `gem build bootstrap-email.gemspec` to build the gem locally.
+3. `gem push bootstrap-email-x.x.x.gem` to push the build to rubygems.org.
