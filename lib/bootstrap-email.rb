@@ -60,9 +60,10 @@ module BootstrapEmail
     private
 
     def bootstrap_email_head
+      engine = defined?(SassC::Engine).nil? ? Sass::Engine : SassC::Engine
       html_string = <<-HEREDOC
         <style type="text/css">
-          #{Sass::Engine.new(File.open(File.expand_path('../core/head.scss', __dir__)).read, {syntax: :scss, style: :compressed, cache: false, read_cache: false}).render}
+          #{engine.new(File.open(File.expand_path('../core/head.scss', __dir__)).read, {syntax: :scss, style: :compressed, cache: false, read_cache: false}).render}
         </style>
       HEREDOC
       html_string
