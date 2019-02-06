@@ -44,7 +44,7 @@ This project is still under development and looking for contributors willing to 
 - an anchor tag must have a link in the href (not just a #) for it to properly render a .btn.
 
 ## Sass/SassC capability
-- Sass gem is deprecated (https://github.com/sass/ruby-sass) in favor sassc
+- Sass gem is deprecated (https://github.com/sass/ruby-sass) in favor of SassC
 - SassC (https://github.com/sass/sassc-ruby)
 
 Bootstrap-email works with both Sass/SassC gems.
