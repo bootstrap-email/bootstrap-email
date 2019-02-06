@@ -43,6 +43,12 @@ This project is still under development and looking for contributors willing to 
 - width and height of images must be set to ensure proper rendering in outlook.
 - an anchor tag must have a link in the href (not just a #) for it to properly render a .btn.
 
+## Sass/SassC capability
+- Sass gem is deprecated (https://github.com/sass/ruby-sass) in favor of SassC
+- SassC (https://github.com/sass/sassc-ruby)
+
+Bootstrap-email works with both Sass/SassC gems.
+
 <!-- ## Email Quirks (internal notes)
 - Line height should always be in px never a number or percentage. https://www.marketingcloud.com/blog/design-tip-of-the-week-css-line-height-property-does-it-work-in-email/
 - Padding can only be used inside of a table cell.
