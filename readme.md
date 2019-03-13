@@ -17,9 +17,9 @@
 [![Gem](https://img.shields.io/gem/v/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
 [![Gem](https://img.shields.io/gem/dt/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
 
-The goal of this project is to build a library that matches the Bootstrap 4 API. It has two parts, a compiler that takes regular HTML with bootstrap classes and compiles it into tables and layout the works in email, and CSS that work with those layouts and inlined to give consistent performance and appearance across email clients.
+The goal of this project is to build a library that matches the Bootstrap 4 API. It has two parts, the first being a compiler that takes in regular HTML with Bootstrap classes and compiles it into tables and layout that works in email. The second part produces inline CSS that works with those layouts and gives consistent performance and appearance across email clients.
 
-This project is still under development and looking for contributors willing to help however they can. I'm excited about this <3
+This project is still under development and I'm looking for contributors willing to help however they can. I'm excited about this <3
 
 ## Supported Bootstrap Classes
 <small>{color} in these examples is `primary`, `secondary`, `success`, `warning`, `danger`, `light`, and `dark`</small>
