@@ -12,10 +12,10 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://bootstrapemail.com'
   s.license     = 'MIT'
 
-  s.add_runtime_dependency 'actionmailer', '>= 3', '< 6'
+  s.add_runtime_dependency 'actionmailer', '>= 3'
   s.add_runtime_dependency 'nokogiri', '~> 1.6'
   s.add_runtime_dependency 'premailer-rails', '~> 1.9'
-  s.add_runtime_dependency 'rails', '>= 3', '< 6'
+  s.add_runtime_dependency 'rails', '>= 3'
 
   s.required_ruby_version = '~> 2.0'
 end
