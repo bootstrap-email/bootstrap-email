@@ -49,6 +49,9 @@ This project is still under development and I'm looking for contributors willing
 
 Bootstrap-email works with both Sass/SassC gems.
 
+## Haml/Slim compatibility
+If you are using [Haml](http://haml.info/) or [Slim](http://slim-lang.com/) as your templating language for your Rails app, you can use it for your email templates as well! (it should probably work with any other Rails-compatible templating language out there as well)
+
 <!-- ## Email Quirks (internal notes)
 - Line height should always be in px never a number or percentage. https://www.marketingcloud.com/blog/design-tip-of-the-week-css-line-height-property-does-it-work-in-email/
 - Padding can only be used inside of a table cell.
