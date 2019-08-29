@@ -89,6 +89,7 @@ $spacers: (
 ) !default;
 
 $font-family-sans-serif: Helvetica, Arial, sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
 
 $widths: (
   25: 25%,
@@ -104,4 +105,3 @@ $table-border-width: 1px !default;
 // Utility functions
 @function heading-size($n) { @return map-get($headings-ratios, $n) * $font-size-base; }
 @function heading-line-height($n) { @return heading-size($n) * $headings-line-height; }
-
