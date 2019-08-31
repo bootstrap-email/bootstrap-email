@@ -1,4 +1,5 @@
 $font-size-base: 16px !default;
+$font-weight-base: normal !default;
 $border-radius: $font-size-base * 0.25 !default;
 $border-radius-lg: $font-size-base * 0.3 !default;
 $border-radius-sm: $font-size-base * 0.2 !default;
@@ -109,6 +110,9 @@ $widths: (
 
 $table-border-color: $gray-200 !default;
 $table-border-width: 1px !default;
+
+$body-color: $black !default;
+$body-bg: $white !default;
 
 $btn-padding-y:               8px !default;
 $btn-padding-x:               12px !default;
