@@ -98,11 +98,11 @@
 
 
 
-// Inverse styles
+// Dark styles
 //
 // Same table markup, but inverted color scheme: dark background and light text.
 
-.thead-inverse {
+.thead-dark {
   & > thead > tr > th {
     color: $white;
     background-color: $gray-900;
@@ -116,7 +116,7 @@
   }
 }
 
-.table-inverse {
+.table-dark {
   color: $white;
   background-color: $gray-900;
 
