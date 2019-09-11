@@ -102,14 +102,14 @@
 // Same table markup, but inverted color scheme: dark background and light text.
 
 .thead-dark {
-  & > thead > tr > th {
+  th {
     color: $white;
     background-color: $gray-900;
   }
 }
 
 .thead-default {
-  & > thead > tr > th {
+  th {
     color: $gray-700;
     background-color: $gray-200;
   }
