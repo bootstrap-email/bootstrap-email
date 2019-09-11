@@ -28,7 +28,8 @@ h1, h2, h3, h4, h5, h6,
   text-align: center !important;
 }
 
-.p {
+p {
+  margin-bottom: $paragraph-margin-bottom;
   width: 100%;
   & > tbody > tr > td {
     margin: 0;
