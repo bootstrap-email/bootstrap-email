@@ -5,8 +5,7 @@
 .table {
   width: 100%;
   max-width: 100%;
-  // margin-bottom: $spacer;
-  background-color: $white; // Reset for nesting within parents with `background-color`.
+  background-color: $table-background-color; // Reset for nesting within parents with `background-color`.
 
   & > thead > tr > th {
     text-align: left;
@@ -25,7 +24,7 @@
   }
 }
 
-.table-unstyled{
+.table-unstyled {
   width: 100%;
   max-width: 100%;
   background-color: transparent;
@@ -76,7 +75,7 @@
 
 .table-striped {
   & > tbody > tr:nth-of-type(odd) {
-    background-color: #f2f2f2;
+    background-color: $table-accent-bg;
   }
 }
 
