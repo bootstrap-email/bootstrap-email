@@ -1,6 +1,7 @@
 /* Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp */
 body, .body {
   margin: 0;
+  Margin: 0; // For compatibility with Outlook https://www.emailonacid.com/blog/article/email-development/outlook-com-does-support-margins/
   padding: 0;
   border: 0;
   outline: 0;
