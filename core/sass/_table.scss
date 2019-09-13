@@ -14,7 +14,8 @@
   }
 
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     padding: 0.75 * $font-size-base;
     vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
@@ -39,7 +40,8 @@
 
 .table-sm {
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     padding: 0.3 * $font-size-base;;
   }
 }
@@ -53,7 +55,8 @@
   border: $table-border-width solid $table-border-color;
 
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     border: $table-border-width solid $table-border-color;
   }
 
@@ -117,7 +120,8 @@
   background-color: $gray-900;
 
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     border-color: #32383e;
   }
 
