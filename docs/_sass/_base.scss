@@ -15,7 +15,7 @@ header {
 
 .nav-docs {
   background-color: white !important;
-  border-bottom: 4px solid #6f4da2;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .bg-light {
@@ -36,15 +36,14 @@ aside {
     padding-left: 0;
     li {
       list-style: none;
-      font-size: 1rem;
-      margin: 0.1rem 0;
+      font-size: 0.875rem;
+      margin: 0.2rem 0;
       &:hover,
       &.active {
-        background-color: white;
+        background-color: #6f4da221;
         border-radius: 4px;
-        box-shadow: 0px 4px 8px rgba(181, 184, 186, 0.25);
         a {
-          color: black;
+          color: #6f4da2 !important;
           text-decoration: none;
         }
       }
@@ -60,9 +59,7 @@ aside {
 }
 
 .card-docs {
-  box-shadow: 0px 4px 8px rgba(181, 184, 186, 0.25);
-  border-color: #f1f1f1;
-  border-radius: 5px;
+  border-color: transparent;
 }
 
 .device-container {
@@ -189,5 +186,15 @@ footer {
       opacity: 1;
       cursor: pointer;
     }
+  }
+}
+
+.btn-purple {
+  background-color: #6f4da2;
+  color: white;
+  &:hover {
+    color: #6f4da2 !important;
+    border-color: #6f4da2 !important;
+    background-color: white !important;
   }
 }
