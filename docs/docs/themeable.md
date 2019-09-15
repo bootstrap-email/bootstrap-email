@@ -48,7 +48,7 @@ Bootstrap Email uses the same default color scheme that Bootstrap 4 does.
   }
 </style>
 
-### Customize Theme
+#### Customize Theme
 
 Bootstrap Email makes is really easy to customize the theme colors. You can override each color in your sass file before the `bootstrap-email` import:
 ```scss

@@ -28,7 +28,7 @@ Use a badge inline to show a count or give a status on something.
 <span class="badge badge-light">Light</span>
 <span class="badge badge-dark">Dark</span>
 
-### Pill badge
+#### Pill badge
 ```html
 <span class="badge badge-pill badge-primary">Primary</span>
 <span class="badge badge-pill badge-secondary">Secondary</span>

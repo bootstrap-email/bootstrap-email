@@ -5,11 +5,11 @@ title:  "Setup"
 <h1 class="mt-0 h2 mb-2">{{ page.title }}</h1>
 <hr>
 
-### Current Environment Support
+#### Current Environment Support
 - Ruby on Rails
 - [Online editor](https://bootstrapemail.com/editor)
 
-### Future Support (Help Wanted <3)
+#### Future Support (Help Wanted <3)
 - Node/JS Support
 - General Ruby Support
 - General PHP Support
@@ -19,7 +19,7 @@ I am thinking of building the render in Node and then running in a ruby / php ru
 
 ___
 
-### Rails Setup
+#### Rails Setup
 
 Setup with Rails could not be easier.
 
@@ -65,7 +65,7 @@ You can also create the view `/app/views/example_mailer/greet.text.erb`. In this
 
 If you do  not create a textual view file, a text part is automatically added by the `premailer-rails` gem.
 
-### Usage
+#### Usage
 Thats it! Now all you need to do to use it instead of using the `mail()` method, you use the `make_bootstrap_mail()` method to kick off Bootstrap Email compilation!
 
 ```ruby
@@ -98,5 +98,5 @@ class ExampleMailer < ApplicationMailer
 end
 ```
 
-### Compatibility note
+#### Compatibility note
 The old method `bootstrap_mail` is still available for compatibility.

@@ -21,7 +21,8 @@ Grids work just like they do in Bootstrap, based on a 12 column grid. Make a row
   <div class="col-4 border">.col-4</div>
   <div class="col-5 border">.col-5</div>
 </div>
-### Responsive
+
+#### Responsive
 You can use the responsive <code>lg</code> modifier to make the grid snap back to vertical stacking on smaller devices.
 
 ```html

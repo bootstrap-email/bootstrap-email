@@ -36,7 +36,7 @@ Use a button on an anchor tag to link out of an email.
   <strong>Warning:</strong> You must supply a url in the href. Using just pound sign is not enough for some emails to render an anchor tag correctly.
 </div>
 
-### Sizes
+#### Sizes
 ```html
 <a class="btn btn-primary btn-lg" href="https://bootstrapemail.com">Large button</a>
 <a class="btn btn-secondary btn-lg" href="https://bootstrapemail.com">Large button</a>

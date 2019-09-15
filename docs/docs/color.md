@@ -8,7 +8,7 @@ responsive: false
 
 Since emails render mostly consistently with tables, many of the components are built into tables. These color classes apply to the current element as well as the child `&lg;td&gt;` so you can use it on a component it will still work if the component is compiled into a table.
 
-### Text Color
+#### Text Color
 ```html
 <p class="text-primary">.text-primary</p>
 <p class="text-secondary">.text-secondary</p>
@@ -33,7 +33,7 @@ Since emails render mostly consistently with tables, many of the components are 
 <p class="text-muted">.text-muted</p>
 <p class="text-white bg-dark">.text-white</p>
 
-### Background Color
+#### Background Color
 ```html
 <div class="bg-primary text-white">.bg-primary</div>
 <div class="bg-secondary text-white">.bg-secondary</div>
