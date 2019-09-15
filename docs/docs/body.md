@@ -2,7 +2,8 @@
 layout: docs
 title:  "Body"
 ---
-<h1 class="mt-0">{{ page.title }}</h1>
+<h1 class="mt-0 h2 mb-2">{{ page.title }}</h1>
+<hr>
 
 A table with the class `.body` automatically wraps the email content and applies styles to give more consistent layout to the page. You can put classes on the `<body>` that will be moved onto the body table.
 

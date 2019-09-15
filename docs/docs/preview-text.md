@@ -2,7 +2,8 @@
 layout: docs
 title:  "Preview Text"
 ---
-<h1 class="mt-0">{{ page.title }}</h1>
+<h1 class="mt-0 h2 mb-2">{{ page.title }}</h1>
+<hr>
 
 If you aren't familiar with preview text, it is the text that shows up in your inbox as a preview of the content inside the email. Here is more info about what it is and how it works on [Litmus.com](https://litmus.com/blog/the-ultimate-guide-to-preview-text-support)
 <img class="d-block mx-auto w-50" src="https://d31v04zdn5vmni.cloudfront.net/blog/wp-content/uploads/2015/04/ios-gmail-app-preview-text.jpg" />

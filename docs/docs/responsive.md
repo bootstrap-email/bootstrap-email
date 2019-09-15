@@ -2,11 +2,12 @@
 layout: docs
 title:  "Responsive"
 ---
-<h1 class="mt-0">{{ page.title }}</h1>
+<h1 class="mt-0 h2 mb-2">{{ page.title }}</h1>
+<hr>
 
 When you see the
 <span class="d-inline-block">
-  <a href="/docs/themeable" class="badge m-0 d-flex align-items-center compatability-badge">
+  <a href="/docs/themeable" class="badge m-0 d-flex align-items-center compatibility-badge">
     <span class="badge-check">
       <img src="/img/icons/check.svg" />
     </span>

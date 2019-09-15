@@ -122,14 +122,14 @@ footer {
   }
 }
 
-.compatability-badge {
+.compatibility-badge {
   color: #333333;
   border: 1px solid #dae4e9;
   background-color: #fafcfc;
   padding: 0.25rem 0.5rem 0.25rem 0.25rem;
   border-radius: 9999px;
   font-weight: 500;
-  margin: 1rem 0 0 1rem;
+  margin: 0.4rem 0 0 1rem;
   display: block;
   .badge-check {
     background-color: #51d88a;
@@ -150,7 +150,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .compatability-badge {
+  .compatibility-badge {
     margin: -0.25rem 0.25rem 0.75rem 0;
   }
   .docs-cta {

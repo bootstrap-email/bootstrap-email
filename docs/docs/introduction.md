@@ -2,7 +2,8 @@
 layout: docs
 title:  "Introduction"
 ---
-<h1 class="mt-0">{{ page.title }}</h1>
+<h1 class="mt-0 h2 mb-2">{{ page.title }}</h1>
+<hr>
 
 ##### Welcome to Bootstap Email! Happy to see you here :)
 Bootstrap Email is a Bootstrap 4 stylesheet, compiler, and inliner for responsive and consistent emails with the Bootstrap syntax you know and love.
