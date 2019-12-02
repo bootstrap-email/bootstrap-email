@@ -1,23 +1,23 @@
 .btn {
-  border-radius: 4px;
+  border-radius: $btn-border-radius;
   border-collapse: separate !important;
 }
 
 .btn td {
-  border-radius: 4px;
+  border-radius: $btn-border-radius;
   text-align: center;
 }
 
 .btn td a {
-  font-size: 16px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-size: $btn-font-size;
+  font-family: $btn-font-family;
   text-decoration: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  line-height: 1.25 * $font-size-base;
-  border: 1px solid #e9703e;
+  border-radius: $btn-border-radius;
+  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height;
+  border: $btn-border-width solid transparent;
   display: inline-block;
-  font-weight: normal;
+  font-weight: $btn-font-weight;
   white-space: nowrap;
 }
 
@@ -45,15 +45,15 @@
 }
 
 .btn-sm td a {
-  font-size: .875 * $font-size-base;
-  padding: .25 * $font-size-base .5 * $font-size-base;
-  line-height: 1.5 * .875 * $font-size-base;
-  border-radius: .2 * $font-size-base;
+  font-size: $btn-font-size-sm;
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  line-height: $btn-line-height-sm;
+  border-radius: $btn-border-radius-sm;
 }
 
 .btn-lg td a {
-  font-size: 1.25 * $font-size-base;
-  padding: .5 * $font-size-base 1 * $font-size-base;
-  line-height: 1.5 * 1.25 * $font-size-base;
-  border-radius: .3 * $font-size-base;
+  font-size: $btn-font-size-lg;
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  line-height: $btn-line-height-lg;
+  border-radius: $btn-border-radius-lg;
 }

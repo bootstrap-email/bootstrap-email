@@ -1,10 +1,10 @@
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-  // margin-bottom: $font-size-base / 2;
-  font-weight: 500;
-  color: inherit;
+  margin-top: $headings-margin-top;
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  color: $headings-color;
   text-align: left;
   vertical-align: baseline;
 }
@@ -14,6 +14,14 @@ h1, h2, h3, h4, h5, h6,
     font-size: heading-size($n);
     line-height: heading-line-height($n);
   }
+}
+
+.font-weight-bold {
+  font-weight: bold !important;
+}
+
+.font-weight-normal {
+  font-weight: normal !important;
 }
 
 .text-left {
@@ -28,7 +36,8 @@ h1, h2, h3, h4, h5, h6,
   text-align: center !important;
 }
 
-.p {
+p {
+  margin-bottom: $paragraph-margin-bottom;
   width: 100%;
   & > tbody > tr > td {
     margin: 0;

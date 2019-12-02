@@ -1,7 +1,21 @@
-$font-size-base: 16px !default; 
-$line-height-base: 1.5;
-$headings-line-height: 1.2;
-$headings-ratios: (1: 2.25, 2: 2, 3: 1.75, 4: 1.5, 5: 1.25, 6: 1);
+$font-size-base: 16px !default;
+$font-weight-base: normal !default;
+$font-family-sans-serif: Helvetica, Arial, sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
+$border-radius: $font-size-base * 0.25 !default;
+$border-radius-lg: $font-size-base * 0.3 !default;
+$border-radius-sm: $font-size-base * 0.2 !default;
+$border-width: 1px !default;
+$line-height-base: 1.5 !default;
+$headings-line-height: 1.2 !default;
+$headings-ratios: (1: 2.25, 2: 2, 3: 1.75, 4: 1.5, 5: 1.25, 6: 1) !default;
+$headings-margin-top:         0 !default;
+$headings-margin-bottom:      0 !default;
+$headings-font-family:        null !default;
+$headings-font-weight:        500 !default;
+$headings-color:              null !default;
+$paragraph-margin-bottom: 0 !default;
+$rounded-pill: 50 * $font-size-base !default;
 
 //
 // Color system
@@ -88,8 +102,6 @@ $spacers: (
   5: ($spacer * 3)
 ) !default;
 
-$font-family-sans-serif: Helvetica, Arial, sans-serif !default;
-
 $widths: (
   25: 25%,
   50: 50%,
@@ -98,10 +110,41 @@ $widths: (
   auto: auto
 ) !default;
 
-$table-border-color: $gray-200;
-$table-border-width: 1px;
+$border-color: $gray-300 !default
+
+$table-accent-bg: #f2f2f2 !default;
+$table-background-color: null !default;
+$table-border-color: $border-color !default;
+$table-border-width: $border-width !default;
+
+$body-color: $black !default;
+$body-bg: $white !default;
+
+$btn-padding-y:               8px !default;
+$btn-padding-x:               12px !default;
+$btn-font-family:             $font-family-base !default;
+$btn-font-size:               $font-size-base !default;
+$btn-line-height:             1.25 * $btn-font-size !default;
+
+$btn-padding-y-sm:            0.25 * $btn-font-size !default;
+$btn-padding-x-sm:            0.5 * $btn-font-size !default;
+$btn-font-size-sm:            0.875 * $btn-font-size !default;
+$btn-line-height-sm:          $btn-line-height * 0.875 !default;
+
+$btn-padding-y-lg:            0.5 * $btn-font-size !default;
+$btn-padding-x-lg:            $btn-font-size !default;
+$btn-font-size-lg:            1.25 * $btn-font-size !default;
+$btn-line-height-lg:          $btn-line-height * 1.25 !default;
+
+$btn-border-width:            $border-width !default;
+
+$btn-font-weight:             $font-weight-base !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           $border-radius !default;
+$btn-border-radius-lg:        $border-radius-lg !default;
+$btn-border-radius-sm:        $border-radius-sm !default;
 
 // Utility functions
 @function heading-size($n) { @return map-get($headings-ratios, $n) * $font-size-base; }
 @function heading-line-height($n) { @return heading-size($n) * $headings-line-height; }
-

@@ -1,7 +1,7 @@
 /* Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp */
 body, .body {
   margin: 0;
-  Margin: 0;
+  Margin: 0; // For compatibility with Outlook https://www.emailonacid.com/blog/article/email-development/outlook-com-does-support-margins/
   padding: 0;
   border: 0;
   outline: 0;
@@ -10,13 +10,15 @@ body, .body {
   height: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-base;
   line-height: $line-height-base * $font-size-base;
-  font-weight: normal;
+  font-weight: $font-weight-base;
   font-size: $font-size-base;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  background-color: $body-bg;
+  color: $body-color;
 }
 
 img {
@@ -33,7 +35,7 @@ a img {
 
 // don't apply to spacers
 table:not([class^=s-]) {
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-base;
   mso-table-lspace: 0pt;
   mso-table-rspace: 0pt;
 }
@@ -60,4 +62,3 @@ p {
   font-size: $font-size-base;
   margin: 0;
 }
-

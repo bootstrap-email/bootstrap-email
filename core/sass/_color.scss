@@ -5,6 +5,16 @@
   }
 }
 
+.bg-white,
+.bg-white > tbody > tr > td {
+  background-color: $white !important;
+}
+
+.bg-transparent,
+.bg-transparent > tbody > tr > td {
+  background-color: transparent !important;
+}
+
 @each $color, $value in $theme-colors {
   .text-#{$color},
   .text-#{$color} > tbody > tr > td {

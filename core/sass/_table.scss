@@ -5,27 +5,24 @@
 .table {
   width: 100%;
   max-width: 100%;
-  // margin-bottom: $spacer;
-  background-color: $white; // Reset for nesting within parents with `background-color`.
+  background-color: $table-background-color; // Reset for nesting within parents with `background-color`.
 
   & > thead > tr > th {
     text-align: left;
+    vertical-align: bottom;
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
   }
 
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     padding: 0.75 * $font-size-base;
     vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
   }
-
-  & > thead > th {
-    vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
-  }
 }
 
-.table-unstyled{
+.table-unstyled {
   width: 100%;
   max-width: 100%;
   background-color: transparent;
@@ -43,7 +40,8 @@
 
 .table-sm {
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     padding: 0.3 * $font-size-base;;
   }
 }
@@ -57,7 +55,8 @@
   border: $table-border-width solid $table-border-color;
 
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     border: $table-border-width solid $table-border-color;
   }
 
@@ -76,7 +75,7 @@
 
 .table-striped {
   & > tbody > tr:nth-of-type(odd) {
-    background-color: #f2f2f2;
+    background-color: $table-accent-bg;
   }
 }
 
@@ -98,30 +97,31 @@
 
 
 
-// Inverse styles
+// Dark styles
 //
 // Same table markup, but inverted color scheme: dark background and light text.
 
-.thead-inverse {
-  & > thead > tr > th {
+.thead-dark {
+  th {
     color: $white;
     background-color: $gray-900;
   }
 }
 
-.thead-default {
-  & > thead > tr > th {
+.thead-light {
+  th {
     color: $gray-700;
     background-color: $gray-200;
   }
 }
 
-.table-inverse {
+.table-dark {
   color: $white;
   background-color: $gray-900;
 
   & > thead > tr > th,
-  & > tbody > tr > td {
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
     border-color: #32383e;
   }
 
