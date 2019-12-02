@@ -36,6 +36,39 @@ a {
   text-decoration: none;
 }
 
+/*
+Gmail inserts the following 2 rules above this file in <head> and this overrides them
+
+body,
+td,
+input,
+textarea,
+select {
+  margin: 0;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif
+}
+
+input,
+textarea,
+select {
+  font-size: 100%
+}
+*/
+body,
+td,
+input,
+textarea,
+select {
+  margin: unset;
+  font-family: unset;
+}
+
+input,
+textarea,
+select {
+  font-size: unset;
+}
+
 @media screen and (max-width: 600px) {
   //  Grid
   table.row {
