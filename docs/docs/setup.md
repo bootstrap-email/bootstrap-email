@@ -29,10 +29,7 @@ Setup with Rails could not be easier.
 gem 'bootstrap-email'
 ```
 
-2: Create a new file `/app/views/layouts/example_mailer.html.erb` and paste this HTML into it. (It is very similar to the default one).
-
-The name of this file follows the rules of ActionMailer, that loads a layout deriving the name from the mailer class name.
-If you want a different behaviour, such as using the same template for all the mailers, or specifying a template for a single method, refer to the [official ActionMailer documentation](http://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-layouts).
+2: You need to create the mailer template which will wrap the email content. Create the file `/app/views/layouts/bootstrap-mailer.html.erb` and paste this HTML into it. (It is very similar to the default mailer).
 
 ```erb
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -47,19 +44,27 @@ If you want a different behaviour, such as using the same template for all the m
 </html>
 ```
 
-3: Create a new stylesheet `/app/assets/stylesheets/application-mailer.scss` and import `bootstrap-email`. This is where your custom styles and overrides that you want to be inlined should live.
+3: Specify the layout for the actions you want to build with bootstrap email. You can specify it for all with ApplicationMailer.
+```ruby
+class ApplicationMailer < ActionMailer::Base
+  layout 'bootstrap-mailer'
+end
+```
+Refer to the [official ActionMailer documentation](http://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-layouts) on more info about using a different layout for different mailers.
+
+4: Create a new stylesheet `/app/assets/stylesheets/application-mailer.scss` and import `bootstrap-email`. This is where your custom styles and overrides that you want to be inlined should live.
 
 ```sass
 @import 'bootstrap-email';
 ```
 
-4: Add this line in `/config/initializers/asset.rb` to compile your new SASS file.
+5: Add this line in `/config/initializers/asset.rb` to compile your new SASS file.
 
 ```ruby
 Rails.application.config.assets.precompile += %w( application-mailer.scss )
 ```
 
-5: Create the view file `/app/views/example_mailer/greet.html.erb`.
+6: Create the view file `/app/views/example_mailer/greet.html.erb`.
 
 You can also create the view `/app/views/example_mailer/greet.text.erb`. In this case don't forget to create also the textual layout `/app/views/layouts/example_mailer.text.erb`.
 
