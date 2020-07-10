@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://bootstapemail.com">
+  <a href="https://bootstrapemail.com">
     <img src="https://bootstrapemail.com/img/icons/logo.png" alt="" width=72 height=72>
   </a>
 
