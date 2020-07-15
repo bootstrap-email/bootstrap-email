@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.summary     = 'Bootstrap 4 stylesheet, compiler, and inliner for responsive and consistent emails with the Bootstrap syntax you know and love.'
   s.authors     = ['Stuart Yamartino']
-  s.email       = 'stuartyamartino@gmail.com'
+  s.email       = 'stu@stuyam.com'
   s.files       = Dir['lib/**/*'] + Dir['core/**/*'] + ['VERSION']
   s.homepage    = 'https://bootstrapemail.com'
   s.license     = 'MIT'

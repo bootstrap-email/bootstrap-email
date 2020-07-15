@@ -8,13 +8,13 @@ require 'rails'
 
 module BootstrapEmail
   class Compiler
-    def initialize mail
+    def initialize(mail)
       @mail = mail
       @source = mail.html_part || mail
       update_doc(@source.body.raw_source)
     end
 
-    def update_doc source
+    def update_doc(source)
       @doc = Nokogiri::HTML(source)
     end
 
@@ -63,21 +63,21 @@ module BootstrapEmail
       engine = defined?(SassC::Engine).nil? ? Sass::Engine : SassC::Engine
       html_string = <<-HEREDOC
         <style type="text/css">
-          #{engine.new(File.open(File.expand_path('../core/head.scss', __dir__)).read, {syntax: :scss, style: :compressed, cache: false, read_cache: false}).render}
+          #{engine.new(File.open(File.expand_path('../core/head.scss', __dir__)).read, syntax: :scss, style: :compressed, cache: false, read_cache: false).render}
         </style>
       HEREDOC
       html_string
     end
 
-    def template file, locals_hash = {}
+    def template(file, locals_hash = {})
       namespace = OpenStruct.new(locals_hash)
       template_html = File.open(File.expand_path("../core/templates/#{file}.html.erb", __dir__)).read
       ERB.new(template_html).result(namespace.instance_eval { binding })
     end
 
-    def each_node css_lookup, &blk
+    def each_node(css_lookup, &blk)
       # sort by youngest child and traverse backwards up the tree
-      @doc.css(css_lookup).sort_by{ |n| n.ancestors.size }.reverse!.each(&blk)
+      @doc.css(css_lookup).sort_by { |n| n.ancestors.size }.reverse!.each(&blk)
     end
 
     def button
@@ -110,7 +110,7 @@ module BootstrapEmail
       end
     end
 
-    def align_helper node, klass, template
+    def align_helper(node, klass, template)
       if node.name != 'table' # if it is already on a table, set the proprieties on the current table
         node['class'] = node['class'].sub(klass, '')
         node.replace(template("align-#{template}", contents: node.to_html))
@@ -154,12 +154,12 @@ module BootstrapEmail
 
     def padding
       each_node('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]') do |node|
-        if node.name != 'table' # if it is already on a table, set the padding on the table, else wrap the content in a table
-          padding_regex = /(p[trblxy]?-\d)/
-          classes = node['class'].scan(padding_regex).join(' ')
-          node['class'] = node['class'].gsub(padding_regex, '')
-          node.replace(template('table', classes: classes, contents: node.to_html))
-        end
+        next unless node.name != 'table' # if it is already on a table, set the padding on the table, else wrap the content in a table
+
+        padding_regex = /(p[trblxy]?-\d)/
+        classes = node['class'].scan(padding_regex).join(' ')
+        node['class'] = node['class'].gsub(padding_regex, '')
+        node.replace(template('table', classes: classes, contents: node.to_html))
       end
     end
 
@@ -213,13 +213,13 @@ module BootstrapEmail
 
     def preview_text
       preview_node = @doc.at_css('preview')
-      if preview_node.present?
-        # apply spacing after the text max of 100 characters so it doesn't show body text
-        preview_node.content += '&nbsp;' * (100 - preview_node.content.length.to_i)
-        node = template('div', classes: 'preview', contents: preview_node.content)
-        preview_node.remove
-        return node
-      end
+      return if preview_node.blank?
+
+      # apply spacing after the text max of 100 characters so it doesn't show body text
+      preview_node.content += '&nbsp;' * [(100 - preview_node.content.length.to_i), 0].max
+      node = template('div', classes: 'preview', contents: preview_node.content)
+      preview_node.remove
+      node
     end
   end
 end
