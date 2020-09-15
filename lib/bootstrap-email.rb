@@ -8,10 +8,46 @@ require 'rails'
 
 module BootstrapEmail
   class Compiler
-    def initialize(mail)
+
+    SCSS_FILE_PATH = File.expand_path('../core/bootstrap-email.scss', __dir__)
+    CSS_FILE_PATH = File.expand_path('../core/bootstrap-email.css', __dir__)
+
+    # def initialize(mail)
+    #   @mail = mail
+    #   @source = mail.html_part || mail
+    #   update_doc(@source.body.raw_source)
+    # end
+
+    def self.using_rails_mail(mail)
       @mail = mail
       @source = mail.html_part || mail
       update_doc(@source.body.raw_source)
+    end
+
+    def self.using_string(html_string)
+      set_premailer_document(html_string, with_html_string: true)
+    end
+
+    def self.using_file(file)
+      set_premailer_document(file, with_html_string: false)
+    end
+
+    def set_premailer_document(file_or_html_string, with_html_string:)
+      cache_css_file!
+
+      @premailer = Premailer.new(
+        file_or_html_string,
+        with_html_string: with_html_string,
+        css: [file_path]
+      )
+      @doc = @premailer.doc
+      # pick up from here
+    end
+
+    def cache_css_file!
+      return if File.file?(CSS_FILE_PATH)
+
+      File.write(SassC::Engine.new(SCSS_FILE_PATH).render)
     end
 
     def update_doc(source)
@@ -42,6 +78,14 @@ module BootstrapEmail
     end
 
     def inline_css!
+      premailer = Premailer.new(
+        html_string,
+        with_html_string: true,
+        css: ['./core/css/bootstrap-email.css']
+      )
+    end
+
+    def inline_css!
       @source.body = @doc.to_html
       @mail = Premailer::Rails::Hook.perform(@mail)
       @mail.header[:skip_premailer] = true
@@ -60,18 +104,17 @@ module BootstrapEmail
     private
 
     def bootstrap_email_head
-      engine = defined?(SassC::Engine).nil? ? Sass::Engine : SassC::Engine
-      html_string = <<-HEREDOC
+      html_string = <<-INLINE
         <style type="text/css">
-          #{engine.new(File.open(File.expand_path('../core/head.scss', __dir__)).read, syntax: :scss, style: :compressed, cache: false, read_cache: false).render}
+          #{SassC::Engine.new(File.read(File.expand_path('../core/head.scss', __dir__)), syntax: :scss, style: :compressed, cache: false, read_cache: false).render}
         </style>
-      HEREDOC
+      INLINE
       html_string
     end
 
     def template(file, locals_hash = {})
       namespace = OpenStruct.new(locals_hash)
-      template_html = File.open(File.expand_path("../core/templates/#{file}.html.erb", __dir__)).read
+      template_html = File.read(File.expand_path("../core/templates/#{file}.html.erb", __dir__))
       ERB.new(template_html).result(namespace.instance_eval { binding })
     end
 
@@ -224,7 +267,9 @@ module BootstrapEmail
   end
 end
 
-require 'bootstrap-email/premailer_railtie'
-require 'bootstrap-email/action_mailer'
-require 'bootstrap-email/engine'
-require 'bootstrap-email/version'
+if defined?(Rails)
+  require 'bootstrap-email/premailer_railtie'
+  require 'bootstrap-email/action_mailer'
+  require 'bootstrap-email/engine'
+  require 'bootstrap-email/version'
+end
