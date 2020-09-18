@@ -15,7 +15,7 @@ module BootstrapEmail
   class Compiler
     CORE_SCSS_FILE_PATH = File.expand_path('../core/bootstrap-email.scss', __dir__)
     HEAD_SCSS_FILE = File.expand_path('../core/head.scss', __dir__)
-    CSS_FILE_PATH = File.expand_path('../tmp/bootstrap-email.css', __dir__)
+    # CSS_FILE_PATH = File.expand_path('../tmp/bootstrap-email.css', __dir__)
 
     def initialize(type:, input:)
       case type
