@@ -43,22 +43,22 @@ module BootstrapEmail
     end
 
     def set_premailer_document(path_or_html, with_html_string:)
-      cache_css_file!
+      # cache_css_file!
 
       @premailer = Premailer.new(
         path_or_html,
         with_html_string: with_html_string,
-        css: [CSS_FILE_PATH]
+        css_string: SassC::Engine.new(File.read(CORE_SCSS_FILE_PATH), syntax: :scss, style: :compressed, cache: true, read_cache: true).render
       )
       @doc = @premailer.doc
       # pick up from here
     end
 
-    def cache_css_file!
-      return if File.file?(CSS_FILE_PATH)
+    # def cache_css_file!
+    #   return if File.file?(CSS_FILE_PATH)
 
-      File.write(CSS_FILE_PATH, SassC::Engine.new(File.read(CORE_SCSS_FILE_PATH), syntax: :scss, style: :compressed, cache: true, read_cache: true).render)
-    end
+    #   File.write(CSS_FILE_PATH, SassC::Engine.new(File.read(CORE_SCSS_FILE_PATH), syntax: :scss, style: :compressed, cache: true, read_cache: true).render)
+    # end
 
     def update_doc(source)
       @doc = Nokogiri::HTML(source)
