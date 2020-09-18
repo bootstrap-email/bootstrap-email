@@ -13,6 +13,7 @@ def run_tests
     compiled = BootstrapEmail::Compiler.new(type: :string, input: embed_in_layout(file_contents)).perform_full_compile
     destination = file.split('/').last
     File.write("tests/compiled/#{destination}", compiled)
+    puts "Compiled file #{destination}"
   end
 end
 
