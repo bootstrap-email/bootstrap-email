@@ -8,7 +8,7 @@ def embed_in_layout(html)
 end
 
 def run_tests
-  Dir.glob('tests/preinlined/*.html').first(1).each do |file|
+  Dir.glob('tests/precompiled/*.html').each do |file|
     file_contents = File.read(file)
     compiled = BootstrapEmail::Compiler.new(type: :string, input: embed_in_layout(file_contents)).perform_full_compile
     destination = file.split('/').last
