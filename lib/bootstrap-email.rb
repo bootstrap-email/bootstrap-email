@@ -1,44 +1,54 @@
 require 'nokogiri'
 require 'erb'
 require 'ostruct'
-require 'action_mailer'
 require 'premailer'
 require 'premailer/rails'
-require 'rails'
+require 'sassc'
+if defined?(Rails)
+  require 'rails'
+  require 'action_mailer'
+end
+
+SassC.load_paths << File.expand_path('../core', __dir__)
 
 module BootstrapEmail
   class Compiler
+    CORE_SCSS_FILE_PATH = File.expand_path('../core/bootstrap-email.scss', __dir__)
+    HEAD_SCSS_FILE = File.expand_path('../core/head.scss', __dir__)
+    CSS_FILE_PATH = File.expand_path('../tmp/bootstrap-email.css', __dir__)
 
-    SCSS_FILE_PATH = File.expand_path('../core/bootstrap-email.scss', __dir__)
-    CSS_FILE_PATH = File.expand_path('../core/bootstrap-email.css', __dir__)
+    def initialize(type:, input:)
+      case type
+      when :rails
+        using_rails_mail(input)
+      when :string
+        using_string(input)
+      when :file
+        using_file(input)
+      end
+    end
 
-    # def initialize(mail)
-    #   @mail = mail
-    #   @source = mail.html_part || mail
-    #   update_doc(@source.body.raw_source)
-    # end
-
-    def self.using_rails_mail(mail)
+    def using_rails_mail(mail)
       @mail = mail
       @source = mail.html_part || mail
       update_doc(@source.body.raw_source)
     end
 
-    def self.using_string(html_string)
-      set_premailer_document(html_string, with_html_string: true)
+    def using_string(html)
+      set_premailer_document(html, with_html_string: true)
     end
 
-    def self.using_file(file)
-      set_premailer_document(file, with_html_string: false)
+    def using_file(path)
+      set_premailer_document(path, with_html_string: false)
     end
 
-    def set_premailer_document(file_or_html_string, with_html_string:)
+    def set_premailer_document(path_or_html, with_html_string:)
       cache_css_file!
 
       @premailer = Premailer.new(
-        file_or_html_string,
+        path_or_html,
         with_html_string: with_html_string,
-        css: [file_path]
+        css: [CSS_FILE_PATH]
       )
       @doc = @premailer.doc
       # pick up from here
@@ -47,7 +57,7 @@ module BootstrapEmail
     def cache_css_file!
       return if File.file?(CSS_FILE_PATH)
 
-      File.write(SassC::Engine.new(SCSS_FILE_PATH).render)
+      File.write(CSS_FILE_PATH, SassC::Engine.new(File.read(CORE_SCSS_FILE_PATH), syntax: :scss, style: :compressed, cache: true, read_cache: true).render)
     end
 
     def update_doc(source)
@@ -78,35 +88,35 @@ module BootstrapEmail
     end
 
     def inline_css!
-      premailer = Premailer.new(
-        html_string,
-        with_html_string: true,
-        css: ['./core/css/bootstrap-email.css']
-      )
+      @premailer.to_inline_css
     end
 
-    def inline_css!
-      @source.body = @doc.to_html
-      @mail = Premailer::Rails::Hook.perform(@mail)
-      @mail.header[:skip_premailer] = true
-      update_doc(@mail.html_part.body.raw_source)
-    end
+    # def inline_css!
+    #   @source.body = @doc.to_html
+    #   @mail = Premailer::Rails::Hook.perform(@mail)
+    #   @mail.header[:skip_premailer] = true
+    #   update_doc(@mail.html_part.body.raw_source)
+    # end
 
     def inject_head!
       @doc.at_css('head').add_child(bootstrap_email_head)
     end
 
     def update_mailer!
-      @mail.html_part.body = @doc.to_html
-      @mail
+      @doc.to_html
     end
+
+    # def update_mailer!
+    #   @mail.html_part.body = @doc.to_html
+    #   @mail
+    # end
 
     private
 
     def bootstrap_email_head
       html_string = <<-INLINE
         <style type="text/css">
-          #{SassC::Engine.new(File.read(File.expand_path('../core/head.scss', __dir__)), syntax: :scss, style: :compressed, cache: false, read_cache: false).render}
+          #{SassC::Engine.new(File.read(HEAD_SCSS_FILE), syntax: :scss, style: :compressed, cache: true, read_cache: true).render}
         </style>
       INLINE
       html_string
