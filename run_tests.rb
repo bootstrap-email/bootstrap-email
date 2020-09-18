@@ -1,26 +1,5 @@
 require_relative 'lib/bootstrap-email'
-require 'action_mailer'
-require './sassc'
-require 'ostruct'
-
-class TestMailer < ActionMailer::Base
-  def build(body)
-    mail = mail(
-      to: 'info@bootstrapemail.com',
-      subject: 'test',
-      body: body,
-      content_type: 'text/html'
-    )
-
-    bootstrap = BootstrapEmail::Compiler.new(mail)
-    bootstrap.perform_full_compile
-  end
-end
-
-def compile_css
-  sass = SassC::Engine.new(File.read(File.expand_path('core/bootstrap-email.scss', __dir__)), syntax: :scss, style: :compressed, cache: false, read_cache: false).render
-  File.write('test/bootstrap-email.css', sass)
-end
+require 'sassc'
 
 def embed_in_layout(html)
   namespace = OpenStruct.new(contents: html)
@@ -29,12 +8,12 @@ def embed_in_layout(html)
 end
 
 def run_tests
-  Dir.glob('test/preinlined/*.html').each do |file|
+  Dir.glob('tests/preinlined/*.html').first(1).each do |file|
     file_contents = File.read(file)
-    compiled = TestMailer.build(embed_in_layout(file_contents)).html_part.body.raw_source
+    compiled = BootstrapEmail::Compiler.new(type: :string, input: embed_in_layout(file_contents)).perform_full_compile
     destination = file.split('/').last
-    File.write("test/inlined/#{destination}", compiled)
+    File.write("tests/compiled/#{destination}", compiled)
   end
 end
 
-compile_css
+run_tests
