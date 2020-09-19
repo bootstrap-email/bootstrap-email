@@ -8,7 +8,14 @@ module BootstrapEmail
       @premailer = Premailer.new(
         string_or_file,
         with_html_string: with_html_string,
-        css_string: SassC::Engine.new(File.read(CORE_SCSS_PATH), syntax: :scss, style: :compressed, cache: true, read_cache: true).render
+        preserve_reset: false,
+        css_string: SassC::Engine.new(
+          File.read(CORE_SCSS_PATH),
+          syntax: :scss,
+          style: :compressed,
+          cache: true,
+          read_cache: true
+        ).render
       )
       self.doc = @premailer.doc
     end
