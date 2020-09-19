@@ -1,20 +1,6 @@
-require_relative 'bootstrap-email/adapters/rails_adapter'
-require_relative 'bootstrap-email/adapters/string_and_file_adapter'
-
-require 'nokogiri'
-require 'erb'
-require 'ostruct'
-require 'premailer'
-require 'sassc'
-if defined?(Rails)
-  require 'rails'
-  require 'action_mailer'
-  require 'premailer/rails'
-end
-
 module BootstrapEmail
   class Compiler
-    HEAD_SCSS_PATH = File.expand_path('../core/head.scss', __dir__)
+    HEAD_SCSS_PATH = File.expand_path('../../core/head.scss', __dir__)
 
     def initialize(type:, input:)
       case type
@@ -67,7 +53,7 @@ module BootstrapEmail
 
     def template(file, locals_hash = {})
       namespace = OpenStruct.new(locals_hash)
-      template_html = File.read(File.expand_path("../core/templates/#{file}.html.erb", __dir__))
+      template_html = File.read(File.expand_path("../../core/templates/#{file}.html.erb", __dir__))
       ERB.new(template_html).result(namespace.instance_eval { binding })
     end
 
@@ -218,11 +204,4 @@ module BootstrapEmail
       node
     end
   end
-end
-
-if defined?(Rails)
-  require_relative 'bootstrap-email/premailer_railtie'
-  require_relative 'bootstrap-email/action_mailer'
-  require_relative 'bootstrap-email/engine'
-  require_relative 'bootstrap-email/version'
 end
