@@ -14,49 +14,24 @@ end
 
 module BootstrapEmail
   class Compiler
-    CORE_SCSS_PATH = File.expand_path('../core/bootstrap-email.scss', __dir__)
     HEAD_SCSS_PATH = File.expand_path('../core/head.scss', __dir__)
 
     def initialize(type:, input:)
       case type
       when :rails
-        @compiler = BootstrapEmail::RailsCompiler.new(input)
+        @adapter = BootstrapEmail::RailsAdapter.new(input)
       when :string
-        extend BootstrapEmail::FileAdapter
-        setup(string: input)
+        @adapter = BootstrapEmail::StringAndFileAdapter.new(input, with_html_string: true)
       when :file
-        extend BootstrapEmail::FileAdapter
-        setup(file: input)
+        @adapter = BootstrapEmail::StringAndFileAdapter.new(input, with_html_string: false)
       end
-    end
-
-    def using_string(html)
-      set_premailer_document(html, with_html_string: true)
-    end
-
-    def using_file(path)
-      set_premailer_document(path, with_html_string: false)
-    end
-
-    def set_premailer_document(path_or_html, with_html_string:)
-      SassC.load_paths << File.expand_path('../core', __dir__)
-      @premailer = Premailer.new(
-        path_or_html,
-        with_html_string: with_html_string,
-        css_string: SassC::Engine.new(File.read(CORE_SCSS_PATH), syntax: :scss, style: :compressed, cache: true, read_cache: true).render
-      )
-      @doc = @premailer.doc
-    end
-
-    def update_doc(source)
-      @doc = Nokogiri::HTML(source)
     end
 
     def perform_full_compile
       compile_html!
-      inline_css!
+      @adapter.inline_css!
       inject_head!
-      update_mailer!
+      @adapter.finalize_document!
     end
 
     def compile_html!
@@ -75,29 +50,9 @@ module BootstrapEmail
       body
     end
 
-    def inline_css!
-      @premailer.to_inline_css
-    end
-
-    # def inline_css!
-    #   @source.body = @doc.to_html
-    #   @mail = Premailer::Rails::Hook.perform(@mail)
-    #   @mail.header[:skip_premailer] = true
-    #   update_doc(@mail.html_part.body.raw_source)
-    # end
-
     def inject_head!
-      @doc.at_css('head').add_child(bootstrap_email_head)
+      @adapter.doc.at_css('head').add_child(bootstrap_email_head)
     end
-
-    def update_mailer!
-      @doc.to_html
-    end
-
-    # def update_mailer!
-    #   @mail.html_part.body = @doc.to_html
-    #   @mail
-    # end
 
     private
 
@@ -118,7 +73,7 @@ module BootstrapEmail
 
     def each_node(css_lookup, &blk)
       # sort by youngest child and traverse backwards up the tree
-      @doc.css(css_lookup).sort_by { |n| n.ancestors.size }.reverse!.each(&blk)
+      @adapter.doc.css(css_lookup).sort_by { |n| n.ancestors.size }.reverse!.each(&blk)
     end
 
     def button
@@ -238,7 +193,7 @@ module BootstrapEmail
     end
 
     def table
-      @doc.css('table').each do |node|
+      @adapter.doc.css('table').each do |node|
         # border="0" cellpadding="0" cellspacing="0"
         node['border'] = 0
         node['cellpadding'] = 0
@@ -247,13 +202,13 @@ module BootstrapEmail
     end
 
     def body
-      @doc.css('body').each do |node|
+      @adapter.doc.css('body').each do |node|
         node.replace('<body>' + preview_text.to_s + template('body', classes: "#{node['class']} body", contents: node.inner_html.to_s) + '</body>')
       end
     end
 
     def preview_text
-      preview_node = @doc.at_css('preview')
+      preview_node = @adapter.doc.at_css('preview')
       return if preview_node.blank?
 
       # apply spacing after the text max of 100 characters so it doesn't show body text
