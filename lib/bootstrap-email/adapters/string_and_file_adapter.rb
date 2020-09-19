@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module StringAndFileAdapter
+  class StringAndFileAdapter
     CORE_SCSS_PATH = File.expand_path('../../../core/bootstrap-email.scss', __dir__)
     attr_accessor :doc
 
