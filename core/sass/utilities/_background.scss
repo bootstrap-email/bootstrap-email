@@ -5,29 +5,24 @@
   }
 }
 
+@each $color, $value in $pallet-colors {
+  .bg-#{$color},
+  .bg-#{$color} > tbody > tr > td {
+    background-color: $value;
+  }
+}
+
 .bg-white,
 .bg-white > tbody > tr > td {
   background-color: $white !important;
 }
 
+.bg-black,
+.bg-black > tbody > tr > td {
+  background-color: $black !important;
+}
+
 .bg-transparent,
 .bg-transparent > tbody > tr > td {
   background-color: transparent !important;
-}
-
-@each $color, $value in $theme-colors {
-  .text-#{$color},
-  .text-#{$color} > tbody > tr > td {
-    color: $value;
-  }
-}
-
-.text-white,
-.text-white > tbody > tr > td {
-  color: $white;
-}
-
-.text-muted,
-.text-mute > tbody > tr > td {
-  color: #636c72;
 }

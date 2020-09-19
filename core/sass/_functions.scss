@@ -1,4 +1,3 @@
-// Color contrast
 @mixin color-yiq($color) {
   $r: red($color);
   $g: green($color);
@@ -11,4 +10,12 @@
   } @else {
     color: $white;
   }
+}
+
+@function tint-color($color, $level) {
+  @return mix(white, $color, $level * $theme-color-interval);
+}
+
+@function shade-color($color, $level) {
+  @return mix(black, $color, $level * $theme-color-interval);
 }

@@ -1,0 +1,28 @@
+@each $color, $value in $theme-colors {
+  .text-#{$color},
+  .text-#{$color} > tbody > tr > td {
+    color: $value;
+  }
+}
+
+@each $color, $value in $pallet-colors {
+  .text-#{$color},
+  .text-#{$color} > tbody > tr > td {
+    color: $value;
+  }
+}
+
+.text-white,
+.text-white > tbody > tr > td {
+  color: $white;
+}
+
+.text-black,
+.text-black > tbody > tr > td {
+  color: $black;
+}
+
+.text-muted,
+.text-mute > tbody > tr > td {
+  color: $gray-600;
+}
