@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module RailsAdapter
+  class RailsAdapter
     attr_reader :doc
 
     def initialize(mail)
@@ -16,7 +16,7 @@ module BootstrapEmail
       @source.body = doc.to_html
       @mail = Premailer::Rails::Hook.perform(@mail)
       @mail.header[:skip_premailer] = true
-      self.doc = @mail.html_part.body.raw_source)
+      self.doc = @mail.html_part.body.raw_source
     end
 
     def finalize_document!
