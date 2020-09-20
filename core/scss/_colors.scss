@@ -46,6 +46,20 @@ $theme-colors: (
 $theme-color-interval: 8% !default;
 
 $pallet-colors: (
+  "black": $black,
+  "white": $white,
+  "transparent": "transparent",
+
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+
   "blue-100": tint-color($blue, 8),
   "blue-200": tint-color($blue, 6),
   "blue-300": tint-color($blue, 4),

@@ -11,18 +11,3 @@
     background-color: $value;
   }
 }
-
-.bg-white,
-.bg-white > tbody > tr > td {
-  background-color: $white !important;
-}
-
-.bg-black,
-.bg-black > tbody > tr > td {
-  background-color: $black !important;
-}
-
-.bg-transparent,
-.bg-transparent > tbody > tr > td {
-  background-color: transparent !important;
-}

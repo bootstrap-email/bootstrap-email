@@ -20,54 +20,68 @@
   }
 }
 
-.border-white {
-  border-color: $white !important;
+@each $color, $value in $pallet-colors {
+  .border-#{$color} {
+    border-color: $value !important;
+  }
 }
 
 //
 // Border-radius
 //
 
-.rounded-sm {
+@mixin border-radius($name) {
+  .#{$name},
+  .btn.#{$name} td,
+  .btn.#{$name} td a {
+    @content
+  }
+}
+
+@include border-radius("rounded-0") {
+  border-radius: 0 !important;
+}
+
+@include border-radius("rounded-sm") {
   border-radius: $border-radius-sm !important;
 }
 
-.rounded {
+@include border-radius("rounded") {
   border-radius: $border-radius !important;
 }
 
-.rounded-top {
+@include border-radius("rounded-top") {
   border-top-left-radius: $border-radius !important;
   border-top-right-radius: $border-radius !important;
 }
 
-.rounded-right {
+@include border-radius("rounded-right") {
   border-top-right-radius: $border-radius !important;
   border-bottom-right-radius: $border-radius !important;
 }
 
-.rounded-bottom {
+@include border-radius("rounded-bottom") {
   border-bottom-right-radius: $border-radius !important;
   border-bottom-left-radius: $border-radius !important;
 }
 
-.rounded-left {
+@include border-radius("rounded-left") {
   border-top-left-radius: $border-radius !important;
   border-bottom-left-radius: $border-radius !important;
 }
 
-.rounded-lg {
+@include border-radius("rounded-lg") {
   border-radius: $border-radius-lg !important;
 }
 
-.rounded-circle {
+@include border-radius("rounded-xl") {
+  border-radius: $border-radius-xl !important;
+}
+
+@include border-radius("rounded-circle") {
   border-radius: 50% !important;
 }
 
-.rounded-pill {
+@include border-radius("rounded-pill") {
   border-radius: $rounded-pill !important;
-}
-
-.rounded-0 {
-  border-radius: 0 !important;
 }
