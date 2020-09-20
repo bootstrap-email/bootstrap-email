@@ -1,0 +1,23 @@
+@each $size, $amount in $sizing {
+  @include sizing-util('.w-#{$size}') {
+    width: $amount;
+  }
+}
+
+@each $size, $amount in $sizing {
+  @include sizing-util('.w-lg#{$size}') {
+    width: $amount;
+  }
+}
+
+@each $size, $amount in $sizing {
+  @include sizing-util('.h-#{$size}') {
+    height: $amount;
+  }
+}
+
+@each $size, $amount in $sizing {
+  @include sizing-util('.h-lg-#{$size}') {
+    height: $amount;
+  }
+}

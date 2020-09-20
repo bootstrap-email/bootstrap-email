@@ -1,13 +1,5 @@
-@each $color, $value in $theme-colors {
-  .bg-#{$color},
-  .bg-#{$color} > tbody > tr > td {
-    background-color: $value;
-  }
-}
-
-@each $color, $value in $pallet-colors {
-  .bg-#{$color},
-  .bg-#{$color} > tbody > tr > td {
+@each $color, $value in $all-colors {
+  @include background-color-util('.bg-#{$color}') {
     background-color: $value;
   }
 }
