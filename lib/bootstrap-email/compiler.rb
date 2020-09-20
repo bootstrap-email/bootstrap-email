@@ -45,7 +45,7 @@ module BootstrapEmail
     def bootstrap_email_head
       html_string = <<-INLINE
         <style type="text/css">
-          #{SassC::Engine.new(File.read(HEAD_SCSS_PATH), syntax: :scss, style: :compressed, cache: true, read_cache: true).render}
+          #{BootstrapEmail::SassCache.compile(HEAD_SCSS_PATH)}
         </style>
       INLINE
       html_string

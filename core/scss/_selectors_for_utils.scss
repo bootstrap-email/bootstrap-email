@@ -62,3 +62,16 @@
     }
   }
 }
+
+//
+// Sizing (width & height)
+//
+@mixin padding-util($class) {
+  @debug $class;
+  #{$class} {
+    &,
+    & > tbody > tr > td {
+      @content
+    }
+  }
+}

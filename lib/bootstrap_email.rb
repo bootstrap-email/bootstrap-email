@@ -3,6 +3,7 @@ require 'erb'
 require 'ostruct'
 require 'premailer'
 require 'sassc'
+require 'digest/sha1'
 
 if defined?(Rails)
   require 'rails'
@@ -10,9 +11,11 @@ if defined?(Rails)
   require 'premailer/rails'
 end
 
+require_relative 'bootstrap-email/initialize'
 require_relative 'bootstrap-email/adapters/rails_adapter'
 require_relative 'bootstrap-email/adapters/string_and_file_adapter'
 require_relative 'bootstrap-email/compiler'
+require_relative 'bootstrap-email/sass_cache'
 require_relative 'bootstrap-email/version'
 
 if defined?(Rails)
