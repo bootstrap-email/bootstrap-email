@@ -1,131 +1,50 @@
 table.row {
-  margin-right: -15px;
-  margin-left: -15px;
   table-layout: fixed;
   width: 100%;
-}
-
-th.col-1,
-th.col-lg-1,
-th.col-2,
-th.col-lg-2,
-th.col-3,
-th.col-lg-3,
-th.col-4,
-th.col-lg-4,
-th.col-5,
-th.col-lg-5,
-th.col-6,
-th.col-lg-6,
-th.col-7,
-th.col-lg-7,
-th.col-8,
-th.col-lg-8,
-th.col-9,
-th.col-lg-9,
-th.col-10,
-th.col-lg-10,
-th.col-11,
-th.col-lg-11,
-th.col-12,
-th.col-lg-12 {
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  font-weight: normal;
-}
-
-table.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.no-gutters > thead > tr {
-  & > th.col-1,
-  & > th.col-lg-1,
-  & > th.col-2,
-  & > th.col-lg-2,
-  & > th.col-3,
-  & > th.col-lg-3,
-  & > th.col-4,
-  & > th.col-lg-4,
-  & > th.col-5,
-  & > th.col-lg-5,
-  & > th.col-6,
-  & > th.col-lg-6,
-  & > th.col-7,
-  & > th.col-lg-7,
-  & > th.col-8,
-  & > th.col-lg-8,
-  & > th.col-9,
-  & > th.col-lg-9,
-  & > th.col-10,
-  & > th.col-lg-10,
-  & > th.col-11,
-  & > th.col-lg-11,
-  & > th.col-12,
-  & > th.col-lg-12{
-    padding-right: 0;
-    padding-left: 0;
+  & > thead > tr > th {
+    min-height: 1px;
+    font-weight: normal;
+    padding-right: 15px;
+    padding-left: 15px;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
 
-th.col-1,
-th.col-lg-1 {
-  width: 8.333333%;
+@each $key, $value in $grid-cols {
+  th.col-#{$key},
+  th.col-lg-#{$key} {
+    width: $value;
+  }
 }
 
-th.col-2,
-th.col-lg-2 {
-  width: 16.666667%;
-}
+@each $key, $value in $spacers {
+  table.row.g-#{$key},
+  table.row.gx-#{$key} {
+    & > thead > tr > th {
+      padding-right: $value / 2;
+      padding-left: $value / 2;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
 
-th.col-3,
-th.col-lg-3 {
-  width: 25%;
-}
-
-th.col-4,
-th.col-lg-4 {
-  width: 33.333333%;
-}
-
-th.col-5,
-th.col-lg-5 {
-  width: 41.666667%;
-}
-
-th.col-6,
-th.col-lg-6 {
-  width: 50%;
-}
-
-th.col-7,
-th.col-lg-7 {
-  width: 58.333333%;
-}
-
-th.col-8,
-th.col-lg-8 {
-  width: 66.666667%;
-}
-
-th.col-9,
-th.col-lg-9 {
-  width: 75%;
-}
-
-th.col-10,
-th.col-lg-10 {
-  width: 83.333333%;
-}
-
-th.col-11,
-th.col-lg-11 {
-  width: 91.666667%;
-}
-
-th.col-12,
-th.col-lg-12 {
-  width: 100%;
+  // table.g-#{$key},
+  // table.gy-#{$key} {
+  //   margin-top: -1 * $value / 2;
+  //   margin-bottom: -1 * $value / 2;
+  //   min-width: calc(100% + $value);
+  //   & > thead > tr > th[class^="col-"] {
+  //     padding-top: $value / 2;
+  //     padding-bottom: $value / 2;
+  //   }
+  // }
 }
