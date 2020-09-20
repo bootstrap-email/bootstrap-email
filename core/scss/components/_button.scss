@@ -27,7 +27,7 @@
   }
   .btn-#{$color} td a {
     background-color: $value;
-    @include color-yiq($value);
+    @include color-contrast($value);
     border-color: $value;
   }
 }

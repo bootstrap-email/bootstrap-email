@@ -1,65 +1,47 @@
 // Padding Helper
 @each $size, $length in $spacers {
-  .p-#{$size} {
-    & > tbody > tr > td {
-      padding: $length;
-    }
+  @include padding-util('.p-#{$size}') {
+    padding: $length;
   }
-  .pt-#{$size},
-  .py-#{$size} {
-    & > tbody > tr > td {
-      padding-top: $length;
-    }
+
+  @include padding-util('.pt-#{$size}, .py-#{$size}') {
+    padding-top: $length;
   }
-  .pr-#{$size},
-  .px-#{$size} {
-    & > tbody > tr > td {
-      padding-right: $length;
-    }
+
+  @include padding-util('.pr-#{$size}, .px-#{$size}') {
+    padding-right: $length;
   }
-  .pb-#{$size},
-  .py-#{$size} {
-    & > tbody > tr > td {
-      padding-bottom: $length;
-    }
+
+  @include padding-util('.pb-#{$size}, .py-#{$size}') {
+    padding-bottom: $length;
+
+
   }
-  .pl-#{$size},
-  .px-#{$size} {
-    & > tbody > tr > td {
-      padding-left: $length;
-    }
+
+  @include padding-util('.pl-#{$size}, .px-#{$size}') {
+    padding-left: $length;
   }
 }
 
 @each $size, $length in $spacers {
-  .p-lg-#{$size} {
-    & > tbody > tr > td {
-      padding: $length;
-    }
+  @include padding-util('.p-lg-#{$size}') {
+    padding: $length;
   }
-  .pt-lg-#{$size},
-  .py-lg-#{$size} {
-    & > tbody > tr > td {
-      padding-top: $length;
-    }
+
+  @include padding-util('.pt-lg-#{$size}, .py-lg-#{$size}') {
+    padding-top: $length;
   }
-  .pr-lg-#{$size},
-  .px-lg-#{$size} {
-    & > tbody > tr > td {
-      padding-right: $length;
-    }
+
+  @include padding-util('.pr-lg-#{$size}, .px-lg-#{$size}') {
+    padding-right: $length;
   }
-  .pb-lg-#{$size},
-  .py-lg-#{$size} {
-    & > tbody > tr > td {
-      padding-bottom: $length;
-    }
+
+  @include padding-util('.pb-lg-#{$size}, .py-lg-#{$size}') {
+    padding-bottom: $length;
   }
-  .pl-lg-#{$size},
-  .px-lg-#{$size} {
-    & > tbody > tr > td {
-      padding-left: $length;
-    }
+
+  @include padding-util('.pl-lg-#{$size}, .px-lg-#{$size}') {
+    padding-left: $length;
   }
 }
 

@@ -9,13 +9,8 @@ module BootstrapEmail
         string_or_file,
         with_html_string: with_html_string,
         preserve_reset: false,
-        css_string: SassC::Engine.new(
-          File.read(CORE_SCSS_PATH),
-          syntax: :scss,
-          style: :compressed,
-          cache: true,
-          read_cache: true
-        ).render
+
+        css_string: BootstrapEmail::SassCache.compile(CORE_SCSS_PATH, style: :expanded)
       )
       self.doc = @premailer.doc
     end

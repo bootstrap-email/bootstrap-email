@@ -1,4 +1,4 @@
-@mixin color-yiq($color) {
+@mixin color-contrast($color) {
   $r: red($color);
   $g: green($color);
   $b: blue($color);
