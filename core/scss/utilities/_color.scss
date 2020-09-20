@@ -1,28 +1,17 @@
-@each $color, $value in $theme-colors {
-  .text-#{$color},
-  .text-#{$color} > tbody > tr > td {
+@mixin text-color($name, $value) {
+  .text-#{$name},
+  .text-#{$name} > tbody > tr > td,
+  .btn.text-#{$name} td a {
     color: $value;
   }
+}
+
+@each $color, $value in $theme-colors {
+  @include text-color($color, $value);
 }
 
 @each $color, $value in $pallet-colors {
-  .text-#{$color},
-  .text-#{$color} > tbody > tr > td {
-    color: $value;
-  }
+  @include text-color($color, $value);
 }
 
-.text-white,
-.text-white > tbody > tr > td {
-  color: $white;
-}
-
-.text-black,
-.text-black > tbody > tr > td {
-  color: $black;
-}
-
-.text-muted,
-.text-mute > tbody > tr > td {
-  color: $gray-600;
-}
+@include text-color("muted", $gray-600);
