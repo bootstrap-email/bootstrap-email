@@ -1,1 +1,7 @@
-<div class="bg-blue-<%= '100' %>">Something here</div>
+<% scales = (100..900).step(100).to_a %>
+<% colors = %w(blue indigo purple pink red orange yellow green teal cyan) %>
+<% colors.each do |color| %>
+  <% scales.each do |scale| %>
+    <div class="w-100 bg-<%= color %>-<%= scale %>">Something here</div>
+  <% end %>
+<% end %>

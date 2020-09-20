@@ -11,7 +11,7 @@ puts 'Starting tests...'
 Dir.glob('tests/precompiled/**/*.html*').each do |file|
   file_contents = embed_in_layout(File.read(file))
   compiled = BootstrapEmail::Compiler.new(type: :string, input: file_contents).perform_full_compile
-  destination = file.sub('tests/precompiled/', '')
+  destination = file.sub('tests/precompiled/', '').sub('.erb', '')
   File.write("tests/compiled/#{destination}", compiled)
   puts "Compiled #{destination}"
 end
