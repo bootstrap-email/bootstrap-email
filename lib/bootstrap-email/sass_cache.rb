@@ -26,9 +26,5 @@ module BootstrapEmail
     def self.cached?(cache_path)
       File.file?(cache_path)
     end
-
-    def self.clear_cache!
-      CACHE_DIRECTORY
-    end
   end
 end

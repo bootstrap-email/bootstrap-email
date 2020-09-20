@@ -5,6 +5,7 @@
 @import 'scss/colors';
 @import 'scss/variables';
 @import 'scss/selectors_for_utils';
+@import 'scss/helper_groups';
 
 // Forces Outlook.com to display emails at full width
 .ExternalClass {
@@ -111,89 +112,29 @@ select {
   // Spacing
   // Reset large padding to 0 on small device
   @each $size, $length in $spacers {
-    .p-lg-#{$size} {
-      & > tbody > tr > td {
-        padding: 0 !important;
-      }
-    }
-    .pt-lg-#{$size},
-    .py-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-top: 0 !important;
-      }
-    }
-    .pr-lg-#{$size},
-    .px-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-right: 0 !important;
-      }
-    }
-    .pb-lg-#{$size},
-    .py-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-bottom: 0 !important;
-      }
-    }
-    .pl-lg-#{$size},
-    .px-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-left: 0 !important;
-      }
-    }
+    @include padding-group('lg-', $size, unquote('0 !important'));
   }
 
   // Set proper padding on small devices
   @each $size, $length in $spacers {
-    .p-#{$size} {
-      & > tbody > tr > td {
-        padding: $length !important;
-      }
-    }
-    .pt-#{$size},
-    .py-#{$size} {
-      & > tbody > tr > td {
-        padding-top: $length !important;
-      }
-    }
-    .pr-#{$size},
-    .px-#{$size} {
-      & > tbody > tr > td {
-        padding-right: $length !important;
-      }
-    }
-    .pb-#{$size},
-    .py-#{$size} {
-      & > tbody > tr > td {
-        padding-bottom: $length !important;
-      }
-    }
-    .pl-#{$size},
-    .px-#{$size} {
-      & > tbody > tr > td {
-        padding-left: $length !important;
-      }
-    }
+    @include padding-group('', $size, unquote('#{$length} !important'));
   }
 
+
   // Spacers
-  .s-lg-1 > tbody > tr > td,
-  .s-lg-2 > tbody > tr > td,
-  .s-lg-3 > tbody > tr > td,
-  .s-lg-4 > tbody > tr > td,
-  .s-lg-5 > tbody > tr > td {
+  @include spacer-util('.s-lg-1, .s-lg-2, .s-lg-3, .s-lg-4, .s-lg-5') {
     font-size: 0 !important;
     line-height: 0 !important;
     height: 0 !important;
   }
 
   @each $size, $length in $spacers {
-    .s-#{$size} > tbody > tr > td {
+    @include spacer-util('.s-#{$size}') {
       font-size: $length !important;
       line-height: $length !important;
       height: $length !important;
     }
   }
-
 }
 
 // Yahoo specific media query to revert above
@@ -221,44 +162,15 @@ select {
   // Spacing
   // Set proper spacing again on Yahoo
   @each $size, $length in $spacers {
-    .p-lg-#{$size} {
-      & > tbody > tr > td {
-        padding: $length !important;
-      }
-    }
-    .pt-lg-#{$size},
-    .py-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-top: $length !important;
-      }
-    }
-    .pr-lg-#{$size},
-    .px-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-right: $length !important;
-      }
-    }
-    .pb-lg-#{$size},
-    .py-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-bottom: $length !important;
-      }
-    }
-    .pl-lg-#{$size},
-    .px-lg-#{$size} {
-      & > tbody > tr > td {
-        padding-left: $length !important;
-      }
-    }
+    @include padding-group('lg-', $size, unquote('#{$length} !important'));
   }
 
   // Spacing
   @each $size, $length in $spacers {
-    .s-lg-#{$size} > tbody > tr > td {
+    @include spacer-util('.s-lg-#{$size}') {
       font-size: $length !important;
       line-height: $length !important;
       height: $length !important;
     }
   }
-
 }

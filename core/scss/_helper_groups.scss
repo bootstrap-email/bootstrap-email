@@ -1,0 +1,21 @@
+@mixin padding-group($prefix, $size, $length) {
+  @include padding-util('.p-#{$prefix}#{$size}') {
+    padding: $length;
+  }
+
+  @include padding-util('.pt-#{$prefix}#{$size}, .py-#{$size}') {
+    padding-top: $length;
+  }
+
+  @include padding-util('.pr-#{$prefix}#{$size}, .px-#{$size}') {
+    padding-right: $length;
+  }
+
+  @include padding-util('.pb-#{$prefix}#{$size}, .py-#{$size}') {
+    padding-bottom: $length;
+  }
+
+  @include padding-util('.pl-#{$prefix}#{$size}, .px-#{$size}') {
+    padding-left: $length;
+  }
+}
