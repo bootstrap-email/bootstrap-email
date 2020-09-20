@@ -13,18 +13,15 @@
 
 <hr>
 
-<span>This is regular text</span>
-<span class="text-muted">This is muted text</span>
-<span class="text-primary">This is primary text</span>
-<span class="text-info">This is info text</span>
-<span class="text-success">This is success text</span>
-<span class="text-warning">This is warning text</span>
-<span class="text-danger">This is danger text</span>
-<span class="text-light">This is light text</span>
-<span class="text-dark">This is dark text</span>
+<% (100..900).step(100).to_a.each do |weight| %>
+  <div class="font-weight-<%= weight %>">Some text here with some amount of weight</div>
+<% end %>
+<div class="font-weight-bold">Some text here this is bold</div>
+<div class="font-weight-normal">Some text here that is normal</div>
 
 <hr>
 
+<p><strong>Bold Text</strong></p>
 <p><strong>Bold Text</strong></p>
 <p><u>Underlined Text</u></p>
 <p><em>Italic Text</em></p>
