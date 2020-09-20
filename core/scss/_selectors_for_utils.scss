@@ -64,12 +64,22 @@
 }
 
 //
-// Sizing (width & height)
+// Padding
 //
 @mixin padding-util($class) {
-  @debug $class;
   #{$class} {
     &,
+    & > tbody > tr > td {
+      @content
+    }
+  }
+}
+
+//
+// Spacer
+//
+@mixin spacer-util($class) {
+  #{$class} {
     & > tbody > tr > td {
       @content
     }

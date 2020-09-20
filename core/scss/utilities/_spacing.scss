@@ -1,53 +1,15 @@
-// Padding Helper
+// Padding Util
 @each $size, $length in $spacers {
-  @include padding-util('.p-#{$size}') {
-    padding: $length;
-  }
-
-  @include padding-util('.pt-#{$size}, .py-#{$size}') {
-    padding-top: $length;
-  }
-
-  @include padding-util('.pr-#{$size}, .px-#{$size}') {
-    padding-right: $length;
-  }
-
-  @include padding-util('.pb-#{$size}, .py-#{$size}') {
-    padding-bottom: $length;
-
-
-  }
-
-  @include padding-util('.pl-#{$size}, .px-#{$size}') {
-    padding-left: $length;
-  }
+  @include padding-group('', $size, $length);
 }
 
 @each $size, $length in $spacers {
-  @include padding-util('.p-lg-#{$size}') {
-    padding: $length;
-  }
-
-  @include padding-util('.pt-lg-#{$size}, .py-lg-#{$size}') {
-    padding-top: $length;
-  }
-
-  @include padding-util('.pr-lg-#{$size}, .px-lg-#{$size}') {
-    padding-right: $length;
-  }
-
-  @include padding-util('.pb-lg-#{$size}, .py-lg-#{$size}') {
-    padding-bottom: $length;
-  }
-
-  @include padding-util('.pl-lg-#{$size}, .px-lg-#{$size}') {
-    padding-left: $length;
-  }
+  @include padding-group('lg-', $size, $length);
 }
 
-// Spacing Helper
+// Spacing Util
 @each $size, $length in $spacers {
-  .s-#{$size} > tbody > tr > td {
+  @include spacer-util('.s-#{$size}') {
     font-size: $length;
     line-height: $length;
     height: $length;
@@ -55,7 +17,7 @@
 }
 
 @each $size, $length in $spacers {
-  .s-lg-#{$size} > tbody > tr > td {
+  @include spacer-util('.s-lg-#{$size}') {
     font-size: $length;
     line-height: $length;
     height: $length;

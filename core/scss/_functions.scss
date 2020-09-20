@@ -19,19 +19,3 @@
 @function shade-color($color, $level) {
   @return mix(black, $color, $level * $theme-color-interval);
 }
-
-$selectors: (
-  "border-radius": ()
-);
-
-@function publish-selector($property, $selector) {
-  @return map-merge($selectors, ($property: append(map-get($selectors, $property), unquote($selector), comma)));
-}
-
-@mixin selectors-for($property, $class) {
-  #{$class} {
-    #{map-get($selectors, $property)} {
-      @content
-    }
-  }
-}
