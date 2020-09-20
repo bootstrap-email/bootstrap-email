@@ -1,3 +1,6 @@
+$selectors: selectors-for("border-radius", "&.btn td");
+$selectors: selectors-for("border-radius", "&.btn td a");
+
 .btn {
   border-radius: $btn-border-radius;
   border-collapse: separate !important;

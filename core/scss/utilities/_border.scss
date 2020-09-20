@@ -30,58 +30,68 @@
 // Border-radius
 //
 
-@mixin border-radius($name) {
-  .#{$name},
-  .btn.#{$name} td,
-  .btn.#{$name} td a {
-    @content
-  }
-}
+// @each $selector in map-get($selectors-for, "border-radius") {
+//   @debug $selector;
+// }
 
-@include border-radius("rounded-0") {
+// @mixin border-radius($name) {
+//   .#{$name},
+//   .btn.#{$name} td,
+//   .btn.#{$name} td a {
+//     @content
+//   }
+// }
+
+$selectors: selectors-for("border-radius", "&");
+
+@include selectors-for("border-radius", ".rounded-0") {
   border-radius: 0 !important;
 }
 
-@include border-radius("rounded-sm") {
+@include selectors-for("border-radius", ".rounded-0") {
+  border-radius: 0 !important;
+}
+
+@include selectors-for("border-radius", ".rounded-sm") {
   border-radius: $border-radius-sm !important;
 }
 
-@include border-radius("rounded") {
+@include selectors-for("border-radius", ".rounded") {
   border-radius: $border-radius !important;
 }
 
-@include border-radius("rounded-top") {
+@include selectors-for("border-radius", ".rounded-top") {
   border-top-left-radius: $border-radius !important;
   border-top-right-radius: $border-radius !important;
 }
 
-@include border-radius("rounded-right") {
+@include selectors-for("border-radius", ".rounded-right") {
   border-top-right-radius: $border-radius !important;
   border-bottom-right-radius: $border-radius !important;
 }
 
-@include border-radius("rounded-bottom") {
+@include selectors-for("border-radius", ".rounded-bottom") {
   border-bottom-right-radius: $border-radius !important;
   border-bottom-left-radius: $border-radius !important;
 }
 
-@include border-radius("rounded-left") {
+@include selectors-for("border-radius", ".rounded-left") {
   border-top-left-radius: $border-radius !important;
   border-bottom-left-radius: $border-radius !important;
 }
 
-@include border-radius("rounded-lg") {
+@include selectors-for("border-radius", ".rounded-lg") {
   border-radius: $border-radius-lg !important;
 }
 
-@include border-radius("rounded-xl") {
+@include selectors-for("border-radius", ".rounded-xl") {
   border-radius: $border-radius-xl !important;
 }
 
-@include border-radius("rounded-circle") {
+@include selectors-for("border-radius", ".rounded-circle") {
   border-radius: 50% !important;
 }
 
-@include border-radius("rounded-pill") {
+@include selectors-for("border-radius", ".rounded-pill") {
   border-radius: $rounded-pill !important;
 }
