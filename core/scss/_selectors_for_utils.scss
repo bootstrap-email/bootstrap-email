@@ -1,0 +1,64 @@
+//
+// Background color
+//
+@mixin background-color-util($class) {
+  #{$class} {
+    &,
+    & > tbody > tr > td,
+    &.btn td,
+    &.btn td a {
+      @content
+    }
+  }
+}
+
+//
+// Color
+//
+@mixin color-util($class) {
+  #{$class} {
+    &,
+    & > tbody > tr > td,
+    &.btn td a {
+      @content
+    }
+  }
+}
+
+//
+// Border radius
+//
+@mixin border-radius-util($class) {
+  #{$class} {
+    &,
+    & > tbody > tr > td,
+    &.btn td,
+    &.btn td a {
+      @content
+    }
+  }
+}
+
+//
+// Border color
+//
+@mixin border-color-util($class) {
+  #{$class} {
+    &,
+    &.btn td a {
+      @content
+    }
+  }
+}
+
+//
+// Sizing (width & height)
+//
+@mixin sizing-util($class) {
+  #{$class} {
+    &,
+    & > tbody > tr > td {
+      @content
+    }
+  }
+}

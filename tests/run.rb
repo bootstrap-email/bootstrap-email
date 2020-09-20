@@ -7,6 +7,7 @@ def embed_in_layout(html)
   ERB.new(template_html).result(namespace.instance_eval { binding })
 end
 
+start_time = Time.now
 puts 'Starting tests...'
 Dir.glob('tests/precompiled/**/*.html*').each do |file|
   file_contents = embed_in_layout(File.read(file))
@@ -15,4 +16,4 @@ Dir.glob('tests/precompiled/**/*.html*').each do |file|
   File.write("tests/compiled/#{destination}", compiled)
   puts "Compiled #{destination}"
 end
-puts 'Finished compiling test files!'
+puts "Finished compiling tests in #{(Time.now - start_time).truncate(2)}s!"

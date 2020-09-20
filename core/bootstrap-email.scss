@@ -1,6 +1,7 @@
 @import 'scss/functions';
 @import 'scss/colors';
 @import 'scss/variables';
+@import 'scss/selectors_for_utils';
 @import 'scss/reboot_email';
 
 @import 'scss/components/alert';
@@ -16,7 +17,9 @@
 
 @import 'scss/utilities/background';
 @import 'scss/utilities/border';
+@import 'scss/utilities/border-radius';
 @import 'scss/utilities/color';
 @import 'scss/utilities/display';
+@import 'scss/utilities/sizing';
 @import 'scss/utilities/spacing';
 @import 'scss/utilities/typography';
