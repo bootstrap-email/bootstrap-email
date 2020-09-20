@@ -1,22 +1,22 @@
 @import 'scss/functions';
 @import 'scss/colors';
 @import 'scss/variables';
-
 @import 'scss/reboot_email';
-@import 'scss/button';
-@import 'scss/display';
-@import 'scss/grid';
-@import 'scss/card';
-@import 'scss/container';
-@import 'scss/badge';
-@import 'scss/table';
-@import 'scss/hr';
-@import 'scss/alert';
-@import 'scss/image';
-@import 'scss/typography';
-@import 'scss/preview';
 
-@import 'scss/utilities/color';
+@import 'scss/components/alert';
+@import 'scss/components/badge';
+@import 'scss/components/button';
+@import 'scss/components/card';
+@import 'scss/components/container';
+@import 'scss/components/grid';
+@import 'scss/components/hr';
+@import 'scss/components/image';
+@import 'scss/components/preview';
+@import 'scss/components/table';
+
 @import 'scss/utilities/background';
-@import 'scss/utilities/spacing';
 @import 'scss/utilities/border';
+@import 'scss/utilities/color';
+@import 'scss/utilities/display';
+@import 'scss/utilities/spacing';
+@import 'scss/utilities/typography';
