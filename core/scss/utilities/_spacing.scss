@@ -1,22 +1,3 @@
-// Width Helper
-@each $size, $percentage in $widths {
-  .w-#{$size} {
-    width: $percentage;
-    & > tbody > tr > td {
-      width: $percentage;
-    }
-  }
-}
-
-@each $size, $percentage in $widths {
-  .w-lg-#{$size} {
-    width: $percentage;
-    & > tbody > tr > td {
-      width: $percentage;
-    }
-  }
-}
-
 // Padding Helper
 @each $size, $length in $spacers {
   .p-#{$size} {

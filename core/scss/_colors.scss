@@ -160,3 +160,5 @@ $pallet-colors: (
   "cyan-800": shade-color($cyan, 6),
   "cyan-900": shade-color($cyan, 8),
 ) !default;
+
+$all-colors: map-merge($theme-colors, $pallet-colors);

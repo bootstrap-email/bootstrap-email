@@ -1,21 +1,10 @@
+//
 // This file will be placed in the head of the document and will not be inlined
-$spacer: 16px;
-$spacers: (
-  0: 0,
-  1: ($spacer * .25),
-  2: ($spacer * .5),
-  3: $spacer,
-  4: ($spacer * 1.5),
-  5: ($spacer * 3)
-) !default;
-
-$widths: (
-  25: 25%,
-  50: 50%,
-  75: 75%,
-  100: 100%,
-  auto: auto
-) !default;
+//
+@import 'scss/functions';
+@import 'scss/colors';
+@import 'scss/variables';
+@import 'scss/selectors_for_utils';
 
 // Forces Outlook.com to display emails at full width
 .ExternalClass {
@@ -97,21 +86,25 @@ select {
     display: none !important;
   }
 
-  // Width
-  @each $size, $percentage in $widths {
-    .w-lg-#{$size} {
+  // Sizing
+  @each $size, $amount in $sizing {
+    @include sizing-util('.w-lg-#{$size}') {
       width: auto !important;
-      & > tbody > tr > td {
-        width: auto !important;
-      }
     }
   }
-  @each $size, $percentage in $widths {
-    .w-#{$size} {
-      width: $percentage !important;
-      & > tbody > tr > td {
-        width: $percentage !important;
-      }
+  @each $size, $amount in $sizing {
+    @include sizing-util('.w-#{$size}') {
+      width: $amount !important;
+    }
+  }
+  @each $size, $amount in $sizing {
+    @include sizing-util('.h-lg-#{$size}') {
+      height: auto !important;
+    }
+  }
+  @each $size, $amount in $sizing {
+    @include sizing-util('.h-#{$size}') {
+      height: $amount !important;
     }
   }
 
@@ -213,13 +206,15 @@ select {
     display: block !important;
   }
 
-  // Width
-  @each $size, $percentage in $widths {
-    .w-lg-#{$size} {
-      width: $percentage !important;
-      & > tbody > tr > td {
-        width: $percentage !important;
-      }
+  // Sizing
+  @each $size, $amount in $sizing {
+    @include sizing-util('.w-lg-#{$size}') {
+      width: $amount !important;
+    }
+  }
+  @each $size, $amount in $sizing {
+    @include sizing-util('.h-lg-#{$size}') {
+      height: $amount !important;
     }
   }
 

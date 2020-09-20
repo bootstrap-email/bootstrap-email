@@ -1,17 +1,9 @@
-@mixin text-color($name, $value) {
-  .text-#{$name},
-  .text-#{$name} > tbody > tr > td,
-  .btn.text-#{$name} td a {
+@each $color, $value in $all-colors {
+  @include color-util('.text-#{$color}') {
     color: $value;
   }
 }
 
-@each $color, $value in $theme-colors {
-  @include text-color($color, $value);
+@include color-util('.text-muted') {
+  color: $gray-600;
 }
-
-@each $color, $value in $pallet-colors {
-  @include text-color($color, $value);
-}
-
-@include text-color("muted", $gray-600);
