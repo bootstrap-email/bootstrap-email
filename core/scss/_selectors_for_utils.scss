@@ -68,8 +68,9 @@
 //
 @mixin padding-util($class) {
   #{$class} {
-    &,
-    & > tbody > tr > td {
+    &:not(.btn),
+    &:not(.btn) > tbody > tr > td,
+    &.btn td a {
       @content
     }
   }
