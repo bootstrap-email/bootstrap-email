@@ -45,10 +45,21 @@ module BootstrapEmail
     def bootstrap_email_head
       html_string = <<-INLINE
         <style type="text/css">
-          #{BootstrapEmail::SassCache.compile(HEAD_SCSS_PATH)}
+          #{purged_css_from_head}
         </style>
       INLINE
       html_string
+    end
+
+    def purged_css_from_head
+      default, custom = BootstrapEmail::SassCache.compile(HEAD_SCSS_PATH).split('/*! allow_purge_after */')
+      custom.scan(/\w*\.[\w\-]*[\s\S\n]+?(?=})}{1}/).each do |group|
+        exist = group.scan(/\.[\w\-]*/).uniq.any? do |selector|
+          !@adapter.doc.at_css(selector).nil?
+        end
+        custom.sub!(group, '') unless exist
+      end
+      (default + custom).gsub(/\n\s*\n+/, "\n")
     end
 
     def template(file, locals_hash = {})
