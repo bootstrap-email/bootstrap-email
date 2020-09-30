@@ -2,7 +2,7 @@ require_relative 'lib/bootstrap-email/version'
 
 Gem::Specification.new do |s|
   s.name        = 'bootstrap-email'
-  s.version     = BootstrapEmail::Rails::VERSION
+  s.version     = BootstrapEmail::VERSION
   s.platform    = Gem::Platform::RUBY
   s.summary     = 'Bootstrap 4 stylesheet, compiler, and inliner for responsive and consistent emails with the Bootstrap syntax you know and love.'
   s.authors     = ['Stuart Yamartino']
@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'premailer-rails', '~> 1.9'
   # s.add_runtime_dependency 'rails', '>= 3'
   s.add_runtime_dependency 'sassc'
+  s.add_runtime_dependency 'thor'
 
   s.required_ruby_version = '~> 2.0'
 end
