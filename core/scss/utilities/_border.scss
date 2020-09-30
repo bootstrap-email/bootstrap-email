@@ -4,11 +4,13 @@
 .border-bottom  { border-bottom: $border-width solid $border-color !important; }
 .border-left    { border-left: $border-width solid $border-color !important; }
 
-.border-0        { border: 0 !important; }
-.border-top-0    { border-top: 0 !important; }
-.border-right-0  { border-right: 0 !important; }
-.border-bottom-0 { border-bottom: 0 !important; }
-.border-left-0   { border-left: 0 !important; }
+@for $n from 0 through 5 {
+  .border-#{$n}        { border: #{$n}px !important; }
+  .border-top-#{$n}    { border-top: #{$n}px !important; }
+  .border-right-#{$n}  { border-right: #{$n}px !important; }
+  .border-bottom-#{$n} { border-bottom: #{$n}px !important; }
+  .border-left-#{$n}  { border-left: #{$n}px !important; }
+}
 
 @each $color, $value in $all-colors {
   @include border-color-util('.border-#{$color}') {

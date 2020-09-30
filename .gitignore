@@ -2,3 +2,4 @@
 /docs/.sass-cache
 Gemfile.lock
 /.sass-cache
+.DS_Store
