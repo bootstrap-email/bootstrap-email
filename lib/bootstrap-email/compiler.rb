@@ -14,6 +14,7 @@ module BootstrapEmail
     end
 
     def perform_full_compile
+      add_layout!
       compile_html!
       @adapter.inline_css!
       inject_head!
@@ -34,6 +35,14 @@ module BootstrapEmail
       spacer
       table
       body
+    end
+
+    def add_layout!
+      return unless @adapter.doc.at_css('head').nil?
+
+      namespace = OpenStruct.new(contents: ERB.new(@adapter.doc.to_html).result)
+      template_html = File.read(File.expand_path('../../layout.html.erb', __dir__))
+      @adapter.doc = Nokogiri::HTML(ERB.new(template_html).result(namespace.instance_eval { binding }))
     end
 
     def inject_head!
