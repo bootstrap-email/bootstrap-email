@@ -1,0 +1,30 @@
+{
+  "name": "bootstrap-email",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <a href=\"https://bootstrapemail.com\">     <img src=\"https://bootstrapemail.com/img/icons/logo.png\" alt=\"\" width=72 height=72>   </a>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuyam/bootstrap-email.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stuyam/bootstrap-email/issues"
+  },
+  "homepage": "https://github.com/stuyam/bootstrap-email#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "juice": "^7.0.0",
+    "node-sass": "^4.14.1",
+    "pug": "^3.0.0"
+  }
+}
