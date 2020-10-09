@@ -1,13 +1,13 @@
 module BootstrapEmail
-  class StringAndFileAdapter
+  class StringAdapter
     CORE_SCSS_PATH = File.expand_path('../../../core/bootstrap-email.scss', __dir__)
     attr_accessor :doc
 
-    def initialize(string_or_file, with_html_string:)
+    def initialize(string)
       SassC.load_paths << File.expand_path('../../../core', __dir__)
       @premailer = Premailer.new(
-        string_or_file,
-        with_html_string: with_html_string,
+        string,
+        with_html_string: true,
         preserve_reset: false,
         css_string: BootstrapEmail::SassCache.compile(CORE_SCSS_PATH, style: :expanded)
       )
@@ -19,7 +19,8 @@ module BootstrapEmail
     end
 
     def finalize_document!
-      @doc.to_html
+      xsl = Nokogiri::XSLT(File.read(File.expand_path('../pretty_print.xsl', __dir__)))
+      xsl.apply_to(@doc).to_s
     end
   end
 end

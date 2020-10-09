@@ -5,16 +5,18 @@ module BootstrapEmail
     def initialize(type:, input:)
       case type
       when :rails
-        @adapter = BootstrapEmail::RailsAdapter.new(input)
+        html = add_layout!(input)
+        @adapter = BootstrapEmail::RailsAdapter.new(html)
       when :string
-        @adapter = BootstrapEmail::StringAndFileAdapter.new(input, with_html_string: true)
+        html = add_layout!(input)
+        @adapter = BootstrapEmail::StringAdapter.new(html)
       when :file
-        @adapter = BootstrapEmail::StringAndFileAdapter.new(input, with_html_string: false)
+        html = add_layout!(File.read(input))
+        @adapter = BootstrapEmail::StringAdapter.new(html)
       end
     end
 
     def perform_full_compile
-      add_layout!
       compile_html!
       @adapter.inline_css!
       inject_head!
@@ -37,12 +39,13 @@ module BootstrapEmail
       body
     end
 
-    def add_layout!
-      return unless @adapter.doc.at_css('head').nil?
+    def add_layout!(html)
+      doc = Nokogiri::HTML(html)
+      return unless doc.at_css('head').nil?
 
-      namespace = OpenStruct.new(contents: ERB.new(@adapter.doc.to_html).result)
-      template_html = File.read(File.expand_path('../../layout.html.erb', __dir__))
-      @adapter.doc = Nokogiri::HTML(ERB.new(template_html).result(namespace.instance_eval { binding }))
+      namespace = OpenStruct.new(contents: ERB.new(doc.to_html).result)
+      template_html = File.read(File.expand_path('../../core/layout.html.erb', __dir__))
+      ERB.new(template_html).result(namespace.instance_eval { binding })
     end
 
     def inject_head!
