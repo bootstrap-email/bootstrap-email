@@ -20,7 +20,11 @@ module BootstrapEmail
 
     def finalize_document!
       xsl = Nokogiri::XSLT(File.read(File.expand_path('../pretty_print.xsl', __dir__)))
-      xsl.apply_to(@doc).to_s
+      <<~OUTPUT.squeeze("\n")
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        #{xsl.apply_to(@doc)}
+      OUTPUT
+      # @doc.to_html
     end
   end
 end
