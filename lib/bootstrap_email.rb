@@ -4,7 +4,6 @@ require 'ostruct'
 require 'premailer'
 require 'sassc'
 require 'digest/sha1'
-require 'thor'
 
 if defined?(Rails)
   require 'rails'
