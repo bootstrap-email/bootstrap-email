@@ -1,3 +1,2 @@
 #!/usr/bin/env ruby
 require_relative '../lib/bootstrap_email'
-BootstrapEmailCLI.start(ARGV)
