@@ -20,6 +20,7 @@ parser = OptionParser.new do |opts|
   opts.separator 'Options:'
 
   opts.on('-s', '--string STRING', String, 'HTML string to be to be compiled rather than a file.') do |v|
+    input = v
     options[:type] = :string
   end
 
