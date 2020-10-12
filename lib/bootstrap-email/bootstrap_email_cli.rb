@@ -14,7 +14,8 @@ parser = OptionParser.new do |opts|
   opts.separator 'Examples:'
   opts.separator '  bootstrapemail email.html > out.html'
   opts.separator '  bootstrapemail ./public/index.html'
-  opts.separator '  bootstrapemail -p emails/* -d emails/output'
+  opts.separator "  bootstrapemail -p 'emails/*' -d emails/output"
+  opts.separator "  bootstrapemail -p 'views/emails/*' -d 'views/compiled_emails'"
   opts.separator '  cat input.html | bootstrapemail'
   opts.separator ''
   opts.separator 'Options:'
