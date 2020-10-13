@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5 {
   margin-top: $headings-margin-top;
   margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
@@ -9,10 +10,23 @@ h1, h2, h3, h4, h5, h6,
   vertical-align: baseline;
 }
 
-@for $n from 1 through 6 {
-  h#{$n}, .h#{$n} {
-    font-size: heading-size($n);
-    line-height: heading-line-height($n);
+@each $name, $size in $headings {
+  h#{$name}, .h#{$name} {
+    font-size: $size;
+    line-height: $size * $headings-line-height;
+  }
+}
+
+@each $name, $size in $display-headings {
+  .display-#{$name} {
+    font-size: $size;
+    line-height: $size * $headings-line-height;
+  }
+}
+
+@each $name, $size in $line-height {
+  .lh-#{$name} {
+    line-height: $size;
   }
 }
 

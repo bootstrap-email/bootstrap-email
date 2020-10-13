@@ -1,0 +1,55 @@
+$headings: (
+  1: 2.25 * $font-size-base,
+  2: 2 * $font-size-base,
+  3: 1.75 * $font-size-base,
+  4: 1.5 * $font-size-base,
+  5: 1.25 * $font-size-base,
+  6: 1 * $font-size-base
+) !default;
+
+$display-headings: (
+  1: 5 * $font-size-base,
+  2: 4.5 * $font-size-base,
+  3: 4 * $font-size-base,
+  4: 3.5 * $font-size-base,
+  5: 3 * $font-size-base
+) !default;
+
+$line-height: (
+  1: 1,
+  'sm': 1.25,
+  'base': 1.5,
+  'lg': 2
+) !default;
+
+$spacers: (
+  0: 0,
+  1: .25 * $font-size-base,
+  2: .5 * $font-size-base,
+  3: $font-size-base,
+  4: 1.5 * $font-size-base,
+  5: 3 * $font-size-base
+) !default;
+
+$sizing: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+  auto: auto
+) !default;
+
+$grid-cols: (
+  1: 8.333333%,
+  2: 16.666667%,
+  3: 25%,
+  4: 33.333333%,
+  5: 41.666667%,
+  6: 50%,
+  7: 58.333333%,
+  8: 66.666667%,
+  9: 75%,
+  10: 83.333333%,
+  11: 91.666667%,
+  12: 100%
+);
