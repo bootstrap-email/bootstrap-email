@@ -17,7 +17,6 @@ require_relative 'bootstrap-email/adapters/string_adapter'
 require_relative 'bootstrap-email/compiler'
 require_relative 'bootstrap-email/sass_cache'
 require_relative 'bootstrap-email/version'
-require_relative 'bootstrap-email/bootstrap_email_cli'
 
 if defined?(Rails)
   require_relative 'bootstrap-email/rails/premailer_railtie'

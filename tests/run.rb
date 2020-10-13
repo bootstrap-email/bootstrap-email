@@ -11,5 +11,3 @@ Dir.glob('tests/input/**/*.html*').each do |file|
   puts "🚀 Built #{destination} (in #{(Time.now - start_file_time).truncate(2)}s)"
 end
 puts "Finished compiling tests in #{(Time.now - start_time).truncate(2)}s 🎉"
-
-# manually run cli command to test bin/bootstrapemail compile precompiled/components/alert.html -d

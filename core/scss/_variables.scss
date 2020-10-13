@@ -9,47 +9,13 @@ $border-radius-sm: $font-size-base * 0.2 !default;
 $border-width: 1px !default;
 $line-height-base: 1.5 !default;
 $headings-line-height: 1.2 !default;
-$headings-ratios: (1: 2.25, 2: 2, 3: 1.75, 4: 1.5, 5: 1.25, 6: 1) !default;
 $headings-margin-top:         0 !default;
 $headings-margin-bottom:      0 !default;
 $headings-font-family:        null !default;
 $headings-font-weight:        500 !default;
 $headings-color:              null !default;
 $paragraph-margin-bottom: 0 !default;
-$rounded-pill: 50 * $font-size-base !default;
-
-$spacer: $font-size-base;
-$spacers: (
-  0: 0,
-  1: ($spacer * .25),
-  2: ($spacer * .5),
-  3: $spacer,
-  4: ($spacer * 1.5),
-  5: ($spacer * 3)
-) !default;
-
-$sizing: (
-  25: 25%,
-  50: 50%,
-  75: 75%,
-  100: 100%,
-  auto: auto
-) !default;
-
-$grid-cols: (
-  1: 8.333333%,
-  2: 16.666667%,
-  3: 25%,
-  4: 33.333333%,
-  5: 41.666667%,
-  6: 50%,
-  7: 58.333333%,
-  8: 66.666667%,
-  9: 75%,
-  10: 83.333333%,
-  11: 91.666667%,
-  12: 100%
-);
+$rounded-pill: 9999px !default;
 
 $border-color: $gray-300 !default;
 
@@ -85,7 +51,3 @@ $btn-font-weight:             $font-weight-base !default;
 $btn-border-radius:           $border-radius !default;
 $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
-
-// Utility functions
-@function heading-size($n) { @return map-get($headings-ratios, $n) * $font-size-base; }
-@function heading-line-height($n) { @return heading-size($n) * $headings-line-height; }

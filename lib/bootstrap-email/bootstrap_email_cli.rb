@@ -1,3 +1,4 @@
+require_relative '../bootstrap_email'
 require 'optparse'
 require 'fileutils'
 
