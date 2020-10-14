@@ -4,12 +4,14 @@ Gem::Specification.new do |s|
   s.name        = 'bootstrap-email'
   s.version     = BootstrapEmail::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.summary     = 'Bootstrap 4 stylesheet, compiler, and inliner for responsive and consistent emails with the Bootstrap syntax you know and love.'
+  s.summary     = 'Bootstrap 5 stylesheet, compiler, and inliner for responsive and consistent emails with the Bootstrap syntax you know and love.'
   s.authors     = ['Stuart Yamartino']
   s.email       = 'stu@stuyam.com'
   s.files       = Dir['lib/**/*'] + Dir['core/**/*'] + ['VERSION']
   s.homepage    = 'https://bootstrapemail.com'
   s.license     = 'MIT'
+
+  s.executables << 'bootstrapemail'
 
   # s.add_runtime_dependency 'actionmailer', '>= 3'
   s.add_runtime_dependency 'nokogiri', '~> 1.6'

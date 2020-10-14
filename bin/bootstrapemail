@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-require_relative '../lib/bootstrap_email'
+require_relative '../lib/bootstrap-email/bootstrap_email_cli'
