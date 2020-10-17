@@ -159,7 +159,7 @@ module BootstrapEmail
 
     def padding
       each_node('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]') do |node|
-        next unless node.name != 'table' # if it is already on a table, set the padding on the table, else wrap the content in a table
+        next if ['table', 'td'].include?(node.name) # if it is already on a table, set the padding on the table, else wrap the content in a table
 
         padding_regex = /(p[trblxy]?-\d)/
         classes = node['class'].scan(padding_regex).join(' ')
