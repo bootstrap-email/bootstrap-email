@@ -1,23 +1,26 @@
-@each $size, $amount in $sizing {
-  @include sizing-util('.w-#{$size}') {
-    width: $amount;
+@each $name, $property in $sizing-types {
+  @each $size in $sizing {
+    @include sizing-util('.#{$name}-#{$size}') {
+      max-#{$property}: $size * 4px;
+      -premailer-#{$property}: $size * 4;
+      #{$property}: 100%;
+    }
   }
-}
-
-@each $size, $amount in $sizing {
-  @include sizing-util('.w-lg#{$size}') {
-    width: $amount;
+  @include sizing-util('.#{$name}-full') {
+    max-#{$property}: 100%;
+    -premailer-#{$property}: 100%;
+    #{$property}: 100%;
   }
-}
-
-@each $size, $amount in $sizing {
-  @include sizing-util('.h-#{$size}') {
-    height: $amount;
+  @each $size in $sizing {
+    @include sizing-util('.#{$name}-lg#{$size}') {
+      max-#{$property}: $size * 4px;
+      -premailer-#{$property}: $size * 4;
+      #{$property}: 100%;
+    }
   }
-}
-
-@each $size, $amount in $sizing {
-  @include sizing-util('.h-lg-#{$size}') {
-    height: $amount;
+  @include sizing-util('.#{$name}-lg-full') {
+    max-#{$property}: 100%;
+    -premailer-#{$property}: 100%;
+    #{$property}: 100%;
   }
 }

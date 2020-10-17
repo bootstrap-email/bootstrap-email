@@ -56,24 +56,26 @@ td {
   }
 
   // Sizing
-  @each $size, $amount in $sizing {
-    @include sizing-util('.w-lg-#{$size}') {
-      width: auto !important;
+  @each $name, $property in $sizing-types {
+    @each $size in $sizing {
+      @include sizing-util('.#{$name}-lg-#{$size}') {
+        max-#{$property}: auto !important;
+        #{$property}: auto !important;
+      }
     }
-  }
-  @each $size, $amount in $sizing {
-    @include sizing-util('.w-#{$size}') {
-      width: $amount !important;
+    @include sizing-util('.#{$name}-lg-full') {
+      max-#{$property}: auto !important;
+      #{$property}: auto !important;
     }
-  }
-  @each $size, $amount in $sizing {
-    @include sizing-util('.h-lg-#{$size}') {
-      height: auto !important;
+    @each $size in $sizing {
+      @include sizing-util('.#{$name}-#{$size}') {
+        max-#{$property}: $size * 4px !important;
+        #{$property}: 100% !important;
+      }
     }
-  }
-  @each $size, $amount in $sizing {
-    @include sizing-util('.h-#{$size}') {
-      height: $amount !important;
+    @include sizing-util('.#{$name}-full') {
+      max-#{$property}: 100% !important;
+      #{$property}: 100% !important;
     }
   }
 
@@ -106,39 +108,41 @@ td {
 }
 
 // Yahoo specific media query to revert above
-@media yahoo {
-  // Display
-  .d-mobile {
-    display: none !important;
-  }
-  .d-desktop {
-    display: block !important;
-  }
+// @media yahoo {
+//   // Display
+//   .d-mobile {
+//     display: none !important;
+//   }
+//   .d-desktop {
+//     display: block !important;
+//   }
 
-  // Sizing
-  @each $size, $amount in $sizing {
-    @include sizing-util('.w-lg-#{$size}') {
-      width: $amount !important;
-    }
-  }
-  @each $size, $amount in $sizing {
-    @include sizing-util('.h-lg-#{$size}') {
-      height: $amount !important;
-    }
-  }
+//   // Sizing
+//   @each $name, $property in $sizing-types {
+//     @each $size in $sizing {
+//       @include sizing-util('.#{$name}-lg#{$size}') {
+//         max-#{$property}: $size * 4px !important;
+//         #{$property}: 100% !important;
+//       }
+//     }
+//     @include sizing-util('.#{$name}-lg-full') {
+//       max-#{$property}: 100% !important;
+//       #{$property}: 100% !important;
+//     }
+//   }
 
-  // Spacing
-  // Set proper spacing again on Yahoo
-  @each $size, $length in $spacers {
-    @include padding-group('lg-', $size, unquote('#{$length} !important'));
-  }
+//   // Spacing
+//   // Set proper spacing again on Yahoo
+//   @each $size, $length in $spacers {
+//     @include padding-group('lg-', $size, unquote('#{$length} !important'));
+//   }
 
-  // Spacing
-  @each $size, $length in $spacers {
-    @include spacer-util('.s-lg-#{$size}') {
-      font-size: $length !important;
-      line-height: $length !important;
-      height: $length !important;
-    }
-  }
-}
+//   // Spacing
+//   @each $size, $length in $spacers {
+//     @include spacer-util('.s-lg-#{$size}') {
+//       font-size: $length !important;
+//       line-height: $length !important;
+//       height: $length !important;
+//     }
+//   }
+// }
