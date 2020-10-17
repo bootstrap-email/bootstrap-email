@@ -21,26 +21,30 @@
   white-space: nowrap;
 }
 
-@each $color, $value in $theme-colors {
-  .btn-#{$color} td {
-    background-color: $value;
-  }
-  .btn-#{$color} td a {
-    background-color: $value;
-    @include color-contrast($value);
-    border-color: $value;
+@each $name, $color in $all-colors {
+  @if $name != "transparent" {
+    .btn-#{$name} td {
+      background-color: $color;
+    }
+    .btn-#{$name} td a {
+      background-color: $color;
+      @include color-contrast($color);
+      border-color: $color;
+    }
   }
 }
 
-@each $color, $value in $theme-colors {
-  .btn-outline-#{$color} td {
-    background-color: transparent;
-    border-color: $value;
-  }
-  .btn-outline-#{$color} td a {
-    background-color: transparent;
-    border-color: $value;
-    color: $value;
+@each $name, $color in $all-colors {
+  @if $name != "transparent" {
+    .btn-outline-#{$name} td {
+      background-color: transparent;
+      border-color: $color;
+    }
+    .btn-outline-#{$name} td a {
+      background-color: transparent;
+      border-color: $color;
+      color: $color;
+    }
   }
 }
 
