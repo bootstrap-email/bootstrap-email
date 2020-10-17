@@ -195,7 +195,7 @@ module BootstrapEmail
         '5' => (16 * 3)
       }
       each_node('*[class*=s-]') do |node|
-        temp = Nokogiri::HTML::DocumentFragment.parse(template('table', classes: node['class'] + ' w-100', contents: '&nbsp;'))
+        temp = Nokogiri::HTML::DocumentFragment.parse(template('table', classes: node['class'] + ' w-full', contents: '&nbsp;'))
         temp.at_css('td')['height'] = spacers[node['class'].gsub(/s-/, '')].to_i
         node.replace(temp)
       end
