@@ -12,8 +12,8 @@
   .border-left-#{$n}  { border-left: #{$n}px !important; }
 }
 
-@each $color, $value in $all-colors {
-  @include border-color-util('.border-#{$color}') {
-    border-color: $value !important;
+@each $name, $color in $all-colors {
+  @include border-color-util('.border-#{$name}') {
+    border-color: $color !important;
   }
 }

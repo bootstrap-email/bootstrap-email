@@ -1,6 +1,6 @@
-@each $color, $value in $all-colors {
-  @include color-util('.text-#{$color}') {
-    color: $value;
+@each $name, $color in $all-colors {
+  @include color-util('.text-#{$name}') {
+    color: $color;
   }
 }
 

@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @for $n from 1 through 9 {
-  .font-weight-#{$n * 100} {
+  @include font-weight-util('.font-weight-#{$n * 100}') {
     font-weight: #{$n * 100} !important;
   }
 }
