@@ -64,7 +64,7 @@ if input
     Dir.glob(input, base: Dir.pwd).each do |path|
       next unless File.file?(path)
 
-      puts "Compiling file at #{path}."
+      puts "Compiling file at #{path}"
       compiled = BootstrapEmail::Compiler.new(type: :file, input: path).perform_full_compile
       FileUtils.mkdir_p("#{Dir.pwd}/#{options[:destination]}")
       File.write(File.expand_path("#{options[:destination]}/#{path.split('/').last}", Dir.pwd), compiled)

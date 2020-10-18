@@ -57,7 +57,7 @@ td {
 
   // Sizing
   @each $name, $property in $sizing-types {
-    @each $size in $sizing {
+    @each $size, $value in $sizing {
       @include sizing-util('.#{$name}-lg-#{$size}') {
         max-#{$property}: auto !important;
         #{$property}: auto !important;
@@ -67,9 +67,9 @@ td {
       max-#{$property}: auto !important;
       #{$property}: auto !important;
     }
-    @each $size in $sizing {
+    @each $size, $value in $sizing {
       @include sizing-util('.#{$name}-#{$size}') {
-        max-#{$property}: $size * 4px !important;
+        max-#{$property}: $value !important;
         #{$property}: 100% !important;
       }
     }
@@ -81,28 +81,27 @@ td {
 
   // Spacing
   // Reset large padding to 0 on small device
-  @each $size, $length in $spacers {
+  @each $size, $value in $spacers {
     @include padding-group('lg-', $size, unquote('0 !important'));
   }
 
   // Set proper padding on small devices
-  @each $size, $length in $spacers {
-    @include padding-group('', $size, unquote('#{$length} !important'));
+  @each $size, $value in $spacers {
+    @include padding-group('', $size, unquote('#{$value} !important'));
   }
 
-
   // Spacers
-  @include spacer-util('.s-lg-1, .s-lg-2, .s-lg-3, .s-lg-4, .s-lg-5') {
+  @include spacer-util('*[class*=s-lg-]') {
     font-size: 0 !important;
     line-height: 0 !important;
     height: 0 !important;
   }
 
-  @each $size, $length in $spacers {
+  @each $size, $value in $spacers {
     @include spacer-util('.s-#{$size}') {
-      font-size: $length !important;
-      line-height: $length !important;
-      height: $length !important;
+      font-size: $value !important;
+      line-height: $value !important;
+      height: $value !important;
     }
   }
 }

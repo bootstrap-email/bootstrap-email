@@ -1,25 +1,27 @@
 // Padding Util
-@each $size, $length in $spacers {
-  @include padding-group('', $size, $length);
+@each $size, $value in $spacers {
+  @include padding-group('', $size, $value);
 }
 
-@each $size, $length in $spacers {
-  @include padding-group('lg-', $size, $length);
+@each $size, $value in $spacers {
+  @include padding-group('lg-', $size, $value);
 }
 
 // Spacing Util
-@each $size, $length in $spacers {
+@each $size, $value in $spacers {
   @include spacer-util('.s-#{$size}') {
-    font-size: $length;
-    line-height: $length;
-    height: $length;
+    font-size: $value;
+    line-height: $value;
+    height: $value;
+    -premailer-height: strip-unit($value);
   }
 }
 
-@each $size, $length in $spacers {
+@each $size, $value in $spacers {
   @include spacer-util('.s-lg-#{$size}') {
-    font-size: $length;
-    line-height: $length;
-    height: $length;
+    font-size: $value;
+    line-height: $value;
+    height: $value;
+    -premailer-height: strip-unit($value);
   }
 }

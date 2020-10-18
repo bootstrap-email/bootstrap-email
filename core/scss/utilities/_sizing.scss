@@ -1,8 +1,8 @@
 @each $name, $property in $sizing-types {
-  @each $size in $sizing {
+  @each $size, $value in $sizing {
     @include sizing-util('.#{$name}-#{$size}') {
-      max-#{$property}: $size * 4px;
-      -premailer-#{$property}: $size * 4;
+      max-#{$property}: $value;
+      -premailer-#{$property}: strip-unit($value);
       #{$property}: 100%;
     }
   }
@@ -11,10 +11,10 @@
     -premailer-#{$property}: 100%;
     #{$property}: 100%;
   }
-  @each $size in $sizing {
+  @each $size, $value in $sizing {
     @include sizing-util('.#{$name}-lg#{$size}') {
-      max-#{$property}: $size * 4px;
-      -premailer-#{$property}: $size * 4;
+      max-#{$property}: $value;
+      -premailer-#{$property}: strip-unit($value);
       #{$property}: 100%;
     }
   }

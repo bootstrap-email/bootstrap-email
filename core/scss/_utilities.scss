@@ -22,16 +22,55 @@ $line-height: (
   'lg': 2
 ) !default;
 
+$size-scale: 4px;
 $spacers: (
   0: 0,
-  1: .25 * $font-size-base,
-  2: .5 * $font-size-base,
-  3: $font-size-base,
-  4: 1.5 * $font-size-base,
-  5: 3 * $font-size-base
+  1: 1 * $size-scale,
+  2: 2 * $size-scale,
+  3: 3 * $size-scale,
+  4: 4 * $size-scale,
+  5: 5 * $size-scale,
+  6: 6 * $size-scale,
+  7: 7 * $size-scale,
+  8: 8 * $size-scale,
+  9: 9 * $size-scale,
+  10: 10 * $size-scale,
+  12: 12 * $size-scale,
+  16: 16 * $size-scale,
+  20: 20 * $size-scale,
+  24: 24 * $size-scale,
+  32: 32 * $size-scale,
+  40: 40 * $size-scale
 ) !default;
 
-$sizing: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144) !default;
+$sizing: (
+  0: 0,
+  1: 1 * $size-scale,
+  2: 2 * $size-scale,
+  3: 3 * $size-scale,
+  4: 4 * $size-scale,
+  5: 5 * $size-scale,
+  6: 6 * $size-scale,
+  7: 7 * $size-scale,
+  8: 8 * $size-scale,
+  9: 9 * $size-scale,
+  10: 10 * $size-scale,
+  12: 12 * $size-scale,
+  16: 16 * $size-scale,
+  20: 20 * $size-scale,
+  24: 24 * $size-scale,
+  32: 32 * $size-scale,
+  40: 40 * $size-scale,
+  48: 48 * $size-scale,
+  56: 56 * $size-scale,
+  64: 64 * $size-scale,
+  80: 80 * $size-scale,
+  96: 96 * $size-scale,
+  112: 112 * $size-scale,
+  128: 128 * $size-scale,
+  144: 144 * $size-scale,
+  150: 150 * $size-scale
+) !default;
 $sizing-types: (
   'w': 'width',
   'h': 'height'

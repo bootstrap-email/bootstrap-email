@@ -37,6 +37,7 @@ module BootstrapEmail
       spacer
       table
       body
+      color
     end
 
     def add_layout!(html)
@@ -75,6 +76,7 @@ module BootstrapEmail
     end
 
     def template(file, locals_hash = {})
+      locals_hash[:classes] = locals_hash[:classes].split.join(' ') if locals_hash[:classes]
       namespace = OpenStruct.new(locals_hash)
       template_html = File.read(File.expand_path("../../core/templates/#{file}.html.erb", __dir__))
       ERB.new(template_html).result(namespace.instance_eval { binding })
@@ -135,7 +137,8 @@ module BootstrapEmail
 
     def hr
       each_node('hr') do |node| # drop hr in place of current
-        node.replace(template('hr', classes: "hr #{node['class']}"))
+        default_margin = node['class'].to_s.match?(/m[tby]{1}-(lg-)?\d+/) ? '' : 'my-5'
+        node.replace(template('table', classes: "#{default_margin} hr #{node['class']}", contents: ''))
       end
     end
 
@@ -186,24 +189,24 @@ module BootstrapEmail
     end
 
     def spacer
-      spacers = {
-        '0' => 0,
-        '1' => (16 * 0.25),
-        '2' => (16 * 0.5),
-        '3' => 16,
-        '4' => (16 * 1.5),
-        '5' => (16 * 3)
-      }
+      # spacers = {
+      #   '0' => 0,
+      #   '1' => (16 * 0.25),
+      #   '2' => (16 * 0.5),
+      #   '3' => 16,
+      #   '4' => (16 * 1.5),
+      #   '5' => (16 * 3)
+      # }
       each_node('*[class*=s-]') do |node|
-        temp = Nokogiri::HTML::DocumentFragment.parse(template('table', classes: node['class'] + ' w-full', contents: '&nbsp;'))
-        temp.at_css('td')['height'] = spacers[node['class'].gsub(/s-/, '')].to_i
-        node.replace(temp)
+        node.replace(template('table', classes: "#{node['class']} w-full", contents: '&nbsp;'))
+        # temp = Nokogiri::HTML::DocumentFragment.parse(template('table', classes: node['class'] + ' w-full', contents: '&nbsp;'))
+        # temp.at_css('td')['height'] = spacers[node['class'].gsub(/s-/, '')].to_i
+        # node.replace(temp)
       end
     end
 
     def table
       @adapter.doc.css('table').each do |node|
-        # border="0" cellpadding="0" cellspacing="0"
         node['border'] = 0
         node['cellpadding'] = 0
         node['cellspacing'] = 0
@@ -225,6 +228,17 @@ module BootstrapEmail
       node = template('div', classes: 'preview', contents: preview_node.content)
       preview_node.remove
       node
+    end
+
+    def color
+      each_node('*[class*=bg-]') do |node|
+        next if ['table', 'td'].include?(node.name) # skip if it is already on a table
+
+        background_color_regex = /(bg-\w*(-\d{3})?)/
+        classes = node['class'].scan(background_color_regex).map(&:first).join(' ')
+        node['class'] = node['class'].gsub(background_color_regex, '')
+        node.replace(template('table', classes: classes, contents: node.to_html))
+      end
     end
   end
 end

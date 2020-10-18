@@ -1,13 +1,8 @@
-div.hr {
+table.hr {
   width: 100%;
-  border: 0;
-  margin: $font-size-base*1.25 0;
-  & > table {
+  & > tbody > tr > td {
+    border-top: 1px solid #dddddd;
+    height: 1px;
     width: 100%;
-    & > tbody > tr > td {
-      border-top: 1px solid #dddddd;
-      height: 1px;
-      width: 100%;
-    }
   }
 }
