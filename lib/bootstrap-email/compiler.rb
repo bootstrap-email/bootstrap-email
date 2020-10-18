@@ -65,7 +65,7 @@ module BootstrapEmail
     end
 
     def purged_css_from_head
-      default, custom = BootstrapEmail::SassCache.compile(HEAD_SCSS_PATH, style: :expanded).split('/*! allow_purge_after */')
+      default, custom = BootstrapEmail::SassCache.compile(HEAD_SCSS_PATH).split('/*! allow_purge_after */')
       # get each CSS declaration
       custom.scan(/\w*\.[\w\-]*[\s\S\n]+?(?=})}{1}/).each do |group|
         # get the first class for each comma separated CSS declaration
