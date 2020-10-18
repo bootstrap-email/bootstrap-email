@@ -19,3 +19,11 @@
 @function shade-color($color, $level) {
   @return mix(black, $color, $level * $theme-color-interval);
 }
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
