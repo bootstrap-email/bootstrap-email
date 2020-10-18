@@ -4,6 +4,7 @@ require 'ostruct'
 require 'premailer'
 require 'sassc'
 require 'digest/sha1'
+require 'css_parser'
 
 if defined?(Rails)
   require 'rails'

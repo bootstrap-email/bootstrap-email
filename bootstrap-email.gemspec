@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'nokogiri', '~> 1.6'
   s.add_runtime_dependency 'premailer-rails', '~> 1.9'
   # s.add_runtime_dependency 'rails', '>= 3'
-  s.add_runtime_dependency 'sassc'
+  s.add_runtime_dependency 'sassc', '~> 2.4.0'
   # s.add_runtime_dependency 'thor'
 
   s.required_ruby_version = '>= 2.0'
