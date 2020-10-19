@@ -46,4 +46,21 @@ RSpec.describe BootstrapEmail::Compiler do
       expect(doc.at_css('.wrapper-2 .align-right').attr('align')).to eq('right')
     end
   end
+
+  describe '.spacing' do
+    it 'creates an vertical spacer between each child' do
+      html = <<~HTML
+        <div class="space-y-6">
+          <div>
+            <p>Some other nested child here that shouln't affect it</p>
+          </div>
+          <div></div>
+          <div></div>
+        </div>
+      HTML
+      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      doc = Nokogiri::HTML(output)
+      expect(doc.css('.s-6').count).to eq(2)
+    end
+  end
 end
