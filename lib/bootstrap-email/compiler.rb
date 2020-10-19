@@ -161,7 +161,7 @@ module BootstrapEmail
       each_node('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]') do |node|
         next if ['table', 'td'].include?(node.name) # if it is already on a table, set the padding on the table, else wrap the content in a table
 
-        padding_regex = /(p[trblxy]?-\d)/
+        padding_regex = /(p[trblxy]?-\d+)/
         classes = node['class'].scan(padding_regex).join(' ')
         node['class'] = node['class'].gsub(padding_regex, '')
         node.replace(template('table', classes: classes, contents: node.to_html))
@@ -170,9 +170,9 @@ module BootstrapEmail
 
     def margin
       each_node('*[class*=my-], *[class*=mt-], *[class*=mb-]') do |node|
-        top_class = node['class'][/m[ty]{1}-(lg-)?(\d)/]
-        bottom_class = node['class'][/m[by]{1}-(lg-)?(\d)/]
-        node['class'] = node['class'].gsub(/(m[tby]{1}-(lg-)?\d)/, '')
+        top_class = node['class'][/m[ty]{1}-(lg-)?(\d+)/]
+        bottom_class = node['class'][/m[by]{1}-(lg-)?(\d+)/]
+        node['class'] = node['class'].gsub(/(m[tby]{1}-(lg-)?\d+)/, '')
         html = ''
         if top_class
           html += template('div', classes: "s-#{top_class.gsub(/m[ty]{1}-/, '')}", contents: nil)
@@ -231,7 +231,7 @@ module BootstrapEmail
       each_node('*[class*=bg-]') do |node|
         next if ['table', 'td'].include?(node.name) # skip if it is already on a table
 
-        background_color_regex = /(bg-\w*(-\d{3})?)/
+        background_color_regex = /(bg-\w*(-\d+)?)/
         classes = node['class'].scan(background_color_regex).map(&:first).join(' ')
         node['class'] = node['class'].gsub(background_color_regex, '')
         node.replace(template('table', classes: classes, contents: node.to_html))
