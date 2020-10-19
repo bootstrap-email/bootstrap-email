@@ -34,6 +34,7 @@ module BootstrapEmail
       align
       padding
       margin
+      spacing
       spacer
       table
       body
@@ -182,6 +183,19 @@ module BootstrapEmail
           html += template('div', classes: "s-#{bottom_class.gsub(/m[by]{1}-/, '')}", contents: nil)
         end
         node.replace(html)
+      end
+    end
+
+    def spacing
+      each_node('*[class*=space-y-]') do |node|
+        spacer = node['class'].scan(/space-y-(\d+)/).join(' ')
+        # get all direct children except the first
+        node.xpath('./*[position()>1]').each do |child|
+          html = ''
+          html += template('div', classes: "s-#{spacer}", contents: nil)
+          html += child.to_html
+          child.replace(html)
+        end
       end
     end
 
