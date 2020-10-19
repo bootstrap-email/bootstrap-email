@@ -15,10 +15,9 @@ RSpec.describe BootstrapEmail::Compiler do
         </table>
         <!-- The trick here is the .btn is included in padding selectors for specific btn padding -->
         <!-- The .btn class was a culprit for not purging all padding selectors originally since they all contained the .htn in the selector -->
-        <a class="btn p-5" href="#">Some buttobn</a>
+        <a class="btn p-5" href="#">Some button</a>
       HTML
       output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
-      # puts output
       doc = Nokogiri::HTML(output)
       head = doc.at_css('head').to_s
       head.include?('p-4')
@@ -26,6 +25,25 @@ RSpec.describe BootstrapEmail::Compiler do
       expect(head.include?('p-4')).to be true
       expect(head.include?('p-5')).to be true
       expect(head.include?('p-6')).to be false
+    end
+  end
+
+  describe '.align' do
+    it 'creates an html table with the "align" property set on it' do
+      html = <<~HTML
+        <div class="wrapper-1">
+          <a class="btn align-center" href="#">Cool</a>
+        </div>
+        <div class="wrapper-2">
+          <img class="w-10 align-right" src="#" />
+        </div>
+      HTML
+      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      doc = Nokogiri::HTML(output)
+      expect(doc.at_css('.wrapper-1 .align-center')).to be_truthy
+      expect(doc.at_css('.wrapper-1 .align-center').attr('align')).to eq('center')
+      expect(doc.at_css('.wrapper-2 .align-right')).to be_truthy
+      expect(doc.at_css('.wrapper-2 .align-right').attr('align')).to eq('right')
     end
   end
 end

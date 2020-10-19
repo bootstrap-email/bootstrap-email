@@ -118,7 +118,7 @@ module BootstrapEmail
     def align_helper(node, type)
       if node.name != 'table' # if it is already on a table, set the proprieties on the current table
         node['class'] = node['class'].sub("align-#{type}", '')
-        node.replace(template('table', contents: node.to_html))
+        node = node.replace(template('table', classes: "align-#{type}", contents: node.to_html))[0]
       end
       node['align'] = type
     end
