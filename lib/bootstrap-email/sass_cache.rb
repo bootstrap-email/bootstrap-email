@@ -18,8 +18,8 @@ module BootstrapEmail
     end
 
     def self.checksum
-      file_checksums = Dir.glob('core/**/*.scss').map do |path|
-        Digest::SHA1.file(path).hexdigest
+      file_checksums = Dir.glob('../../core/**/*.scss', base: __dir__).map do |path|
+        Digest::SHA1.file(File.expand_path(path, __dir__)).hexdigest
       end
       Digest::SHA1.hexdigest(file_checksums.join)
     end
