@@ -188,7 +188,7 @@ module BootstrapEmail
 
     def spacing
       each_node('*[class*=space-y-]') do |node|
-        spacer = node['class'].scan(/space-y-(\d+)/).join(' ')
+        spacer = node['class'].scan(/space-y-((lg-)?\d+)/)[0][0]
         # get all direct children except the first
         node.xpath('./*[position()>1]').each do |child|
           html = ''
