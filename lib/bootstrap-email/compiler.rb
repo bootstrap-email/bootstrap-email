@@ -108,24 +108,19 @@ module BootstrapEmail
     end
 
     def align
-      each_node('.float-left') do |node|
-        align_helper(node, /float-left/, 'left')
-      end
-      each_node('.mx-auto') do |node|
-        align_helper(node, /mx-auto/, 'center')
-      end
-      each_node('.float-right') do |node|
-        align_helper(node, /float-right/, 'right')
+      ['left', 'center', 'right'].each do |type|
+        each_node(".align-#{type}") do |node|
+          align_helper(node, type)
+        end
       end
     end
 
-    def align_helper(node, klass, template)
+    def align_helper(node, type)
       if node.name != 'table' # if it is already on a table, set the proprieties on the current table
-        node['class'] = node['class'].sub(klass, '')
-        node.replace(template("align-#{template}", contents: node.to_html))
-      else
-        node['align'] = template
+        node['class'] = node['class'].sub("align-#{type}", '')
+        node.replace(template('table', contents: node.to_html))
       end
+      node['align'] = type
     end
 
     def card
