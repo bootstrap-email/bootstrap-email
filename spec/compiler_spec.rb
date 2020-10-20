@@ -50,6 +50,13 @@ RSpec.describe BootstrapEmail::Compiler do
   describe '.spacing' do
     it 'creates an vertical spacer between each child' do
       html = <<~HTML
+        <div class="card space-y-8">
+          <div>
+            <p>Some other nested child here that shouln't affect it</p>
+          </div>
+          <div></div>
+          <div></div>
+        </div>
         <div class="space-y-6">
           <div>
             <p>Some other nested child here that shouln't affect it</p>
@@ -61,6 +68,20 @@ RSpec.describe BootstrapEmail::Compiler do
       output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
       doc = Nokogiri::HTML(output)
       expect(doc.css('.s-6').count).to eq(2)
+      expect(doc.css('.s-8').count).to eq(2)
+    end
+  end
+
+  describe '.card' do
+    it 'creates a card and removes the wrapping div' do
+      html = <<~HTML
+        <div class="card">
+          Hello
+        </div>
+      HTML
+      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      doc = Nokogiri::HTML(output)
+      expect(doc.css('div').count).to eq(0)
     end
   end
 end
