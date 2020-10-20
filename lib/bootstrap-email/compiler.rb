@@ -126,10 +126,10 @@ module BootstrapEmail
 
     def card
       each_node('.card') do |node| # move all classes up and remove all classes from element
-        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.to_html))
+        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.inner_html))
       end
       each_node('.card-body') do |node| # move all classes up and remove all classes from element
-        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.to_html))
+        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.inner_html))
       end
     end
 
@@ -190,7 +190,7 @@ module BootstrapEmail
       each_node('*[class*=space-y-]') do |node|
         spacer = node['class'].scan(/space-y-((lg-)?\d+)/)[0][0]
         # get all direct children except the first
-        node.xpath('./*[position()>1]').each do |child|
+        node.xpath('./*[position()>1] | ./tbody/tr/td/*[position()>1]').each do |child|
           html = ''
           html += template('div', classes: "s-#{spacer}", contents: nil)
           html += child.to_html
@@ -226,7 +226,7 @@ module BootstrapEmail
 
     def body
       @adapter.doc.css('body').each do |node|
-        node.replace('<body>' + preview_text.to_s + template('body', classes: "#{node['class']} body", contents: node.inner_html.to_s) + '</body>')
+        node.replace('<body>' + preview_text.to_s + template('body', classes: "#{node['class']} body", contents: node.inner_html) + '</body>')
       end
     end
 
