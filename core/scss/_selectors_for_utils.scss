@@ -43,7 +43,8 @@
 @mixin border-color-util($class) {
   #{$class} {
     &,
-    &.btn td a {
+    &.btn td a,
+    &.hr td {
       @content
     }
   }
