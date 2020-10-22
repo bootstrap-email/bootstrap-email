@@ -24,6 +24,7 @@ module BootstrapEmail
     end
 
     def compile_html!
+      as_table
       button
       badge
       alert
@@ -88,6 +89,12 @@ module BootstrapEmail
     def each_node(css_lookup, &blk)
       # sort by youngest child and traverse backwards up the tree
       @adapter.doc.css(css_lookup).sort_by { |n| n.ancestors.size }.reverse!.each(&blk)
+    end
+
+    def as_table
+      each_node('.as-table') do |node|
+        node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.inner_html))
+      end
     end
 
     def button
@@ -200,19 +207,8 @@ module BootstrapEmail
     end
 
     def spacer
-      # spacers = {
-      #   '0' => 0,
-      #   '1' => (16 * 0.25),
-      #   '2' => (16 * 0.5),
-      #   '3' => 16,
-      #   '4' => (16 * 1.5),
-      #   '5' => (16 * 3)
-      # }
       each_node('*[class*=s-]') do |node|
         node.replace(template('table', classes: "#{node['class']} w-full", contents: '&nbsp;'))
-        # temp = Nokogiri::HTML::DocumentFragment.parse(template('table', classes: node['class'] + ' w-full', contents: '&nbsp;'))
-        # temp.at_css('td')['height'] = spacers[node['class'].gsub(/s-/, '')].to_i
-        # node.replace(temp)
       end
     end
 
