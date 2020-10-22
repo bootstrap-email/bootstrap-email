@@ -27,6 +27,23 @@ a {
   text-decoration: none;
 }
 
+// Inhere text color so color can be set on the body and inherited by children
+* {
+  color: inherit;
+}
+
+// Fix link colors set on automatic detection such as email addresses and phone numbers
+a[x-apple-data-detectors],
+u + #body a,
+#MessageViewBody a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
 /*! allow_purge_after */
 
 @media screen and (max-width: 600px) {
