@@ -1,3 +1,5 @@
+$breakpoints: ('', 'lg-');
+
 $headings: (
   1: 2.25 * $font-size-base,
   2: 2 * $font-size-base,
@@ -90,3 +92,11 @@ $grid-cols: (
   11: 91.666667%,
   12: 100%
 );
+
+$display-type: (
+  none,
+  inline,
+  inline-block,
+  block,
+  table
+) !default;

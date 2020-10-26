@@ -2,10 +2,6 @@ $font-size-base: 16px !default;
 $font-weight-base: normal !default;
 $font-family-sans-serif: Helvetica, Arial, sans-serif !default;
 $font-family-base: $font-family-sans-serif !default;
-$border-radius: $font-size-base * 0.25 !default;
-$border-radius-xl: $font-size-base * 0.5 !default;
-$border-radius-lg: $font-size-base * 0.3 !default;
-$border-radius-sm: $font-size-base * 0.2 !default;
 $border-width: 1px !default;
 $line-height-base: 1.5 !default;
 $headings-line-height: 1.2 !default;
@@ -14,9 +10,14 @@ $headings-margin-bottom:      0 !default;
 $headings-font-family:        null !default;
 $headings-font-weight:        500 !default;
 $headings-color:              null !default;
-$rounded-pill: 9999px !default;
 
 $border-color: $gray-300 !default;
+
+$border-radius: $font-size-base * 0.25 !default;
+$border-radius-xl: $font-size-base * 0.5 !default;
+$border-radius-lg: $font-size-base * 0.3 !default;
+$border-radius-sm: $font-size-base * 0.2 !default;
+$border-radius-pill: 9999px !default;
 
 $table-accent-bg: #f2f2f2 !default;
 $table-background-color: null !default;

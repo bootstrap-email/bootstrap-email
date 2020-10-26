@@ -1,26 +1,16 @@
-@each $name, $property in $sizing-types {
-  @each $size, $value in $sizing {
-    @include sizing-util('.#{$name}-#{$size}') {
-      max-#{$property}: $value;
-      -premailer-#{$property}: strip-unit($value);
+@each $prefix in $breakpoints {
+  @each $name, $property in $sizing-types {
+    @each $size, $value in $sizing {
+      @include sizing-util('.#{$name}-#{$prefix}#{$size}') {
+        max-#{$property}: $value;
+        -premailer-#{$property}: strip-unit($value);
+        #{$property}: 100%;
+      }
+    }
+    @include sizing-util('.#{$name}-#{$prefix}full') {
+      max-#{$property}: 100%;
+      -premailer-#{$property}: 100%;
       #{$property}: 100%;
     }
-  }
-  @include sizing-util('.#{$name}-full') {
-    max-#{$property}: 100%;
-    -premailer-#{$property}: 100%;
-    #{$property}: 100%;
-  }
-  @each $size, $value in $sizing {
-    @include sizing-util('.#{$name}-lg#{$size}') {
-      max-#{$property}: $value;
-      -premailer-#{$property}: strip-unit($value);
-      #{$property}: 100%;
-    }
-  }
-  @include sizing-util('.#{$name}-lg-full') {
-    max-#{$property}: 100%;
-    -premailer-#{$property}: 100%;
-    #{$property}: 100%;
   }
 }

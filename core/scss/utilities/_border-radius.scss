@@ -1,47 +1,47 @@
 @include border-radius-util('.rounded-0') {
-  border-radius: 0 !important;
+  border-radius: 0;
 }
 
 @include border-radius-util('.rounded-sm') {
-  border-radius: $border-radius-sm !important;
+  border-radius: $border-radius-sm;
 }
 
 @include border-radius-util('.rounded') {
-  border-radius: $border-radius !important;
+  border-radius: $border-radius;
 }
 
 @include border-radius-util('.rounded-top') {
-  border-top-left-radius: $border-radius !important;
-  border-top-right-radius: $border-radius !important;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
 }
 
 @include border-radius-util('.rounded-right') {
-  border-top-right-radius: $border-radius !important;
-  border-bottom-right-radius: $border-radius !important;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
 }
 
 @include border-radius-util('.rounded-bottom') {
-  border-bottom-right-radius: $border-radius !important;
-  border-bottom-left-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
 }
 
 @include border-radius-util('.rounded-left') {
-  border-top-left-radius: $border-radius !important;
-  border-bottom-left-radius: $border-radius !important;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
 }
 
 @include border-radius-util('.rounded-lg') {
-  border-radius: $border-radius-lg !important;
+  border-radius: $border-radius-lg;
 }
 
 @include border-radius-util('.rounded-xl') {
-  border-radius: $border-radius-xl !important;
+  border-radius: $border-radius-xl;
 }
 
 @include border-radius-util('.rounded-circle') {
-  border-radius: 50% !important;
+  border-radius: 50%;
 }
 
 @include border-radius-util('.rounded-pill') {
-  border-radius: $rounded-pill !important;
+  border-radius: $border-radius-pill;
 }

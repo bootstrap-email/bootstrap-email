@@ -23,6 +23,7 @@
   line-height: 150%;
 }
 
+// Prevent Windows 10 Mail from underlining links. Styles for underlined links should be inlined
 a {
   text-decoration: none;
 }
@@ -44,25 +45,50 @@ u + #body a,
   line-height: inherit;
 }
 
+// Use a better rendering method when resizing images in Outlook IE.
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+// Prevent Outlook from adding extra spacing to tables.
+table:not([class^=s-]) {
+  font-family: $font-family-base;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  td {
+    border-spacing: 0px;
+    border-collapse: collapse;
+  }
+}
+
 /*! allow_purge_after */
 
 @media screen and (max-width: 600px) {
   //  Grid
   @each $key, $value in $grid-cols {
-    table.row > thead > tr > th.col-lg-#{$key} {
-      display: block;
-      width: 100% !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
+    table.row > thead > tr {
+      & > th.col-lg-#{$key},
+      & > th.col-lg {
+        display: block;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
     }
   }
 
   // Display
-  .d-mobile {
-    display: block !important;
+  @each $display in $display-type {
+    .d-lg-#{$display} {
+      display: unset !important;
+    }
   }
-  .d-desktop {
-    display: none !important;
+  @each $display in $display-type {
+    .d-#{$display} {
+      display: $display !important;
+    }
   }
 
   // Sizing
