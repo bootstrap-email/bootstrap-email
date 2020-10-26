@@ -39,7 +39,7 @@ module BootstrapEmail
       spacer
       table
       body
-      color
+      # color
     end
 
     def add_layout!(html)
@@ -71,7 +71,7 @@ module BootstrapEmail
       # get each CSS declaration
       custom.scan(/\w*\.[\w\-]*[\s\S\n]+?(?=})}{1}/).each do |group|
         # get the first class for each comma separated CSS declaration
-        exist = group.scan(/(\.[\w\-]*).*?,+?/).flatten.uniq.any? do |selector|
+        exist = group.scan(/(\.[\w\-]*).*?((,+?)|{+?)/).map(&:first).uniq.any? do |selector|
           !@adapter.doc.at_css(selector).nil?
         end
         custom.sub!(group, '') unless exist
@@ -167,7 +167,7 @@ module BootstrapEmail
 
     def padding
       each_node('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]') do |node|
-        next if ['table', 'td'].include?(node.name) # if it is already on a table, set the padding on the table, else wrap the content in a table
+        next if ['table', 'td', 'a'].include?(node.name) # if it is already on a table, set the padding on the table, else wrap the content in a table
 
         padding_regex = /(p[trblxy]?-\d+)/
         classes = node['class'].scan(padding_regex).join(' ')
@@ -237,15 +237,15 @@ module BootstrapEmail
       node
     end
 
-    def color
-      each_node('*[class*=bg-]') do |node|
-        next if ['table', 'td'].include?(node.name) # skip if it is already on a table
+    # def color
+    #   each_node('*[class*=bg-]') do |node|
+    #     next if ['table', 'td'].include?(node.name) # skip if it is already on a table
 
-        background_color_regex = /(bg-\w*(-\d+)?)/
-        classes = node['class'].scan(background_color_regex).map(&:first).join(' ')
-        node['class'] = node['class'].gsub(background_color_regex, '')
-        node.replace(template('table', classes: classes, contents: node.to_html))
-      end
-    end
+    #     background_color_regex = /(bg-\w*(-\d+)?)/
+    #     classes = node['class'].scan(background_color_regex).map(&:first).join(' ')
+    #     node['class'] = node['class'].gsub(background_color_regex, '')
+    #     node.replace(template('table', classes: classes, contents: node.to_html))
+    #   end
+    # end
   end
 end

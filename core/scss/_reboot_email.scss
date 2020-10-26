@@ -1,7 +1,7 @@
-/* Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp */
+// Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp
 body, .body {
   margin: 0;
-  Margin: 0; // For compatibility with Outlook https://www.emailonacid.com/blog/article/email-development/outlook-com-does-support-margins/
+  Margin: 0; // For compatibility with Outlook
   padding: 0;
   border: 0;
   outline: 0;
@@ -28,26 +28,6 @@ img {
   outline: none;
   text-decoration: none;
   display: block;
-}
-
-a img {
-  border: 0 none;
-}
-
-// don't apply to spacers
-table:not([class^=s-]) {
-  font-family: $font-family-base;
-  mso-table-lspace: 0pt;
-  mso-table-rspace: 0pt;
-}
-
-table:not([class^=s-]) {
-  border-spacing: 0px;
-  border-collapse: collapse;
-  td {
-    border-spacing: 0px;
-    border-collapse: collapse;
-  }
 }
 
 // to fix centering in yahoo

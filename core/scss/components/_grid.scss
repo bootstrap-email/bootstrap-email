@@ -4,13 +4,11 @@ table.row {
   & > thead > tr > th {
     min-height: 1px;
     font-weight: normal;
-    padding-right: 15px;
-    padding-left: 15px;
-    &:first-child {
-      padding-left: 0;
-    }
+    padding-right: 30px;
+    padding-bottom: 30px;
     &:last-child {
       padding-right: 0;
+      padding-bottom: 0;
     }
   }
 }
@@ -24,16 +22,22 @@ table.row {
 
 @each $space, $value in $spacers {
   table.row.g-#{$space},
-  table.row.gx-#{$space} {
+  table.row.gx-#{$space},
+  table.row.g-lg-#{$space},
+  table.row.gx-lg-#{$space} {
     & > thead > tr > th {
-      padding-right: $value / 2;
-      padding-left: $value / 2;
-      &:first-child {
-        padding-left: 0;
-      }
+      padding-right: $value;
       &:last-child {
         padding-right: 0;
       }
+    }
+  }
+  table.row.g-#{$space},
+  table.row.gy-#{$space},
+  table.row.g-lg-#{$space},
+  table.row.gy-lg-#{$space} {
+    & > thead > tr > th {
+      padding-bottom: $value;
     }
   }
 }
