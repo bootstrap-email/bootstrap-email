@@ -35,6 +35,10 @@ parser = OptionParser.new do |opts|
     options[:destination] = v
   end
 
+  opts.on('-c', '--config STRING', String, 'Relative path to SCSS config config file to customize Bootstrap Email.') do |v|
+    options[:config] = File.expand_path(v, Dir.pwd)
+  end
+
   opts.on('-h', '--help', 'Prints this help') do
     puts opts
     exit
@@ -65,15 +69,15 @@ if input
       next unless File.file?(path)
 
       puts "Compiling file #{path}"
-      compiled = BootstrapEmail::Compiler.new(type: :file, input: path).perform_full_compile
+      compiled = BootstrapEmail::Compiler.new(type: :file, input: path, options: {config_path: options[:config]}).perform_full_compile
       FileUtils.mkdir_p("#{Dir.pwd}/#{options[:destination]}")
       File.write(File.expand_path("#{options[:destination]}/#{path.split('/').last}", Dir.pwd), compiled)
     end
   when :file
     path = File.expand_path(input, Dir.pwd)
-    puts BootstrapEmail::Compiler.new(type: :string, input: File.join(Dir.pwd, path)).perform_full_compile
+    puts BootstrapEmail::Compiler.new(type: :string, input: File.join(Dir.pwd, path), options: {config_path: options[:config]}).perform_full_compile
   when :string
-    puts BootstrapEmail::Compiler.new(type: :string, input: input).perform_full_compile
+    puts BootstrapEmail::Compiler.new(type: :string, input: input, options: {config_path: options[:config]}).perform_full_compile
   end
 else
   puts opts

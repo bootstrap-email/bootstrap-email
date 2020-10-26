@@ -1,18 +1,16 @@
 module BootstrapEmail
   class Compiler
-    HEAD_SCSS_PATH = File.expand_path('../../core/head.scss', __dir__)
-
-    def initialize(type:, input:)
+    def initialize(type:, input:, options: {})
       case type
       when :rails
         html = add_layout!(input)
         @adapter = BootstrapEmail::RailsAdapter.new(html)
       when :string
         html = add_layout!(input)
-        @adapter = BootstrapEmail::StringAdapter.new(html)
+        @adapter = BootstrapEmail::StringAdapter.new(html, options)
       when :file
         html = add_layout!(File.read(input))
-        @adapter = BootstrapEmail::StringAdapter.new(html)
+        @adapter = BootstrapEmail::StringAdapter.new(html, options)
       end
     end
 
@@ -67,7 +65,7 @@ module BootstrapEmail
     end
 
     def purged_css_from_head
-      default, custom = BootstrapEmail::SassCache.compile(HEAD_SCSS_PATH).split('/*! allow_purge_after */')
+      default, custom = BootstrapEmail::SassCache.compile('bootstrap-head').split('/*! allow_purge_after */')
       # get each CSS declaration
       custom.scan(/\w*\.[\w\-]*[\s\S\n]+?(?=})}{1}/).each do |group|
         # get the first class for each comma separated CSS declaration
