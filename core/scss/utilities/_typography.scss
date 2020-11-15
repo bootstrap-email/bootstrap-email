@@ -19,6 +19,7 @@ h1, h2, h3, h4, h5, h6,
 @each $name, $size in $font-size {
   .text-#{$name} {
     font-size: $size;
+    line-height: $size * $headings-line-height;
   }
 }
 
