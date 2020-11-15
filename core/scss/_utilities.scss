@@ -9,12 +9,18 @@ $headings: (
   6: 1 * $font-size-base
 ) !default;
 
-$display-headings: (
-  1: 5 * $font-size-base,
-  2: 4.5 * $font-size-base,
-  3: 4 * $font-size-base,
-  4: 3.5 * $font-size-base,
-  5: 3 * $font-size-base
+$font-size: (
+  'xs': 0.75 * $font-size-base,
+  'sm': 0.875 * $font-size-base,
+  'base': 1 * $font-size-base,
+  'lg': 1.125 * $font-size-base,
+  'xl': 1.25 * $font-size-base,
+  '2xl': 1.5 * $font-size-base,
+  '3xl': 1.875 * $font-size-base,
+  '4xl': 2.25 * $font-size-base,
+  '5xl': 3 * $font-size-base,
+  '6xl': 4 * $font-size-base,
+  '7xl': 5 * $font-size-base
 ) !default;
 
 $line-height: (
