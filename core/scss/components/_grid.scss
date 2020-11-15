@@ -1,19 +1,16 @@
 table.row {
   table-layout: fixed;
   width: 100%;
-  & > thead > tr > th {
+  & > tbody > tr > td {
     min-height: 1px;
     font-weight: normal;
     padding-right: 30px;
-    &:last-child {
-      padding-right: 0;
-    }
   }
 }
 
 @each $key, $value in $grid-cols {
-  th.col-#{$key},
-  th.col-lg-#{$key} {
+  td.col-#{$key},
+  td.col-lg-#{$key} {
     width: $value;
   }
 }
@@ -23,18 +20,15 @@ table.row {
   table.row.gx-#{$space},
   table.row.g-lg-#{$space},
   table.row.gx-lg-#{$space} {
-    & > thead > tr > th {
+    & > tbody > tr > td {
       padding-right: $value;
-      &:last-child {
-        padding-right: 0;
-      }
     }
   }
   table.row.g-#{$space},
   table.row.gy-#{$space},
   table.row.g-lg-#{$space},
   table.row.gy-lg-#{$space} {
-    & > thead > tr > th {
+    & > tbody > tr > td {
       padding-bottom: $value;
     }
   }

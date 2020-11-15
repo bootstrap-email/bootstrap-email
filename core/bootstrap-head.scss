@@ -68,9 +68,9 @@ table:not([class^=s-]) {
 @media screen and (max-width: 600px) {
   //  Grid
   @each $key, $value in $grid-cols {
-    table.row > thead > tr {
-      & > th.col-lg-#{$key},
-      & > th.col-lg {
+    table.row > tbody > tr {
+      & > td.col-lg-#{$key},
+      & > td.col-lg {
         display: block;
         width: 100% !important;
         padding-left: 0 !important;
