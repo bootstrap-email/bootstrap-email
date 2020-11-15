@@ -76,5 +76,16 @@ module BootstrapEmail
       end
       (default + custom).gsub(/\n\s*\n+/, "\n")
     end
+
+    # def color
+    #   each_node('*[class*=bg-]') do |node|
+    #     next if ['table', 'td'].include?(node.name) # skip if it is already on a table
+
+    #     background_color_regex = /(bg-\w*(-\d+)?)/
+    #     classes = node['class'].scan(background_color_regex).map(&:first).join(' ')
+    #     node['class'] = node['class'].gsub(background_color_regex, '')
+    #     node.replace(template('table', classes: classes, contents: node.to_html))
+    #   end
+    # end
   end
 end

@@ -1,6 +1,5 @@
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-.display-1, .display-2, .display-3, .display-4, .display-5 {
+.h1, .h2, .h3, .h4, .h5, .h6 {
   margin-top: $headings-margin-top;
   margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
@@ -17,10 +16,9 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-@each $name, $size in $display-headings {
-  .display-#{$name} {
+@each $name, $size in $font-size {
+  .text-#{$name} {
     font-size: $size;
-    line-height: $size * $headings-line-height;
   }
 }
 

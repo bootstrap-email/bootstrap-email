@@ -5,10 +5,8 @@ table.row {
     min-height: 1px;
     font-weight: normal;
     padding-right: 30px;
-    padding-bottom: 30px;
     &:last-child {
       padding-right: 0;
-      padding-bottom: 0;
     }
   }
 }
