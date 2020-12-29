@@ -84,4 +84,17 @@ RSpec.describe BootstrapEmail::Compiler do
       expect(doc.css('div').count).to eq(0)
     end
   end
+
+  describe '#compile' do
+    it 'does not strip tokens from href urls' do
+      html = <<~HTML
+        {{ buttonUrl }}<a href="{{ buttonUrl }}">Some Button</a>
+      HTML
+      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      doc = Nokogiri::HTML(output)
+      expect(doc.at_css('a')['href']).to eq('{{ buttonUrl }}')
+    end
+    # it 'supports tokens of different kinds for later code interpolation' do
+    # end
+  end
 end

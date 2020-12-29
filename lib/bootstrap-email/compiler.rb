@@ -18,6 +18,7 @@ module BootstrapEmail
       compile_html!
       @adapter.inline_css!
       inject_head!
+      inject_comment!
       @adapter.finalize_document!
     end
 
@@ -27,17 +28,18 @@ module BootstrapEmail
       BootstrapEmail::Component::Badge.build(@adapter.doc)
       BootstrapEmail::Component::Alert.build(@adapter.doc)
       BootstrapEmail::Component::Card.build(@adapter.doc)
+      BootstrapEmail::Component::Paragraph.build(@adapter.doc)
       BootstrapEmail::Component::Hr.build(@adapter.doc)
       BootstrapEmail::Component::Container.build(@adapter.doc)
       BootstrapEmail::Component::Grid.build(@adapter.doc)
       BootstrapEmail::Component::Align.build(@adapter.doc)
+      BootstrapEmail::Component::Color.build(@adapter.doc)
       BootstrapEmail::Component::Padding.build(@adapter.doc)
       BootstrapEmail::Component::Margin.build(@adapter.doc)
       BootstrapEmail::Component::Spacing.build(@adapter.doc)
       BootstrapEmail::Component::Spacer.build(@adapter.doc)
       BootstrapEmail::Component::Table.build(@adapter.doc)
       BootstrapEmail::Component::Body.build(@adapter.doc)
-      # color
     end
 
     def add_layout!(html)
@@ -53,6 +55,10 @@ module BootstrapEmail
       @adapter.doc.at_css('head').add_child(bootstrap_email_head)
     end
 
+    def inject_comment!
+      @adapter.doc.at_css('head').prepend_child(bootstrap_email_comment)
+    end
+
     private
 
     def bootstrap_email_head
@@ -62,6 +68,10 @@ module BootstrapEmail
         </style>
       INLINE
       html_string
+    end
+
+    def bootstrap_email_comment
+      "\n    <!-- Compiled with Bootstrap Email version: #{BootstrapEmail::VERSION} -->"
     end
 
     def purged_css_from_head
@@ -76,16 +86,5 @@ module BootstrapEmail
       end
       (default + custom).gsub(/\n\s*\n+/, "\n")
     end
-
-    # def color
-    #   each_node('*[class*=bg-]') do |node|
-    #     next if ['table', 'td'].include?(node.name) # skip if it is already on a table
-
-    #     background_color_regex = /(bg-\w*(-\d+)?)/
-    #     classes = node['class'].scan(background_color_regex).map(&:first).join(' ')
-    #     node['class'] = node['class'].gsub(background_color_regex, '')
-    #     node.replace(template('table', classes: classes, contents: node.to_html))
-    #   end
-    # end
   end
 end
