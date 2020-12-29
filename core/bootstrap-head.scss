@@ -93,25 +93,25 @@ table:not([class^=s-]) {
 
   // Sizing
   @each $name, $property in $sizing-types {
+    @include sizing-util('.#{$name}-lg-full') {
+      max-#{$property}: auto !important;
+      #{$property}: auto !important;
+    }
     @each $size, $value in $sizing {
       @include sizing-util('.#{$name}-lg-#{$size}') {
         max-#{$property}: auto !important;
         #{$property}: auto !important;
       }
     }
-    @include sizing-util('.#{$name}-lg-full') {
-      max-#{$property}: auto !important;
-      #{$property}: auto !important;
+    @include sizing-util('.#{$name}-full') {
+      max-#{$property}: 100% !important;
+      #{$property}: 100% !important;
     }
     @each $size, $value in $sizing {
       @include sizing-util('.#{$name}-#{$size}') {
         max-#{$property}: $value !important;
         #{$property}: 100% !important;
       }
-    }
-    @include sizing-util('.#{$name}-full') {
-      max-#{$property}: 100% !important;
-      #{$property}: 100% !important;
     }
   }
 
