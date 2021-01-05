@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'premailer-rails', '~> 1.9'
   s.add_runtime_dependency 'rails', '>= 3'
 
-  s.required_ruby_version = '~> 2.0'
+  s.required_ruby_version = '>= 2.0'
 end
