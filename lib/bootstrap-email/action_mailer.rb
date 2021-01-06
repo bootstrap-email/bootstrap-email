@@ -1,4 +1,4 @@
-class ActionMailer::Base
+ActiveSupport.on_load(:action_mailer) do
   # sit in the middle and compile the html
   def bootstrap_mail(*args)
     bootstrap = BootstrapEmail::Compiler.new(mail(*args) { |format| format.html { render layout: 'layouts/bootstrap-mailer.html.erb' } })
