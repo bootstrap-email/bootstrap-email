@@ -3,8 +3,8 @@ module BootstrapEmail
     def initialize(type:, input:, options: {})
       case type
       when :rails
-        html = add_layout!(input)
-        @adapter = BootstrapEmail::RailsAdapter.new(html)
+        # html = add_layout!(input)
+        @adapter = BootstrapEmail::RailsAdapter.new(input)
       when :string
         html = add_layout!(input)
         @adapter = BootstrapEmail::StringAdapter.new(html, options)

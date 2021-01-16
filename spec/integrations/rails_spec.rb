@@ -1,6 +1,6 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
-describe 'bootstrap_mail' do
+describe 'ActionMailer#bootstrap_mail' do
   it 'builds the email without failing' do
     WelcomeMailer.welcome_email("world").deliver_now
   end
