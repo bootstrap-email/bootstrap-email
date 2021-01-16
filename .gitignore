@@ -4,3 +4,4 @@ Gemfile.lock
 /.sass-cache
 .DS_Store
 .byebug_history
+/spec/rails_app/tmp
