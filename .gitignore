@@ -5,3 +5,4 @@ Gemfile.lock
 .DS_Store
 .byebug_history
 /spec/rails_app/tmp
+/spec/rails_app/log
