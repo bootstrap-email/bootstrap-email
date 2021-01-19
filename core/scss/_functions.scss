@@ -13,11 +13,11 @@
 }
 
 @function tint-color($color, $level) {
-  @return mix(white, $color, $level * $theme-color-interval);
+  @return mix(white, $color, $level);
 }
 
 @function shade-color($color, $level) {
-  @return mix(black, $color, $level * $theme-color-interval);
+  @return mix(black, $color, $level);
 }
 
 @function strip-unit($number) {
