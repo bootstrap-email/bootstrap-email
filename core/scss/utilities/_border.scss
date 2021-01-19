@@ -9,7 +9,7 @@
   .border-top-#{$n}    { border-top: #{$n}px !important; }
   .border-right-#{$n}  { border-right: #{$n}px !important; }
   .border-bottom-#{$n} { border-bottom: #{$n}px !important; }
-  .border-left-#{$n}  { border-left: #{$n}px !important; }
+  .border-left-#{$n}   { border-left: #{$n}px !important; }
 }
 
 @each $name, $color in $all-colors {
