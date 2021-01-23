@@ -57,10 +57,13 @@ if input
 elsif ARGV.any?
   # Executed via command line or shell script
   input = ARGV.shift
-else
+elsif !STDIN.tty?
   # Called in piped command
-  input = $stdin.read
+  input = STDIN.read
   options[:type] = :string
+else
+  # Running just the blank command to compile all files in directory
+  # TODO: have it run all the files in the current directory
 end
 
 if input
@@ -75,6 +78,7 @@ if input
       File.write(File.expand_path("#{options[:destination]}/#{path.split('/').last}", Dir.pwd), compiled)
     end
   when :file
+    # TODO: throw exception if no file is found `bundle exec bootstrap-email cool`
     path = File.expand_path(input, Dir.pwd)
     puts BootstrapEmail::Compiler.new(type: :string, input: File.join(Dir.pwd, path), options: {config_path: options[:config]}).perform_full_compile
   when :string
