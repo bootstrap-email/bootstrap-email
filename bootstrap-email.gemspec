@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://bootstrapemail.com'
   s.license     = 'MIT'
 
-  s.executables << 'bootstrapemail'
+  s.executables << 'bootstrap-email'
 
   # s.add_runtime_dependency 'actionmailer', '>= 3'
   s.add_runtime_dependency 'nokogiri', '~> 1.6'

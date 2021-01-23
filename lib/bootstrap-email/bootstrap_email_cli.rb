@@ -10,14 +10,15 @@ options = {
 
 parser = OptionParser.new do |opts|
   opts.banner = "Bootstrap 5 stylesheet, compiler, and inliner for responsive and consistent emails with the Bootstrap syntax you know and love.\n\n"
-  opts.define_head 'Usage: bootstrapemail <path> [options]'
+  opts.define_head 'Usage: bootstrap-email <path> [options]'
   opts.separator ''
   opts.separator 'Examples:'
-  opts.separator '  bootstrapemail email.html > out.html'
-  opts.separator '  bootstrapemail ./public/index.html'
-  opts.separator "  bootstrapemail -p 'emails/*' -d emails/output"
-  opts.separator "  bootstrapemail -p 'views/emails/*' -d 'views/compiled_emails'"
-  opts.separator '  cat input.html | bootstrapemail'
+  opts.separator '  bootstrap-email email.html > out.html'
+  opts.separator '  bootstrap-email ./public/index.html'
+  opts.separator '  bootstrap-email -s \'<a href="#" class="btn btn-primary">Some Button</a>\''
+  opts.separator '  bootstrap-email -p \'emails/*\' -d emails/output'
+  opts.separator '  bootstrap-email -p \'views/emails/*\' -d \'views/compiled_emails\''
+  opts.separator '  cat input.html | bootstrap-email'
   opts.separator ''
   opts.separator 'Options:'
 
