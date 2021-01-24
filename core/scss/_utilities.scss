@@ -115,3 +115,11 @@ $border-widths: (
   '-5': 5px,
   '-0': 0px
 ) !default;
+
+$border-radiuses: (
+  '-sm': 3px,
+  '': 6px,
+  '-lg': 9px,
+  '-xl': 12px,
+  '-0': 0px
+) !default;
