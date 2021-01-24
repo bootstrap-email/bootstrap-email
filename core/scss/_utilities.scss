@@ -100,9 +100,18 @@ $grid-cols: (
 );
 
 $display-type: (
-  none,
   inline,
   inline-block,
   block,
-  table
+  table,
+  none
+) !default;
+
+$border-widths: (
+  '': 1px,
+  '-2': 2px,
+  '-3': 3px,
+  '-4': 4px,
+  '-5': 5px,
+  '-0': 0px
 ) !default;

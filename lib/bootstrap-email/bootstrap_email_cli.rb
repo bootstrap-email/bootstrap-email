@@ -80,9 +80,8 @@ if input
       File.write(File.expand_path("#{options[:destination]}/#{path.split('/').last}", Dir.pwd), compiled)
     end
   when :file
-    # TODO: throw exception if no file is found `bundle exec bootstrap-email cool`
     path = File.expand_path(input, Dir.pwd)
-    puts BootstrapEmail::Compiler.new(File.join(Dir.pwd, path), options: {config_path: options[:config]}).perform_full_compile
+    puts BootstrapEmail::Compiler.new(File.join(Dir.pwd, path), type: :file, options: {config_path: options[:config]}).perform_full_compile
   when :string
     puts BootstrapEmail::Compiler.new(input, options: {config_path: options[:config]}).perform_full_compile
   end

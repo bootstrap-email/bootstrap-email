@@ -38,10 +38,6 @@
   border-radius: $border-radius-xl;
 }
 
-@include border-radius-util('.rounded-circle') {
-  border-radius: 50%;
-}
-
 @include border-radius-util('.rounded-pill') {
   border-radius: $border-radius-pill;
 }

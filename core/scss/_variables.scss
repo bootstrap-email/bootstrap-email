@@ -13,10 +13,10 @@ $headings-color:              null !default;
 
 $border-color: $gray-300 !default;
 
-$border-radius: $font-size-base * 0.25 !default;
-$border-radius-xl: $font-size-base * 0.5 !default;
-$border-radius-lg: $font-size-base * 0.3 !default;
-$border-radius-sm: $font-size-base * 0.2 !default;
+$border-radius-sm: 3px !default;
+$border-radius: 6px !default;
+$border-radius-lg: 9px !default;
+$border-radius-xl: 12px !default;
 $border-radius-pill: 9999px !default;
 
 $table-accent-bg: #f2f2f2 !default;

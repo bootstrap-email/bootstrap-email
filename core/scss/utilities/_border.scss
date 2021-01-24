@@ -1,15 +1,9 @@
-.border         { border: $border-width solid $border-color !important; }
-.border-top     { border-top: $border-width solid $border-color !important; }
-.border-right   { border-right: $border-width solid $border-color !important; }
-.border-bottom  { border-bottom: $border-width solid $border-color !important; }
-.border-left    { border-left: $border-width solid $border-color !important; }
-
-@for $n from 0 through 5 {
-  .border-#{$n}        { border: #{$n}px !important; }
-  .border-top-#{$n}    { border-top: #{$n}px !important; }
-  .border-right-#{$n}  { border-right: #{$n}px !important; }
-  .border-bottom-#{$n} { border-bottom: #{$n}px !important; }
-  .border-left-#{$n}   { border-left: #{$n}px !important; }
+@each $name, $width in $border-widths {
+  .border#{$name}         { border: $width solid $border-color !important; }
+  .border-top#{$name}     { border-top: $width solid $border-color !important; }
+  .border-right#{$name}   { border-right: $width solid $border-color !important; }
+  .border-bottom#{$name}  { border-bottom: $width solid $border-color !important; }
+  .border-left#{$name}    { border-left: $width solid $border-color !important; }
 }
 
 @each $name, $color in $all-colors {
