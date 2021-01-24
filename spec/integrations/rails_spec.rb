@@ -2,11 +2,11 @@ require_relative '../spec_helper'
 
 describe 'ActionMailer#bootstrap_mail' do
   it 'builds the email without failing' do
-    WelcomeMailer.welcome_email("world").deliver_now
+    WelcomeMailer.welcome_email('world').deliver_now
   end
 
   it 'delivers an inlined email' do
-    WelcomeMailer.welcome_email("world").deliver_now
+    WelcomeMailer.welcome_email('world').deliver_now
 
     mail = ActionMailer::Base.deliveries.last
     expect(mail).to be_present
