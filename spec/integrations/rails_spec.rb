@@ -10,8 +10,8 @@ describe 'ActionMailer#bootstrap_mail' do
 
     mail = ActionMailer::Base.deliveries.last
     expect(mail).to be_present
-    body = mail.html_part.body.to_s
+    body = (mail.html_part || mail).body.to_s
     expect(body).to be_present
-    expect(body).to include(%{<p style="font-size: 12px;">Hello world</p>})
+    expect(body).to include(%{<p style="line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align="left">Hello world</p>})
   end
 end
