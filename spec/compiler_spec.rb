@@ -16,7 +16,7 @@ RSpec.describe BootstrapEmail::Compiler do
         <!-- The .btn class was a culprit for not purging all padding selectors originally since they all contained the .htn in the selector -->
         <a class="btn p-5" href="#">Some button</a>
       HTML
-      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
       head = doc.at_css('head').to_s
       head.include?('p-4')
@@ -37,7 +37,7 @@ RSpec.describe BootstrapEmail::Compiler do
           <img class="w-10 align-right" src="#" />
         </div>
       HTML
-      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
       expect(doc.at_css('.wrapper-1 .align-center')).to be_truthy
       expect(doc.at_css('.wrapper-1 .align-center').attr('align')).to eq('center')
@@ -64,7 +64,7 @@ RSpec.describe BootstrapEmail::Compiler do
           <div></div>
         </div>
       HTML
-      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
       expect(doc.css('.s-6').count).to eq(2)
       expect(doc.css('.s-8').count).to eq(2)
@@ -78,7 +78,7 @@ RSpec.describe BootstrapEmail::Compiler do
           Hello
         </div>
       HTML
-      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
       expect(doc.css('div').count).to eq(0)
     end
@@ -90,7 +90,7 @@ RSpec.describe BootstrapEmail::Compiler do
       html = <<~HTML
         {{ buttonUrl }}<a href="{{ buttonUrl }}">Some Button</a>
       HTML
-      output = BootstrapEmail::Compiler.new(type: :string, input: html).perform_full_compile
+      output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
       expect(doc.at_css('a')['href']).to eq('{{ buttonUrl }}')
     end

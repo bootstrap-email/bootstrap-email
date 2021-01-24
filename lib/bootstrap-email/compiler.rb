@@ -1,65 +1,94 @@
 module BootstrapEmail
   class Compiler
-    def initialize(type:, input:, options: {})
+    attr_accessor :type, :doc, :premailer
+
+    def initialize(input, type: :string, options: {})
+      self.type = type
       case type
       when :rails
-        # html = add_layout!(input)
-        @adapter = BootstrapEmail::RailsAdapter.new(input)
+        @mail = input
+        html = (@mail.html_part || @mail).body.raw_source
+        build_premailer_doc(html, options)
       when :string
-        html = add_layout!(input)
-        @adapter = BootstrapEmail::StringAdapter.new(html, options)
+        build_premailer_doc(input, options)
       when :file
-        html = add_layout!(File.read(input))
-        @adapter = BootstrapEmail::StringAdapter.new(html, options)
+        build_premailer_doc(File.read(input), options)
       end
     end
 
     def perform_full_compile
       compile_html!
-      @adapter.inline_css!
+      inline_css!
       inject_head!
       inject_comment!
-      @adapter.finalize_document!
+      finalize_document!
     end
 
-    def compile_html!
-      BootstrapEmail::Component::AsTable.build(@adapter.doc)
-      BootstrapEmail::Component::Button.build(@adapter.doc)
-      BootstrapEmail::Component::Badge.build(@adapter.doc)
-      BootstrapEmail::Component::Alert.build(@adapter.doc)
-      BootstrapEmail::Component::Card.build(@adapter.doc)
-      BootstrapEmail::Component::Paragraph.build(@adapter.doc)
-      BootstrapEmail::Component::Hr.build(@adapter.doc)
-      BootstrapEmail::Component::Container.build(@adapter.doc)
-      BootstrapEmail::Component::Grid.build(@adapter.doc)
-      BootstrapEmail::Component::Align.build(@adapter.doc)
-      BootstrapEmail::Component::Color.build(@adapter.doc)
-      BootstrapEmail::Component::Padding.build(@adapter.doc)
-      BootstrapEmail::Component::Margin.build(@adapter.doc)
-      BootstrapEmail::Component::Spacing.build(@adapter.doc)
-      BootstrapEmail::Component::Spacer.build(@adapter.doc)
-      BootstrapEmail::Component::Table.build(@adapter.doc)
-      BootstrapEmail::Component::Body.build(@adapter.doc)
+    private
+
+    def build_premailer_doc(html, options)
+      html = add_layout!(html)
+      SassC.load_paths << File.expand_path('../../core', __dir__)
+      css_string = BootstrapEmail::SassCache.compile('bootstrap-email', config_path: options[:config_path], style: :expanded)
+      self.premailer = Premailer.new(
+        html,
+        with_html_string: true,
+        preserve_reset: false,
+        css_string: css_string
+      )
+      self.doc = premailer.doc
     end
 
     def add_layout!(html)
-      doc = Nokogiri::HTML(html)
-      return unless doc.at_css('head').nil?
+      document = Nokogiri::HTML(html)
+      return document.to_html unless document.at_css('head').nil?
 
-      namespace = OpenStruct.new(contents: ERB.new(doc.to_html).result)
+      namespace = OpenStruct.new(contents: ERB.new(document.to_html).result)
       template_html = File.read(File.expand_path('../../core/layout.html.erb', __dir__))
       ERB.new(template_html).result(namespace.instance_eval { binding })
     end
 
+    def compile_html!
+      BootstrapEmail::Component::AsTable.build(doc)
+      BootstrapEmail::Component::Button.build(doc)
+      BootstrapEmail::Component::Badge.build(doc)
+      BootstrapEmail::Component::Alert.build(doc)
+      BootstrapEmail::Component::Card.build(doc)
+      BootstrapEmail::Component::Paragraph.build(doc)
+      BootstrapEmail::Component::Hr.build(doc)
+      BootstrapEmail::Component::Container.build(doc)
+      BootstrapEmail::Component::Grid.build(doc)
+      BootstrapEmail::Component::Align.build(doc)
+      BootstrapEmail::Component::Color.build(doc)
+      BootstrapEmail::Component::Padding.build(doc)
+      BootstrapEmail::Component::Margin.build(doc)
+      BootstrapEmail::Component::Spacing.build(doc)
+      BootstrapEmail::Component::Spacer.build(doc)
+      BootstrapEmail::Component::Table.build(doc)
+      BootstrapEmail::Component::Body.build(doc)
+    end
+
+    def inline_css!
+      premailer.to_inline_css
+    end
+
     def inject_head!
-      @adapter.doc.at_css('head').add_child(bootstrap_email_head)
+      doc.at_css('head').add_child(bootstrap_email_head)
     end
 
     def inject_comment!
-      @adapter.doc.at_css('head').prepend_child(bootstrap_email_comment)
+      doc.at_css('head').prepend_child(bootstrap_email_comment)
     end
 
-    private
+    def finalize_document!
+      case type
+      when :rails
+        (@mail.html_part || @mail).body = doc.to_html
+        @mail
+      when :string, :file
+        doc.to_html
+      end
+    end
 
     def bootstrap_email_head
       html_string = <<-INLINE
@@ -80,7 +109,7 @@ module BootstrapEmail
       custom.scan(/\w*\.[\w\-]*[\s\S\n]+?(?=})}{1}/).each do |group|
         # get the first class for each comma separated CSS declaration
         exist = group.scan(/(\.[\w\-]*).*?((,+?)|{+?)/).map(&:first).uniq.any? do |selector|
-          !@adapter.doc.at_css(selector).nil?
+          !doc.at_css(selector).nil?
         end
         custom.sub!(group, '') unless exist
       end
