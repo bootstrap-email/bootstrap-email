@@ -50,12 +50,6 @@ h1, h2, h3, h4, h5, h6,
 
 p {
   width: 100%;
-  & > tbody > tr > td {
-    margin: 0;
-    padding: 0 0 $font-size-base * 1.25 0;
-    & > p {
-      margin: 0;
-      padding: 0;
-    }
-  }
+  -premailer-width: 100%;
+  margin: 0;
 }
