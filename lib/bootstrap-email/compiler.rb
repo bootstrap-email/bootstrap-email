@@ -49,7 +49,6 @@ module BootstrapEmail
     end
 
     def compile_html!
-      BootstrapEmail::Component::AsTable.build(doc)
       BootstrapEmail::Component::Button.build(doc)
       BootstrapEmail::Component::Badge.build(doc)
       BootstrapEmail::Component::Alert.build(doc)

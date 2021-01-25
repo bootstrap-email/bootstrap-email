@@ -94,7 +94,5 @@ RSpec.describe BootstrapEmail::Compiler do
       doc = Nokogiri::HTML(output)
       expect(doc.at_css('a')['href']).to eq('{{ buttonUrl }}')
     end
-    # it 'supports tokens of different kinds for later code interpolation' do
-    # end
   end
 end
