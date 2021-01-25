@@ -16,41 +16,24 @@
 
 [![Gem](https://img.shields.io/gem/v/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
 [![Gem](https://img.shields.io/gem/dt/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
+[!Rspec](https://github.com/bootstrap-email/bootstrap-email/workflows/ruby/badge.svg)
 
-The goal of this project is to build a library that matches the Bootstrap 4 API. It has two parts, the first being a compiler that takes in regular HTML with Bootstrap classes and compiles it into tables and layout that works in email. The second part produces inline CSS that works with those layouts and gives consistent performance and appearance across email clients.
+The goal of this project is to build a library similar to [Bootstrap](https://getbootstrap.com) but for HTML emails. Working with HTML in emails is never easy because of the nuances of email vs the web. With Bootstrap Email you don't have to understand all the nuance and it allows you to write emails like you would a website.
 
-This project is still under development and I'm looking for contributors willing to help however they can. I'm excited about this <3
+## Setup
+There are a few different ways you can use Bootstrap Email to compile emails:
+- [Command Line](https://v1.bootstrapemail.com/docs/setup#command-line)
+- [Ruby](https://v1.bootstrapemail.com/docs/setup#ruby)
+- [Ruby on Rails](https://v1.bootstrapemail.com/docs/setup#ruby-on-rails)
+- [Online Editor](https://editor.bootstrapemail.com)
 
-## Supported Bootstrap Classes
-<small>{color} in these examples is `primary`, `secondary`, `success`, `warning`, `danger`, `light`, and `dark`</small>
-- [Alerts](https://bootstrapemail.com/docs/alert): `.alert`, `.alert-{color}`
-- [Badges](https://bootstrapemail.com/docs/badge): `.badge`, `.badge-{color}`, `.badge-pill`
-- [Buttons](https://bootstrapemail.com/docs/button): `.btn`, `.btn-{color}`, `.btn-outline-{color}`
-- [Cards](https://bootstrapemail.com/docs/card): `.card`, `.card-body`
-- [Color](https://bootstrapemail.com/docs/color): `.text-{color}`, `.bg-{color}`
-- [Containers](https://bootstrapemail.com/docs/container): `.container`, `.container-fluid`
-- [Floats](https://bootstrapemail.com/docs/float): `.float-left`, `.float-right`
-- [Grid](https://bootstrapemail.com/docs/grid): `.row`, `.col-{1-12}`, `.col-lg-{1-12}`
-- [Hrs](https://bootstrapemail.com/docs/hr): `<hr>`
-- [Spacing](https://bootstrapemail.com/docs/spacing): `.p{tlbrxy}-{lg-}{0-5}`, `.m{tby}-{lg-}{0-5}`, `.s-{lg-}{0-5}`, `w-{lg-}{25,50,75,100}`, `mx-auto`
-- [Tables](https://bootstrapemail.com/docs/table): `.table`, `.table-striped`,`.table-bordered`, `.thead-light`, `.thead-dark`, `.table-{color}`, `.table-dark`
-- [Typography](https://bootstrapemail.com/docs/typography): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
+## Documentations
+For full documentation, visit [bootstrapemail.com](https://bootstrapemail.com/docs/introduction)
 
-## Additional Classes
-- [Visibility](https://bootstrapemail.com/docs/visibility): `.d-desktop`, `.d-mobile`
+## Community
+For help, discussion about best practices, or any other conversation that would benefit from being searchable:
 
-## Email Quirk (for users)
-- width and height of images must be set to ensure proper rendering in outlook.
-- an anchor tag must have a link in the href (not just a #) for it to properly render a .btn.
-
-## Sass/SassC capability
-- Sass gem is deprecated (https://github.com/sass/ruby-sass) in favor of SassC
-- SassC (https://github.com/sass/sassc-ruby)
-
-Bootstrap-email works with both Sass/SassC gems.
-
-## Haml/Slim compatibility
-If you are using [Haml](http://haml.info/) or [Slim](http://slim-lang.com/) as your templating language for your Rails app, you can use it for your email templates as well! (it should probably work with any other Rails-compatible templating language out there as well)
+[Discuss Bootstrap Email on GitHub](https://github.com/bootstrap-email/bootstrap-email/discussions)
 
 <!-- ## Email Quirks (internal notes)
 - Line height should always be in px never a number or percentage. https://www.marketingcloud.com/blog/design-tip-of-the-week-css-line-height-property-does-it-work-in-email/

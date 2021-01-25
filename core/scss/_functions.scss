@@ -1,0 +1,29 @@
+@mixin color-contrast($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 150) {
+    color: #111111;
+  } @else {
+    color: $white;
+  }
+}
+
+@function tint-color($color, $level) {
+  @return mix(white, $color, $level);
+}
+
+@function shade-color($color, $level) {
+  @return mix(black, $color, $level);
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

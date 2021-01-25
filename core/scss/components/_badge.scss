@@ -1,0 +1,50 @@
+.badge > tbody > tr > td {
+  display: inline-block;
+  padding: .25 * $font-size-base .4 * $font-size-base;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 4px;
+}
+
+// Pill badges
+.badge-pill > tbody > tr > td {
+  padding-right: .6 * $font-size-base;
+  padding-left: .6 * $font-size-base;
+  border-radius: $border-radius-pill;
+}
+
+// Make badge text 75% smaller when in a header
+h1 {
+  .badge > tbody > tr > td {
+    font-size: .75 * 2.25 * $font-size-base;
+  }
+}
+h2 {
+  .badge > tbody > tr > td {
+    font-size: .75 * 2 * $font-size-base;
+  }
+}
+h3 {
+  .badge > tbody > tr > td {
+    font-size: .75 * 1.75 * $font-size-base;
+  }
+}
+h4 {
+  .badge > tbody > tr > td {
+    font-size: .75 * 1.5 * $font-size-base;
+  }
+}
+h5 {
+  .badge > tbody > tr > td {
+    font-size: .75 * 1.25 * $font-size-base;
+  }
+}
+h6 {
+  .badge > tbody > tr > td {
+    font-size: .75 * $font-size-base;
+  }
+}

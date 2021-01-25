@@ -1,0 +1,35 @@
+table.row {
+  table-layout: fixed;
+  width: 100%;
+  & > tbody > tr > td {
+    min-height: 1px;
+    font-weight: normal;
+    padding-right: 30px;
+  }
+}
+
+@each $key, $value in $grid-cols {
+  td.col-#{$key},
+  td.col-lg-#{$key} {
+    width: $value;
+  }
+}
+
+@each $space, $value in $spacers {
+  table.row.g-#{$space},
+  table.row.gx-#{$space},
+  table.row.g-lg-#{$space},
+  table.row.gx-lg-#{$space} {
+    & > tbody > tr > td {
+      padding-right: $value;
+    }
+  }
+  table.row.g-#{$space},
+  table.row.gy-#{$space},
+  table.row.g-lg-#{$space},
+  table.row.gy-lg-#{$space} {
+    & > tbody > tr > td {
+      padding-bottom: $value;
+    }
+  }
+}

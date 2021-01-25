@@ -1,0 +1,13 @@
+@each $name, $width in $border-widths {
+  .border#{$name}         { border: $width solid $border-color !important; }
+  .border-top#{$name}     { border-top: $width solid $border-color !important; }
+  .border-right#{$name}   { border-right: $width solid $border-color !important; }
+  .border-bottom#{$name}  { border-bottom: $width solid $border-color !important; }
+  .border-left#{$name}    { border-left: $width solid $border-color !important; }
+}
+
+@each $name, $color in $all-colors {
+  @include border-color-util('.border-#{$name}') {
+    border-color: $color !important;
+  }
+}

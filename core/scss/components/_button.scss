@@ -1,0 +1,63 @@
+.btn {
+  border-radius: $btn-border-radius;
+  border-collapse: separate !important;
+}
+
+.btn td {
+  border-radius: $btn-border-radius;
+  text-align: center;
+}
+
+.btn td a {
+  font-size: $btn-font-size;
+  font-family: $btn-font-family;
+  text-decoration: none;
+  border-radius: $btn-border-radius;
+  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height;
+  border: $btn-border-width solid transparent;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  white-space: nowrap;
+}
+
+@each $name, $color in $all-colors {
+  @if $name != "transparent" {
+    .btn-#{$name} td {
+      background-color: $color;
+    }
+    .btn-#{$name} td a {
+      background-color: $color;
+      @include color-contrast($color);
+      border-color: $color;
+    }
+  }
+}
+
+@each $name, $color in $all-colors {
+  @if $name != "transparent" {
+    .btn-outline-#{$name} td {
+      background-color: transparent;
+      border-color: $color;
+    }
+    .btn-outline-#{$name} td a {
+      background-color: transparent;
+      border-color: $color;
+      color: $color;
+    }
+  }
+}
+
+.btn-sm td a {
+  font-size: $btn-font-size-sm;
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  line-height: $btn-line-height-sm;
+  border-radius: $btn-border-radius-sm;
+}
+
+.btn-lg td a {
+  font-size: $btn-font-size-lg;
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  line-height: $btn-line-height-lg;
+  border-radius: $btn-border-radius-lg;
+}

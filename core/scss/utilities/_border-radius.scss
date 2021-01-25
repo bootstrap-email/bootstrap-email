@@ -1,0 +1,21 @@
+@each $name, $radius in $border-radiuses {
+  @include border-radius-util('.rounded#{$name}') {
+    border-radius: $radius;
+  }
+  @include border-radius-util('.rounded-top#{$name}') {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+  @include border-radius-util('.rounded-right#{$name}') {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+  }
+  @include border-radius-util('.rounded-bottom#{$name}') {
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+  @include border-radius-util('.rounded-left#{$name}') {
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+}

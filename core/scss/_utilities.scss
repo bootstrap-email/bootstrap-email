@@ -1,0 +1,125 @@
+$breakpoints: ('', 'lg-');
+
+$headings: (
+  1: 2.25 * $font-size-base,
+  2: 2 * $font-size-base,
+  3: 1.75 * $font-size-base,
+  4: 1.5 * $font-size-base,
+  5: 1.25 * $font-size-base,
+  6: 1 * $font-size-base
+) !default;
+
+$font-size: (
+  'xs': 0.75 * $font-size-base,
+  'sm': 0.875 * $font-size-base,
+  'base': 1 * $font-size-base,
+  'lg': 1.125 * $font-size-base,
+  'xl': 1.25 * $font-size-base,
+  '2xl': 1.5 * $font-size-base,
+  '3xl': 1.875 * $font-size-base,
+  '4xl': 2.25 * $font-size-base,
+  '5xl': 3 * $font-size-base,
+  '6xl': 4 * $font-size-base,
+  '7xl': 5 * $font-size-base
+) !default;
+
+$line-height: (
+  1: 1,
+  'sm': 1.25,
+  'base': 1.5,
+  'lg': 2
+) !default;
+
+$size-scale: 4px;
+$spacers: (
+  0: 0,
+  1: 1 * $size-scale,
+  2: 2 * $size-scale,
+  3: 3 * $size-scale,
+  4: 4 * $size-scale,
+  5: 5 * $size-scale,
+  6: 6 * $size-scale,
+  7: 7 * $size-scale,
+  8: 8 * $size-scale,
+  9: 9 * $size-scale,
+  10: 10 * $size-scale,
+  12: 12 * $size-scale,
+  16: 16 * $size-scale,
+  20: 20 * $size-scale,
+  24: 24 * $size-scale,
+  32: 32 * $size-scale,
+  40: 40 * $size-scale
+) !default;
+
+$sizing: (
+  0: 0,
+  1: 1 * $size-scale,
+  2: 2 * $size-scale,
+  3: 3 * $size-scale,
+  4: 4 * $size-scale,
+  5: 5 * $size-scale,
+  6: 6 * $size-scale,
+  7: 7 * $size-scale,
+  8: 8 * $size-scale,
+  9: 9 * $size-scale,
+  10: 10 * $size-scale,
+  12: 12 * $size-scale,
+  16: 16 * $size-scale,
+  20: 20 * $size-scale,
+  24: 24 * $size-scale,
+  32: 32 * $size-scale,
+  40: 40 * $size-scale,
+  48: 48 * $size-scale,
+  56: 56 * $size-scale,
+  64: 64 * $size-scale,
+  80: 80 * $size-scale,
+  96: 96 * $size-scale,
+  112: 112 * $size-scale,
+  128: 128 * $size-scale,
+  144: 144 * $size-scale,
+  150: 150 * $size-scale
+) !default;
+$sizing-types: (
+  'w': 'width',
+  'h': 'height'
+);
+
+$grid-cols: (
+  1: 8.333333%,
+  2: 16.666667%,
+  3: 25%,
+  4: 33.333333%,
+  5: 41.666667%,
+  6: 50%,
+  7: 58.333333%,
+  8: 66.666667%,
+  9: 75%,
+  10: 83.333333%,
+  11: 91.666667%,
+  12: 100%
+);
+
+$display-type: (
+  inline,
+  inline-block,
+  block,
+  table,
+  none
+) !default;
+
+$border-widths: (
+  '': 1px,
+  '-2': 2px,
+  '-3': 3px,
+  '-4': 4px,
+  '-5': 5px,
+  '-0': 0px
+) !default;
+
+$border-radiuses: (
+  '-sm': 3px,
+  '': 6px,
+  '-lg': 9px,
+  '-xl': 12px,
+  '-0': 0px
+) !default;

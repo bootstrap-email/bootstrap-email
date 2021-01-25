@@ -1,0 +1,15 @@
+<% (0..5).to_a.each do |size| %>
+  <a class="btn btn-primary p-<%= size %>" href="http://example.com">Button with mega padding</a>
+<% end %>
+
+<% (0..5).to_a.each do |size| %>
+  <a class="btn btn-primary p-lg-<%= size %>" href="http://example.com">Button with mega padding only on large screens</a>
+<% end %>
+
+<% (0..5).to_a.each do |size| %>
+  <a class="btn btn-primary my-<%= size %>" href="http://example.com">Button with mega margin</a>
+<% end %>
+
+<% (0..5).to_a.each do |size| %>
+  <a class="btn btn-primary my-lg-<%= size %>" href="http://example.com">Button with mega margin only on large screens</a>
+<% end %>

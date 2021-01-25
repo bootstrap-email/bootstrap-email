@@ -1,0 +1,5 @@
+@each $name, $color in $all-colors {
+  @include background-color-util('.bg-#{$name}') {
+    background-color: $color;
+  }
+}

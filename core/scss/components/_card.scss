@@ -1,0 +1,19 @@
+.card {
+  background-color: $white;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  border-collapse: separate !important;
+  width: 100%;
+  overflow: hidden;
+  & > tbody > tr > td {
+    background-color: $white;
+    width: 100%;
+  }
+  .card-body {
+    width: 100%;
+    & > tbody > tr > td {
+      padding: $font-size-base * 1.25;
+      width: 100%;
+    }
+  }
+}

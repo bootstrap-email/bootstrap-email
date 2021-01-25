@@ -1,0 +1,54 @@
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+  padding-top: $headings-margin-top;
+  padding-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  color: $headings-color;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+@each $name, $size in $headings {
+  h#{$name}, .h#{$name} {
+    font-size: $size;
+    line-height: $size * $headings-line-height;
+  }
+}
+
+@each $name, $size in $font-size {
+  .text-#{$name} {
+    font-size: $size;
+    line-height: $size * $headings-line-height;
+  }
+}
+
+@each $name, $size in $line-height {
+  .lh-#{$name} {
+    line-height: $size;
+  }
+}
+
+@for $n from 1 through 9 {
+  @include font-weight-util('.fw-#{$n * 100}') {
+    font-weight: #{$n * 100} !important;
+  }
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+p {
+  width: 100%;
+  margin: 0;
+}

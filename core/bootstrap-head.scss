@@ -1,0 +1,143 @@
+//
+// This file will be placed in the head of the document and will not be inlined
+//
+@import 'scss/functions';
+@import 'scss/colors';
+@import 'scss/variables';
+@import 'scss/utilities';
+@import 'scss/selectors_for_utils';
+@import 'scss/helper_groups';
+
+// Forces Outlook.com to display emails at full width
+.ExternalClass {
+  width: 100%;
+}
+
+// Forces Outlook.com to display normal line spacing, here is more on that: http://www.emailonacid.com/forum/viewthread/43/
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+  line-height: 150%;
+}
+
+// Prevent Windows 10 Mail from underlining links. Styles for underlined links should be inlined
+a {
+  text-decoration: none;
+}
+
+// Inhere text color so color can be set on the body and inherited by children
+* {
+  color: inherit;
+}
+
+// Fix link colors set on automatic detection such as email addresses and phone numbers
+a[x-apple-data-detectors],
+u + #body a,
+#MessageViewBody a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+// Use a better rendering method when resizing images in Outlook IE.
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+// Prevent Outlook from adding extra spacing to tables.
+table:not([class^=s-]) {
+  font-family: $font-family-base;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  td {
+    border-spacing: 0px;
+    border-collapse: collapse;
+  }
+}
+
+/*! allow_purge_after */
+
+@media screen and (max-width: 600px) {
+  //  Grid
+  @each $key, $value in $grid-cols {
+    table.row > tbody > tr {
+      & > td.col-lg-#{$key},
+      & > td.col-lg {
+        display: block;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+  }
+
+  // Display
+  @each $display in $display-type {
+    .d-lg-#{$display} {
+      display: unset !important;
+    }
+  }
+  @each $display in $display-type {
+    .d-#{$display} {
+      display: $display !important;
+    }
+  }
+
+  // Sizing
+  @each $name, $property in $sizing-types {
+    @include sizing-util('.#{$name}-lg-full') {
+      max-#{$property}: auto !important;
+      #{$property}: auto !important;
+    }
+    @each $size, $value in $sizing {
+      @include sizing-util('.#{$name}-lg-#{$size}') {
+        max-#{$property}: auto !important;
+        #{$property}: auto !important;
+      }
+    }
+    @include sizing-util('.#{$name}-full') {
+      max-#{$property}: 100% !important;
+      #{$property}: 100% !important;
+    }
+    @each $size, $value in $sizing {
+      @include sizing-util('.#{$name}-#{$size}') {
+        max-#{$property}: $value !important;
+        #{$property}: 100% !important;
+      }
+    }
+  }
+
+  // Spacing
+  // Reset large padding to 0 on small device
+  @each $size, $value in $spacers {
+    @include padding-group('lg-', $size, unquote('0 !important'));
+  }
+
+  // Set proper padding on small devices
+  @each $size, $value in $spacers {
+    @include padding-group('', $size, unquote('#{$value} !important'));
+  }
+
+  // Spacers
+  @include spacer-util('*[class*=s-lg-]') {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    height: 0 !important;
+  }
+
+  @each $size, $value in $spacers {
+    @include spacer-util('.s-#{$size}') {
+      font-size: $value !important;
+      line-height: $value !important;
+      height: $value !important;
+    }
+  }
+}
