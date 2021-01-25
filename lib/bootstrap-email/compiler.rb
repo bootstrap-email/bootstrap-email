@@ -8,12 +8,12 @@ module BootstrapEmail
       when :rails
         @mail = input
         html = (@mail.html_part || @mail).body.raw_source
-        build_premailer_doc(html, options)
       when :string
-        build_premailer_doc(input, options)
+        html = input
       when :file
-        build_premailer_doc(File.read(input), options)
+        html = File.read(input)
       end
+      build_premailer_doc(html, options)
     end
 
     def perform_full_compile

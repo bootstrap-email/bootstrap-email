@@ -6,15 +6,18 @@ module BootstrapEmail
     def self.compile(name, config_path: nil, style: :compressed)
       path = "#{SASS_DIR}/#{name}"
       config_file = nil
+
+      lookup_locations = ["#{name}.config.scss", "app/assets/stylesheets/#{name}.config.scss"]
+      locations = lookup_locations.select { |location| File.exist?(File.expand_path(location, Dir.pwd)) }
+
       if config_path && File.exist?(config_path)
         # check if custom config was passed in
-        config_file = File.read(config_path).gsub("//= @import #{name};", "@import '#{path}';")
-      elsif File.exist?(File.expand_path("#{name}.config.scss", Dir.pwd))
-        # check if config file in in working directory
-        config_file = File.read(File.expand_path("#{name}.config.scss", Dir.pwd)).gsub("//= @import #{name};", "@import '#{path}';")
+        config_file = File.read(config_path)
+      elsif locations.any?
+        config_file = File.read(File.expand_path(locations.first, Dir.pwd))
       end
 
-      check = checksum(config_file)
+      check = checksum(config_file.gsub("//= @import #{name};", "@import '#{path}';"))
       cache_path = "#{CACHE_DIR}/#{check}/#{name}.css"
       if cached?(cache_path)
         File.read(cache_path)
