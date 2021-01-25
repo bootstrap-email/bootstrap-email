@@ -18,7 +18,7 @@
 [![Gem](https://img.shields.io/gem/dt/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
 [!Rspec](https://github.com/bootstrap-email/bootstrap-email/workflows/ruby/badge.svg)
 
-The goal of this project is to build a library similar to [Bootstrap](https://getbootstrap.com). Working with HTML in emails is never easy because of the nuances of email vs the web. With Bootstrap Email you don't have to understand all the nuance and it allows you to write emails like you would a website.
+The goal of this project is to build a library similar to [Bootstrap](https://getbootstrap.com) but for HTML emails. Working with HTML in emails is never easy because of the nuances of email vs the web. With Bootstrap Email you don't have to understand all the nuance and it allows you to write emails like you would a website.
 
 ## Setup
 There are a few different ways you can use Bootstrap Email to compile emails:
