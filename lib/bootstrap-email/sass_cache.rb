@@ -17,7 +17,7 @@ module BootstrapEmail
         config_file = File.read(File.expand_path(locations.first, Dir.pwd))
       end
 
-      check = checksum(config_file.gsub("//= @import #{name};", "@import '#{path}';"))
+      check = checksum(config_file&.gsub("//= @import #{name};", "@import '#{path}';"))
       cache_path = "#{CACHE_DIR}/#{check}/#{name}.css"
       if cached?(cache_path)
         File.read(cache_path)
