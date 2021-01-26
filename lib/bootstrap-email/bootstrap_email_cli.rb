@@ -76,12 +76,13 @@ if input
 
       puts "Compiling file #{path}"
       compiled = BootstrapEmail::Compiler.new(path, type: :file, options: {config_path: options[:config]}).perform_full_compile
-      FileUtils.mkdir_p("#{Dir.pwd}/#{options[:destination]}")
-      File.write(File.expand_path("#{options[:destination]}/#{path.split('/').last}", Dir.pwd), compiled)
+      destination = options[:destination].chomp('/*')
+      FileUtils.mkdir_p("#{Dir.pwd}/#{destination}")
+      File.write(File.expand_path("#{destination}/#{path.split('/').last}", Dir.pwd), compiled)
     end
   when :file
     path = File.expand_path(input, Dir.pwd)
-    puts BootstrapEmail::Compiler.new(File.join(Dir.pwd, path), type: :file, options: {config_path: options[:config]}).perform_full_compile
+    puts BootstrapEmail::Compiler.new(path, type: :file, options: {config_path: options[:config]}).perform_full_compile
   when :string
     puts BootstrapEmail::Compiler.new(input, options: {config_path: options[:config]}).perform_full_compile
   end
