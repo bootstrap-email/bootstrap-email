@@ -71,11 +71,15 @@ table:not([class^=s-]) {
     table.row > tbody > tr {
       & > td.col-lg-#{$key},
       & > td.col-lg {
-        display: block;
         width: 100% !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
       }
+    }
+  }
+  @each $key, $value in $grid-cols {
+    td.col-#{$key} {
+      width: $value !important;
     }
   }
 
