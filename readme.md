@@ -8,7 +8,7 @@
   <p align="center">
     If you know Bootstrap, you know Bootstrap Email.
     <br>
-    <a href="https://bootstrapemail.com/docs/introduction"><strong>Explore Bootstrap Email docs »</strong></a>
+    <a href="https://v1.bootstrapemail.com/docs/introduction"><strong>Explore Bootstrap Email docs »</strong></a>
   </p>
 </p>
 
@@ -16,7 +16,6 @@
 
 [![Gem](https://img.shields.io/gem/v/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
 [![Gem](https://img.shields.io/gem/dt/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
-[!Rspec](https://github.com/bootstrap-email/bootstrap-email/workflows/ruby/badge.svg)
 
 The goal of this project is to build a library similar to [Bootstrap](https://getbootstrap.com) but for HTML emails. Working with HTML in emails is never easy because of the nuances of email vs the web. With Bootstrap Email you don't have to understand all the nuance and it allows you to write emails like you would a website.
 
@@ -28,7 +27,7 @@ There are a few different ways you can use Bootstrap Email to compile emails:
 - [Online Editor](https://editor.bootstrapemail.com)
 
 ## Documentations
-For full documentation, visit [bootstrapemail.com](https://bootstrapemail.com/docs/introduction)
+For full documentation, visit [bootstrapemail.com](https://v1.bootstrapemail.com/docs/introduction)
 
 ## Community
 For help, discussion about best practices, or any other conversation that would benefit from being searchable:
