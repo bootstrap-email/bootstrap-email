@@ -21,6 +21,23 @@ module BootstrapEmail
         # sort by youngest child and traverse backwards up the tree
         doc.css(css_lookup).sort_by { |n| n.ancestors.size }.reverse!.each(&blk)
       end
+
+      def add_class(node, class_name)
+        node['class'] ||= ''
+        node['class'] += class_name
+      end
+
+      def margin?(node)
+        margin_top?(node) || margin_bottom?(node)
+      end
+
+      def margin_top?(node)
+        node['class'].to_s.match?(/m[ty]{1}-(lg-)?\d+/)
+      end
+
+      def margin_bottom?(node)
+        node['class'].to_s.match?(/m[by]{1}-(lg-)?\d+/)
+      end
     end
   end
 end
