@@ -15,6 +15,7 @@ if defined?(Rails)
 end
 
 require_relative 'bootstrap-email/initialize'
+require_relative 'bootstrap-email/erb'
 require_relative 'bootstrap-email/compiler'
 require_relative 'bootstrap-email/sass_cache'
 require_relative 'bootstrap-email/version'
