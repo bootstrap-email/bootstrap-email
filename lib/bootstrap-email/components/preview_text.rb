@@ -1,6 +1,6 @@
 module BootstrapEmail
   module Component
-    class Preview < Base
+    class PreviewText < Base
       def build
         preview_node = doc.at_css('preview')
         return if preview_node.nil?
