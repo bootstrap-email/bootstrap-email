@@ -65,6 +65,8 @@ module BootstrapEmail
       BootstrapEmail::Component::Spacer.build(doc)
       BootstrapEmail::Component::Table.build(doc)
       BootstrapEmail::Component::Body.build(doc)
+      BootstrapEmail::Component::Preview.build(doc)
+      BootstrapEmail::Component::ForceEncoding.build(doc)
     end
 
     def inline_css!
