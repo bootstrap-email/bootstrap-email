@@ -1,4 +1,4 @@
-require_relative '../lib/bootstrap_email'
+require_relative '../lib/bootstrap-email'
 
 start_time = Time.now
 puts '🧪 Starting tests...'

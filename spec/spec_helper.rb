@@ -1,6 +1,6 @@
 require 'rspec'
 require 'byebug'
-require_relative '../lib/bootstrap_email'
+require_relative '../lib/bootstrap-email'
 
 # Configure Rails Environment
 if defined?(Rails)
