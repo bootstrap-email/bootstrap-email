@@ -81,10 +81,10 @@ module BootstrapEmail
     def finalize_document!
       case type
       when :rails
-        (@mail.html_part || @mail).body = doc.to_html
+        (@mail.html_part || @mail).body = doc.to_html(encoding:'US-ASCII')
         @mail
       when :string, :file
-        doc.to_html
+        doc.to_html(encoding:'US-ASCII')
       end
     end
   end
