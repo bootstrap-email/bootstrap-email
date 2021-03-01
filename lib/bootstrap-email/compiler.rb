@@ -73,7 +73,7 @@ module BootstrapEmail
     end
 
     def configure_html!
-      BootstrapEmail::Component::ForceEncoding.build(doc)
+      # BootstrapEmail::Component::ForceEncoding.build(doc) I think this gets converted to utf-8 and then doesn't work
       BootstrapEmail::Component::HeadStyle.build(doc)
       BootstrapEmail::Component::VersionComment.build(doc)
     end
