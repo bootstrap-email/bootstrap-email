@@ -1,10 +1,10 @@
-require_relative '../bootstrap_email'
+require_relative '../bootstrap-email'
 require 'optparse'
 require 'fileutils'
 
 input = nil
 options = {
-  destination: 'output',
+  destination: 'compiled',
   type: :file
 }
 
@@ -17,7 +17,7 @@ parser = OptionParser.new do |opts|
   opts.separator '  bootstrap-email email.html > out.html'
   opts.separator '  bootstrap-email ./public/index.html'
   opts.separator '  bootstrap-email -s \'<a href="#" class="btn btn-primary">Some Button</a>\''
-  opts.separator '  bootstrap-email -p \'emails/*\' -d emails/output'
+  opts.separator '  bootstrap-email -p \'emails/*\' -d emails/compiled'
   opts.separator '  bootstrap-email -p \'views/emails/*\' -d \'views/compiled_emails\''
   opts.separator '  cat input.html | bootstrap-email'
   opts.separator ''
