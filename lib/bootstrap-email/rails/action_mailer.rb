@@ -5,7 +5,6 @@ ActiveSupport.on_load(:action_mailer, {yield: true}) do |action_mailer|
       bootstrap = BootstrapEmail::Compiler.new(mail(*args, &block), type: :rails)
       bootstrap.perform_full_compile
     end
-    alias bootstrap_email bootstrap_mail
     alias make_bootstrap_mail bootstrap_mail
   end
 end
