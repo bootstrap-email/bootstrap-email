@@ -13,6 +13,7 @@ module BootstrapEmail
       when :file
         html = File.read(input)
       end
+      html = add_layout!(html)
       build_premailer_doc(html, options)
     end
 
@@ -25,8 +26,17 @@ module BootstrapEmail
 
     private
 
+    def add_layout!(html)
+      document = Nokogiri::HTML(html)
+      return html unless document.at_css('head').nil?
+
+      BootstrapEmail::Erb.template(
+        File.expand_path('../../core/layout.html.erb', __dir__),
+        contents: html
+      )
+    end
+
     def build_premailer_doc(html, options)
-      html = add_layout!(html)
       SassC.load_paths << File.expand_path('../../core', __dir__)
       css_string = BootstrapEmail::SassCache.compile('bootstrap-email', config_path: options[:config_path], style: :expanded)
       self.premailer = Premailer.new(
@@ -36,16 +46,6 @@ module BootstrapEmail
         css_string: css_string
       )
       self.doc = premailer.doc
-    end
-
-    def add_layout!(html)
-      document = Nokogiri::HTML(html)
-      return html unless document.at_css('head').nil?
-
-      BootstrapEmail::Erb.template(
-        File.expand_path('../../core/layout.html.erb', __dir__),
-        contents: html
-      )
     end
 
     def compile_html!
