@@ -5,10 +5,10 @@ module BootstrapEmail
         each_node('*[class*=space-y-]') do |node|
           spacer = node['class'].scan(/space-y-((lg-)?\d+)/)[0][0]
           # get all direct children except the first
-          node.xpath('./*[position()>1] | ./tbody/tr/td/*[position()>1]').each do |child|
-            next if margin_top?(child)
+          node.xpath('./*[position() < last()] | ./tbody/tr/td/*[position() < last()]').each do |child|
+            next if margin_bottom?(child)
 
-            add_class(child, "mt-#{spacer}")
+            add_class(child, "mb-#{spacer}")
           end
         end
       end
