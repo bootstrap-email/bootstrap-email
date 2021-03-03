@@ -73,18 +73,19 @@ module BootstrapEmail
     end
 
     def configure_html!
-      # BootstrapEmail::Component::ForceEncoding.build(doc) I think this gets converted to utf-8 and then doesn't work
+      BootstrapEmail::Component::ForceEncoding.build(doc)
       BootstrapEmail::Component::HeadStyle.build(doc)
       BootstrapEmail::Component::VersionComment.build(doc)
     end
 
     def finalize_document!
+      html = BootstrapEmail::Component::ForceEncoding.replace(doc.to_html)
       case type
       when :rails
-        (@mail.html_part || @mail).body = doc.to_html
+        (@mail.html_part || @mail).body = html
         @mail
       when :string, :file
-        doc.to_html
+        html
       end
     end
   end
