@@ -58,12 +58,12 @@ module BootstrapEmail
       BootstrapEmail::Component::Container.build(doc)
       BootstrapEmail::Component::Grid.build(doc)
       BootstrapEmail::Component::Align.build(doc)
-      BootstrapEmail::Component::Color.build(doc)
       BootstrapEmail::Component::Spacing.build(doc)
       BootstrapEmail::Component::Padding.build(doc)
       BootstrapEmail::Component::Margin.build(doc)
       BootstrapEmail::Component::Spacer.build(doc)
       BootstrapEmail::Component::Table.build(doc)
+      BootstrapEmail::Component::Block.build(doc)
       BootstrapEmail::Component::Body.build(doc)
       BootstrapEmail::Component::PreviewText.build(doc)
     end
