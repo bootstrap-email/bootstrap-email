@@ -80,7 +80,8 @@ RSpec.describe BootstrapEmail::Compiler do
       HTML
       output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
-      expect(doc.css('div').count).to eq(0)
+      expect(doc.at_css('.card').parent.name).not_to eq('div')
+      expect(doc.at_css('.card').children.first.name).not_to eq('div')
     end
   end
 
@@ -93,6 +94,14 @@ RSpec.describe BootstrapEmail::Compiler do
       output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
       expect(doc.at_css('a')['href']).to eq('{{ buttonUrl }}')
+    end
+  end
+
+  describe '#compile' do
+    it 'forces the encoding of the email' do
+      output = BootstrapEmail::Compiler.new('<body></body>').perform_full_compile
+      expect(output.include?('force-encoding-to-utf-8')).to be true
+      expect(output.include?('&#10175;')).to be true
     end
   end
 end
