@@ -7,10 +7,11 @@ module BootstrapEmail
       new(type, config_path, style).compile
     end
 
-    attr_accessor :type, :file_path, :config_file, :checksum
+    attr_accessor :type, :style, :file_path, :config_file, :checksum
 
     def initialize(type, config_path, style)
       self.type = type
+      self.style = style
       self.file_path = "#{SASS_DIR}/#{type}"
       self.config_file = load_config(config_path)
       self.checksum = checksum_files
@@ -19,7 +20,7 @@ module BootstrapEmail
     def compile
       cache_path = "#{CACHE_DIR}/#{checksum}/#{type}.css"
       unless cached?(cache_path)
-        compile_and_cache_scss(cache_path, style)
+        compile_and_cache_scss(cache_path)
       end
       File.read(cache_path)
     end
@@ -39,7 +40,7 @@ module BootstrapEmail
     end
 
     def replace_config(config_file)
-      config_file.gsub("//= @import #{name};", "@import '#{file_path}';")
+      config_file.gsub("//= @import #{type};", "@import '#{file_path}';")
     end
 
     def checksum_files
@@ -54,13 +55,13 @@ module BootstrapEmail
       File.file?(cache_path)
     end
 
-    def compile_and_cache_scss(cache_path, style)
+    def compile_and_cache_scss(cache_path)
       file = config_file || File.read("#{file_path}.scss")
       css = SassC::Engine.new(file, style: style).render
       Dir.mkdir(CACHE_DIR) unless File.directory?(CACHE_DIR)
       Dir.mkdir("#{CACHE_DIR}/#{checksum}") unless File.directory?("#{CACHE_DIR}/#{checksum}")
       File.write(cache_path, css)
-      puts "New css file cached for #{name}"
+      puts "New css file cached for #{type}"
     end
   end
 end
