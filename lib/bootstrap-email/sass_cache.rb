@@ -3,36 +3,46 @@ module BootstrapEmail
     CACHE_DIR = File.expand_path('../../.sass-cache', __dir__)
     SASS_DIR = File.expand_path('../../core', __dir__)
 
-    def self.compile(name, config_path: nil, style: :compressed)
-      path = "#{SASS_DIR}/#{name}"
-      config_file = nil
+    def self.compile(type, config_path: nil, style: :compressed)
+      new(type, config_path, style).compile
+    end
 
-      lookup_locations = ["#{name}.config.scss", "app/assets/stylesheets/#{name}.config.scss"]
+    attr_accessor :type, :file_path, :config_file, :checksum
+
+    def initialize(type, config_path, style)
+      self.type = type
+      self.file_path = "#{SASS_DIR}/#{type}"
+      self.config_file = load_config(config_path)
+      self.checksum = checksum_files
+    end
+
+    def compile
+      cache_path = "#{CACHE_DIR}/#{checksum}/#{type}.css"
+      unless cached?(cache_path)
+        compile_and_cache_scss(cache_path, style)
+      end
+      File.read(cache_path)
+    end
+
+    private
+
+    def load_config(config_path)
+      lookup_locations = ["#{type}.config.scss", "app/assets/stylesheets/#{type}.config.scss"]
       locations = lookup_locations.select { |location| File.exist?(File.expand_path(location, Dir.pwd)) }
-
       if config_path && File.exist?(config_path)
         # check if custom config was passed in
-        config_file = File.read(config_path)
+        replace_config(File.read(config_path))
       elsif locations.any?
-        config_file = File.read(File.expand_path(locations.first, Dir.pwd))
-      end
-
-      check = checksum(config_file&.gsub("//= @import #{name};", "@import '#{path}';"))
-      cache_path = "#{CACHE_DIR}/#{check}/#{name}.css"
-      if cached?(cache_path)
-        File.read(cache_path)
-      else
-        file = config_file.nil? ? File.read("#{path}.scss") : config_file
-        SassC::Engine.new(file, style: style).render.tap do |css|
-          Dir.mkdir(CACHE_DIR) unless File.directory?(CACHE_DIR)
-          Dir.mkdir("#{CACHE_DIR}/#{check}") unless File.directory?("#{CACHE_DIR}/#{check}")
-          File.write(cache_path, css)
-          puts "New css file cached for #{name}"
-        end
+        # look for common lookup locations of config
+        replace_config(File.read(File.expand_path(locations.first, Dir.pwd)))
       end
     end
 
-    def self.checksum(config_file)
+    def replace_config(config_file)
+      config_file.gsub("//= @import #{name};", "@import '#{file_path}';")
+    end
+
+    def checksum_files
       checksums = config_file.nil? ? [] : [Digest::SHA1.hexdigest(config_file)]
       Dir.glob('../../core/**/*.scss', base: __dir__).each do |path|
         checksums << Digest::SHA1.file(File.expand_path(path, __dir__)).hexdigest
@@ -40,8 +50,17 @@ module BootstrapEmail
       Digest::SHA1.hexdigest(checksums.join)
     end
 
-    def self.cached?(cache_path)
+    def cached?(cache_path)
       File.file?(cache_path)
+    end
+
+    def compile_and_cache_scss(cache_path, style)
+      file = config_file || File.read("#{file_path}.scss")
+      css = SassC::Engine.new(file, style: style).render
+      Dir.mkdir(CACHE_DIR) unless File.directory?(CACHE_DIR)
+      Dir.mkdir("#{CACHE_DIR}/#{checksum}") unless File.directory?("#{CACHE_DIR}/#{checksum}")
+      File.write(cache_path, css)
+      puts "New css file cached for #{name}"
     end
   end
 end
