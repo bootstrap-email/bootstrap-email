@@ -1,10 +1,13 @@
 table.row {
   table-layout: fixed;
+  -premailer-width: 100%;
   width: 100%;
   & > tbody > tr > td {
     min-height: 1px;
     font-weight: normal;
     padding-right: 30px;
+    vertical-align: top;
+    text-align: left;
   }
 }
 

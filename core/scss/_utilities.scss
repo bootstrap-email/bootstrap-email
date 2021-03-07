@@ -124,3 +124,16 @@ $border-radiuses: (
   '-full': 9999px,
   '-0': 0px
 ) !default;
+
+$vertical-align: (
+  top,
+  middle,
+  bottom,
+  baseline
+) !default;
+
+$text-align: (
+  left,
+  right,
+  center
+) !default;
