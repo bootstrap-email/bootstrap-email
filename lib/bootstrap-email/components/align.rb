@@ -3,16 +3,17 @@ module BootstrapEmail
     class Align < Base
       def build
        ['left', 'center', 'right'].each do |type|
-         each_node(".align-#{type}") do |node|
+        type = "align-#{type}"
+         each_node(".#{type}") do |node|
            align_helper(node, type)
          end
        end
       end
 
       def align_helper(node, type)
-        if node.name != 'table'
-          node['class'] = node['class'].sub("align-#{type}", '')
-          node = node.replace(template('table', classes: "align-#{type}", contents: node.to_html))[0]
+        unless is_table?(node)
+          node['class'] = node['class'].sub(type, '')
+          node = node.replace(template('table', classes: type, contents: node.to_html))[0]
         end
         node['align'] = type
       end

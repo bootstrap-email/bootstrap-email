@@ -41,6 +41,10 @@ module BootstrapEmail
       def margin_bottom?(node)
         node['class'].to_s.match?(/m[by]{1}-(lg-)?\d+/)
       end
+
+      def is_table?(node)
+        node.name == 'table'
+      end
     end
   end
 end
