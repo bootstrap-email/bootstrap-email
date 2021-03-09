@@ -1,11 +1,11 @@
 @each $space, $value in $spacers {
-  table.stack-x.stack-gap-#{$space} > tbody > tr > td {
+  table.stack-x.gap-#{$space} > tbody > tr > td {
     padding-right: $value;
     &:last-child {
       padding-right: 0;
     }
   }
-  table.stack-y.stack-gap-#{$space} > tbody > tr {
+  table.stack-y.gap-#{$space} > tbody > tr {
     & > td {
       padding-bottom: $value;
     }
@@ -13,6 +13,15 @@
       padding-bottom: 0;
     }
   }
+}
+
+.stack-cell {
+  vertical-align: top;
+  text-align: left;
+}
+
+.stack-item {
+  display: inline-block;
 }
 
 @each $align in $vertical-align {
@@ -25,12 +34,4 @@
   table.stack-align-#{$align} > tbody > tr > td {
     text-align: $align;
   }
-}
-
-table.stack-x.stack-item-stretch > tbody > tr > td > div {
-  height: 100%;
-}
-
-table.stack-y.stack-item-stretch > tbody > tr > td > div {
-  width: 100%;
 }

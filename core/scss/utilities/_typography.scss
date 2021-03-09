@@ -36,16 +36,10 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-.text-left {
-  text-align: left !important;
-}
-
-.text-right {
-  text-align: right !important;
-}
-
-.text-center {
-  text-align: center !important;
+@each $align in $text-align {
+  .text-#{$align} {
+    text-align: $align !important;
+  }
 }
 
 p {
