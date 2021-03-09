@@ -58,6 +58,7 @@ module BootstrapEmail
       BootstrapEmail::Component::Container.build(doc)
       BootstrapEmail::Component::Block.build(doc)
       BootstrapEmail::Component::Grid.build(doc)
+      BootstrapEmail::Component::Stack.build(doc)
 
       BootstrapEmail::Component::Spacing.build(doc)
       BootstrapEmail::Component::Padding.build(doc)

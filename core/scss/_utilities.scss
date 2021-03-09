@@ -117,10 +117,29 @@ $border-widths: (
 ) !default;
 
 $border-radiuses: (
-  '-sm': 3px,
-  '': 6px,
-  '-lg': 9px,
+  '-none': 0px,
+  '-sm': 2px,
+  '': 4px,
+  '-md': 6px,
+  '-lg': 8px,
   '-xl': 12px,
-  '-full': 9999px,
-  '-0': 0px
+  '-2xl': 16px,
+  '-3xl': 24px,
+  '-full': 9999px
+) !default;
+
+$vertical-align: (
+  top,
+  middle,
+  bottom,
+  baseline,
+  text-top,
+  text-bottom
+) !default;
+
+$text-align: (
+  left,
+  right,
+  center,
+  justify
 ) !default;
