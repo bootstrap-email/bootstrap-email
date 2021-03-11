@@ -42,8 +42,12 @@ module BootstrapEmail
         node['class'].to_s.match?(/m[by]{1}-(lg-)?\d+/)
       end
 
-      def is_table?(node)
+      def table?(node)
         node.name == 'table'
+      end
+
+      def td?(node)
+        node.name == 'td'
       end
     end
   end

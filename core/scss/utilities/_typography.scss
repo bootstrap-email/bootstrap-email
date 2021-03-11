@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @each $align in $text-align {
-  .text-#{$align} {
+  @include text-align-util('.text-#{$align}') {
     text-align: $align !important;
   }
 }

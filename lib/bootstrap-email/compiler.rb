@@ -49,14 +49,15 @@ module BootstrapEmail
     end
 
     def compile_html!
+      BootstrapEmail::Component::Block.build(doc)
+
       BootstrapEmail::Component::Button.build(doc)
       BootstrapEmail::Component::Badge.build(doc)
       BootstrapEmail::Component::Alert.build(doc)
       BootstrapEmail::Component::Card.build(doc)
-      BootstrapEmail::Component::Paragraph.build(doc)
+      # BootstrapEmail::Component::Paragraph.build(doc) this might be too much
       BootstrapEmail::Component::Hr.build(doc)
       BootstrapEmail::Component::Container.build(doc)
-      BootstrapEmail::Component::Block.build(doc)
       BootstrapEmail::Component::Grid.build(doc)
       BootstrapEmail::Component::Stack.build(doc)
 
@@ -68,6 +69,7 @@ module BootstrapEmail
       BootstrapEmail::Component::Table.build(doc)
       BootstrapEmail::Component::Body.build(doc)
       BootstrapEmail::Component::Align.build(doc)
+      BootstrapEmail::Component::Color.build(doc)
 
       BootstrapEmail::Component::PreviewText.build(doc)
     end

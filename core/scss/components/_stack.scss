@@ -20,10 +20,6 @@
   text-align: left;
 }
 
-.stack-item {
-  display: inline-block;
-}
-
 @each $align in $vertical-align {
   table.stack-valign-#{$align} > tbody > tr > td {
     vertical-align: $align;

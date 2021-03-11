@@ -1,5 +1,5 @@
 @each $align in $vertical-align {
-  .valign-#{$align} {
+  @include valign-util('.valign-#{$align}') {
     vertical-align: $align !important;
   }
 }

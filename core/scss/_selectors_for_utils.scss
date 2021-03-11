@@ -98,3 +98,27 @@
     }
   }
 }
+
+//
+// Text align
+//
+@mixin text-align-util($class) {
+  #{$class} {
+    &,
+    & > tbody > tr > td {
+      @content
+    }
+  }
+}
+
+//
+// Vertical align
+//
+@mixin valign-util($class) {
+  #{$class} {
+    &,
+    & > tbody > tr > td {
+      @content
+    }
+  }
+}

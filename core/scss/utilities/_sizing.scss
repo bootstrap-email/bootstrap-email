@@ -1,15 +1,30 @@
 @each $prefix in $breakpoints {
   @each $name, $property in $sizing-types {
-    @include sizing-util('.#{$name}-#{$prefix}full') {
+    @include sizing-util('.max-#{$name}-#{$prefix}full') {
       max-#{$property}: 100%;
       -premailer-#{$property}: 100%;
       #{$property}: 100%;
     }
     @each $size, $value in $sizing {
-      @include sizing-util('.#{$name}-#{$prefix}#{$size}') {
+      @include sizing-util('.max-#{$name}-#{$prefix}#{$size}') {
         max-#{$property}: $value;
         -premailer-#{$property}: strip-unit($value);
         #{$property}: 100%;
+      }
+    }
+  }
+}
+
+@each $prefix in $breakpoints {
+  @each $name, $property in $sizing-types {
+    @include sizing-util('.#{$name}-#{$prefix}full') {
+      -premailer-#{$property}: 100%;
+      #{$property}: 100%;
+    }
+    @each $size, $value in $sizing {
+      @include sizing-util('.#{$name}-#{$prefix}#{$size}') {
+        -premailer-#{$property}: strip-unit($value);
+        #{$property}: $value;
       }
     }
   }
