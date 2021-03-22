@@ -25,14 +25,19 @@
 <div class="text-left">This text is to the left</div>
 <div class="text-center">This text is to the center</div>
 <div class="text-right">This text is to the right</div>
+<div class="text-justify">This text is justified which means it fills the whole line when it wraps so the start and end of the text with touch both the left and right side.</div>
 
 <hr>
 
 <% (100..900).step(100).to_a.each do |weight| %>
-  <div class="font-weight-<%= weight %>">Some text here with some amount of weight</div>
+  <p class="fw-<%= weight %>">Some text here with some amount of weight</p>
 <% end %>
-<div class="font-weight-bold">Some text here this is bold</div>
-<div class="font-weight-normal">Some text here that is normal</div>
+
+<hr>
+
+<% ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl'].each do |size| %>
+  <span class="text-<%= size %>">Text size <%= size %></span>
+<% end %>
 
 <hr>
 

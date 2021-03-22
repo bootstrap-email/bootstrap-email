@@ -21,6 +21,10 @@
       -premailer-#{$property}: 100%;
       #{$property}: 100%;
     }
+    @include sizing-util('.#{$name}-#{$prefix}auto') {
+      -premailer-#{$property}: auto;
+      #{$property}: auto;
+    }
     @each $size, $value in $sizing {
       @include sizing-util('.#{$name}-#{$prefix}#{$size}') {
         -premailer-#{$property}: strip-unit($value);
