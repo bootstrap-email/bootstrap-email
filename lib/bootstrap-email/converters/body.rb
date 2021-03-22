@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Body < Base
       def build
         body = doc.at_css('body')

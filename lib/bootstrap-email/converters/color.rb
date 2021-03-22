@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Color < Base
       def build
         each_node('*[class*=bg-]') do |node|

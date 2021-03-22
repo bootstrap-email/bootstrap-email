@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Grid < Base
       def build
         each_node('.row') do |node|

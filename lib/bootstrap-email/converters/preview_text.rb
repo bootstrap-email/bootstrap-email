@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class PreviewText < Base
       def build
         preview_node = doc.at_css('preview')

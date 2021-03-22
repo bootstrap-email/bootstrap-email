@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class VersionComment < Base
       def build
         doc.at_css('head').prepend_child(bootstrap_email_comment)

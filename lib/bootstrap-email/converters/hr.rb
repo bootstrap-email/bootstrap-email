@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Hr < Base
       def build
         each_node('hr') do |node|

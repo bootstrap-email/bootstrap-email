@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Stack < Base
       def build
         stack_x

@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Paragraph < Base
       def build
         each_node('p') do |node|

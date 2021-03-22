@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Base
       attr_reader :doc
       def initialize(doc)

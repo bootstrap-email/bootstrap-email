@@ -1,8 +1,8 @@
 module BootstrapEmail
-  module Component
-    class Alert < Base
+  module Converter
+    class Button < Base
       def build
-        each_node('.alert') do |node|
+        each_node('.btn') do |node|
           node.replace(template('table', classes: node['class'], contents: node.delete('class') && node.to_html))
         end
       end

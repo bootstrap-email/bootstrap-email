@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Table < Base
       def build
         each_node('table') do |node|

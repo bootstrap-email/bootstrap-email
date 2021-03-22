@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Badge < Base
       def build
         each_node('.badge') do |node|

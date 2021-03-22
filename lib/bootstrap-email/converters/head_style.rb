@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class HeadStyle < Base
       def build
         doc.at_css('head').add_child(bootstrap_email_head)

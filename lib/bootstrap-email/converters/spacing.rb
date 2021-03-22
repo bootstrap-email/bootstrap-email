@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Spacing < Base
       def build
         each_node('*[class*=space-y-]') do |node|

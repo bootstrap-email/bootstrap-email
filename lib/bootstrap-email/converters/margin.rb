@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Margin < Base
       def build
         each_node('*[class*=my-], *[class*=mt-], *[class*=mb-]') do |node|

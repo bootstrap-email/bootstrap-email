@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Spacer < Base
       def build
         each_node('*[class*=s-]') do |node|

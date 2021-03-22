@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Container < Base
       def build
         each_node('.container') do |node|

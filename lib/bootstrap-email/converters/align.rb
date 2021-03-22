@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Align < Base
       def build
        ['left', 'center', 'right'].each do |type|

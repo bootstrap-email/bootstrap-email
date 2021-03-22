@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Padding < Base
       def build
         each_node('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]') do |node|

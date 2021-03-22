@@ -19,8 +19,8 @@ require_relative 'bootstrap-email/erb'
 require_relative 'bootstrap-email/compiler'
 require_relative 'bootstrap-email/sass_cache'
 require_relative 'bootstrap-email/version'
-require_relative 'bootstrap-email/components/base'
-Dir[File.join(__dir__, 'bootstrap-email/components', '*.rb')].each { |file| require_relative file }
+require_relative 'bootstrap-email/converters/base'
+Dir[File.join(__dir__, 'bootstrap-email/converters', '*.rb')].each { |file| require_relative file }
 
 if defined?(Rails)
   require_relative 'bootstrap-email/rails/action_mailer'

@@ -1,5 +1,5 @@
 module BootstrapEmail
-  module Component
+  module Converter
     class Card < Base
       def build
         each_node('.card') do |node|
