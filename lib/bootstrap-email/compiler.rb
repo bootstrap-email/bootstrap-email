@@ -49,29 +49,29 @@ module BootstrapEmail
     end
 
     def compile_html!
-      BootstrapEmail::Component::Block.build(doc)
+      BootstrapEmail::Converter::Block.build(doc)
 
-      BootstrapEmail::Component::Button.build(doc)
-      BootstrapEmail::Component::Badge.build(doc)
-      BootstrapEmail::Component::Alert.build(doc)
-      BootstrapEmail::Component::Card.build(doc)
-      # BootstrapEmail::Component::Paragraph.build(doc) this might be too much
-      BootstrapEmail::Component::Hr.build(doc)
-      BootstrapEmail::Component::Container.build(doc)
-      BootstrapEmail::Component::Grid.build(doc)
-      BootstrapEmail::Component::Stack.build(doc)
+      BootstrapEmail::Converter::Button.build(doc)
+      BootstrapEmail::Converter::Badge.build(doc)
+      BootstrapEmail::Converter::Alert.build(doc)
+      BootstrapEmail::Converter::Card.build(doc)
+      # BootstrapEmail::Converter::Paragraph.build(doc) this might be too much
+      BootstrapEmail::Converter::Hr.build(doc)
+      BootstrapEmail::Converter::Container.build(doc)
+      BootstrapEmail::Converter::Grid.build(doc)
+      BootstrapEmail::Converter::Stack.build(doc)
 
-      BootstrapEmail::Component::Spacing.build(doc)
-      BootstrapEmail::Component::Padding.build(doc)
-      BootstrapEmail::Component::Margin.build(doc)
-      BootstrapEmail::Component::Spacer.build(doc)
+      BootstrapEmail::Converter::Spacing.build(doc)
+      BootstrapEmail::Converter::Padding.build(doc)
+      BootstrapEmail::Converter::Margin.build(doc)
+      BootstrapEmail::Converter::Spacer.build(doc)
 
-      BootstrapEmail::Component::Table.build(doc)
-      BootstrapEmail::Component::Body.build(doc)
-      BootstrapEmail::Component::Align.build(doc)
-      BootstrapEmail::Component::Color.build(doc)
+      BootstrapEmail::Converter::Table.build(doc)
+      BootstrapEmail::Converter::Body.build(doc)
+      BootstrapEmail::Converter::Align.build(doc)
+      BootstrapEmail::Converter::Color.build(doc)
 
-      BootstrapEmail::Component::PreviewText.build(doc)
+      BootstrapEmail::Converter::PreviewText.build(doc)
     end
 
     def inline_css!
@@ -79,13 +79,13 @@ module BootstrapEmail
     end
 
     def configure_html!
-      BootstrapEmail::Component::ForceEncoding.build(doc)
-      BootstrapEmail::Component::HeadStyle.build(doc)
-      BootstrapEmail::Component::VersionComment.build(doc)
+      BootstrapEmail::Converter::ForceEncoding.build(doc)
+      BootstrapEmail::Converter::HeadStyle.build(doc)
+      BootstrapEmail::Converter::VersionComment.build(doc)
     end
 
     def finalize_document!
-      html = BootstrapEmail::Component::ForceEncoding.replace(doc.to_html)
+      html = BootstrapEmail::Converter::ForceEncoding.replace(doc.to_html)
       case type
       when :rails
         (@mail.html_part || @mail).body = html

@@ -5,7 +5,7 @@ table.row {
   & > tbody > tr > td {
     min-height: 1px;
     font-weight: normal;
-    padding-right: 30px;
+    padding-right: 24px;
     vertical-align: top;
     text-align: left;
   }
@@ -19,18 +19,18 @@ table.row {
 }
 
 @each $space, $value in $spacers {
-  table.row.g-#{$space},
-  table.row.gx-#{$space},
-  table.row.g-lg-#{$space},
-  table.row.gx-lg-#{$space} {
+  table.row.gap-#{$space},
+  table.row.gap-x-#{$space},
+  table.row.gap-lg-#{$space},
+  table.row.gap-x-lg-#{$space} {
     & > tbody > tr > td {
       padding-right: $value;
     }
   }
-  table.row.g-#{$space},
-  table.row.gy-#{$space},
-  table.row.g-lg-#{$space},
-  table.row.gy-lg-#{$space} {
+  table.row.gap-#{$space},
+  table.row.gap-y-#{$space},
+  table.row.gap-lg-#{$space},
+  table.row.gap-y-lg-#{$space} {
     & > tbody > tr > td {
       padding-bottom: $value;
     }

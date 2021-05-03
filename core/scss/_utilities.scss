@@ -117,9 +117,9 @@ $border-widths: (
 ) !default;
 
 $border-radiuses: (
+  '': 4px,
   '-none': 0px,
   '-sm': 2px,
-  '': 4px,
   '-md': 6px,
   '-lg': 8px,
   '-xl': 12px,
