@@ -20,8 +20,10 @@ module BootstrapEmail
       @cache_dir ||= begin
         if defined?(::Rails) && ::Rails.root
           ::Rails.root.join('tmp', 'cache', 'bootstrap-email', '.sass-cache')
-        else
+        elsif File.writable?(Dir.pwd)
           File.join(Dir.pwd, '.sass-cache', 'bootstrap-email')
+        else
+          File.join(Dir.tmpdir, '.sass-cache', 'bootstrap-email')
         end
       end
     end
