@@ -19,11 +19,10 @@ module BootstrapEmail
     def cache_dir
       @cache_dir ||= begin
         if defined?(::Rails) && ::Rails.root
-          base_path = ::Rails.root.join('tmp')
+          ::Rails.root.join('tmp', 'cache', 'bootstrap-email', '.sass-cache')
         else
-          base_path = Dir.pwd
+          File.join(Dir.pwd, '.sass-cache', 'bootstrap-email')
         end
-        File.join(base_path, '.sass-cache', 'bootstrap-email')
       end
     end
 
