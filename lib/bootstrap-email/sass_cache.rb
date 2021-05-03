@@ -1,6 +1,5 @@
 module BootstrapEmail
   class SassCache
-    CACHE_DIR = File.expand_path('../../.sass-cache', __dir__)
     SASS_DIR = File.expand_path('../../core', __dir__)
 
     def self.compile(type, config_path: nil, style: :compressed)
@@ -17,8 +16,19 @@ module BootstrapEmail
       self.checksum = checksum_files
     end
 
+    def cache_dir
+      @cache_dir ||= begin
+        if defined?(::Rails) && ::Rails.root
+          base_path = ::Rails.root.join('tmp')
+        else
+          base_path = Dir.pwd
+        end
+        File.join(base_path, '.sass-cache', 'bootstrap-email')
+      end
+    end
+
     def compile
-      cache_path = "#{CACHE_DIR}/#{checksum}/#{type}.css"
+      cache_path = "#{cache_dir}/#{checksum}/#{type}.css"
       unless cached?(cache_path)
         compile_and_cache_scss(cache_path)
       end
@@ -58,8 +68,7 @@ module BootstrapEmail
     def compile_and_cache_scss(cache_path)
       file = config_file || File.read("#{file_path}.scss")
       css = SassC::Engine.new(file, style: style).render
-      Dir.mkdir(CACHE_DIR) unless File.directory?(CACHE_DIR)
-      Dir.mkdir("#{CACHE_DIR}/#{checksum}") unless File.directory?("#{CACHE_DIR}/#{checksum}")
+      FileUtils.mkdir_p("#{cache_dir}/#{checksum}") unless File.directory?("#{cache_dir}/#{checksum}")
       File.write(cache_path, css)
       puts "New css file cached for #{type}"
     end
