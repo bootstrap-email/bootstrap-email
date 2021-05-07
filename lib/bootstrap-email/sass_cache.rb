@@ -2,30 +2,22 @@ module BootstrapEmail
   class SassCache
     SASS_DIR = File.expand_path('../../core', __dir__)
 
-    def self.compile(type, config_path: nil, style: :compressed)
-      new(type, config_path, style).compile
+    def self.compile(type, style: :compressed)
+      new(type, style).compile
     end
 
     attr_accessor :type, :style, :file_path, :config_file, :checksum
 
-    def initialize(type, config_path, style)
+    def initialize(type, style)
       self.type = type
       self.style = style
       self.file_path = "#{SASS_DIR}/#{type}"
-      self.config_file = load_config(config_path)
+      self.config_file = load_config
       self.checksum = checksum_files
     end
 
     def cache_dir
-      @cache_dir ||= begin
-        if defined?(::Rails) && ::Rails.root
-          ::Rails.root.join('tmp', 'cache', 'bootstrap-email', '.sass-cache')
-        elsif File.writable?(Dir.pwd)
-          File.join(Dir.pwd, '.sass-cache', 'bootstrap-email')
-        else
-          File.join(Dir.tmpdir, '.sass-cache', 'bootstrap-email')
-        end
-      end
+      BootstrapEmail.config.sass_cache_location
     end
 
     def compile
@@ -38,16 +30,9 @@ module BootstrapEmail
 
     private
 
-    def load_config(config_path)
-      lookup_locations = ["#{type}.config.scss", "app/assets/stylesheets/#{type}.config.scss"]
-      locations = lookup_locations.select { |location| File.exist?(File.expand_path(location, Dir.pwd)) }
-      if config_path && File.exist?(config_path)
-        # check if custom config was passed in
-        replace_config(File.read(config_path))
-      elsif locations.any?
-        # look for common lookup locations of config
-        replace_config(File.read(File.expand_path(locations.first, Dir.pwd)))
-      end
+    def load_config
+      path = BootstrapEmail.config.sass_location_for(type: type)
+      replace_config(File.read(path)) if path
     end
 
     def replace_config(config_file)
