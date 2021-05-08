@@ -7,7 +7,7 @@ contact_links:
     url: https://github.com/bootstrap-email/bootstrap-email/discussions/new?category=help
     about: 'If you have a question or need help, ask a question on the discussion forums.'
   - name: Documentation Issue
-    url: https://github.com/bootstrap-email/documentation-0.x
+    url: https://github.com/bootstrap-email/documentation-1.x
     about: 'For documentation issues, suggest changes on our documentation repository.'
   - name: Kind Words
     url: https://github.com/bootstrap-email/bootstrap-email/discussions/new?category=kind-words
