@@ -19,5 +19,9 @@ module BootstrapEmail
     def reset_config!
       remove_instance_variable :@config if defined?(@config)
     end
+
+    def clear_sass_cache!
+      FileUtils.rm_rf(BootstrapEmail.config.sass_cache_location)
+    end
   end
 end

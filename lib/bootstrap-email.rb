@@ -5,6 +5,7 @@ require 'premailer'
 require 'sassc'
 require 'digest/sha1'
 require 'css_parser'
+require 'fileutils'
 
 begin
   require 'rails'
