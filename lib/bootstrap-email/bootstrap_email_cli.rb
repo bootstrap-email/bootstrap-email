@@ -37,7 +37,7 @@ parser = OptionParser.new do |opts|
     options[:destination] = v
   end
 
-  opts.on('-c', '--config STRING', String, 'Relative path to SCSS config config file to customize Bootstrap Email.') do |v|
+  opts.on('-c', '--config STRING', String, 'Relative path to ruby config file to customize Bootstrap Email.') do |v|
     options[:config] = File.expand_path(v, Dir.pwd)
   end
 

@@ -10,6 +10,12 @@ module BootstrapEmail
     attr_writer :sass_cache_location
 
     def load_options(options)
+      file = File.expand_path('bootstrap-email.config.rb', Dir.pwd)
+      if options[:config_path]
+        require_relative options[:config_path]
+      elsif File.exist?(file)
+        require_relative file
+      end
       options.each { |name, value| instance_variable_set("@#{name}", value) }
     end
 
@@ -17,7 +23,7 @@ module BootstrapEmail
       ivar = instance_variable_get("@sass_#{type.sub('bootstrap-', '')}_location")
       return ivar if ivar
 
-      lookup_locations = ["#{type}.config.scss", "app/assets/stylesheets/#{type}.config.scss"]
+      lookup_locations = ["#{type}.scss", "app/assets/stylesheets/#{type}.scss"]
       locations = lookup_locations.map { |location| File.expand_path(location, Dir.pwd) }.select { |location| File.exist?(location) }
       locations.first if locations.any?
     end
