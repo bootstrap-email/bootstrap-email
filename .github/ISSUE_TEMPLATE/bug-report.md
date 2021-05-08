@@ -10,7 +10,7 @@ assignees: ''
 <!-- For example: v1.0.0.alpha3 -->
 
 #### How are you compiling?
-<!-- For example: Rails, Ruby, CLI, Online Editor -->
+<!-- For example: Rails, Ruby, CLI, Online editor -->
 
 #### Describe your issue
 <!-- Describe the problem you're seeing, any important steps to reproduce and what behavior you expect instead -->
