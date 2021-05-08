@@ -1,0 +1,21 @@
+name: Bug Report
+description: Create a bug report for Bootstrap Email.
+title: '[Bug]: '
+labels: []
+body:
+  - type: input
+    attributes:
+      label: What version of Bootstrap Email are you using?
+      description: 'For example: v1.0.0.alpha3'
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: How are you compiling?
+      description: 'For example: Rails, Ruby, CLI, Online Editor'
+    validations:
+      required: true  
+  - type: textarea
+    attributes:
+      label: Describe your issue
+      description: Describe the problem you're seeing, any important steps to reproduce and what behavior you expect instead
