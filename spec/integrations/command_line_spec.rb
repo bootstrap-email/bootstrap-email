@@ -20,4 +20,15 @@ describe 'bootstrap-email' do
      .to output(a_string_including('class="btn btn-primary"'))
      .to_stdout_from_any_process
   end
+
+  it 'builds the email from a file and does not print sass log' do
+    BootstrapEmail.configure do |config|
+      config.sass_cache_location = File.join(Dir.pwd, '.sass-cache', 'bootstrap-email')
+    end
+    BootstrapEmail.clear_sass_cache!
+    expect { system %{bootstrap-email spec/html/button.html } }
+     .to_not output(a_string_including('New css file cached for'))
+     .to_stdout_from_any_process
+    BootstrapEmail.reset_config!
+  end
 end
