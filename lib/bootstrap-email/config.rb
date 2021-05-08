@@ -9,8 +9,8 @@ module BootstrapEmail
     attr_writer :sass_load_paths
     attr_writer :sass_cache_location
 
-    def initialize(data)
-      data.each { |name, value| instance_variable_set("@#{name}", value) }
+    def load_options(options)
+      options.each { |name, value| instance_variable_set("@#{name}", value) }
     end
 
     def sass_location_for(type:)

@@ -3,7 +3,7 @@ module BootstrapEmail
     attr_accessor :type, :doc, :premailer
 
     def initialize(input, type: :string, options: {})
-      BootstrapEmail.config = options
+      BootstrapEmail.load_options(options)
       self.type = type
       case type
       when :rails
