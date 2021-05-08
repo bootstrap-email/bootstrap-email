@@ -1,6 +1,5 @@
 require_relative '../bootstrap-email'
 require 'optparse'
-require 'fileutils'
 
 input = nil
 options = {
@@ -37,7 +36,7 @@ parser = OptionParser.new do |opts|
     options[:destination] = v
   end
 
-  opts.on('-c', '--config STRING', String, 'Relative path to SCSS config config file to customize Bootstrap Email.') do |v|
+  opts.on('-c', '--config STRING', String, 'Relative path to ruby config file to customize Bootstrap Email.') do |v|
     options[:config] = File.expand_path(v, Dir.pwd)
   end
 
@@ -82,9 +81,9 @@ if input
     end
   when :file
     path = File.expand_path(input, Dir.pwd)
-    puts BootstrapEmail::Compiler.new(path, type: :file, options: {config_path: options[:config]}).perform_full_compile
+    puts BootstrapEmail::Compiler.new(path, type: :file, options: {config_path: options[:config], sass_log_enabled: false}).perform_full_compile
   when :string
-    puts BootstrapEmail::Compiler.new(input, options: {config_path: options[:config]}).perform_full_compile
+    puts BootstrapEmail::Compiler.new(input, options: {config_path: options[:config], sass_log_enabled: false}).perform_full_compile
   end
 else
   puts opts

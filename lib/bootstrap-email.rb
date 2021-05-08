@@ -5,6 +5,7 @@ require 'premailer'
 require 'sassc'
 require 'digest/sha1'
 require 'css_parser'
+require 'fileutils'
 
 begin
   require 'rails'
@@ -15,6 +16,8 @@ if defined?(Rails)
 end
 
 require_relative 'bootstrap-email/initialize'
+require_relative 'bootstrap-email/config'
+require_relative 'bootstrap-email/setup'
 require_relative 'bootstrap-email/erb'
 require_relative 'bootstrap-email/compiler'
 require_relative 'bootstrap-email/sass_cache'

@@ -3,6 +3,7 @@ module BootstrapEmail
     attr_accessor :type, :doc, :premailer
 
     def initialize(input, type: :string, options: {})
+      BootstrapEmail.load_options(options)
       self.type = type
       case type
       when :rails
@@ -14,7 +15,8 @@ module BootstrapEmail
         html = File.read(input)
       end
       html = add_layout!(html)
-      build_premailer_doc(html, options)
+      sass_load_paths
+      build_premailer_doc(html)
     end
 
     def perform_full_compile
@@ -36,9 +38,12 @@ module BootstrapEmail
       )
     end
 
-    def build_premailer_doc(html, options)
-      SassC.load_paths << File.expand_path('../../core', __dir__)
-      css_string = BootstrapEmail::SassCache.compile('bootstrap-email', config_path: options[:config_path], style: :expanded)
+    def sass_load_paths
+      SassC.load_paths << BootstrapEmail.config.sass_load_paths
+    end
+
+    def build_premailer_doc(html)
+      css_string = BootstrapEmail::SassCache.compile('bootstrap-email', style: :expanded)
       self.premailer = Premailer.new(
         html,
         with_html_string: true,
@@ -55,7 +60,6 @@ module BootstrapEmail
       BootstrapEmail::Converter::Badge.build(doc)
       BootstrapEmail::Converter::Alert.build(doc)
       BootstrapEmail::Converter::Card.build(doc)
-      # BootstrapEmail::Converter::Paragraph.build(doc) this might be too much
       BootstrapEmail::Converter::Hr.build(doc)
       BootstrapEmail::Converter::Container.build(doc)
       BootstrapEmail::Converter::Grid.build(doc)
