@@ -2,7 +2,7 @@ module BootstrapEmail
   module Converter
     class Padding < Base
       def build
-        each_node('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]') do |node|
+        each_node("*[class^=p-], *[class^=pt-], *[class^=pr-], *[class^=pb-], *[class^=pl-], *[class^=px-], *[class^=py-], *[class*=' p-'], *[class*=' pt-'], *[class*=' pr-'], *[class*=' pb-'], *[class*=' pl-'], *[class*=' px-'], *[class*=' py-']") do |node|
           next if ['table', 'td', 'a'].include?(node.name)
 
           padding_regex = /(p[trblxy]?-\d+)/

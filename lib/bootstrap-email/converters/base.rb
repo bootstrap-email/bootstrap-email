@@ -14,7 +14,8 @@ module BootstrapEmail
       private
 
       def template(file, locals_hash = {})
-        locals_hash[:classes] = locals_hash[:classes].split.join(' ') if locals_hash[:classes]
+        locals_hash[:classes] = locals_hash[:classes].to_s.split.join(' ')
+        locals_hash[:content] ||= nil
         if @cached_templates[file]
           string = @cached_templates[file]
         else
@@ -35,7 +36,7 @@ module BootstrapEmail
 
       def add_class(node, class_name)
         node['class'] ||= ''
-        node['class'] += class_name
+        node['class'] += node['class'].length.zero? ? class_name : " #{class_name}"
       end
 
       def margin?(node)
