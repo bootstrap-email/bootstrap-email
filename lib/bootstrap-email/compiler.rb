@@ -54,6 +54,7 @@ module BootstrapEmail
     end
 
     def compile_html!
+      BootstrapEmail::Converter::Body.build(doc)
       BootstrapEmail::Converter::Block.build(doc)
 
       BootstrapEmail::Converter::Button.build(doc)
@@ -65,17 +66,15 @@ module BootstrapEmail
       BootstrapEmail::Converter::Grid.build(doc)
       BootstrapEmail::Converter::Stack.build(doc)
 
+      BootstrapEmail::Converter::Color.build(doc)
       BootstrapEmail::Converter::Spacing.build(doc)
-      BootstrapEmail::Converter::Padding.build(doc)
       BootstrapEmail::Converter::Margin.build(doc)
       BootstrapEmail::Converter::Spacer.build(doc)
-
-      BootstrapEmail::Converter::Table.build(doc)
-      BootstrapEmail::Converter::Body.build(doc)
       BootstrapEmail::Converter::Align.build(doc)
-      BootstrapEmail::Converter::Color.build(doc)
+      BootstrapEmail::Converter::Padding.build(doc)
 
       BootstrapEmail::Converter::PreviewText.build(doc)
+      BootstrapEmail::Converter::Table.build(doc)
     end
 
     def inline_css!
