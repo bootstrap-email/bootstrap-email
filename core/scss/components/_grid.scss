@@ -1,13 +1,16 @@
-table.row {
-  table-layout: fixed;
-  -premailer-width: 100%;
-  width: 100%;
-  & > tbody > tr > td {
-    min-height: 1px;
-    font-weight: normal;
-    padding-right: 24px;
-    vertical-align: top;
-    text-align: left;
+.row {
+  margin-right: -24px;
+  & > table {
+    table-layout: fixed;
+    -premailer-width: 100%;
+    width: 100%;
+    & > tbody > tr > td {
+      min-height: 1px;
+      font-weight: normal;
+      padding-right: 24px;
+      vertical-align: top;
+      text-align: left;
+    }
   }
 }
 
@@ -19,19 +22,21 @@ table.row {
 }
 
 @each $space, $value in $spacers {
-  table.row.gap-#{$space},
-  table.row.gap-x-#{$space},
-  table.row.gap-lg-#{$space},
-  table.row.gap-x-lg-#{$space} {
-    & > tbody > tr > td {
+  .row.gap-#{$space},
+  .row.gap-x-#{$space},
+  .row.gap-lg-#{$space},
+  .row.gap-x-lg-#{$space} {
+    margin-right: -1 * $value;
+    & > table > tbody > tr > td {
       padding-right: $value;
     }
   }
-  table.row.gap-#{$space},
-  table.row.gap-y-#{$space},
-  table.row.gap-lg-#{$space},
-  table.row.gap-y-lg-#{$space} {
-    & > tbody > tr > td {
+  .row.gap-#{$space},
+  .row.gap-y-#{$space},
+  .row.gap-lg-#{$space},
+  .row.gap-y-lg-#{$space} {
+    margin-bottom: -1 * $value;
+    & > table > tbody > tr > td {
       padding-bottom: $value;
     }
   }

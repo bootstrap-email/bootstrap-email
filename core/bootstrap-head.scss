@@ -8,6 +8,11 @@
 @import 'scss/selectors_for_utils';
 @import 'scss/helper_groups';
 
+// Force base font in Outlook
+body, table, td {
+  font-family: $font-family-base !important;
+}
+
 // Forces Outlook.com to display emails at full width
 .ExternalClass {
   width: 100%;
@@ -66,17 +71,56 @@ table:not([class^=s-]) {
 /*! allow_purge_after */
 
 @media screen and (max-width: 600px) {
-  //  Grid
-  @each $key, $value in $grid-cols {
-    table.row > tbody > tr {
-      & > td.col-lg-#{$key},
-      & > td.col-lg {
-        display: block;
-        width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+  // Row Gap
+  @each $space, $value in $spacers {
+    .gap-#{$space}.row,
+    .gap-x-#{$space}.row {
+      margin-right: -1 * $value !important;
+      & > table > tbody > tr > td {
+        padding-right: $value !important;
       }
     }
+    .gap-#{$space}.row,
+    .gap-y-#{$space}.row {
+      margin-bottom: -1 * $value !important;
+      & > table > tbody > tr > td {
+        padding-bottom: $value !important;
+      }
+    }
+  }
+
+  // Stack Gap
+  @each $space, $value in $spacers {
+    table.gap-lg-#{$space}.stack-x > tbody > tr > td {
+      padding-right: 0 !important;
+    }
+    table.gap-lg-#{$space}.stack-y > tbody > tr > td {
+      padding-bottom: 0 !important;
+    }
+  }
+  @each $space, $value in $spacers {
+    table.gap-#{$space}.stack-x > tbody > tr > td {
+      padding-right: $value !important;
+    }
+    table.gap-#{$space}.stack-y > tbody > tr > td {
+      padding-bottom: $value !important;
+    }
+  }
+
+  //  Grid
+  @each $key, $value in $grid-cols {
+    td.col-lg-#{$key} {
+      display: block;
+      width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+  td.col-lg {
+    display: block;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   // Display
@@ -91,26 +135,56 @@ table:not([class^=s-]) {
     }
   }
 
-  // Sizing
+  // Sizing Max Width / Height
   @each $name, $property in $sizing-types {
-    @include sizing-util('.#{$name}-lg-full') {
-      max-#{$property}: auto !important;
+    @include sizing-util('.max-#{$name}-lg-full') {
+      max-#{$property}: unset !important;
       #{$property}: auto !important;
     }
     @each $size, $value in $sizing {
-      @include sizing-util('.#{$name}-lg-#{$size}') {
-        max-#{$property}: auto !important;
+      @include sizing-util('.max-#{$name}-lg-#{$size}') {
+        max-#{$property}: unset !important;
         #{$property}: auto !important;
       }
     }
-    @include sizing-util('.#{$name}-full') {
+  }
+  @each $name, $property in $sizing-types {
+    @include sizing-util('.max-#{$name}-full') {
       max-#{$property}: 100% !important;
       #{$property}: 100% !important;
     }
     @each $size, $value in $sizing {
-      @include sizing-util('.#{$name}-#{$size}') {
+      @include sizing-util('.max-#{$name}-#{$size}') {
         max-#{$property}: $value !important;
         #{$property}: 100% !important;
+      }
+    }
+  }
+
+  // Sizing Width / Height
+  @each $name, $property in $sizing-types {
+    @include sizing-util('.#{$name}-lg-full') {
+      #{$property}: auto !important;
+    }
+    @include sizing-util('.#{$name}-lg-auto') {
+      #{$property}: auto !important;
+    }
+    @each $size, $value in $sizing {
+      @include sizing-util('.#{$name}-lg-#{$size}') {
+        #{$property}: auto !important;
+      }
+    }
+  }
+  @each $name, $property in $sizing-types {
+    @include sizing-util('.#{$name}-full') {
+      #{$property}: 100% !important;
+    }
+    @include sizing-util('.#{$name}-auto') {
+      #{$property}: auto !important;
+    }
+    @each $size, $value in $sizing {
+      @include sizing-util('.#{$name}-#{$size}') {
+        #{$property}: $value !important;
       }
     }
   }
@@ -132,7 +206,6 @@ table:not([class^=s-]) {
     line-height: 0 !important;
     height: 0 !important;
   }
-
   @each $size, $value in $spacers {
     @include spacer-util('.s-#{$size}') {
       font-size: $value !important;

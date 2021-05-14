@@ -12,7 +12,7 @@ module BootstrapEmail
 
       def align_helper(node, full_type, type)
         unless table?(node) || td?(node)
-          node['class'] = node['class'].sub(full_type, '')
+          node['class'] = node['class'].sub(full_type, '').strip
           node = node.replace(template('table', classes: full_type, contents: node.to_html))[0]
         end
         node['align'] = type
