@@ -8,6 +8,11 @@
 @import 'scss/selectors_for_utils';
 @import 'scss/helper_groups';
 
+// Force base font in Outlook
+body, table, td {
+  font-family: $font-family-base !important;
+}
+
 // Forces Outlook.com to display emails at full width
 .ExternalClass {
   width: 100%;
@@ -104,15 +109,18 @@ table:not([class^=s-]) {
 
   //  Grid
   @each $key, $value in $grid-cols {
-    .row > table > tbody > tr {
-      & > td.col-lg-#{$key},
-      & > td.col-lg {
-        display: block;
-        width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
+    td.col-lg-#{$key} {
+      display: block;
+      width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
+  }
+  td.col-lg {
+    display: block;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   // Display
