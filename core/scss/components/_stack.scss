@@ -1,16 +1,22 @@
 @each $space, $value in $spacers {
-  table.stack-x.gap-#{$space} > tbody > tr > td {
-    padding-right: $value;
-    &:last-child {
-      padding-right: 0;
+  table.stack-x.gap-#{$space},
+  table.stack-x.gap-lg-#{$space} {
+    & > tbody > tr > td {
+      padding-right: $value;
+      &:last-child {
+        padding-right: 0;
+      }
     }
   }
-  table.stack-y.gap-#{$space} > tbody > tr {
-    & > td {
-      padding-bottom: $value;
-    }
-    &:last-child > td {
-      padding-bottom: 0;
+  table.stack-y.gap-#{$space},
+  table.stack-y.gap-lg-#{$space} {
+    & > tbody > tr {
+      & > td {
+        padding-bottom: $value;
+      }
+      &:last-child > td {
+        padding-bottom: 0;
+      }
     }
   }
 }

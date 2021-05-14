@@ -66,9 +66,45 @@ table:not([class^=s-]) {
 /*! allow_purge_after */
 
 @media screen and (max-width: 600px) {
+  // Row Gap
+  @each $space, $value in $spacers {
+    .gap-#{$space}.row,
+    .gap-x-#{$space}.row {
+      margin-right: -1 * $value !important;
+      & > table > tbody > tr > td {
+        padding-right: $value !important;
+      }
+    }
+    .gap-#{$space}.row,
+    .gap-y-#{$space}.row {
+      margin-bottom: -1 * $value !important;
+      & > table > tbody > tr > td {
+        padding-bottom: $value !important;
+      }
+    }
+  }
+
+  // Stack Gap
+  @each $space, $value in $spacers {
+    table.gap-lg-#{$space}.stack-x > tbody > tr > td {
+      padding-right: 0 !important;
+    }
+    table.gap-lg-#{$space}.stack-y > tbody > tr > td {
+      padding-bottom: 0 !important;
+    }
+  }
+  @each $space, $value in $spacers {
+    table.gap-#{$space}.stack-x > tbody > tr > td {
+      padding-right: $value !important;
+    }
+    table.gap-#{$space}.stack-y > tbody > tr > td {
+      padding-bottom: $value !important;
+    }
+  }
+
   //  Grid
   @each $key, $value in $grid-cols {
-    table.row > tbody > tr {
+    .row > table > tbody > tr {
       & > td.col-lg-#{$key},
       & > td.col-lg {
         display: block;
@@ -91,7 +127,7 @@ table:not([class^=s-]) {
     }
   }
 
-  // Sizing
+  // Sizing Max Width / Height
   @each $name, $property in $sizing-types {
     @include sizing-util('.max-#{$name}-lg-full') {
       max-#{$property}: unset !important;
@@ -117,6 +153,7 @@ table:not([class^=s-]) {
     }
   }
 
+  // Sizing Width / Height
   @each $name, $property in $sizing-types {
     @include sizing-util('.#{$name}-lg-full') {
       #{$property}: auto !important;
@@ -161,7 +198,6 @@ table:not([class^=s-]) {
     line-height: 0 !important;
     height: 0 !important;
   }
-
   @each $size, $value in $spacers {
     @include spacer-util('.s-#{$size}') {
       font-size: $value !important;
