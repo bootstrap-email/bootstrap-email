@@ -84,14 +84,13 @@ module BootstrapEmail
     end
 
     def configure_html!
-      # BootstrapEmail::Converter::ForceEncoding.build(doc)
       BootstrapEmail::Converter::HeadStyle.build(doc)
       BootstrapEmail::Converter::VersionComment.build(doc)
     end
 
     def finalize_document!
-      # html = BootstrapEmail::Converter::ForceEncoding.replace(doc.to_html)
       html = doc.to_html(encoding: 'US-ASCII')
+      html = BootstrapEmail::Converter::ForceEncoding.replace(html)
       case type
       when :rails
         (@mail.html_part || @mail).body = html
