@@ -3,7 +3,7 @@ module BootstrapEmail
     class Align < Base
       def build
        ['left', 'center', 'right'].each do |type|
-        full_type = "align-#{type}"
+        full_type = "ax-#{type}"
          each_node(".#{full_type}") do |node|
            align_helper(node, full_type, type)
          end

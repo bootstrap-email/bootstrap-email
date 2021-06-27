@@ -31,18 +31,18 @@ RSpec.describe BootstrapEmail::Compiler do
     it 'creates an html table with the "align" property set on it' do
       html = <<~HTML
         <div class="wrapper-1">
-          <a class="btn align-center" href="#">Cool</a>
+          <a class="btn ax-center" href="#">Cool</a>
         </div>
         <div class="wrapper-2">
-          <img class="w-10 align-right" src="#" />
+          <img class="w-10 ax-right" src="#" />
         </div>
       HTML
       output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
-      expect(doc.at_css('.wrapper-1 .align-center')).to be_truthy
-      expect(doc.at_css('.wrapper-1 .align-center').attr('align')).to eq('center')
-      expect(doc.at_css('.wrapper-2 .align-right')).to be_truthy
-      expect(doc.at_css('.wrapper-2 .align-right').attr('align')).to eq('right')
+      expect(doc.at_css('.wrapper-1 .ax-center')).to be_truthy
+      expect(doc.at_css('.wrapper-1 .ax-center').attr('align')).to eq('center')
+      expect(doc.at_css('.wrapper-2 .ax-right')).to be_truthy
+      expect(doc.at_css('.wrapper-2 .ax-right').attr('align')).to eq('right')
     end
   end
 

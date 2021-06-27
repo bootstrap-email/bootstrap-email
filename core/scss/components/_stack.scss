@@ -1,6 +1,6 @@
 @each $space, $value in $spacers {
-  table.stack-x.gap-#{$space},
-  table.stack-x.gap-lg-#{$space} {
+  table.stack-row.gap-#{$space},
+  table.stack-row.gap-lg-#{$space} {
     & > tbody > tr > td {
       padding-right: $value;
       &:last-child {
@@ -8,8 +8,8 @@
       }
     }
   }
-  table.stack-y.gap-#{$space},
-  table.stack-y.gap-lg-#{$space} {
+  table.stack-col.gap-#{$space},
+  table.stack-col.gap-lg-#{$space} {
     & > tbody > tr {
       & > td {
         padding-bottom: $value;
@@ -27,13 +27,13 @@
 }
 
 @each $align in $vertical-align {
-  table.stack-valign-#{$align} > tbody > tr > td {
+  table.stack-ay-#{$align} > tbody > tr > td {
     vertical-align: $align;
   }
 }
 
 @each $align in $text-align {
-  table.stack-align-#{$align} > tbody > tr > td {
+  table.stack-ax-#{$align} > tbody > tr > td {
     text-align: $align;
   }
 }
