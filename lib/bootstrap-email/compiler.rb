@@ -48,6 +48,8 @@ module BootstrapEmail
         html,
         with_html_string: true,
         preserve_reset: false,
+        adapter: :nokogiri_fast,
+        output_encoding: 'US-ASCII',
         css_string: css_string
       )
       self.doc = premailer.doc
@@ -82,13 +84,14 @@ module BootstrapEmail
     end
 
     def configure_html!
-      BootstrapEmail::Converter::ForceEncoding.build(doc)
+      # BootstrapEmail::Converter::ForceEncoding.build(doc)
       BootstrapEmail::Converter::HeadStyle.build(doc)
       BootstrapEmail::Converter::VersionComment.build(doc)
     end
 
     def finalize_document!
-      html = BootstrapEmail::Converter::ForceEncoding.replace(doc.to_html)
+      # html = BootstrapEmail::Converter::ForceEncoding.replace(doc.to_html)
+      html = doc.to_html(encoding: 'US-ASCII')
       case type
       when :rails
         (@mail.html_part || @mail).body = html

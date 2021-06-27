@@ -15,7 +15,6 @@ if defined?(Rails)
   require 'action_mailer'
 end
 
-require_relative 'bootstrap-email/initialize'
 require_relative 'bootstrap-email/config'
 require_relative 'bootstrap-email/setup'
 require_relative 'bootstrap-email/erb'
