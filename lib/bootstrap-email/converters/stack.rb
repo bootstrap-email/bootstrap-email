@@ -2,12 +2,12 @@ module BootstrapEmail
   module Converter
     class Stack < Base
       def build
-        stack_x
-        stack_y
+        stack_row
+        stack_col
       end
 
-      def stack_x
-        each_node('.stack-x') do |node|
+      def stack_row
+        each_node('.stack-row') do |node|
           html = ''
           node.xpath('./*').each do |child|
             html += template('td', classes: 'stack-cell', contents: child.to_html)
@@ -16,8 +16,8 @@ module BootstrapEmail
         end
       end
 
-      def stack_y
-        each_node('.stack-y') do |node|
+      def stack_col
+        each_node('.stack-col') do |node|
           html = ''
           node.xpath('./*').each do |child|
             html += template('tr', classes: 'stack-cell', contents: child.to_html)
