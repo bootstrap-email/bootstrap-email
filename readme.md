@@ -17,29 +17,19 @@
 [![Gem](https://img.shields.io/gem/v/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
 [![Gem](https://img.shields.io/gem/dt/bootstrap-email.svg)](https://rubygems.org/gems/bootstrap-email)
 
-The goal of this project is to build a library similar to [Bootstrap](https://getbootstrap.com) but for HTML emails. Working with HTML in emails is never easy because of the nuances of email vs the web. With Bootstrap Email you don't have to understand all the nuance and it allows you to write emails like you would a website.
+Bootstrap Email takes most of it’s inspiration from these two wonderful frameworks, [Bootstrap](https://getbootstrap.com) and [Tailwind](https://tailwindcss.com) but for HTML emails. Working with HTML in emails is never easy because of the nuances of email vs the web. With Bootstrap Email you don't have to understand all the nuance and it allows you to write emails like you would a website.
 
 ## Setup
 There are a few different ways you can use Bootstrap Email to compile emails:
-- [Command Line](https://v1.bootstrapemail.com/docs/setup#command-line)
-- [Ruby](https://v1.bootstrapemail.com/docs/setup#ruby)
-- [Ruby on Rails](https://v1.bootstrapemail.com/docs/setup#ruby-on-rails)
-- [Online Editor](https://editor.bootstrapemail.com)
+- [Command Line](https://bootstrapemail.com/docs/usage#command-line)
+- [Ruby](https://bootstrapemail.com/docs/usage#ruby)
+- [Ruby on Rails](https://bootstrapemail.com/docs/usage#ruby-on-rails)
+- [Online Editor](https://app.bootstrapemail.com/editor)
 
 ## Documentations
-For full documentation, visit [bootstrapemail.com](https://v1.bootstrapemail.com/docs/introduction)
+For full documentation, visit [bootstrapemail.com](https://bootstrapemail.com/docs/introduction)
 
 ## Community
 For help, discussion about best practices, or any other conversation that would benefit from being searchable:
 
 [Discuss Bootstrap Email on GitHub](https://github.com/bootstrap-email/bootstrap-email/discussions)
-
-<!-- ## Email Quirks (internal notes)
-- Line height should always be in px never a number or percentage. https://www.marketingcloud.com/blog/design-tip-of-the-week-css-line-height-property-does-it-work-in-email/
-- Padding can only be used inside of a table cell.
-- Margin can only be used on divs.
-- Font family is reset at the top of every new table.
-- Responsive media query for stacking table cells with display block only works on Android in table header `<th>` cells and not table cells `<td>`.
-- To make a table width 100% BOTH the table and the td tags must be set to 100%
-- Many Outlook versions ignore css that has `important!`.
- -->
