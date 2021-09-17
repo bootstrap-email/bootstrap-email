@@ -36,7 +36,7 @@ module BootstrapEmail
 
       def add_class(node, class_name)
         node['class'] ||= ''
-        node['class'] += node['class'].length.zero? ? class_name : " #{class_name}"
+        node['class'] = "#{node['class'].strip} #{class_name}".strip
       end
 
       def margin?(node)

@@ -88,6 +88,9 @@ table:not([class^=s-]) {
       }
     }
   }
+  .row.row-responsive {
+    margin-right: 0 !important;
+  }
 
   // Stack Gap
   @each $space, $value in $spacers {
