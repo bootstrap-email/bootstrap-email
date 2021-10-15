@@ -90,7 +90,8 @@ module BootstrapEmail
 
     def finalize_document!
       html = doc.to_html(encoding: 'US-ASCII')
-      html = BootstrapEmail::Converter::ForceEncoding.replace(html)
+      BootstrapEmail::Converter::SupportUrlTokens.replace(html)
+      BootstrapEmail::Converter::ForceEncoding.replace(html)
       case type
       when :rails
         (@mail.html_part || @mail).body = html
