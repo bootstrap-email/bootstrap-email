@@ -106,6 +106,8 @@ RSpec.describe BootstrapEmail::Compiler do
     it 'forces the encoding of the email' do
       output = BootstrapEmail::Compiler.new('<body>➿</body>').perform_full_compile
       expect(output.include?('&#10175;')).to be true
+      expect(output.include?('content="text/html; charset=utf-8')).to be true
+      expect(output.exclude?('content="text/html; charset=US-ASCII"')).to be true
     end
   end
 end
