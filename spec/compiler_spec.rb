@@ -87,22 +87,27 @@ RSpec.describe BootstrapEmail::Compiler do
 
   describe '#compile' do
     it 'does not strip tokens from href urls' do
-      pending
       html = <<~HTML
-        {{ buttonUrl }}<a href="{{ buttonUrl }}">Some Button</a>
+        <div id="test1">{{ test1_token }}</div>
+        <a id="test2" href="{{ test2_token }}">Some Token Link</a>
+        <a id="test3" href="https://google.com/some+url{{">Some Link with regular url to be encoded</a>
+        <img id="test4" src="{{ test4_image_src }}" />
       HTML
       output = BootstrapEmail::Compiler.new(html).perform_full_compile
       doc = Nokogiri::HTML(output)
-      expect(doc.at_css('a')['href']).to eq('{{ buttonUrl }}')
+      expect(doc.at_css('#test1').inner_html).to eq('{{ test1_token }}')
+      expect(doc.at_css('#test2')['href']).to eq('{{ test2_token }}')
+      expect(doc.at_css('#test3')['href']).to eq('https://google.com/some+url%7B%7B')
+      expect(doc.at_css('#test4')['src']).to eq('{{ test4_image_src }}')
     end
   end
 
   describe '#compile' do
     it 'forces the encoding of the email' do
-      pending
-      output = BootstrapEmail::Compiler.new('<body></body>').perform_full_compile
-      expect(output.include?('force-encoding-to-utf-8')).to be true
+      output = BootstrapEmail::Compiler.new('<body>➿</body>').perform_full_compile
       expect(output.include?('&#10175;')).to be true
+      expect(output.include?('content="text/html; charset=utf-8')).to be true
+      expect(output.exclude?('content="text/html; charset=US-ASCII"')).to be true
     end
   end
 end
