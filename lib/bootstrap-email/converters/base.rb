@@ -36,7 +36,8 @@ module BootstrapEmail
 
       def add_class(node, class_name)
         node['class'] ||= ''
-        node['class'] = "#{node['class'].strip} #{class_name}".strip
+        # remove double spaces and strip white space from ends
+        node['class'] = "#{node['class']} #{class_name}".gsub(/\s+/, ' ').strip
       end
 
       def margin?(node)
