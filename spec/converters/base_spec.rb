@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
 RSpec.describe BootstrapEmail::Converter::Base do
   describe '#add_class' do

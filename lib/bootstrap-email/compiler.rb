@@ -85,6 +85,7 @@ module BootstrapEmail
 
     def configure_html!
       BootstrapEmail::Converter::HeadStyle.build(doc)
+      BootstrapEmail::Converter::AddMissingMetaTags.build(doc)
       BootstrapEmail::Converter::VersionComment.build(doc)
     end
 
