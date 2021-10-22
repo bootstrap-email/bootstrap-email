@@ -6,6 +6,7 @@ require 'sassc'
 require 'digest/sha1'
 require 'css_parser'
 require 'fileutils'
+require 'htmlbeautifier'
 
 begin
   require 'rails'
