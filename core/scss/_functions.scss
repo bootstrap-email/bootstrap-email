@@ -1,9 +1,11 @@
+@use 'sass:math';
+
 @mixin color-contrast($color) {
   $r: red($color);
   $g: green($color);
   $b: blue($color);
 
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  $yiq: math.div(($r * 299) + ($g * 587) + ($b * 114), 1000);
 
   @if ($yiq >= 150) {
     color: #111111;
