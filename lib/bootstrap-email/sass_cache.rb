@@ -41,9 +41,12 @@ module BootstrapEmail
 
     def checksum_files
       checksums = config_file.nil? ? [] : [Digest::SHA1.hexdigest(config_file)]
-      Dir.glob('../../core/**/*.scss', base: __dir__).each do |path|
-        checksums << Digest::SHA1.file(File.expand_path(path, __dir__)).hexdigest
+      BootstrapEmail.config.sass_load_paths.each do |load_path|
+        Dir.glob(File.join(load_path, '**', '*.scss'), base: __dir__).each do |path|
+          checksums << Digest::SHA1.file(File.expand_path(path, __dir__)).hexdigest
+        end
       end
+
       Digest::SHA1.hexdigest(checksums.join)
     end
 
