@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../spec_helper'
 
 describe 'BootstrapEmail::Compiler#perform_full_compile' do

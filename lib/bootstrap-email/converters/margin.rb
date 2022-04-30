@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   module Converter
     class Margin < Base
@@ -7,13 +9,9 @@ module BootstrapEmail
           bottom_class = node['class'][/m[by]{1}-(lg-)?(\d+)/]
           node['class'] = node['class'].gsub(/(m[tby]{1}-(lg-)?\d+)/, '').strip
           html = ''
-          if top_class
-            html += template('div', classes: "s-#{top_class.gsub(/m[ty]{1}-/, '')}", contents: nil)
-          end
+          html += template('div', classes: "s-#{top_class.gsub(/m[ty]{1}-/, '')}", contents: nil) if top_class
           html += node.to_html
-          if bottom_class
-            html += template('div', classes: "s-#{bottom_class.gsub(/m[by]{1}-/, '')}", contents: nil)
-          end
+          html += template('div', classes: "s-#{bottom_class.gsub(/m[by]{1}-/, '')}", contents: nil) if bottom_class
           node.replace(html)
         end
       end

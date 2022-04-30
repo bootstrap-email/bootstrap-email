@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   class << self
     def config
@@ -11,7 +13,7 @@ module BootstrapEmail
       @config
     end
 
-    def configure(&proc)
+    def configure
       @config ||= BootstrapEmail::Config.new
       yield @config
     end

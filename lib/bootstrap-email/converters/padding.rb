@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   module Converter
     class Padding < Base
       def build
         each_node("*[class^=p-], *[class^=pt-], *[class^=pr-], *[class^=pb-], *[class^=pl-], *[class^=px-], *[class^=py-], *[class*=' p-'], *[class*=' pt-'], *[class*=' pr-'], *[class*=' pb-'], *[class*=' pl-'], *[class*=' px-'], *[class*=' py-']") do |node|
-          next if ['table', 'td', 'a'].include?(node.name)
+          next if %w[table td a].include?(node.name)
 
           padding_regex = /(p[trblxy]?-(lg-)?\d+)/
           classes = node['class'].gsub(padding_regex).to_a.join(' ')

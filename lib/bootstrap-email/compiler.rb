@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   class Compiler
     attr_accessor :type, :doc, :premailer
