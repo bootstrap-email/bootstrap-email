@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   class SassCache
     SASS_DIR = File.expand_path('../../core', __dir__)

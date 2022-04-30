@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveSupport.on_load(:action_mailer, { yield: true }) do |action_mailer|
   action_mailer.class_eval do # To support Rails less than 6
     # sit in the middle and compile the html

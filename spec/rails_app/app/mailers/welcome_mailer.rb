@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WelcomeMailer < ApplicationMailer
   def welcome_email(greeting)
     @greeting = greeting

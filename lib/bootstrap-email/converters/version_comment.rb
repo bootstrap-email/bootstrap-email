@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   module Converter
     class VersionComment < Base
