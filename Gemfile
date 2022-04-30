@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gemspec
 gem 'byebug', require: true
 gem 'rspec'
+gem 'rubocop'
 
 rails_version = ENV.fetch('ACTION_MAILER_VERSION', '6')
 if rails_version == 'master'
