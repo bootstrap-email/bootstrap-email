@@ -1,3 +1,6 @@
+AllCops:
+  NewCops: enable
+
 Style/Documentation:
   Enabled: false
 Style/RedundantBegin:
