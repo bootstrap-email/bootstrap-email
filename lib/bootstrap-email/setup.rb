@@ -11,7 +11,7 @@ module BootstrapEmail
       @config
     end
 
-    def configure(&proc)
+    def configure
       @config ||= BootstrapEmail::Config.new
       yield @config
     end

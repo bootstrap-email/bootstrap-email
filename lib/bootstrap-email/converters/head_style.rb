@@ -8,12 +8,11 @@ module BootstrapEmail
       private
 
       def bootstrap_email_head
-        html_string = <<-INLINE
+        <<-HTML
           <style type="text/css">
             #{purged_css_from_head}
           </style>
-        INLINE
-        html_string
+        HTML
       end
 
       def purged_css_from_head

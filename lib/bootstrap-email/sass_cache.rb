@@ -22,9 +22,7 @@ module BootstrapEmail
 
     def compile
       cache_path = "#{cache_dir}/#{checksum}/#{type}.css"
-      unless cached?(cache_path)
-        compile_and_cache_scss(cache_path)
-      end
+      compile_and_cache_scss(cache_path) unless cached?(cache_path)
       File.read(cache_path)
     end
 
@@ -56,9 +54,7 @@ module BootstrapEmail
       css = SassC::Engine.new(file, style: style).render
       FileUtils.mkdir_p("#{cache_dir}/#{checksum}") unless File.directory?("#{cache_dir}/#{checksum}")
       File.write(cache_path, css)
-      if BootstrapEmail.config.sass_log_enabled?
-        puts "New css file cached for #{type}"
-      end
+      puts "New css file cached for #{type}" if BootstrapEmail.config.sass_log_enabled?
     end
   end
 end

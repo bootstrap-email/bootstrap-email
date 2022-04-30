@@ -1,4 +1,4 @@
-ActiveSupport.on_load(:action_mailer, {yield: true}) do |action_mailer|
+ActiveSupport.on_load(:action_mailer, { yield: true }) do |action_mailer|
   action_mailer.class_eval do # To support Rails less than 6
     # sit in the middle and compile the html
     def bootstrap_mail(*args, &block)
@@ -10,7 +10,7 @@ ActiveSupport.on_load(:action_mailer, {yield: true}) do |action_mailer|
       end
       mail_message
     end
-    alias bootstrap_email bootstrap_mail
-    alias make_bootstrap_mail bootstrap_mail
+    alias_method :bootstrap_email, :bootstrap_mail
+    alias_method :make_bootstrap_mail, :bootstrap_mail
   end
 end

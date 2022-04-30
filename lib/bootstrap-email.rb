@@ -12,9 +12,7 @@ begin
   require 'rails'
 rescue LoadError; end
 
-if defined?(Rails)
-  require 'action_mailer'
-end
+require 'action_mailer' if defined?(Rails)
 
 require_relative 'bootstrap-email/config'
 require_relative 'bootstrap-email/setup'
