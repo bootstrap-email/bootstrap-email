@@ -1,4 +1,7 @@
 Style/Documentation:
   Enabled: false
+Style/RedundantBegin:
+  Enabled: false
+
 Layout/LineLength:
   Max: 150

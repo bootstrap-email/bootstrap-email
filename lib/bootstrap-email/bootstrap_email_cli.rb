@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../bootstrap-email'
 require 'optparse'
 
@@ -57,9 +59,9 @@ if input
 elsif ARGV.any?
   # Executed via command line or shell script
   input = ARGV.shift
-elsif !STDIN.tty?
+elsif !$stdin.tty?
   # Called in piped command
-  input = STDIN.read
+  input = $stdin.read
   options[:type] = :string
 else
   # Running just the blank command to compile all files in directory containing .html
@@ -74,16 +76,16 @@ if input
       next unless File.file?(path)
 
       puts "Compiling file #{path}"
-      compiled = BootstrapEmail::Compiler.new(path, type: :file, options: {config_path: options[:config]}).perform_full_compile
+      compiled = BootstrapEmail::Compiler.new(path, type: :file, options: { config_path: options[:config] }).perform_full_compile
       destination = options[:destination].chomp('/*')
       FileUtils.mkdir_p("#{Dir.pwd}/#{destination}")
       File.write(File.expand_path("#{destination}/#{path.split('/').last}", Dir.pwd), compiled)
     end
   when :file
     path = File.expand_path(input, Dir.pwd)
-    puts BootstrapEmail::Compiler.new(path, type: :file, options: {config_path: options[:config], sass_log_enabled: false}).perform_full_compile
+    puts BootstrapEmail::Compiler.new(path, type: :file, options: { config_path: options[:config], sass_log_enabled: false }).perform_full_compile
   when :string
-    puts BootstrapEmail::Compiler.new(input, options: {config_path: options[:config], sass_log_enabled: false}).perform_full_compile
+    puts BootstrapEmail::Compiler.new(input, options: { config_path: options[:config], sass_log_enabled: false }).perform_full_compile
   end
 else
   puts opts
