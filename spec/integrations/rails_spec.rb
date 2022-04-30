@@ -5,8 +5,7 @@ require_relative '../spec_helper'
 describe 'ActionMailer#bootstrap_mail' do
   it 'builds the email without failing' do
     BootstrapEmail.configure do |config|
-      config.sass_email_location = File.expand_path('../rails_app/app/assets/stylesheets/bootstrap-email.config.scss',
-                                                    __dir__)
+      config.sass_email_location = File.expand_path('../rails_app/app/assets/stylesheets/bootstrap-email.config.scss', __dir__)
       config.sass_load_paths = [File.expand_path('../rails_app/app/assets/stylesheets', __dir__)]
     end
     WelcomeMailer.welcome_email('world').deliver_now
