@@ -92,6 +92,7 @@ module BootstrapEmail
     def finalize_document!
       html = doc.to_html(encoding: 'US-ASCII')
       BootstrapEmail::Converter::SupportUrlTokens.replace(html)
+      BootstrapEmail::Converter::EnsureDoctype.replace(html)
       BootstrapEmail::Converter::ForceEncoding.replace(html)
       BootstrapEmail::Converter::BeautifyHTML.replace(html)
       case type
