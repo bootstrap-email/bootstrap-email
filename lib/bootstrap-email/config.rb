@@ -6,7 +6,7 @@ module BootstrapEmail
                 :sass_head_location,  # path to head sass file
                 :sass_load_paths,     # array of directories for loading sass imports
                 :sass_cache_location, # path to tmp folder for sass cache
-                :sass_log_enabled    # turn on or off sass log when caching new sass
+                :sass_log_enabled     # turn on or off sass log when caching new sass
 
     def load_options(options)
       file = File.expand_path('bootstrap-email.config.rb', Dir.pwd)
