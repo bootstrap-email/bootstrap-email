@@ -6,5 +6,10 @@ Style/Documentation:
 Style/RedundantBegin:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 40
+
 Layout/LineLength:
-  Max: 150
+  Max: 200

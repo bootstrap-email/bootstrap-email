@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sassc', '~> 2.1'
 
   s.required_ruby_version = '>= 2.0'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end
