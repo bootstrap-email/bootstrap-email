@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   module Converter
     class Base
       attr_reader :doc
+
       def initialize(doc)
         @doc = doc
         @cached_templates = {}

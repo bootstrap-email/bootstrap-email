@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapEmail
   class Erb
     def self.template(path, locals_hash = {})
