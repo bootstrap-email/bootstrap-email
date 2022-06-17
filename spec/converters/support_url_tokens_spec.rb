@@ -21,7 +21,7 @@ RSpec.describe BootstrapEmail::Converter::SupportUrlTokens do
       expect(html.scan('<a href="{{ some_code_here }}">Link</a>').one?).to eq(true)
     end
 
-    it 'supports {{ tokens before, after, and between in src and hrefs' do
+    it 'supports {{ multiple tokens before, after, and between in src and hrefs' do
       html = <<~HTML
         <html>
           <head></head>
@@ -29,6 +29,7 @@ RSpec.describe BootstrapEmail::Converter::SupportUrlTokens do
             <img src="https://example.com/{{ some_code_here }}">
             <a href="{{ some_code_here }}/example/com">Link</a>
             <img src="https://example.com/{{ some_code_here }}/example/com">
+            <img src="https://{{ some_code_here }}.com/{{ some_code_here }}/example/com">
           </body>
         </html>
       HTML
@@ -38,6 +39,7 @@ RSpec.describe BootstrapEmail::Converter::SupportUrlTokens do
       expect(html.scan('<img src="https://example.com/{{ some_code_here }}">').one?).to eq(true)
       expect(html.scan('<a href="{{ some_code_here }}/example/com">Link</a>').one?).to eq(true)
       expect(html.scan('<img src="https://example.com/{{ some_code_here }}/example/com">').one?).to eq(true)
+      expect(html.scan('<img src="https://{{ some_code_here }}.com/{{ some_code_here }}/example/com">').one?).to eq(true)
     end
   end
 end
