@@ -13,13 +13,13 @@ body:
       label: How are you compiling?
       description: 'For example: Rails, Ruby, CLI, Online Editor'
     validations:
-      required: true  
-  - type: textarea
-    attributes:
-      label: Describe your issue
-      description: Describe the problem you're seeing, any important steps to reproduce and what behavior you expect instead.
+      required: true
   - type: textarea
     attributes:
       label: Code example
       description: Please provide a code example.
+  - type: textarea
+    attributes:
+      label: Describe your issue
+      description: Describe the problem you're seeing, any important steps to reproduce and what behavior you expect instead.
 
