@@ -4,14 +4,15 @@ module BootstrapEmail
   class SassCache
     SASS_DIR = File.expand_path('../../core', __dir__)
 
-    def self.compile(type, style: :compressed)
-      new(type, style).compile
+    def self.compile(type, config, style: :compressed)
+      new(type, config, style).compile
     end
 
-    attr_accessor :type, :style, :file_path, :config_file, :checksum
+    attr_accessor :type, :config, :style, :file_path, :config_file, :checksum
 
-    def initialize(type, style)
+    def initialize(type, config, style)
       self.type = type
+      self.config = config
       self.style = style
       self.file_path = "#{SASS_DIR}/#{type}"
       self.config_file = load_config
@@ -19,7 +20,7 @@ module BootstrapEmail
     end
 
     def cache_dir
-      BootstrapEmail.config.sass_cache_location
+      config.sass_cache_location
     end
 
     def compile
@@ -31,7 +32,7 @@ module BootstrapEmail
     private
 
     def load_config
-      path = BootstrapEmail.config.sass_location_for(type: type)
+      path = config.sass_location_for(type: type)
       replace_config(File.read(path)) if path
     end
 
@@ -41,7 +42,7 @@ module BootstrapEmail
 
     def checksum_files
       checksums = config_file.nil? ? [] : [Digest::SHA1.hexdigest(config_file)]
-      BootstrapEmail.config.sass_load_paths.each do |load_path|
+      config.sass_load_paths.each do |load_path|
         Dir.glob(File.join(load_path, '**', '*.scss'), base: __dir__).each do |path|
           checksums << Digest::SHA1.file(File.expand_path(path, __dir__)).hexdigest
         end
@@ -59,7 +60,7 @@ module BootstrapEmail
       css = SassC::Engine.new(file, style: style).render
       FileUtils.mkdir_p("#{cache_dir}/#{checksum}") unless File.directory?("#{cache_dir}/#{checksum}")
       File.write(cache_path, css)
-      puts "New css file cached for #{type}" if BootstrapEmail.config.sass_log_enabled?
+      puts "New css file cached for #{type}" if config.sass_log_enabled?
     end
   end
 end

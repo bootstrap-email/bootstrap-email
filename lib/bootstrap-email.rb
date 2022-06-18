@@ -16,6 +16,7 @@ rescue LoadError; end
 
 require 'action_mailer' if defined?(Rails)
 
+require_relative 'bootstrap-email/config_store'
 require_relative 'bootstrap-email/config'
 require_relative 'bootstrap-email/setup'
 require_relative 'bootstrap-email/erb'

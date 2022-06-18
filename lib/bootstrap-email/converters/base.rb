@@ -10,8 +10,8 @@ module BootstrapEmail
         @cached_templates = {}
       end
 
-      def self.build(doc)
-        new(doc).build
+      def self.build(doc, *args)
+        new(doc).build(*args)
       end
 
       private
