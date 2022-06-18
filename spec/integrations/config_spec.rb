@@ -9,7 +9,7 @@ describe 'BootstrapEmail::Compiler#perform_full_compile' do
     HTML
 
     sass_string = <<~SCSS
-      // Override all primary color to black
+      // Override primary color to black
       $primary: #000000;
 
       //= @import bootstrap-email;
