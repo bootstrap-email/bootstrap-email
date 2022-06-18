@@ -3,7 +3,8 @@
 module BootstrapEmail
   module Converter
     class HeadStyle < Base
-      def build
+      def build(config)
+        @config = config
         doc.at_css('head').add_child(bootstrap_email_head)
       end
 
@@ -18,7 +19,7 @@ module BootstrapEmail
       end
 
       def purged_css_from_head
-        default, custom = BootstrapEmail::SassCache.compile('bootstrap-head').split('/*! allow_purge_after */')
+        default, custom = BootstrapEmail::SassCache.compile('bootstrap-head', @config).split('/*! allow_purge_after */')
         # get each CSS declaration
         custom.scan(/\w*\.[\w\-]*[\s\S\n]+?(?=})}{1}/).each do |group|
           # get the first class for each comma separated CSS declaration

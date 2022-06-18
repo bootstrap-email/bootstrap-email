@@ -2,10 +2,10 @@
 
 module BootstrapEmail
   class Compiler
-    attr_accessor :type, :doc, :premailer
+    attr_accessor :type, :config, :doc, :premailer
 
     def initialize(input, type: :string, options: {})
-      BootstrapEmail.load_options(options)
+      self.config = BootstrapEmail::Config.new(options)
       self.type = type
       case type
       when :rails
@@ -41,11 +41,11 @@ module BootstrapEmail
     end
 
     def sass_load_paths
-      SassC.load_paths << BootstrapEmail.config.sass_load_paths
+      SassC.load_paths << config.sass_load_paths
     end
 
     def build_premailer_doc(html)
-      css_string = BootstrapEmail::SassCache.compile('bootstrap-email', style: :expanded)
+      css_string = BootstrapEmail::SassCache.compile('bootstrap-email', config, style: :expanded)
       self.premailer = Premailer.new(
         html,
         with_html_string: true,
@@ -86,7 +86,7 @@ module BootstrapEmail
     end
 
     def configure_html!
-      BootstrapEmail::Converter::HeadStyle.build(doc)
+      BootstrapEmail::Converter::HeadStyle.build(doc, config)
       BootstrapEmail::Converter::AddMissingMetaTags.build(doc)
       BootstrapEmail::Converter::VersionComment.build(doc)
     end

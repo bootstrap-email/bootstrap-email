@@ -2,25 +2,20 @@
 
 module BootstrapEmail
   class Config
-    attr_writer :sass_email_location, # path to main sass file
-                :sass_head_location,  # path to head sass file
-                :sass_load_paths,     # array of directories for loading sass imports
-                :sass_cache_location, # path to tmp folder for sass cache
-                :sass_log_enabled     # turn on or off sass log when caching new sass
-
-    def load_options(options)
+    def initialize(options)
+      @config_store = BootstrapEmail::ConfigStore.new(options)
       file = File.expand_path('bootstrap-email.config.rb', Dir.pwd)
       if options[:config_path]
         require_relative options[:config_path]
       elsif File.exist?(file)
         require_relative file
       end
-      options.each { |name, value| instance_variable_set("@#{name}", value) }
     end
 
     def sass_location_for(type:)
-      ivar = instance_variable_get("@sass_#{type.sub('bootstrap-', '')}_location")
-      return ivar if ivar
+      ivar_name = "sass_#{type.sub('bootstrap-', '')}_location"
+      option = config_for_option(ivar_name)
+      return option unless option.nil?
 
       lookup_locations = ["#{type}.scss", "app/assets/stylesheets/#{type}.scss"]
       locations = lookup_locations.map { |location| File.expand_path(location, Dir.pwd) }.select { |location| File.exist?(location) }
@@ -29,24 +24,36 @@ module BootstrapEmail
 
     def sass_load_paths
       paths_array = [SassCache::SASS_DIR]
-      @sass_load_paths ||= []
-      paths_array.concat(@sass_load_paths)
+      custom_load_paths = config_for_option(:sass_load_paths) || []
+      paths_array.concat(custom_load_paths)
     end
 
     def sass_cache_location
-      @sass_cache_location ||= begin
-        if defined?(::Rails) && ::Rails.root
-          ::Rails.root.join('tmp', 'cache', 'bootstrap-email', '.sass-cache')
-        elsif File.writable?(Dir.pwd)
-          File.join(Dir.pwd, '.sass-cache', 'bootstrap-email')
-        else
-          File.join(Dir.tmpdir, '.sass-cache', 'bootstrap-email')
-        end
+      option = config_for_option(:sass_cache_location)
+      return option unless option.nil?
+
+      if defined?(::Rails) && ::Rails.root
+        ::Rails.root.join('tmp', 'cache', 'bootstrap-email', '.sass-cache')
+      elsif File.writable?(Dir.pwd)
+        File.join(Dir.pwd, '.sass-cache', 'bootstrap-email')
+      else
+        File.join(Dir.tmpdir, '.sass-cache', 'bootstrap-email')
       end
     end
 
     def sass_log_enabled?
-      defined?(@sass_log_enabled) ? @sass_log_enabled : true
+      option = config_for_option(:sass_log_enabled)
+      option.nil? ? true : option
+    end
+
+    private
+
+    def config_for_option(option)
+      if @config_store.did_set?(option)
+        @config_store.public_send(option)
+      else
+        BootstrapEmail.static_config.public_send(option)
+      end
     end
   end
 end
