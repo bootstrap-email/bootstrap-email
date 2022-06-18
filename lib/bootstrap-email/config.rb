@@ -2,7 +2,7 @@
 
 module BootstrapEmail
   class Config
-    def initialize(options)
+    def initialize(options = {})
       @config_store = BootstrapEmail::ConfigStore.new(options)
       file = File.expand_path('bootstrap-email.config.rb', Dir.pwd)
       if options[:config_path]

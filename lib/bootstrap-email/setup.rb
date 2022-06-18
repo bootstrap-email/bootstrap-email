@@ -15,7 +15,7 @@ module BootstrapEmail
     end
 
     def clear_sass_cache!
-      FileUtils.rm_rf(static_config.sass_cache_location)
+      FileUtils.rm_rf(BootstrapEmail::Config.new.sass_cache_location)
     end
   end
 end
