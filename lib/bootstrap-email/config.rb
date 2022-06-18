@@ -12,14 +12,20 @@ module BootstrapEmail
       end
     end
 
-    def sass_location_for(type:)
-      ivar_name = "sass_#{type.sub('bootstrap-', '')}_location"
-      option = config_for_option(ivar_name)
-      return option unless option.nil?
+    def sass_string_for(type:)
+      # look for custom sass string
+      sub_type = type.sub('bootstrap-', '')
+      string = config_for_option("sass_#{sub_type}_string")
+      return string unless string.nil?
 
+      # look for custom sass path
+      path = config_for_option("sass_#{sub_type}_location")
+      return File.read(path) unless path.nil?
+
+      # look up and return others if found in default locations
       lookup_locations = ["#{type}.scss", "app/assets/stylesheets/#{type}.scss"]
       locations = lookup_locations.map { |location| File.expand_path(location, Dir.pwd) }.select { |location| File.exist?(location) }
-      locations.first if locations.any?
+      File.read(locations.first) if locations.any?
     end
 
     def sass_load_paths

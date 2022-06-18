@@ -8,19 +8,16 @@ module BootstrapEmail
       new(type, config, style).compile
     end
 
-    attr_accessor :type, :config, :style, :file_path, :config_file, :checksum
+    attr_accessor :type, :config, :style, :file_path, :sass_config, :checksum, :cache_dir
 
     def initialize(type, config, style)
       self.type = type
       self.config = config
       self.style = style
       self.file_path = "#{SASS_DIR}/#{type}"
-      self.config_file = load_config
+      self.sass_config = load_sass_config
       self.checksum = checksum_files
-    end
-
-    def cache_dir
-      config.sass_cache_location
+      self.cache_dir = config.sass_cache_location
     end
 
     def compile
@@ -31,17 +28,17 @@ module BootstrapEmail
 
     private
 
-    def load_config
-      path = config.sass_location_for(type: type)
-      replace_config(File.read(path)) if path
+    def load_sass_config
+      sass_string = config.sass_string_for(type: type)
+      replace_config(sass_string) if sass_string
     end
 
-    def replace_config(config_file)
-      config_file.gsub("//= @import #{type};", "@import '#{file_path}';")
+    def replace_config(sass_config)
+      sass_config.gsub("//= @import #{type};", "@import '#{file_path}';")
     end
 
     def checksum_files
-      checksums = config_file.nil? ? [] : [Digest::SHA1.hexdigest(config_file)]
+      checksums = sass_config.nil? ? [] : [Digest::SHA1.hexdigest(sass_config)]
       config.sass_load_paths.each do |load_path|
         Dir.glob(File.join(load_path, '**', '*.scss'), base: __dir__).each do |path|
           checksums << Digest::SHA1.file(File.expand_path(path, __dir__)).hexdigest
@@ -56,7 +53,7 @@ module BootstrapEmail
     end
 
     def compile_and_cache_scss(cache_path)
-      file = config_file || File.read("#{file_path}.scss")
+      file = sass_config || File.read("#{file_path}.scss")
       css = SassC::Engine.new(file, style: style).render
       FileUtils.mkdir_p("#{cache_dir}/#{checksum}") unless File.directory?("#{cache_dir}/#{checksum}")
       File.write(cache_path, css)
