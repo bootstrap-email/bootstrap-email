@@ -34,4 +34,18 @@ describe 'ActionMailer#bootstrap_mail' do
     expect(text).to be_present
     expect(text).to eq 'Hello world'
   end
+
+  it 'turns off support for text parts in emails' do
+    BootstrapEmail.configure do |config|
+      config.generate_rails_text_part = false
+    end
+    WelcomeMailer.welcome_email('world').deliver_now
+
+    mail = ActionMailer::Base.deliveries.last
+    expect(mail).to be_present
+    html = mail.html_part.body.to_s
+    expect(html).to be_present
+    text = mail.text_part
+    expect(text).to be_nil
+  end
 end
