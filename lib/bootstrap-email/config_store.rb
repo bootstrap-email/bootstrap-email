@@ -13,20 +13,21 @@ module BootstrapEmail
       :generate_rails_text_part # boolean for whether or not to generate the text part in rails, default: true
     ].freeze
 
-    attr_reader(*OPTIONS)
-
-    OPTIONS.each do |option|
-      define_method("#{option}=") do |value|
-        instance_variable_set("@#{option}", value)
-      end
-    end
+    attr_accessor(*OPTIONS)
 
     def initialize(options = [])
+      defaults
       options.each { |name, value| instance_variable_set("@#{name}", value) if OPTIONS.include?(name) }
     end
 
     def did_set?(option)
       instance_variable_defined?("@#{option}")
+    end
+
+    private
+
+    def defaults
+      self.generate_rails_text_part = true
     end
   end
 end

@@ -33,8 +33,8 @@ module BootstrapEmail
         compiled = bootstrap_email.perform_multipart_compile
 
         part = Mail::Part.new(content_type: 'multipart/alternative')
-        part.add_part(generate_text_part(compiled[:text]))
-        part.add_part(generate_html_part(compiled[:html]))
+        part.add_part(build_text_part(compiled[:text]))
+        part.add_part(build_html_part(compiled[:html]))
 
         part
       end
