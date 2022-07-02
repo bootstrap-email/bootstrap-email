@@ -1,4 +1,4 @@
-name: Rails
+name: ROR
 
 on:
   push:
