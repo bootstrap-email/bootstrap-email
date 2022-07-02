@@ -5,11 +5,7 @@ ActiveSupport.on_load(:action_mailer, { yield: true }) do |action_mailer|
     # sit in the middle and compile the html
     def bootstrap_mail(*args, &block)
       mail_message = mail(*args, &block)
-      # if you override the #mail method in you ApplicationMailer you may intentionally return something other than a mail message
-      if mail_message
-        bootstrap = BootstrapEmail::Compiler.new(mail_message, type: :rails)
-        bootstrap.perform_full_compile
-      end
+      BootstrapEmail::Rails::Hook.new(mail_message).perform if mail_message
       mail_message
     end
     alias_method :bootstrap_email, :bootstrap_mail

@@ -8,29 +8,38 @@ module BootstrapEmail
       self.config = BootstrapEmail::Config.new(options)
       self.type = type
       case type
-      when :rails
-        @mail = input
-        html = (@mail.html_part || @mail).body.raw_source
       when :string
         html = input
       when :file
         html = File.read(input)
       end
-      html = add_layout!(html)
+      html = add_layout(html)
       sass_load_paths
       build_premailer_doc(html)
     end
 
-    def perform_full_compile
-      compile_html!
-      inline_css!
-      configure_html!
-      finalize_document!
+    def perform_multipart_compile
+      {
+        text: perform_text_compile,
+        html: perform_html_compile
+      }
     end
+
+    def perform_text_compile
+      plain_text
+    end
+
+    def perform_html_compile
+      compile_html
+      inline_css
+      configure_html
+      finalize_document
+    end
+    alias perform_full_compile perform_html_compile
 
     private
 
-    def add_layout!(html)
+    def add_layout(html)
       document = Nokogiri::HTML(html)
       return html unless document.at_css('head').nil?
 
@@ -57,7 +66,7 @@ module BootstrapEmail
       self.doc = premailer.doc
     end
 
-    def compile_html!
+    def compile_html
       BootstrapEmail::Converter::Body.build(doc)
       BootstrapEmail::Converter::Block.build(doc)
 
@@ -81,28 +90,26 @@ module BootstrapEmail
       BootstrapEmail::Converter::Table.build(doc)
     end
 
-    def inline_css!
+    def inline_css
       premailer.to_inline_css
     end
 
-    def configure_html!
+    def plain_text
+      premailer.to_plain_text
+    end
+
+    def configure_html
       BootstrapEmail::Converter::HeadStyle.build(doc, config)
       BootstrapEmail::Converter::AddMissingMetaTags.build(doc)
       BootstrapEmail::Converter::VersionComment.build(doc)
     end
 
-    def finalize_document!
-      html = doc.to_html(encoding: 'US-ASCII')
-      BootstrapEmail::Converter::SupportUrlTokens.replace(html)
-      BootstrapEmail::Converter::EnsureDoctype.replace(html)
-      BootstrapEmail::Converter::ForceEncoding.replace(html)
-      BootstrapEmail::Converter::BeautifyHTML.replace(html)
-      case type
-      when :rails
-        (@mail.html_part || @mail).body = html
-        @mail
-      when :string, :file
-        html
+    def finalize_document
+      doc.to_html(encoding: 'US-ASCII').tap do |html|
+        BootstrapEmail::Converter::SupportUrlTokens.replace(html)
+        BootstrapEmail::Converter::EnsureDoctype.replace(html)
+        BootstrapEmail::Converter::ForceEncoding.replace(html)
+        BootstrapEmail::Converter::BeautifyHTML.replace(html)
       end
     end
   end
