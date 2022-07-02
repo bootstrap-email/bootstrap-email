@@ -1,4 +1,4 @@
-name: ROR
+name: 🛤 Ruby on Rails
 
 on:
   push:
@@ -28,3 +28,5 @@ jobs:
         ACTION_MAILER_VERSION: ${{ matrix.rails-version }}
     - name: Run tests
       run: bundle exec rspec
+      env:
+        ACTION_MAILER_VERSION: ${{ matrix.rails-version }}
