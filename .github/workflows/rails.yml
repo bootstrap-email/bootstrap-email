@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
+    - name: Set up Ruby & Rails
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
     # uses: ruby/setup-ruby@v1
@@ -24,6 +24,7 @@ jobs:
       with:
         ruby-version: '2.7'
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      env:
         ACTION_MAILER_VERSION: ${{ matrix.rails-version }}
     - name: Run tests
       run: bundle exec rspec
