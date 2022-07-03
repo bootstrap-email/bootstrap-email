@@ -2,31 +2,37 @@
 
 module BootstrapEmail
   module Rails
-    class Hook
+    class MailBuilder
       attr_reader :mail, :bootstrap_email
 
-      def initialize(mail)
-        @mail = mail
-      end
-
-      def perform
-        @bootstrap_email = BootstrapEmail::Compiler.new(html_part, type: :string)
-        build_mail_parts
+      def self.perform(mail)
+        new(mail) if mail
       end
 
       private
 
-      def build_mail_parts
+      def initialize(mail)
+        @mail = mail
+        @bootstrap_email = BootstrapEmail::Compiler.new(html_part, type: :string)
+        perform
+      end
+
+      def perform
+        add_mail_parts
+        mail
+      end
+
+      def html_part
+        (mail.html_part || mail).body.raw_source
+      end
+
+      def add_mail_parts
         if BootstrapEmail.static_config.generate_rails_text_part
           mail.parts << build_alternative_part
         else
           html = bootstrap_email.perform_full_compile
           mail.parts << build_html_part(html)
         end
-      end
-
-      def html_part
-        (mail.html_part || mail).body.raw_source
       end
 
       def build_alternative_part

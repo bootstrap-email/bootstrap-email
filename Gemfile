@@ -16,5 +16,5 @@ if rails_version == 'master'
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
 else
   gem 'rails', "~> #{rails_version}"
-  gem 'sprockets-rails'
+  gem 'sprockets-rails' if rails_version.to_i >= 7
 end

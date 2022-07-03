@@ -19,21 +19,23 @@ module BootstrapEmail
     end
 
     def perform_multipart_compile
-      {
+      @perform_multipart_compile ||= {
         text: perform_text_compile,
         html: perform_html_compile
       }
     end
 
     def perform_text_compile
-      plain_text
+      @perform_text_compile ||= plain_text
     end
 
     def perform_html_compile
-      compile_html
-      inline_css
-      configure_html
-      finalize_document
+      @perform_html_compile ||= begin
+        compile_html
+        inline_css
+        configure_html
+        finalize_document
+      end
     end
     alias perform_full_compile perform_html_compile
 
