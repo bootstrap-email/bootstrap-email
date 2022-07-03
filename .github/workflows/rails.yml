@@ -1,4 +1,4 @@
-name: 💎 Ruby
+name: 🚂 Ruby on Rails
 
 on:
   push:
@@ -12,14 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.5', '2.6', '2.7', '3.0']
+        rails-version: ['5.0', '5.1', '5.2', '6.0', '6.1', '7.0']
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
+    - name: Set up Ruby & Rails
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby-version }}
+        ruby-version: '2.7'
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      env:
+        ACTION_MAILER_VERSION: ${{ matrix.rails-version }}
     - name: Run tests
       run: bundle exec rspec
+      env:
+        ACTION_MAILER_VERSION: ${{ matrix.rails-version }}

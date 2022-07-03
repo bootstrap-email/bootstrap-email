@@ -112,4 +112,15 @@ RSpec.describe BootstrapEmail::Compiler do
       expect(output.exclude?('content="text/html; charset=US-ASCII"')).to be true
     end
   end
+
+  describe '#perform_multipart_compile' do
+    it 'compiles a plain text and html email' do
+      output = BootstrapEmail::Compiler.new('<body>Hello there <a href="https://bootstrapemail.com">here is a link</a></body>').perform_multipart_compile
+      text = output[:text]
+      html = output[:html]
+      expect(text).to eq 'Hello there here is a link ( https://bootstrapemail.com )'
+      expect(text).not_to include '<a href="https://bootstrapemail.com"'
+      expect(html).to include '<a href="https://bootstrapemail.com"'
+    end
+  end
 end

@@ -29,4 +29,5 @@ Dir[File.join(__dir__, 'bootstrap-email/converters', '*.rb')].each { |file| requ
 if defined?(Rails)
   require_relative 'bootstrap-email/rails/action_mailer'
   require_relative 'bootstrap-email/rails/engine'
+  require_relative 'bootstrap-email/rails/mail_builder'
 end

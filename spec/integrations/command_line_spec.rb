@@ -23,6 +23,12 @@ describe 'bootstrap-email' do
       .to_stdout_from_any_process
   end
 
+  it 'builds the email from a string and prints plain text' do
+    expect { system %(bootstrap-email -t -s '<a href="#" class="btn btn-primary">A very basic little button</a>') }
+      .to output("A very basic little button ( # )\n")
+      .to_stdout_from_any_process
+  end
+
   it 'builds the email from a file and does not print sass log' do
     BootstrapEmail.configure do |config|
       config.sass_cache_location = File.join(Dir.pwd, '.sass-cache', 'bootstrap-email')

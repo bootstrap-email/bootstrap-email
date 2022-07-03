@@ -4,6 +4,7 @@ require_relative 'boot'
 
 require 'action_mailer/railtie'
 require 'action_view/railtie'
+require 'action_controller/railtie'
 require 'sprockets/railtie'
 require 'rails/test_unit/railtie'
 
