@@ -6,21 +6,20 @@ module BootstrapEmail
       attr_reader :mail, :bootstrap_email
 
       def self.perform(mail)
-        new(mail) if mail
+        new(mail).perform if mail
       end
-
-      private
 
       def initialize(mail)
         @mail = mail
         @bootstrap_email = BootstrapEmail::Compiler.new(html_part, type: :string)
-        perform
       end
 
       def perform
         add_mail_parts
         mail
       end
+
+      private
 
       def html_part
         (mail.html_part || mail).body.raw_source
