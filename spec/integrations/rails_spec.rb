@@ -27,10 +27,10 @@ describe 'ActionMailer#bootstrap_mail' do
 
     mail = ActionMailer::Base.deliveries.last
     expect(mail).to be_present
-    html = mail.html_part.body.to_s
+    html = mail.html_part.decoded
     expect(html).to be_present
     expect(html).to include(%(<p style="line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align="left">Hello world</p>))
-    text = mail.text_part.body
+    text = mail.text_part.decoded
     expect(text).to be_present
     expect(text).to eq 'Hello world'
   end
@@ -43,8 +43,9 @@ describe 'ActionMailer#bootstrap_mail' do
 
     mail = ActionMailer::Base.deliveries.last
     expect(mail).to be_present
-    html = mail.html_part.body.to_s
+    html = mail.body.to_s
     expect(html).to be_present
+    expect(mail.content_type).to include('text/html')
     text = mail.text_part
     expect(text).to be_nil
   end
