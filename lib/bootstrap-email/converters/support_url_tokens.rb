@@ -4,13 +4,15 @@ module BootstrapEmail
   module Converter
     class SupportUrlTokens < Base
       OPEN_BRACKETS = CGI.escape('{{').freeze
+      OPEN_PERCENT = (CGI.escape('{') + '%').freeze
       CLOSE_BRACKETS = CGI.escape('}}').freeze
+      CLOSE_PERCENT = ('%' + CGI.escape('}')).freeze
 
       def self.replace(html)
-        regex = /((href|src)=("|'))(.*?((#{Regexp.quote(OPEN_BRACKETS)}).*?(#{Regexp.quote(CLOSE_BRACKETS)})).*?)("|')/
+        regex = /((href|src)=("|'))(.*?((#{Regexp.quote(OPEN_BRACKETS)}|#{Regexp.quote(OPEN_PERCENT)}).*?(#{Regexp.quote(CLOSE_BRACKETS)}|#{Regexp.quote(CLOSE_PERCENT)})).*?)("|')/
         return unless regex.match?(html)
 
-        inner_regex = /((#{Regexp.quote(OPEN_BRACKETS)}).*?(#{Regexp.quote(CLOSE_BRACKETS)}))/
+        inner_regex = /((#{Regexp.quote(OPEN_BRACKETS)}|#{Regexp.quote(OPEN_PERCENT)}).*?(#{Regexp.quote(CLOSE_BRACKETS)}|#{Regexp.quote(CLOSE_PERCENT)}))/
 
         html.gsub!(regex) do |_match|
           start_text = Regexp.last_match(1)
