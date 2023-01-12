@@ -1,7 +1,10 @@
 @import 'scss/functions';
-@import 'scss/colors';
-@import 'scss/variables';
-@import 'scss/utilities';
+
+@import 'scss/variables/colors';
+@import 'scss/variables/general';
+@import 'scss/variables/buttons';
+@import 'scss/variables/utilities';
+
 @import 'scss/selectors_for_utils';
 @import 'scss/helper_groups';
 @import 'scss/reboot_email';
