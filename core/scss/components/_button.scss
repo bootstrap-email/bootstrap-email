@@ -21,10 +21,9 @@
   white-space: nowrap;
 }
 
-@each $theme in $btn-themes {
+@each $name, $theme in $btn-themes {
   .btn-#{$name} td {
     background-color: map-get($theme, "background-color");
-    border-color: map-get($theme, "border-color");
   }
   .btn-#{$name} td a {
     background-color: map-get($theme, "background-color");

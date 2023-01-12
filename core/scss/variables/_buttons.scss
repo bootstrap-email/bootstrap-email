@@ -23,7 +23,7 @@ $btn-border-radius-sm:        $border-radius-sm !default;
 $tmp-btn-themes: ();
 @each $name, $color in $all-colors {
   @if $name != "transparent" {
-    $tmp-btn-themes: map-merge($tmp-btn-themes, ($name: ("background-color": $color, "color": color-contrast($color), "border-color": transparent)));
+    $tmp-btn-themes: map-merge($tmp-btn-themes, ($name: ("background-color": $color, "color": color-contrast($color), "border-color": $color)));
     $tmp-btn-themes: map-merge($tmp-btn-themes, ("outline-#{$name}": ("background-color": transparent, "color": $color, "border-color": $color)));
   }
 }
