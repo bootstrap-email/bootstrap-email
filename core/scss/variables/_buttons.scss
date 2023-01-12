@@ -20,6 +20,22 @@ $btn-border-radius:           $border-radius !default;
 $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 
+
+/** Button Theme Structure Example
+ *
+ * $btn-themes: (
+ *   "primary": (
+ *     "background-color": blue,
+ *     "color": white,
+ *     "border-color": blue
+ *   ),
+ *   "outline-primary": (
+ *     "background-color": transparent,
+ *     "color": blue,
+ *     "border-color": blue
+ *   )
+ * )
+*/
 $tmp-btn-themes: ();
 @each $name, $color in $all-colors {
   @if $name != "transparent" {
@@ -27,4 +43,5 @@ $tmp-btn-themes: ();
     $tmp-btn-themes: map-merge($tmp-btn-themes, ("outline-#{$name}": ("background-color": transparent, "color": $color, "border-color": $color)));
   }
 }
+
 $btn-themes: $tmp-btn-themes !default;
