@@ -1,12 +1,8 @@
 //
 // This file will be placed in the head of the document and will not be inlined
 //
-@import 'scss/functions';
-@import 'scss/colors';
-@import 'scss/variables';
-@import 'scss/utilities';
-@import 'scss/selectors_for_utils';
-@import 'scss/helper_groups';
+@import 'scss/helpers/all';
+@import 'scss/variables/all';
 
 // Force base font in Outlook
 body, table, td {

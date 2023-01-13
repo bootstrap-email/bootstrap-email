@@ -21,30 +21,14 @@
   white-space: nowrap;
 }
 
-@each $name, $color in $all-colors {
-  @if $name != "transparent" {
-    .btn-#{$name} td {
-      background-color: $color;
-    }
-    .btn-#{$name} td a {
-      background-color: $color;
-      @include color-contrast($color);
-      border-color: $color;
-    }
+@each $name, $theme in $btn-themes {
+  .btn-#{$name} td {
+    background-color: map-get($theme, "background-color");
   }
-}
-
-@each $name, $color in $all-colors {
-  @if $name != "transparent" {
-    .btn-outline-#{$name} td {
-      background-color: transparent;
-      border-color: $color;
-    }
-    .btn-outline-#{$name} td a {
-      background-color: transparent;
-      border-color: $color;
-      color: $color;
-    }
+  .btn-#{$name} td a {
+    background-color: map-get($theme, "background-color");
+    color: map-get($theme, "color");
+    border-color: map-get($theme, "border-color");
   }
 }
 
