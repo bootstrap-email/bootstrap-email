@@ -1,3 +1,8 @@
+// Force base font in Outlook
+body, table, td {
+  font-family: $font-family-base !important;
+}
+
 // Forces Outlook.com to display emails at full width
 .ExternalClass {
   width: 100%;

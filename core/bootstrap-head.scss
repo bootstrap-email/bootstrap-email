@@ -4,17 +4,16 @@
 @import 'scss/helpers';
 @import 'scss/variables';
 
-// Import font family web font if specified
-@if $font-family-url {
-  // Media query to skip the import in outlook and prevent outlook Times New Roman issues
-  @media screen {
-    @import url($font-family-url);
+@if $font-faces {
+  @each $font-face in $font-faces {
+    // @font-face has the least quirks in email clients: https://www.litmus.com/blog/the-ultimate-guide-to-web-fonts
+    @font-face {
+      font-family: map-get($font-face, "font-family");
+      font-style: map-get($font-face, "font-style");
+      font-weight: map-get($font-face, "font-weight");
+      src: map-get($font-face, "src");
+    }
   }
-}
-
-// Force base font in Outlook
-body, table, td {
-  font-family: $font-family-base !important;
 }
 
 @import 'scss/reboot_head';
