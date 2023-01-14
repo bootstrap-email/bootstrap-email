@@ -1,0 +1,59 @@
+// Force base font in Outlook
+body, table, td {
+  font-family: $font-family-base !important;
+}
+
+// Forces Outlook.com to display emails at full width
+.ExternalClass {
+  width: 100%;
+}
+
+// Forces Outlook.com to display normal line spacing, here is more on that: http://www.emailonacid.com/forum/viewthread/43/
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+  line-height: 150%;
+}
+
+// Prevent Windows 10 Mail from underlining links. Styles for underlined links should be inlined
+a {
+  text-decoration: none;
+}
+
+// Inherit text color so color can be set on the body and inherited by children
+* {
+  color: inherit;
+}
+
+// Fix link colors set on automatic detection such as email addresses and phone numbers
+a[x-apple-data-detectors],
+u + #body a,
+#MessageViewBody a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+// Use a better rendering method when resizing images in Outlook IE.
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+// Prevent Outlook from adding extra spacing to tables.
+table:not([class^=s-]) {
+  font-family: $font-family-base;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  td {
+    border-spacing: 0px;
+    border-collapse: collapse;
+  }
+}

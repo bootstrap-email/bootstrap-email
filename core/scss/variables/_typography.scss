@@ -1,12 +1,26 @@
-$font-size-base:              16px !default;
-$font-weight-base:            normal !default;
-$font-family-sans-serif:      Helvetica, Arial, sans-serif !default;
-$font-family-base:            $font-family-sans-serif !default;
-$line-height-base:            1.5 !default;
-$headings-line-height:        1.2 !default;
-$headings-margin-top:         0 !default;
-$headings-margin-bottom:      0 !default;
-$headings-font-family:        null !default;
-$headings-font-weight:        500 !default;
-$headings-color:              null !default;
-$link-color:                  $primary !default;
+$font-size-base:         16px !default;
+$font-weight-base:       normal !default;
+$line-height-base:       1.5 !default;
+$headings-line-height:   1.2 !default;
+$headings-margin-top:    0 !default;
+$headings-margin-bottom: 0 !default;
+$headings-font-family:   null !default;
+$headings-font-weight:   500 !default;
+$headings-color:         null !default;
+$link-color:             $primary !default;
+
+/*
+**** Override the following variables to customize font or add web font ie: Google Fonts ****
+*/
+$font-family-base:       Helvetica, Arial, sans-serif !default;
+$font-faces:             null !default;
+// Example below:
+// $font-family-base: 'Anton', Helvetica, Arial, sans-serif;
+// $font-faces: (
+//   (
+//     "font-family": 'Anton',
+//     "font-style": normal,
+//     "font-weight": 400,
+//     "src": url(https://fonts.gstatic.com/s/anton/v23/1Ptgg87LROyAm3Kz-C8CSKlv.woff2) format('woff2')
+//   ),
+// );
