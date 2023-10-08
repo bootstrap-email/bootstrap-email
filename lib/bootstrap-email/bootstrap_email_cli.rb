@@ -42,7 +42,7 @@ parser = OptionParser.new do |opts|
     options[:config] = File.expand_path(v, Dir.pwd)
   end
 
-  opts.on('-t', '--text', 'Return the plain text version of the email.') do |v|
+  opts.on('-t', '--text', 'Return the plain text version of the email.') do |_v|
     options[:plain_text] = true
   end
 
