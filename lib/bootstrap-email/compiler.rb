@@ -52,7 +52,11 @@ module BootstrapEmail
     end
 
     def sass_load_paths
-      SassC.load_paths << config.sass_load_paths
+      BootstrapEmail.config.sass_load_paths.each do |path|
+        SassC.load_paths << path
+      end
+
+      return SassC.load_paths
     end
 
     def build_premailer_doc(html)
