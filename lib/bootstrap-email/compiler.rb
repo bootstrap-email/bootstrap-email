@@ -14,7 +14,6 @@ module BootstrapEmail
         html = File.read(input)
       end
       html = add_layout(html)
-      sass_load_paths
       build_premailer_doc(html)
     end
 
@@ -49,10 +48,6 @@ module BootstrapEmail
         File.expand_path('../../core/layout.html.erb', __dir__),
         contents: html
       )
-    end
-
-    def sass_load_paths
-      SassC.load_paths << config.sass_load_paths
     end
 
     def build_premailer_doc(html)

@@ -6,7 +6,6 @@ RSpec.describe BootstrapEmail::SassCache do
   describe '#compile' do
     it 'is thread safe' do
       config = BootstrapEmail::Config.new
-      SassC.load_paths << config.sass_load_paths
 
       10.times do
         threads = []
