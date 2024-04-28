@@ -4,7 +4,9 @@
 @mixin background-color-util($class) {
   #{$class} {
     &,
-    & > tbody > tr > td {
+    & > tbody > tr > td,
+    &.btn td a,
+    &.badge td {
       @content
     }
   }
@@ -17,7 +19,8 @@
   #{$class} {
     &,
     & > tbody > tr > td,
-    &.btn td a {
+    &.btn td a,
+    &.badge td {
       @content
     }
   }
@@ -31,7 +34,8 @@
     &,
     & > tbody > tr > td,
     &.btn td,
-    &.btn td a {
+    &.btn td a,
+    &.badge td {
       @content
     }
   }
