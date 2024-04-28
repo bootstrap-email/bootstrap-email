@@ -24,11 +24,11 @@ module BootstrapEmail
       end
 
       def self.opening_regex
-        opening_regex = OPEN_BRACKETS.map { |bracket| Regexp.quote(bracket) }.join('|')
+        OPEN_BRACKETS.map { |bracket| Regexp.quote(bracket) }.join('|')
       end
 
       def self.closing_regex
-        closing_regex = CLOSE_BRACKETS.map { |bracket| Regexp.quote(bracket) }.join('|')
+        CLOSE_BRACKETS.map { |bracket| Regexp.quote(bracket) }.join('|')
       end
     end
   end
