@@ -63,11 +63,18 @@ module BootstrapEmail
     end
 
     def compile_and_cache_scss(cache_path)
-      file = sass_config || File.read("#{file_path}.scss")
-      css = SassC::Engine.new(file, style: style).render
+      css = compile_css
       File.write(cache_path, css)
       puts "New css file cached for #{type}" if config.sass_log_enabled?
       css
+    end
+
+    def compile_css
+      if sass_config
+        Sass.compile_string(sass_config, style: style).css
+      else
+        Sass.compile("#{file_path}.scss", load_paths: config.sass_load_paths, style: style).css
+      end
     end
   end
 end
