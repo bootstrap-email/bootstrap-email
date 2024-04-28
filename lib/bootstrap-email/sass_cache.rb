@@ -71,7 +71,7 @@ module BootstrapEmail
 
     def compile_css
       if sass_config
-        Sass.compile_string(sass_config, style: style).css
+        Sass.compile_string(sass_config, load_paths: config.sass_load_paths, style: style).css
       else
         Sass.compile("#{file_path}.scss", load_paths: config.sass_load_paths, style: style).css
       end

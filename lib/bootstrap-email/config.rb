@@ -29,9 +29,9 @@ module BootstrapEmail
     end
 
     def sass_load_paths
-      paths_array = [SassCache::SASS_DIR]
-      custom_load_paths = config_for_option(:sass_load_paths) || []
-      paths_array.concat(custom_load_paths)
+      library_paths = [SassCache::SASS_DIR]
+      user_paths = config_for_option(:sass_load_paths) || []
+      library_paths + user_paths
     end
 
     def sass_cache_location
