@@ -10,6 +10,17 @@
   border-radius: 4px;
 }
 
+@each $name, $theme in $btn-themes {
+  .badge-#{$name} td {
+    background-color: map-get($theme, "background-color");
+  }
+  .badge-#{$name} td span {
+    background-color: map-get($theme, "background-color");
+    color: map-get($theme, "color");
+    border-color: map-get($theme, "border-color");
+  }
+}
+
 // Pill badges
 .badge-pill > tbody > tr > td {
   padding-right: .6 * $font-size-base;
