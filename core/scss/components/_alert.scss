@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .alert {
   border-collapse: separate !important;
   border: 0;
@@ -11,11 +13,11 @@
 
 @each $color, $value in $theme-colors {
   .alert-#{$color} td {
-    background-color: lighten($value, 40%);
-    border-color: lighten($value, 35%);
-    color: darken($value, 30%);
+    background-color: color.adjust($value, $lightness: 40%, $space: hsl);
+    border-color: color.adjust($value, $lightness: 35%, $space: hsl);
+    color: color.adjust($value, $lightness: -30%, $space: hsl);
     .hr > table > tbody > tr > td {
-      border-top: 1px solid lighten($value, 35%);
+      border-top: 1px solid color.adjust($value, $lightness: 35%, $space: hsl);
     }
   }
 }

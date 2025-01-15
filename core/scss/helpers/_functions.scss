@@ -1,9 +1,11 @@
+@use "sass:color";
+
 @use "sass:math";
 
 @function color-contrast($color) {
-  $r: red($color);
-  $g: green($color);
-  $b: blue($color);
+  $r: color.channel($color, 'red', $space: rgb);
+  $g: color.channel($color, 'green', $space: rgb);
+  $b: color.channel($color, 'blue', $space: rgb);
 
   $yiq: math.div((($r * 299) + ($g * 587) + ($b * 114)), 1000);
 
