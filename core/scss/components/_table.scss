@@ -1,3 +1,5 @@
+@use "sass:color";
+
 //
 // Basic Bootstrap table
 //
@@ -90,7 +92,7 @@
     &,
     > th,
     > td {
-      background-color: lighten($value, 40%);
+      background-color: color.adjust($value, $lightness: 40%, $space: hsl);
     }
   }
 }

@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:string";
+
 //
 // This file will be placed in the head of the document and will not be inlined
 //
@@ -8,10 +11,10 @@
   @each $font-face in $font-faces {
     // @font-face has the least quirks in email clients: https://www.litmus.com/blog/the-ultimate-guide-to-web-fonts
     @font-face {
-      font-family: map-get($font-face, "font-family");
-      font-style: map-get($font-face, "font-style");
-      font-weight: map-get($font-face, "font-weight");
-      src: map-get($font-face, "src");
+      font-family: map.get($font-face, "font-family");
+      font-style: map.get($font-face, "font-style");
+      font-weight: map.get($font-face, "font-weight");
+      src: map.get($font-face, "src");
     }
   }
 }
@@ -145,12 +148,12 @@
   // Spacing
   // Reset large padding to 0 on small device
   @each $size, $value in $spacers {
-    @include padding-group('lg-', $size, unquote('0 !important'));
+    @include padding-group('lg-', $size, string.unquote('0 !important'));
   }
 
   // Set proper padding on small devices
   @each $size, $value in $spacers {
-    @include padding-group('', $size, unquote('#{$value} !important'));
+    @include padding-group('', $size, string.unquote('#{$value} !important'));
   }
 
   // Spacers
