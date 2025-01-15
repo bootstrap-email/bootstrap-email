@@ -1,5 +1,8 @@
-@each $align in $vertical-align {
-  @include valign-util('.ay-#{$align}') {
+@use "../helpers/selectors_for_utils";
+@use "../variables/utilities";
+
+@each $align in utilities.$vertical-align {
+  @include selectors_for_utils.valign-util('.ay-#{$align}') {
     vertical-align: $align !important;
   }
 }

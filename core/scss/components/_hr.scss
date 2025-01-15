@@ -1,7 +1,9 @@
+@use "../variables/borders";
+
 table.hr {
   width: 100%;
   & > tbody > tr > td {
-    border-top: 1px solid $border-color;
+    border-top: 1px solid borders.$border-color;
     height: 1px;
     width: 100%;
   }

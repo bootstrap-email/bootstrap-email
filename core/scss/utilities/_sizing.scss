@@ -1,33 +1,37 @@
-@each $prefix in $breakpoints {
-  @each $name, $property in $sizing-types {
-    @include sizing-util('.max-#{$name}-#{$prefix}full') {
+@use "../helpers/functions";
+@use "../helpers/selectors_for_utils";
+@use "../variables/utilities";
+
+@each $prefix in utilities.$breakpoints {
+  @each $name, $property in utilities.$sizing-types {
+    @include selectors_for_utils.sizing-util('.max-#{$name}-#{$prefix}full') {
       max-#{$property}: 100%;
       -premailer-#{$property}: 100%;
       #{$property}: 100%;
     }
-    @each $size, $value in $sizing {
-      @include sizing-util('.max-#{$name}-#{$prefix}#{$size}') {
+    @each $size, $value in utilities.$sizing {
+      @include selectors_for_utils.sizing-util('.max-#{$name}-#{$prefix}#{$size}') {
         max-#{$property}: $value;
-        -premailer-#{$property}: strip-unit($value);
+        -premailer-#{$property}: functions.strip-unit($value);
         #{$property}: 100%;
       }
     }
   }
 }
 
-@each $prefix in $breakpoints {
-  @each $name, $property in $sizing-types {
-    @include sizing-util('.#{$name}-#{$prefix}full') {
+@each $prefix in utilities.$breakpoints {
+  @each $name, $property in utilities.$sizing-types {
+    @include selectors_for_utils.sizing-util('.#{$name}-#{$prefix}full') {
       -premailer-#{$property}: 100%;
       #{$property}: 100%;
     }
-    @include sizing-util('.#{$name}-#{$prefix}auto') {
+    @include selectors_for_utils.sizing-util('.#{$name}-#{$prefix}auto') {
       -premailer-#{$property}: auto;
       #{$property}: auto;
     }
-    @each $size, $value in $sizing {
-      @include sizing-util('.#{$name}-#{$prefix}#{$size}') {
-        -premailer-#{$property}: strip-unit($value);
+    @each $size, $value in utilities.$sizing {
+      @include selectors_for_utils.sizing-util('.#{$name}-#{$prefix}#{$size}') {
+        -premailer-#{$property}: functions.strip-unit($value);
         #{$property}: $value;
       }
     }

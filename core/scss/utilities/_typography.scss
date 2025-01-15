@@ -1,43 +1,47 @@
+@use "../helpers/selectors_for_utils";
+@use "../variables/typography";
+@use "../variables/utilities";
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 0;
-  padding-top: $headings-margin-top;
-  padding-bottom: $headings-margin-bottom;
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
-  color: $headings-color;
+  padding-top: typography.$headings-margin-top;
+  padding-bottom: typography.$headings-margin-bottom;
+  font-family: typography.$headings-font-family;
+  font-weight: typography.$headings-font-weight;
+  color: typography.$headings-color;
   text-align: left;
   vertical-align: baseline;
 }
 
-@each $name, $size in $headings {
+@each $name, $size in utilities.$headings {
   h#{$name}, .h#{$name} {
     font-size: $size;
-    line-height: $size * $headings-line-height;
+    line-height: $size * typography.$headings-line-height;
   }
 }
 
-@each $name, $size in $font-size {
+@each $name, $size in utilities.$font-size {
   .text-#{$name} {
     font-size: $size;
-    line-height: $size * $headings-line-height;
+    line-height: $size * typography.$headings-line-height;
   }
 }
 
-@each $name, $size in $line-height {
+@each $name, $size in utilities.$line-height {
   .lh-#{$name} {
     line-height: $size;
   }
 }
 
 @for $n from 1 through 9 {
-  @include font-weight-util('.fw-#{$n * 100}') {
+  @include selectors_for_utils.font-weight-util('.fw-#{$n * 100}') {
     font-weight: #{$n * 100} !important;
   }
 }
 
-@each $align in $text-align {
-  @include text-align-util('.text-#{$align}') {
+@each $align in utilities.$text-align {
+  @include selectors_for_utils.text-align-util('.text-#{$align}') {
     text-align: $align !important;
   }
 }

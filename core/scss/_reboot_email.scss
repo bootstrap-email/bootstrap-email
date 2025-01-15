@@ -1,3 +1,6 @@
+@use "variables/body";
+@use "variables/typography";
+
 // Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp
 body, .body {
   margin: 0;
@@ -10,15 +13,15 @@ body, .body {
   height: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: $font-family-base;
-  line-height: $line-height-base * $font-size-base;
-  font-weight: $font-weight-base;
-  font-size: $font-size-base;
+  font-family: typography.$font-family-base;
+  line-height: typography.$line-height-base * typography.$font-size-base;
+  font-weight: typography.$font-weight-base;
+  font-size: typography.$font-size-base;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: $body-bg;
-  color: $body-color;
+  background-color: body.$body-bg;
+  color: body.$body-color;
 }
 
 img {
@@ -39,11 +42,11 @@ th,
 td,
 p {
   text-align: left;
-  line-height: $line-height-base * $font-size-base;
-  font-size: $font-size-base;
+  line-height: typography.$line-height-base * typography.$font-size-base;
+  font-size: typography.$font-size-base;
   margin: 0;
 }
 
 a {
-  color: $link-color;
+  color: typography.$link-color;
 }

@@ -1,13 +1,18 @@
-@each $name, $width in $border-widths {
-  .border#{$name}         { border: $width solid $border-color !important; }
-  .border-top#{$name}     { border-top: $width solid $border-color !important; }
-  .border-right#{$name}   { border-right: $width solid $border-color !important; }
-  .border-bottom#{$name}  { border-bottom: $width solid $border-color !important; }
-  .border-left#{$name}    { border-left: $width solid $border-color !important; }
+@use "../helpers/selectors_for_utils";
+@use "../variables/borders";
+@use "../variables/colors";
+@use "../variables/utilities";
+
+@each $name, $width in utilities.$border-widths {
+  .border#{$name}         { border: $width solid borders.$border-color !important; }
+  .border-top#{$name}     { border-top: $width solid borders.$border-color !important; }
+  .border-right#{$name}   { border-right: $width solid borders.$border-color !important; }
+  .border-bottom#{$name}  { border-bottom: $width solid borders.$border-color !important; }
+  .border-left#{$name}    { border-left: $width solid borders.$border-color !important; }
 }
 
-@each $name, $color in $all-colors {
-  @include border-color-util('.border-#{$name}') {
+@each $name, $color in colors.$all-colors {
+  @include selectors_for_utils.border-color-util('.border-#{$name}') {
     border-color: $color !important;
   }
 }
