@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .btn {
   border-radius: $btn-border-radius;
   border-collapse: separate !important;
@@ -23,12 +25,12 @@
 
 @each $name, $theme in $btn-themes {
   .btn-#{$name} td {
-    background-color: map-get($theme, "background-color");
+    background-color: map.get($theme, "background-color");
   }
   .btn-#{$name} td a {
-    background-color: map-get($theme, "background-color");
-    color: map-get($theme, "color");
-    border-color: map-get($theme, "border-color");
+    background-color: map.get($theme, "background-color");
+    color: map.get($theme, "color");
+    border-color: map.get($theme, "border-color");
   }
 }
 
