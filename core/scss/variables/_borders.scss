@@ -1,4 +1,6 @@
-$border-color:       $gray-300 !default;
+@use "colors";
+
+$border-color:       colors.$gray-300 !default;
 $border-width:       1px !default;
 $border-radius-sm:   3px !default;
 $border-radius:      6px !default;

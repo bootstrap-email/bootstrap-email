@@ -1,9 +1,12 @@
-@each $name, $color in $all-colors {
-  @include color-util('.text-#{$name}') {
+@use "../helpers/selectors_for_utils";
+@use "../variables/colors";
+
+@each $name, $color in colors.$all-colors {
+  @include selectors_for_utils.color-util('.text-#{$name}') {
     color: $color;
   }
 }
 
-@include color-util('.text-muted') {
-  color: $gray-600;
+@include selectors_for_utils.color-util('.text-muted') {
+  color: colors.$gray-600;
 }

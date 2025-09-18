@@ -1,21 +1,26 @@
+@use "../variables/colors";
+@use "../variables/typography";
+
+@use "sass:color";
+
 .alert {
   border-collapse: separate !important;
   border: 0;
   width: 100%;
   & > tbody > tr > td {
-    padding: 0.75 * $font-size-base 1.25 * $font-size-base;
+    padding: 0.75 * typography.$font-size-base 1.25 * typography.$font-size-base;
     border: 1px solid transparent;
-    border-radius: 0.25 * $font-size-base;
+    border-radius: 0.25 * typography.$font-size-base;
   }
 }
 
-@each $color, $value in $theme-colors {
+@each $color, $value in colors.$theme-colors {
   .alert-#{$color} td {
-    background-color: lighten($value, 40%);
-    border-color: lighten($value, 35%);
-    color: darken($value, 30%);
+    background-color: color.adjust($value, $lightness: 40%, $space: hsl);
+    border-color: color.adjust($value, $lightness: 35%, $space: hsl);
+    color: color.adjust($value, $lightness: -30%, $space: hsl);
     .hr > table > tbody > tr > td {
-      border-top: 1px solid lighten($value, 35%);
+      border-top: 1px solid color.adjust($value, $lightness: 35%, $space: hsl);
     }
   }
 }

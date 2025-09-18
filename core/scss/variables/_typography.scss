@@ -1,3 +1,5 @@
+@use "colors";
+
 $font-size-base:         16px !default;
 $font-weight-base:       normal !default;
 $line-height-base:       1.5 !default;
@@ -7,7 +9,7 @@ $headings-margin-bottom: 0 !default;
 $headings-font-family:   null !default;
 $headings-font-weight:   500 !default;
 $headings-color:         null !default;
-$link-color:             $primary !default;
+$link-color:             colors.$primary !default;
 
 /*
 **** Override the following variables to customize font or add web font ie: Google Fonts ****

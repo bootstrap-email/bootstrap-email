@@ -1,5 +1,7 @@
-@each $prefix in $breakpoints {
-  @each $display in $display-type {
+@use "../variables/utilities";
+
+@each $prefix in utilities.$breakpoints {
+  @each $display in utilities.$display-type {
     .d-#{$prefix}#{$display} {
       display: $display;
     }
