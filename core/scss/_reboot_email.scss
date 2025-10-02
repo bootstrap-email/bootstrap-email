@@ -1,3 +1,4 @@
+@use "../variable";
 // Based on https://templates.mailchimp.com/development/css/reset-styles/ by Mailchimp
 body, .body {
   margin: 0;
@@ -10,15 +11,15 @@ body, .body {
   height: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: $font-family-base;
-  line-height: $line-height-base * $font-size-base;
-  font-weight: $font-weight-base;
-  font-size: $font-size-base;
+  font-family: variable.$font-family-base;
+  line-height: variable.$line-height-base * variable.$font-size-base;
+  font-weight: variable.$font-weight-base;
+  font-size: variable.$font-size-base;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: $body-bg;
-  color: $body-color;
+  background-color: variable.$body-bg;
+  color: variable.$body-color;
 }
 
 img {
@@ -39,11 +40,11 @@ th,
 td,
 p {
   text-align: left;
-  line-height: $line-height-base * $font-size-base;
-  font-size: $font-size-base;
+  line-height: variable.$line-height-base * variable.$font-size-base;
+  font-size: variable.$font-size-base;
   margin: 0;
 }
 
 a {
-  color: $link-color;
+  color: variable.$link-color;
 }

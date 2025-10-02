@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../variable";
+
 //
 // Basic Bootstrap table
 //
@@ -5,20 +8,20 @@
 .table {
   width: 100%;
   max-width: 100%;
-  background-color: $table-background-color; // Reset for nesting within parents with `background-color`.
+  background-color: variable.$table-background-color; // Reset for nesting within parents with `background-color`.
 
   & > thead > tr > th {
     text-align: left;
     vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
+    border-bottom: (2 * variable.$table-border-width) solid variable.$table-border-color;
   }
 
   & > thead > tr > th,
   & > tbody > tr > td,
   & > tfoot > tr > td {
-    padding: 0.75 * $font-size-base;
+    padding: 0.75 * variable.$font-size-base;
     vertical-align: top;
-    border-top: $table-border-width solid $table-border-color;
+    border-top: variable.$table-border-width solid variable.$table-border-color;
   }
 }
 
@@ -42,7 +45,7 @@
   & > thead > tr > th,
   & > tbody > tr > td,
   & > tfoot > tr > td {
-    padding: 0.3 * $font-size-base;;
+    padding: 0.3 * variable.$font-size-base;;
   }
 }
 
@@ -52,18 +55,18 @@
 // Add borders all around the table and between all the columns.
 
 .table-bordered {
-  border: $table-border-width solid $table-border-color;
+  border: variable.$table-border-width solid variable.$table-border-color;
 
   & > thead > tr > th,
   & > tbody > tr > td,
   & > tfoot > tr > td {
-    border: $table-border-width solid $table-border-color;
+    border: variable.$table-border-width solid variable.$table-border-color;
   }
 
   & > thead {
     & > tr > th,
     & > tr > td {
-      border-bottom-width: (2 * $table-border-width);
+      border-bottom-width: (2 * variable.$table-border-width);
     }
   }
 }
@@ -75,7 +78,7 @@
 
 .table-striped {
   & > tbody > tr:nth-of-type(odd) {
-    background-color: $table-accent-bg;
+    background-color: variable.$table-accent-bg;
   }
 }
 
@@ -85,12 +88,12 @@
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-@each $color, $value in $theme-colors {
+@each $color, $value in variable.$theme-colors {
   .table-#{$color} {
     &,
     > th,
     > td {
-      background-color: lighten($value, 40%);
+      background-color: color.adjust($value, $lightness: 40%);
     }
   }
 }
@@ -103,21 +106,21 @@
 
 .thead-dark {
   th {
-    color: $white;
-    background-color: $gray-900;
+    color: variable.$white;
+    background-color: variable.$gray-900;
   }
 }
 
 .thead-light {
   th {
-    color: $gray-700;
-    background-color: $gray-200;
+    color: variable.$gray-700;
+    background-color: variable.$gray-200;
   }
 }
 
 .table-dark {
-  color: $white;
-  background-color: $gray-900;
+  color: variable.$white;
+  background-color: variable.$gray-900;
 
   & > thead > tr > th,
   & > tbody > tr > td,

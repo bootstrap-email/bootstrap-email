@@ -1,18 +1,21 @@
+@use "../helper";
+@use "../variable";
+
 // Padding Util
-@each $prefix in $breakpoints {
-  @each $size, $value in $spacers {
-    @include padding-group($prefix, $size, $value);
+@each $prefix in variable.$breakpoints {
+  @each $size, $value in variable.$spacers {
+    @include helper.padding-group($prefix, $size, $value);
   }
 }
 
 // Spacing Util
-@each $prefix in $breakpoints {
-  @each $size, $value in $spacers {
-    @include spacer-util('.s-#{$prefix}#{$size}') {
+@each $prefix in variable.$breakpoints {
+  @each $size, $value in variable.$spacers {
+    @include helper.spacer-util('.s-#{$prefix}#{$size}') {
       font-size: $value;
       line-height: $value;
       height: $value;
-      -premailer-height: strip-unit($value);
+      -premailer-height: helper.strip-unit($value);
     }
   }
 }

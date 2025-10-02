@@ -1,3 +1,5 @@
+@use "../variable";
+
 .row {
   margin-right: -24px;
   & > table {
@@ -14,14 +16,14 @@
   }
 }
 
-@each $key, $value in $grid-cols {
+@each $key, $value in variable.$grid-cols {
   td.col-#{$key},
   td.col-lg-#{$key} {
     width: $value;
   }
 }
 
-@each $space, $value in $spacers {
+@each $space, $value in variable.$spacers {
   .row.gap-#{$space},
   .row.gap-x-#{$space},
   .row.gap-lg-#{$space},
