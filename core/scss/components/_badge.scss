@@ -10,7 +10,7 @@
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: variable.$border-radius;
+  border-radius: 4px;
 }
 
 @each $name, $theme in variable.$btn-themes {
