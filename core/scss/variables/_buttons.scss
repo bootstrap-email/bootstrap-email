@@ -1,7 +1,13 @@
+@use "sass:map";
+@use "../helper";
+@use "colors";
+@use "borders";
+@use "typography";
+
 $btn-padding-y:               8px !default;
 $btn-padding-x:               12px !default;
-$btn-font-family:             $font-family-base !default;
-$btn-font-size:               $font-size-base !default;
+$btn-font-family:             typography.$font-family-base !default;
+$btn-font-size:               typography.$font-size-base !default;
 $btn-line-height:             1.25 * $btn-font-size !default;
 
 $btn-padding-y-sm:            0.25 * $btn-font-size !default;
@@ -14,11 +20,11 @@ $btn-padding-x-lg:            $btn-font-size !default;
 $btn-font-size-lg:            1.25 * $btn-font-size !default;
 $btn-line-height-lg:          $btn-line-height * 1.25 !default;
 
-$btn-border-width:            $border-width !default;
-$btn-font-weight:             $font-weight-base !default;
-$btn-border-radius:           $border-radius !default;
-$btn-border-radius-lg:        $border-radius-lg !default;
-$btn-border-radius-sm:        $border-radius-sm !default;
+$btn-border-width:            borders.$border-width !default;
+$btn-font-weight:             typography.$font-weight-base !default;
+$btn-border-radius:           borders.$border-radius !default;
+$btn-border-radius-lg:        borders.$border-radius-lg !default;
+$btn-border-radius-sm:        borders.$border-radius-sm !default;
 
 
 /** Button Theme Structure Example
@@ -37,10 +43,10 @@ $btn-border-radius-sm:        $border-radius-sm !default;
  * )
 */
 $tmp-btn-themes: ();
-@each $name, $color in $all-colors {
+@each $name, $color in colors.$all-colors {
   @if $name != "transparent" {
-    $tmp-btn-themes: map-merge($tmp-btn-themes, ($name: ("background-color": $color, "color": color-contrast($color), "border-color": $color)));
-    $tmp-btn-themes: map-merge($tmp-btn-themes, ("outline-#{$name}": ("background-color": transparent, "color": $color, "border-color": $color)));
+    $tmp-btn-themes: map.merge($tmp-btn-themes, ($name: ("background-color": $color, "color": helper.color-contrast($color), "border-color": $color)));
+    $tmp-btn-themes: map.merge($tmp-btn-themes, ("outline-#{$name}": ("background-color": transparent, "color": $color, "border-color": $color)));
   }
 }
 

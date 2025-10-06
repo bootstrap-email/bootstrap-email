@@ -1,31 +1,32 @@
+@use "sass:color";
 @use "sass:math";
+@use "sass:meta";
 
 @function color-contrast($color) {
-  $r: red($color);
-  $g: green($color);
-  $b: blue($color);
+  $r: color.channel($color, "red", $space: rgb);
+  $g: color.channel($color, "green", $space: rgb);
+  $b: color.channel($color, "blue", $space: rgb);
 
   $yiq: math.div((($r * 299) + ($g * 587) + ($b * 114)), 1000);
 
   @if ($yiq >= 150) {
     @return #111111;
   } @else {
-    @return $white;
+    @return #ffffff;
   }
 }
 
 @function tint-color($color, $level) {
-  @return mix(white, $color, $level);
+  @return color.mix(white, $color, $level, $method: rgb);
 }
 
 @function shade-color($color, $level) {
-  @return mix(black, $color, $level);
+  @return color.mix(black, $color, $level, $method: rgb);
 }
 
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
     @return math.div($number, ($number * 0 + 1));
   }
-
   @return $number;
 }
