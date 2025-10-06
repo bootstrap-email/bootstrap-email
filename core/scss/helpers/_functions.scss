@@ -16,14 +16,6 @@
   }
 }
 
-@function tint-color($color, $level) {
-  @return color.mix(white, $color, $level, $method: rgb);
-}
-
-@function shade-color($color, $level) {
-  @return color.mix(black, $color, $level, $method: rgb);
-}
-
 @function strip-unit($number) {
   @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
     @return math.div($number, ($number * 0 + 1));
