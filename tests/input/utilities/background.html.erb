@@ -1,11 +1,11 @@
-<div class="bg-black">Something here</div>
-<div class="bg-white">Something here</div>
-<div class="bg-transparent">Something here</div>
+<div class="bg-black">bg-black</div>
+<div class="bg-white">bg-white</div>
+<div class="bg-transparent">bg-transparent</div>
 
-<% scales = (100..900).step(100).to_a %>
-<% colors = %w(gray blue indigo purple pink red orange yellow green teal cyan) %>
+<% scales = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] %>
+<% colors = %w(slate gray zinc neutral stone red orange amber yellow lime green emerald teal cyan sky blue indigo violet purple fuchsia pink rose) %>
 <% colors.each do |color| %>
   <% scales.each do |scale| %>
-    <div class="bg-<%= color %>-<%= scale %>">Something here</div>
+    <div class="bg-<%= color %>-<%= scale %>">bg-<%= color %>-<%= scale %></div>
   <% end %>
 <% end %>
