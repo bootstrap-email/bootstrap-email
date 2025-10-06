@@ -1,8 +1,8 @@
 <div>This is regular text</div>
-<div class="text-black">Something here</div>
-<div class="text-white">Something here</div>
-<div class="text-transparent">Something here</div>
-<div class="text-muted">Something here</div>
+<div class="text-black">text-black</div>
+<div class="text-white">text-white</div>
+<div class="text-transparent">text-transparent</div>
+<div class="text-muted">text-muted</div>
 
 <div class="text-muted">This is muted text</div>
 <div class="text-primary">This is primary text</div>
@@ -13,11 +13,11 @@
 <div class="text-light">This is light text</div>
 <div class="text-dark">This is dark text</div>
 
-<% scales = (100..900).step(100).to_a %>
-<% colors = %w(gray blue indigo purple pink red orange yellow green teal cyan) %>
+<% scales = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] %>
+<% colors = %w(slate gray zinc neutral stone red orange amber yellow lime green emerald teal cyan sky blue indigo violet purple fuchsia pink rose) %>
 <% colors.each do |color| %>
   <% scales.each do |scale| %>
-    <div class="text-<%= color %>-<%= scale %>">Something here</div>
+    <div class="text-<%= color %>-<%= scale %>">text-<%= color %>-<%= scale %></div>
   <% end %>
 <% end %>
 
