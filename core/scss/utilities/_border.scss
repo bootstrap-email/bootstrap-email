@@ -10,7 +10,7 @@
 }
 
 @each $name, $color in variable.$all-colors {
-  @include selector.border-color-util('.border-#{$name}') {
+  @include helper.border-color-util('.border-#{$name}') {
     border-color: $color !important;
   }
 }

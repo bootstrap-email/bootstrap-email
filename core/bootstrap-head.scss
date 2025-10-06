@@ -1,10 +1,12 @@
 //
 // This file will be placed in the head of the document and will not be inlined
 //
-@use "scss/helpers";
-@use "scss/variables";
+@use "sass:string";
+@use "scss/helper";
+@use "scss/variable";
+@use "scss/reboot_head" as *;
 
-@if $font-faces {
+@if variable.$font-faces {
   @each $font-face in variable.$font-faces {
     // @font-face has the least quirks in email clients: https://www.litmus.com/blog/the-ultimate-guide-to-web-fonts
     @font-face {
@@ -16,7 +18,6 @@
   }
 }
 
-@use "scss/reboot_head" as *;
 
 /*! allow_purge_after */
 
@@ -90,24 +91,24 @@
 
   // Sizing Max Width / Height
   @each $name, $property in variable.$sizing-types {
-    @include helpers.sizing-util('.max-#{$name}-lg-full') {
+    @include helper.sizing-util('.max-#{$name}-lg-full') {
       max-#{$property}: unset !important;
       #{$property}: auto !important;
     }
     @each $size, $value in variable.$sizing {
-      @include helpers.sizing-util('.max-#{$name}-lg-#{$size}') {
+      @include helper.sizing-util('.max-#{$name}-lg-#{$size}') {
         max-#{$property}: unset !important;
         #{$property}: auto !important;
       }
     }
   }
   @each $name, $property in variable.$sizing-types {
-    @include helpers.sizing-util('.max-#{$name}-full') {
+    @include helper.sizing-util('.max-#{$name}-full') {
       max-#{$property}: 100% !important;
       #{$property}: 100% !important;
     }
     @each $size, $value in variable.$sizing {
-      @include helpers.sizing-util('.max-#{$name}-#{$size}') {
+      @include helper.sizing-util('.max-#{$name}-#{$size}') {
         max-#{$property}: $value !important;
         #{$property}: 100% !important;
       }
@@ -116,27 +117,27 @@
 
   // Sizing Width / Height
   @each $name, $property in variable.$sizing-types {
-    @include helpers.sizing-util('.#{$name}-lg-full') {
+    @include helper.sizing-util('.#{$name}-lg-full') {
       #{$property}: auto !important;
     }
-    @include helpers.sizing-util('.#{$name}-lg-auto') {
+    @include helper.sizing-util('.#{$name}-lg-auto') {
       #{$property}: auto !important;
     }
     @each $size, $value in variable.$sizing {
-      @include helpers.sizing-util('.#{$name}-lg-#{$size}') {
+      @include helper.sizing-util('.#{$name}-lg-#{$size}') {
         #{$property}: auto !important;
       }
     }
   }
   @each $name, $property in variable.$sizing-types {
-    @include helpers.sizing-util('.#{$name}-full') {
+    @include helper.sizing-util('.#{$name}-full') {
       #{$property}: 100% !important;
     }
-    @include helpers.sizing-util('.#{$name}-auto') {
+    @include helper.sizing-util('.#{$name}-auto') {
       #{$property}: auto !important;
     }
     @each $size, $value in variable.$sizing {
-      @include helpers.sizing-util('.#{$name}-#{$size}') {
+      @include helper.sizing-util('.#{$name}-#{$size}') {
         #{$property}: $value !important;
       }
     }
@@ -145,22 +146,22 @@
   // Spacing
   // Reset large padding to 0 on small device
   @each $size, $value in variable.$spacers {
-    @include helpers.padding-group('lg-', $size, unquote('0 !important'));
+    @include helper.padding-group('lg-', $size, string.unquote('0 !important'));
   }
 
   // Set proper padding on small devices
   @each $size, $value in variable.$spacers {
-    @include helpers.padding-group('', $size, unquote('#{$value} !important'));
+    @include helper.padding-group('', $size, string.unquote('#{$value} !important'));
   }
 
   // Spacers
-  @include helpers.spacer-util('*[class*=s-lg-]') {
+  @include helper.spacer-util('*[class*=s-lg-]') {
     font-size: 0 !important;
     line-height: 0 !important;
     height: 0 !important;
   }
   @each $size, $value in variable.$spacers {
-    @include helpers.spacer-util('.s-#{$size}') {
+    @include helper.spacer-util('.s-#{$size}') {
       font-size: $value !important;
       line-height: $value !important;
       height: $value !important;

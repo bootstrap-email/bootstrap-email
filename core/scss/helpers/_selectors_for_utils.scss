@@ -67,19 +67,6 @@
 }
 
 //
-// Padding
-//
-@mixin padding-util($class) {
-  #{$class} {
-    &:not(table),
-    &:not(.btn) > tbody > tr > td,
-    &.btn td a {
-      @content
-    }
-  }
-}
-
-//
 // Spacer
 //
 @mixin spacer-util($class) {
@@ -124,5 +111,43 @@
     & > tbody > tr > td {
       @content
     }
+  }
+}
+
+//
+// Padding
+//
+@mixin padding-util($class) {
+  #{$class} {
+    &:not(table),
+    &:not(.btn) > tbody > tr > td,
+    &.btn td a {
+      @content
+    }
+  }
+}
+
+//
+// Padding group
+//
+@mixin padding-group($prefix, $size, $value) {
+  @include padding-util('.p-#{$prefix}#{$size}') {
+    padding: $value;
+  }
+
+  @include padding-util('.pt-#{$prefix}#{$size}, .py-#{$prefix}#{$size}') {
+    padding-top: $value;
+  }
+
+  @include padding-util('.pr-#{$prefix}#{$size}, .px-#{$prefix}#{$size}') {
+    padding-right: $value;
+  }
+
+  @include padding-util('.pb-#{$prefix}#{$size}, .py-#{$prefix}#{$size}') {
+    padding-bottom: $value;
+  }
+
+  @include padding-util('.pl-#{$prefix}#{$size}, .px-#{$prefix}#{$size}') {
+    padding-left: $value;
   }
 }
