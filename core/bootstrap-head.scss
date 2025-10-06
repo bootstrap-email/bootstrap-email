@@ -4,7 +4,7 @@
 @use "sass:string";
 @use "scss/helper";
 @use "scss/variable";
-@use "scss/reboot_head" as *;
+@use "scss/reboot-head" as *;
 
 @if variable.$font-faces {
   @each $font-face in variable.$font-faces {
