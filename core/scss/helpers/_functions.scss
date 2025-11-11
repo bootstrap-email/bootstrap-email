@@ -17,11 +17,11 @@
 }
 
 @function tint-color($color, $level) {
-  @return remix-color(color.mix(white, $color, $level));
+  @return remix-color(color.mix(white, $color, $level, $method: rgb));
 }
 
 @function shade-color($color, $level) {
-  @return remix-color(color.mix(black, $color, $level));
+  @return remix-color(color.mix(black, $color, $level, $method: rgb));
 }
 
 @function remix-color($color) {
