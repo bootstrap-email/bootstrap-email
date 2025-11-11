@@ -1,4 +1,6 @@
-@each $space, $value in $spacers {
+@use "../variable";
+
+@each $space, $value in variable.$spacers {
   table.stack-row.gap-#{$space},
   table.stack-row.gap-lg-#{$space} {
     & > tbody > tr > td {
@@ -26,13 +28,13 @@
   text-align: left;
 }
 
-@each $align in $vertical-align {
+@each $align in variable.$vertical-align {
   table.stack-ay-#{$align} > tbody > tr > td {
     vertical-align: $align;
   }
 }
 
-@each $align in $text-align {
+@each $align in variable.$text-align {
   table.stack-ax-#{$align} > tbody > tr > td {
     text-align: $align;
   }

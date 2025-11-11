@@ -1,47 +1,50 @@
+@use "sass:map";
+@use "../variable";
+
 .btn {
-  border-radius: $btn-border-radius;
+  border-radius: variable.$btn-border-radius;
   border-collapse: separate !important;
 }
 
 .btn td {
-  border-radius: $btn-border-radius;
+  border-radius: variable.$btn-border-radius;
   text-align: center;
 }
 
 .btn td a {
-  font-size: $btn-font-size;
-  font-family: $btn-font-family;
+  font-size: variable.$btn-font-size;
+  font-family: variable.$btn-font-family;
   text-decoration: none;
-  border-radius: $btn-border-radius;
-  padding: $btn-padding-y $btn-padding-x;
-  line-height: $btn-line-height;
-  border: $btn-border-width solid transparent;
+  border-radius: variable.$btn-border-radius;
+  padding: variable.$btn-padding-y variable.$btn-padding-x;
+  line-height: variable.$btn-line-height;
+  border: variable.$btn-border-width solid transparent;
   display: block;
-  font-weight: $btn-font-weight;
+  font-weight: variable.$btn-font-weight;
   white-space: nowrap;
 }
 
-@each $name, $theme in $btn-themes {
+@each $name, $theme in variable.$btn-themes {
   .btn-#{$name} td {
-    background-color: map-get($theme, "background-color");
+    background-color: map.get($theme, "background-color");
   }
   .btn-#{$name} td a {
-    background-color: map-get($theme, "background-color");
-    color: map-get($theme, "color");
-    border-color: map-get($theme, "border-color");
+    background-color: map.get($theme, "background-color");
+    color: map.get($theme, "color");
+    border-color: map.get($theme, "border-color");
   }
 }
 
 .btn-sm td a {
-  font-size: $btn-font-size-sm;
-  padding: $btn-padding-y-sm $btn-padding-x-sm;
-  line-height: $btn-line-height-sm;
-  border-radius: $btn-border-radius-sm;
+  font-size: variable.$btn-font-size-sm;
+  padding: variable.$btn-padding-y-sm variable.$btn-padding-x-sm;
+  line-height: variable.$btn-line-height-sm;
+  border-radius: variable.$btn-border-radius-sm;
 }
 
 .btn-lg td a {
-  font-size: $btn-font-size-lg;
-  padding: $btn-padding-y-lg $btn-padding-x-lg;
-  line-height: $btn-line-height-lg;
-  border-radius: $btn-border-radius-lg;
+  font-size: variable.$btn-font-size-lg;
+  padding: variable.$btn-padding-y-lg variable.$btn-padding-x-lg;
+  line-height: variable.$btn-line-height-lg;
+  border-radius: variable.$btn-border-radius-lg;
 }

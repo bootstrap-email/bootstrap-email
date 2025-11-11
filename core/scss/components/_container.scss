@@ -1,7 +1,9 @@
+@use "../variable";
+
 .container {
   width: 100%;
   & > tbody > tr > td {
-    padding: 0 $font-size-base;
+    padding: 0 variable.$font-size-base;
     & > table {
       width: 100%;
       max-width: 600px;
@@ -12,7 +14,7 @@
 .container-fluid {
   width: 100%;
   & > tbody > tr > td {
-    padding: 0 $font-size-base;
+    padding: 0 variable.$font-size-base;
     width: 100%;
   }
 }
