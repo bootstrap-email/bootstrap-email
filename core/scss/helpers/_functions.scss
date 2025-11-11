@@ -17,11 +17,19 @@
 }
 
 @function tint-color($color, $level) {
-  @return color.mix(white, $color, $level, $method: rgb);
+  @return remix-color(color.mix(white, $color, $level));
 }
 
 @function shade-color($color, $level) {
-  @return color.mix(black, $color, $level, $method: rgb);
+  @return remix-color(color.mix(black, $color, $level));
+}
+
+@function remix-color($color) {
+  @return rgb(round-color($color, 'red'), round-color($color, 'green'), round-color($color, 'blue'));
+}
+
+@function round-color($color, $channel) {
+  @return math.round(color.channel($color, $channel));
 }
 
 @function strip-unit($number) {
