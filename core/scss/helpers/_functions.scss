@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "sass:math";
 @use "sass:meta";
+@use "sass:string";
 
 @function color-contrast($color) {
   $r: color.channel($color, "red", $space: rgb);
@@ -14,6 +15,10 @@
   } @else {
     @return #ffffff;
   }
+}
+
+@function lighten-color($color, $level) {
+  @return string.unquote('#' + string.slice(ie-hex-str(color.adjust($color, $lightness: $level)), 4));
 }
 
 @function tint-color($color, $level) {

@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "../variable";
+@use "../helper";
 
 //
 // Basic Bootstrap table
@@ -93,7 +94,7 @@
     &,
     > th,
     > td {
-      background-color: color.adjust($value, $lightness: 40%);
+      background-color: helper.lighten-color($value, 40%);
     }
   }
 }
