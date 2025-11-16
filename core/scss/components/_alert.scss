@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "../variable";
+@use "../helper";
 
 .alert {
   border-collapse: separate !important;
@@ -14,11 +15,11 @@
 
 @each $color, $value in variable.$theme-colors {
   .alert-#{$color} td {
-    background-color: color.adjust($value, $lightness: 40%);
-    border-color: color.adjust($value, $lightness: 35%);
-    color: color.adjust($value, $lightness: -30%);
+    background-color: helper.lighten-color($value, 40%);
+    border-color: helper.lighten-color($value, 35%);
+    color: helper.lighten-color($value, -30%);
     .hr > table > tbody > tr > td {
-      border-top: 1px solid color.adjust($value, $lightness: 35%);
+      border-top: 1px solid helper.lighten-color($value, 35%);
     }
   }
 }
