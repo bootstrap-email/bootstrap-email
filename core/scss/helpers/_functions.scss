@@ -3,6 +3,7 @@
 @use "sass:meta";
 @use "sass:string";
 
+// Calculate the color contrast for a given color and returns white or black based on the YIQ formula
 @function color-contrast($color) {
   $r: color.channel($color, "red", $space: rgb);
   $g: color.channel($color, "green", $space: rgb);
@@ -17,14 +18,17 @@
   }
 }
 
+// Lighten a color by adding white to it
 @function tint-color($color, $level) {
   @return color.mix(white, $color, $level);
 }
 
+// Darken a color by adding black to it
 @function shade-color($color, $level) {
   @return color.mix(black, $color, $level);
 }
 
+// Convert a color to a hex string, needed so sass doesn't return an rgb string
 @function hex($color) {
   @if not meta.type-of($color) == 'color' or $color == null or $color == transparent {
     @return $color;
@@ -32,6 +36,7 @@
   @return string.unquote('#' + string.slice(color.ie-hex-str($color), 4));
 }
 
+// Strip the unit from a number
 @function strip-unit($number) {
   @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
     @return math.div($number, ($number * 0 + 1));
