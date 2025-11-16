@@ -15,11 +15,11 @@
 
 @each $color, $value in variable.$theme-colors {
   .alert-#{$color} td {
-    background-color: helper.lighten-color($value, 40%);
-    border-color: helper.lighten-color($value, 35%);
-    color: helper.lighten-color($value, -30%);
+    background-color: helper.to-hex-string(helper.tint-color($value, 75%));
+    border-color: helper.to-hex-string(helper.tint-color($value, 35%));
+    color: helper.to-hex-string(helper.shade-color($value, 50%));
     .hr > table > tbody > tr > td {
-      border-top: 1px solid helper.lighten-color($value, 35%);
+      border-top: 1px solid helper.to-hex-string(helper.tint-color($value, 35%));
     }
   }
 }

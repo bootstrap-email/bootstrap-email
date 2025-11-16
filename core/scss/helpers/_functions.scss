@@ -18,15 +18,15 @@
 }
 
 @function lighten-color($color, $level) {
-  @return string.unquote('#' + string.slice(ie-hex-str(color.adjust($color, $lightness: $level)), 4));
+  @return to-hex-string(color.adjust($color, $lightness: $level));
 }
 
 @function tint-color($color, $level) {
-  @return remix-color(color.mix(white, $color, $level, $method: rgb));
+  @return remix-color(color.mix(white, $color, $level));
 }
 
 @function shade-color($color, $level) {
-  @return remix-color(color.mix(black, $color, $level, $method: rgb));
+  @return remix-color(color.mix(black, $color, $level));
 }
 
 @function remix-color($color) {
@@ -42,4 +42,8 @@
     @return math.div($number, ($number * 0 + 1));
   }
   @return $number;
+}
+
+@function to-hex-string($color) {
+  @return string.unquote('#' + string.slice(color.ie-hex-str($color), 4));
 }
