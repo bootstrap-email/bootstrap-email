@@ -1,14 +1,15 @@
 @use "../variable";
+@use "../helper";
 
 .card {
-  background-color: variable.$white;
+  background-color: helper.hex(variable.$white);
   border-radius: variable.$border-radius;
-  border: 1px solid variable.$border-color;
+  border: 1px solid helper.hex(variable.$border-color);
   border-collapse: separate !important;
   width: 100%;
   overflow: hidden;
   & > tbody > tr > td {
-    background-color: variable.$white;
+    background-color: helper.hex(variable.$white);
     width: 100%;
   }
   .card-body {

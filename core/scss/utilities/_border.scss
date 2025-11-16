@@ -2,15 +2,15 @@
 @use "../variable";
 
 @each $name, $width in variable.$border-widths {
-  .border#{$name}         { border: $width solid variable.$border-color !important; }
-  .border-top#{$name}     { border-top: $width solid variable.$border-color !important; }
-  .border-right#{$name}   { border-right: $width solid variable.$border-color !important; }
-  .border-bottom#{$name}  { border-bottom: $width solid variable.$border-color !important; }
-  .border-left#{$name}    { border-left: $width solid variable.$border-color !important; }
+  .border#{$name}         { border: $width solid helper.hex(variable.$border-color) !important; }
+  .border-top#{$name}     { border-top: $width solid helper.hex(variable.$border-color) !important; }
+  .border-right#{$name}   { border-right: $width solid helper.hex(variable.$border-color) !important; }
+  .border-bottom#{$name}  { border-bottom: $width solid helper.hex(variable.$border-color) !important; }
+  .border-left#{$name}    { border-left: $width solid helper.hex(variable.$border-color) !important; }
 }
 
 @each $name, $color in variable.$all-colors {
   @include helper.border-color-util('.border-#{$name}') {
-    border-color: $color !important;
+    border-color: helper.hex($color) !important;
   }
 }

@@ -3,6 +3,6 @@
 
 @each $name, $color in variable.$all-colors {
   @include helper.background-color-util('.bg-#{$name}') {
-    background-color: $color;
+    background-color: helper.hex($color);
   }
 }

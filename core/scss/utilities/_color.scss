@@ -3,10 +3,10 @@
 
 @each $name, $color in variable.$all-colors {
   @include helper.color-util('.text-#{$name}') {
-    color: $color;
+    color: helper.hex($color);
   }
 }
 
 @include helper.color-util('.text-muted') {
-  color: variable.$gray-600;
+  color: helper.hex(variable.$gray-600);
 }

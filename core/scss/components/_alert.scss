@@ -16,11 +16,11 @@
 
 @each $color, $value in variable.$theme-colors {
   .alert-#{$color} td {
-    background-color: helper.to-hex-string(helper.tint-color($value, 85%));
-    border-color: helper.to-hex-string(helper.tint-color($value, 75%));
-    color: helper.to-hex-string(helper.shade-color($value, 65%));
+    background-color: helper.hex(helper.tint-color($value, 85%));
+    border-color: helper.hex(helper.tint-color($value, 75%));
+    color: helper.hex(helper.shade-color($value, 65%));
     .hr > table > tbody > tr > td {
-      border-top: 1px solid helper.to-hex-string(helper.tint-color($value, 35%));
+      border-top: 1px solid helper.hex(helper.tint-color($value, 35%));
     }
   }
 }
