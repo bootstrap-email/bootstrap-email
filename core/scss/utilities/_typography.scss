@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6,
   padding-bottom: variable.$headings-margin-bottom;
   font-family: variable.$headings-font-family;
   font-weight: variable.$headings-font-weight;
-  color: variable.$headings-color;
+  color: helper.hex(variable.$headings-color);
   text-align: left;
   vertical-align: baseline;
 }

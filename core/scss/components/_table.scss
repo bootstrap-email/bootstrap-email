@@ -9,7 +9,7 @@
 .table {
   width: 100%;
   max-width: 100%;
-  background-color: variable.$table-background-color; // Reset for nesting within parents with `background-color`.
+  background-color: helper.hex(variable.$table-background-color); // Reset for nesting within parents with `background-color`.
 
   & > thead > tr > th {
     text-align: left;
@@ -56,12 +56,12 @@
 // Add borders all around the table and between all the columns.
 
 .table-bordered {
-  border: variable.$table-border-width solid variable.$table-border-color;
+  border: variable.$table-border-width solid helper.hex(variable.$table-border-color);
 
   & > thead > tr > th,
   & > tbody > tr > td,
   & > tfoot > tr > td {
-    border: variable.$table-border-width solid variable.$table-border-color;
+    border: variable.$table-border-width solid helper.hex(variable.$table-border-color);
   }
 
   & > thead {
@@ -79,7 +79,7 @@
 
 .table-striped {
   & > tbody > tr:nth-of-type(odd) {
-    background-color: variable.$table-accent-bg;
+    background-color: helper.hex(variable.$table-accent-bg);
   }
 }
 
@@ -94,7 +94,7 @@
     &,
     > th,
     > td {
-      background-color: helper.lighten-color($value, 40%);
+      background-color: helper.hex(helper.tint-color($value, 85%));
     }
   }
 }
@@ -107,21 +107,21 @@
 
 .thead-dark {
   th {
-    color: variable.$white;
-    background-color: variable.$gray-900;
+    color: helper.hex(variable.$white);
+    background-color: helper.hex(variable.$gray-900);
   }
 }
 
 .thead-light {
   th {
-    color: variable.$gray-700;
-    background-color: variable.$gray-200;
+    color: helper.hex(variable.$gray-700);
+    background-color: helper.hex(variable.$gray-200);
   }
 }
 
 .table-dark {
-  color: variable.$white;
-  background-color: variable.$gray-900;
+  color: helper.hex(variable.$white);
+  background-color: helper.hex(variable.$gray-900);
 
   & > thead > tr > th,
   & > tbody > tr > td,

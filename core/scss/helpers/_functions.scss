@@ -3,6 +3,7 @@
 @use "sass:meta";
 @use "sass:string";
 
+// Calculate the color contrast for a given color and returns white or black based on the YIQ formula
 @function color-contrast($color) {
   $r: color.channel($color, "red", $space: rgb);
   $g: color.channel($color, "green", $space: rgb);
@@ -17,33 +18,28 @@
   }
 }
 
-@function lighten-color($color, $level) {
-  @return to-hex-string(color.adjust($color, $lightness: $level));
-}
-
+// Lighten a color by adding white to it
 @function tint-color($color, $level) {
-  @return remix-color(color.mix(white, $color, $level));
+  @return color.mix(white, $color, $level);
 }
 
+// Darken a color by adding black to it
 @function shade-color($color, $level) {
-  @return remix-color(color.mix(black, $color, $level));
+  @return color.mix(black, $color, $level);
 }
 
-@function remix-color($color) {
-  @return rgb(round-color($color, 'red'), round-color($color, 'green'), round-color($color, 'blue'));
+// Convert a color to a hex string, needed so sass doesn't return an rgb string
+@function hex($color) {
+  @if not meta.type-of($color) == 'color' or $color == null or $color == transparent {
+    @return $color;
+  }
+  @return string.unquote('#' + string.slice(color.ie-hex-str($color), 4));
 }
 
-@function round-color($color, $channel) {
-  @return math.round(color.channel($color, $channel));
-}
-
+// Strip the unit from a number
 @function strip-unit($number) {
   @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
     @return math.div($number, ($number * 0 + 1));
   }
   @return $number;
-}
-
-@function to-hex-string($color) {
-  @return string.unquote('#' + string.slice(color.ie-hex-str($color), 4));
 }

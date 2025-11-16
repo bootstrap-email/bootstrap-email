@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../variable";
+@use "../helper";
 
 .btn {
   border-radius: variable.$btn-border-radius;
@@ -26,12 +27,12 @@
 
 @each $name, $theme in variable.$btn-themes {
   .btn-#{$name} td {
-    background-color: map.get($theme, "background-color");
+    background-color: helper.hex(map.get($theme, "background-color"));
   }
   .btn-#{$name} td a {
-    background-color: map.get($theme, "background-color");
-    color: map.get($theme, "color");
-    border-color: map.get($theme, "border-color");
+    background-color: helper.hex(map.get($theme, "background-color"));
+    color: helper.hex(map.get($theme, "color"));
+    border-color: helper.hex(map.get($theme, "border-color"));
   }
 }
 

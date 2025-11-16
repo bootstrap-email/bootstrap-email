@@ -1,9 +1,10 @@
 @use "../variable";
+@use "../helper";
 
 table.hr {
   width: 100%;
   & > tbody > tr > td {
-    border-top: 1px solid variable.$border-color;
+    border-top: 1px solid helper.hex(variable.$border-color);
     height: 1px;
     width: 100%;
   }
