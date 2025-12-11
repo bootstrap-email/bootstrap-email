@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/bootstrap-email/version'
+
+gem_name = "bootstrap-email-#{BootstrapEmail::VERSION}.gem"
+
+unless File.exist?(gem_name)
+  puts "Error: #{gem_name} not found. Run bin/build first."
+  exit(1)
+end
+
+system("gem push #{gem_name}") || exit(1)

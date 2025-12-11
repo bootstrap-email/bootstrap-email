@@ -9,5 +9,5 @@
 ## Release Process
 
 1. Bump the version number in the `VERSION` file.
-2. `gem build bootstrap-email.gemspec` to build the gem locally.
-3. `gem push bootstrap-email-x.x.x.gem` to push the build to rubygems.org.
+2. `bin/build` to build the gem locally.
+3. `bin/push` to push the build to rubygems.org.

@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/bootstrap-email/version'
+
+gem_name = "bootstrap-email-#{BootstrapEmail::VERSION}.gem"
+system('gem build bootstrap-email.gemspec') || exit(1)
+puts "\nBuilt: #{gem_name}"
