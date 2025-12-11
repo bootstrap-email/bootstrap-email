@@ -10,7 +10,8 @@ module BootstrapEmail
       :sass_load_paths,         # array of directories for loading sass imports
       :sass_cache_location,     # path to tmp folder for sass cache
       :sass_log_enabled,        # turn on or off sass log when caching new sass
-      :generate_rails_text_part # boolean for whether or not to generate the text part in rails, default: true
+      :generate_rails_text_part, # boolean for whether or not to generate the text part in rails, default: true
+      :override_mail_method # method to override the mail method in rails, default: false
     ].freeze
 
     attr_accessor(*OPTIONS)
@@ -28,6 +29,7 @@ module BootstrapEmail
 
     def defaults
       self.generate_rails_text_part = true
+      self.override_mail_method = false
     end
   end
 end
