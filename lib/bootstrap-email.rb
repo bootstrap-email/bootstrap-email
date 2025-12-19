@@ -11,8 +11,10 @@ require 'fileutils'
 require 'htmlbeautifier'
 
 begin
+  require 'logger' # Required for Rails 6.1+ compatibility with Ruby 3.4+
   require 'rails'
-rescue LoadError; end
+rescue LoadError
+end
 
 require 'action_mailer' if defined?(Rails)
 

@@ -8,6 +8,7 @@ gem 'rspec'
 gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'ostruct'
+gem 'mutex_m' # Required for Rails 6.1+ compatibility with Ruby 3.4+
 
 rails_version = ENV.fetch('ACTION_MAILER_VERSION', '6')
 if rails_version == 'master'
